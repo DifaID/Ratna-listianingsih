@@ -1,27 +1,48 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
+
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+<meta
+    name="viewport"
+    content="width=device-width,
+    initial-scale=1.0,
+    maximum-scale=1.0,
+    user-scalable=no"
+>
 
 <title>For Ratna Listianingsih 🌹</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <style>
+
+/* =====================================================
+   BASIC
+===================================================== */
+
 *{
     box-sizing:border-box;
     -webkit-tap-highlight-color:transparent;
 }
 
-html,body{
+html,
+body{
     margin:0;
     width:100%;
     height:100%;
     overflow:hidden;
     background:#070406;
     color:white;
-    font-family:Georgia,"Times New Roman",serif;
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
+}
+
+body{
+    touch-action:none;
 }
 
 #scene{
@@ -33,24 +54,28 @@ canvas{
     display:block;
 }
 
-/* ================================
+
+/* =====================================================
    OPENING
-================================ */
+===================================================== */
 
 #opening{
     position:fixed;
     inset:0;
     z-index:100;
+
     display:flex;
     justify-content:center;
     align-items:center;
+
     background:
         radial-gradient(
             circle at center,
-            #3b202b 0%,
-            #170b11 40%,
+            #43232f 0%,
+            #1a0c13 42%,
             #050305 100%
         );
+
     transition:
         opacity 1.5s ease,
         visibility 1.5s ease;
@@ -71,7 +96,9 @@ canvas{
     font-size:35px;
     color:#e9c77e;
     margin-bottom:20px;
-    animation:float 3s ease-in-out infinite;
+
+    animation:
+        float 3s ease-in-out infinite;
 }
 
 .open-small{
@@ -84,10 +111,19 @@ canvas{
 
 .open-content h1{
     margin:0;
-    font-size:clamp(48px,14vw,90px);
+
+    font-size:
+        clamp(
+            48px,
+            14vw,
+            90px
+        );
+
     font-weight:normal;
     font-style:italic;
+
     color:#fff7ec;
+
     text-shadow:
         0 0 20px rgba(255,210,150,.2),
         0 3px 5px #000;
@@ -95,15 +131,20 @@ canvas{
 
 .open-name{
     margin-top:12px;
+
     color:#e3bb72;
+
     letter-spacing:5px;
+
     font-size:16px;
 }
 
 .open-line{
     width:150px;
     height:1px;
+
     margin:25px auto;
+
     background:
         linear-gradient(
             90deg,
@@ -115,28 +156,45 @@ canvas{
 
 .open-text{
     color:#d6c9c0;
+
     font-size:14px;
     line-height:1.8;
+
     margin-bottom:28px;
 }
 
 #openButton{
-    border:1px solid rgba(232,195,125,.7);
+
+    border:
+        1px solid
+        rgba(232,195,125,.7);
+
     background:
         linear-gradient(
             135deg,
             rgba(197,142,72,.18),
             rgba(255,255,255,.03)
         );
+
     color:#f3d9a9;
-    padding:15px 30px;
+
+    padding:
+        15px 30px;
+
     border-radius:50px;
+
     font-family:Georgia,serif;
+
     letter-spacing:3px;
+
     font-size:11px;
+
     cursor:pointer;
+
     box-shadow:
-        0 0 25px rgba(210,166,87,.15);
+        0 0 25px
+        rgba(210,166,87,.15);
+
     transition:.3s;
 }
 
@@ -145,223 +203,488 @@ canvas{
 }
 
 @keyframes float{
+
     0%,100%{
         transform:translateY(0);
     }
+
     50%{
         transform:translateY(-8px);
     }
 }
 
 
-/* ================================
+/* =====================================================
    MAIN UI
-================================ */
+===================================================== */
 
 #ui{
+
     position:fixed;
     inset:0;
-    z-index:10;
+
+    z-index:20;
+
     pointer-events:none;
+
     opacity:0;
-    transition:2s;
+
+    transition:
+        opacity 2s ease;
 }
 
 #ui.show{
     opacity:1;
 }
 
+
+/* =====================================================
+   TOP TITLE
+===================================================== */
+
 .top-title{
+
     position:absolute;
-    top:18px;
+
+    top:
+        max(
+            18px,
+            env(safe-area-inset-top)
+        );
+
     left:0;
     right:0;
+
     text-align:center;
+
     color:#e4c17d;
+
     font-size:9px;
+
     letter-spacing:4px;
+
     text-transform:uppercase;
+
+    text-shadow:
+        0 2px 5px #000;
+
+    z-index:40;
 }
+
+
+/* =====================================================
+   MAIN BIRTHDAY TEXT
+===================================================== */
 
 .main-title{
+
     position:absolute;
-    top:47%;
+
+    top:44%;
+
     left:50%;
-    transform:translate(-50%,-50%);
-    width:90%;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    width:82%;
+
     text-align:center;
+
+    z-index:40;
+
+    padding:
+        18px 12px;
 }
+
+
+/*
+   Latar gelap lembut di belakang teks.
+   Ini membuat teks tetap terbaca tanpa
+   menghilangkan pemandangan taman.
+*/
+
+.main-title::before{
+
+    content:"";
+
+    position:absolute;
+
+    z-index:-1;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(
+            -50%,
+            -50%
+        );
+
+    width:120%;
+    height:150%;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            ellipse,
+            rgba(5,2,5,.78) 0%,
+            rgba(5,2,5,.48) 38%,
+            rgba(5,2,5,.15) 62%,
+            transparent 78%
+        );
+
+    filter:blur(9px);
+
+    pointer-events:none;
+}
+
+
+/* HAPPY BIRTHDAY */
 
 .small-title{
-    font-size:12px;
+
+    font-size:11px;
+
     letter-spacing:5px;
-    color:#e4d4c3;
+
+    color:#f0dfcf;
+
     text-transform:uppercase;
+
+    margin-bottom:6px;
+
+    text-shadow:
+        0 2px 6px #000;
 }
+
+
+/* RATNA */
 
 .main-title h2{
-    margin:8px 0 0;
-    font-size:clamp(45px,12vw,90px);
+
+    margin:
+        4px 0 0;
+
+    font-size:
+        clamp(
+            52px,
+            14vw,
+            82px
+        );
+
+    line-height:1;
+
     font-weight:normal;
+
     font-style:italic;
-    color:#fff6eb;
+
+    color:#fff8ef;
+
     text-shadow:
-        0 2px 5px #000,
-        0 0 30px rgba(255,205,140,.2);
+        0 3px 8px #000,
+        0 0 25px
+        rgba(255,205,140,.35);
 }
+
+
+/* LISTIANINGSIH */
 
 .main-name{
+
     margin-top:12px;
-    color:#dfb66c;
-    font-size:clamp(15px,4vw,25px);
+
+    color:#e2bd7c;
+
+    font-size:
+        clamp(
+            13px,
+            3.8vw,
+            22px
+        );
+
     letter-spacing:5px;
+
     text-transform:uppercase;
+
+    text-shadow:
+        0 2px 5px #000;
 }
+
+
+/* DATE */
 
 .birth{
-    margin-top:15px;
-    font-size:11px;
-    letter-spacing:3px;
-    color:#ddd0c6;
+
+    margin-top:13px;
+
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    color:#eee0d5;
+
+    text-shadow:
+        0 2px 5px #000;
 }
 
+
+/* =====================================================
+   BOTTOM BUTTONS
+===================================================== */
+
 .bottom{
+
     position:absolute;
-    bottom:22px;
+
+    bottom:
+        max(
+            22px,
+            env(safe-area-inset-bottom)
+        );
+
     left:0;
     right:0;
+
     text-align:center;
+
+    z-index:50;
 }
 
 .bottom button{
+
     pointer-events:auto;
+
     margin:3px;
-    border:1px solid rgba(222,183,112,.45);
-    background:rgba(15,7,11,.65);
+
+    border:
+        1px solid
+        rgba(222,183,112,.45);
+
+    background:
+        rgba(15,7,11,.78);
+
     color:#ead3aa;
+
     border-radius:30px;
-    padding:10px 16px;
+
+    padding:
+        10px 16px;
+
     font-family:Georgia,serif;
+
     font-size:10px;
+
     letter-spacing:1px;
+
+    backdrop-filter:blur(8px);
+
+    box-shadow:
+        0 5px 20px
+        rgba(0,0,0,.3);
+}
+
+.bottom button:active{
+    transform:scale(.95);
 }
 
 .hint{
+
     margin-top:8px;
-    color:rgba(255,255,255,.35);
+
+    color:
+        rgba(255,255,255,.42);
+
     font-size:8px;
+
     letter-spacing:2px;
 }
 
 
-/* ================================
+/* =====================================================
    LETTER
-================================ */
+===================================================== */
 
 #letter{
+
     position:fixed;
-    z-index:50;
+
+    z-index:100;
+
     inset:0;
+
     display:flex;
+
     justify-content:center;
+
     align-items:center;
+
     padding:20px;
-    background:rgba(4,2,4,.65);
-    backdrop-filter:blur(8px);
+
+    background:
+        rgba(4,2,4,.68);
+
+    backdrop-filter:blur(9px);
+
     opacity:0;
+
     visibility:hidden;
+
     transition:.8s;
 }
 
 #letter.show{
+
     opacity:1;
+
     visibility:visible;
 }
 
 .paper{
+
     position:relative;
-    width:min(92%,480px);
+
+    width:min(
+        92%,
+        480px
+    );
+
     max-height:85vh;
+
     overflow:auto;
-    padding:35px 27px;
+
+    padding:
+        35px 27px;
+
     text-align:center;
+
     background:
         linear-gradient(
             135deg,
             #f9eee0,
             #ead8c1
         );
+
     color:#352128;
-    border:2px solid #c8a25e;
+
+    border:
+        2px solid
+        #c8a25e;
+
     box-shadow:
-        0 20px 70px rgba(0,0,0,.65);
+        0 20px 70px
+        rgba(0,0,0,.65);
 }
 
 .paper::before{
+
     content:"";
+
     position:absolute;
+
     inset:8px;
-    border:1px solid rgba(150,106,43,.35);
+
+    border:
+        1px solid
+        rgba(150,106,43,.35);
+
     pointer-events:none;
 }
 
 .paper .flower{
+
     font-size:28px;
+
     color:#9b5265;
 }
 
 .paper h2{
-    margin:10px 0;
+
+    margin:
+        10px 0;
+
     font-size:37px;
+
     font-weight:normal;
+
     font-style:italic;
 }
 
 .paper .paper-name{
+
     color:#9c7137;
+
     letter-spacing:3px;
+
     font-size:13px;
 }
 
 .paper hr{
+
     width:90px;
+
     border:0;
-    border-top:1px solid #b28a51;
+
+    border-top:
+        1px solid
+        #b28a51;
+
     margin:22px auto;
 }
 
 .paper p{
+
     font-size:14px;
+
     line-height:1.9;
 }
 
 .close{
+
     margin-top:15px;
-    padding:10px 20px;
-    border:1px solid #a98552;
+
+    padding:
+        10px 20px;
+
+    border:
+        1px solid
+        #a98552;
+
     background:transparent;
+
     border-radius:30px;
+
     color:#67482d;
 }
 
 
-/* ================================
+/* =====================================================
    VIGNETTE
-================================ */
+===================================================== */
 
 .vignette{
+
     position:fixed;
+
     inset:0;
+
     pointer-events:none;
+
     z-index:5;
+
     background:
         radial-gradient(
             circle,
-            transparent 30%,
-            rgba(0,0,0,.15) 60%,
-            rgba(0,0,0,.7) 100%
+            transparent 35%,
+            rgba(0,0,0,.12) 62%,
+            rgba(0,0,0,.68) 100%
         );
 }
+
 </style>
 </head>
 
@@ -369,9 +692,9 @@ canvas{
 <body>
 
 
-<!-- =========================================
+<!-- =====================================================
      OPENING
-========================================= -->
+===================================================== -->
 
 <div id="opening">
 
@@ -396,10 +719,14 @@ canvas{
         <div class="open-line"></div>
 
         <div class="open-text">
+
             Sebuah taman kecil telah disiapkan
             untuk merayakan satu hari yang istimewa.
+
             <br><br>
+
             Masuklah...
+
         </div>
 
         <button id="openButton">
@@ -411,25 +738,25 @@ canvas{
 </div>
 
 
-<!-- =========================================
+<!-- =====================================================
      THREE JS
-========================================= -->
+===================================================== -->
 
 <div id="scene"></div>
-
 
 <div class="vignette"></div>
 
 
-<!-- =========================================
+<!-- =====================================================
      UI
-========================================= -->
+===================================================== -->
 
 <div id="ui">
 
     <div class="top-title">
         ✦ A Special Celebration ✦
     </div>
+
 
     <div class="main-title">
 
@@ -454,15 +781,15 @@ canvas{
 
     <div class="bottom">
 
-        <button onclick="openLetter()">
+        <button id="letterButton">
             💌 BUKA SURAT
         </button>
 
-        <button onclick="celebrate()">
+        <button id="celebrateButton">
             🌹 RAYAKAN
         </button>
 
-        <button onclick="toggleMusic()">
+        <button id="musicButton">
             ♫ MUSIK
         </button>
 
@@ -475,9 +802,9 @@ canvas{
 </div>
 
 
-<!-- =========================================
+<!-- =====================================================
      LETTER
-========================================= -->
+===================================================== -->
 
 <div id="letter">
 
@@ -512,7 +839,8 @@ canvas{
 
         <p>
             Tetaplah menjadi Ratna
-            dengan segala cerita dan warna yang kamu punya.
+            dengan segala cerita dan warna
+            yang kamu punya.
         </p>
 
         <p>
@@ -520,7 +848,10 @@ canvas{
             🌹
         </p>
 
-        <button class="close" onclick="closeLetter()">
+        <button
+            class="close"
+            id="closeLetter"
+        >
             TUTUP SURAT
         </button>
 
@@ -529,25 +860,35 @@ canvas{
 </div>
 
 
-<!-- =========================================
+<!-- =====================================================
      MUSIC
-========================================= -->
+===================================================== -->
 
-<audio id="music" loop>
+<audio
+    id="music"
+    loop
+>
     <!--
-    Jika punya musik sendiri:
-    <source src="musik.mp3" type="audio/mpeg">
+    Contoh:
+
+    <source
+        src="musik.mp3"
+        type="audio/mpeg"
+    >
     -->
 </audio>
 
 
 <script>
 
+
 /* =====================================================
-   BASIC THREE.JS
+   THREE.JS SETUP
 ===================================================== */
 
-const scene = new THREE.Scene();
+const scene =
+    new THREE.Scene();
+
 
 const camera =
     new THREE.PerspectiveCamera(
@@ -557,32 +898,49 @@ const camera =
         100
     );
 
+
 camera.position.set(
     0,
-    3,
+    2.8,
     13
 );
 
+
 const renderer =
     new THREE.WebGLRenderer({
+
         antialias:true,
+
         alpha:true
+
     });
+
 
 renderer.setSize(
     innerWidth,
     innerHeight
 );
 
+
 renderer.setPixelRatio(
-    Math.min(devicePixelRatio,2)
+    Math.min(
+        devicePixelRatio,
+        2
+    )
 );
+
 
 renderer.shadowMap.enabled=true;
 
+renderer.shadowMap.type =
+    THREE.PCFSoftShadowMap;
+
+
 document
     .getElementById("scene")
-    .appendChild(renderer.domElement);
+    .appendChild(
+        renderer.domElement
+    );
 
 
 /* =====================================================
@@ -593,7 +951,7 @@ const ambient =
     new THREE.HemisphereLight(
         0xffd9c9,
         0x16080e,
-        1.8
+        1.5
     );
 
 scene.add(ambient);
@@ -602,13 +960,13 @@ scene.add(ambient);
 const moon =
     new THREE.DirectionalLight(
         0xffd9a0,
-        2.5
+        2
     );
 
 moon.position.set(
     5,
     10,
-    6
+    7
 );
 
 moon.castShadow=true;
@@ -619,12 +977,12 @@ scene.add(moon);
 const pink =
     new THREE.PointLight(
         0xff729c,
-        3,
+        2.3,
         15
     );
 
 pink.position.set(
-    -4,
+    -5,
     4,
     3
 );
@@ -635,12 +993,12 @@ scene.add(pink);
 const gold =
     new THREE.PointLight(
         0xffc56e,
-        3,
+        2.4,
         15
     );
 
 gold.position.set(
-    4,
+    5,
     3,
     2
 );
@@ -654,20 +1012,28 @@ scene.add(gold);
 
 const ground =
     new THREE.Mesh(
+
         new THREE.CircleGeometry(
             13,
             80
         ),
+
         new THREE.MeshStandardMaterial({
+
             color:0x12080d,
+
             roughness:.95
+
         })
+
     );
 
-ground.rotation.x=
+
+ground.rotation.x =
     -Math.PI/2;
 
-ground.position.y=-1.5;
+ground.position.y =
+    -1.5;
 
 ground.receiveShadow=true;
 
@@ -680,17 +1046,24 @@ scene.add(ground);
 
 const path =
     new THREE.Mesh(
+
         new THREE.PlaneGeometry(
-            2.4,
+            2.3,
             12
         ),
+
         new THREE.MeshStandardMaterial({
+
             color:0x382126,
+
             roughness:.9
+
         })
+
     );
 
-path.rotation.x=
+
+path.rotation.x =
     -Math.PI/2;
 
 path.position.set(
@@ -712,23 +1085,30 @@ const arch =
 scene.add(arch);
 
 
-/* pillars */
+/* PILLARS */
 
 function makePillar(x){
 
     const pillar =
         new THREE.Mesh(
+
             new THREE.CylinderGeometry(
                 .13,
                 .17,
                 5,
                 16
             ),
+
             new THREE.MeshStandardMaterial({
+
                 color:0xb78b4f,
+
                 metalness:.7,
+
                 roughness:.35
+
             })
+
         );
 
     pillar.position.set(
@@ -747,10 +1127,11 @@ makePillar(-2.6);
 makePillar(2.6);
 
 
-/* arch curve */
+/* ARCH CURVE */
 
 const archCurve =
     new THREE.Mesh(
+
         new THREE.TorusGeometry(
             2.6,
             .11,
@@ -758,12 +1139,19 @@ const archCurve =
             80,
             Math.PI
         ),
+
         new THREE.MeshStandardMaterial({
+
             color:0xc79a59,
+
             metalness:.8,
+
             roughness:.25
+
         })
+
     );
+
 
 archCurve.position.set(
     0,
@@ -771,17 +1159,26 @@ archCurve.position.set(
     -2
 );
 
-archCurve.rotation.z=
+archCurve.rotation.z =
     Math.PI;
 
 arch.add(archCurve);
 
 
 /* =====================================================
-   FLOWER
+   FLOWERS
 ===================================================== */
 
 const flowers=[];
+
+
+const flowerColors=[
+    0xffa9bf,
+    0xffc4d1,
+    0xffffff,
+    0xf1a2b8
+];
+
 
 function flower(
     x,
@@ -795,57 +1192,85 @@ function flower(
         new THREE.Group();
 
     group.position.set(
-        x,y,z
+        x,
+        y,
+        z
     );
 
-    group.scale.setScalar(scale);
+    group.scale.setScalar(
+        scale
+    );
 
 
-    /* stem */
+    /* STEM */
 
     const stem =
         new THREE.Mesh(
+
             new THREE.CylinderGeometry(
                 .025,
                 .045,
                 1.7,
                 8
             ),
+
             new THREE.MeshStandardMaterial({
+
                 color:0x315132
+
             })
+
         );
+
 
     stem.position.y=.8;
 
     group.add(stem);
 
 
-    /* petals */
+    /* PETALS */
 
-    for(let i=0;i<7;i++){
+    for(
+        let i=0;
+        i<7;
+        i++
+    ){
 
-        const a=
-            i/7*Math.PI*2;
+        const a =
+            i/7*
+            Math.PI*2;
+
 
         const petal =
             new THREE.Mesh(
+
                 new THREE.SphereGeometry(
                     .27,
                     12,
                     12
                 ),
+
                 new THREE.MeshStandardMaterial({
+
                     color:color,
+
                     roughness:.6
+
                 })
+
             );
 
+
         petal.position.set(
+
             Math.cos(a)*.25,
+
             1.55,
+
             Math.sin(a)*.25
+
         );
+
 
         petal.scale.set(
             1,
@@ -853,26 +1278,34 @@ function flower(
             1
         );
 
+
         group.add(petal);
 
     }
 
 
-    /* center */
+    /* CENTER */
 
     const center =
         new THREE.Mesh(
+
             new THREE.SphereGeometry(
                 .15,
                 12,
                 12
             ),
+
             new THREE.MeshStandardMaterial({
+
                 color:0xf4cc68
+
             })
+
         );
 
-    center.position.y=1.58;
+
+    center.position.y =
+        1.58;
 
     group.add(center);
 
@@ -882,85 +1315,132 @@ function flower(
     flowers.push(group);
 
     return group;
+
 }
 
 
-const flowerColors=[
-    0xffa9bf,
-    0xffc4d1,
-    0xffffff,
-    0xf1a2b8
-];
+/* =====================================================
+   SIDE FLOWERS
+===================================================== */
 
+for(
+    let i=0;
+    i<55;
+    i++
+){
 
-/* garden flowers */
-
-for(let i=0;i<70;i++){
-
-    const side=
+    const side =
         Math.random()>.5
-        ?1:-1;
+        ?1
+        :-1;
 
-    const x=
-        side*(2.5+
-        Math.random()*4);
 
-    const z=
+    /*
+       Bunga sengaja dijauhkan
+       dari tengah layar.
+    */
+
+    const x =
+        side*
+        (
+            3.6+
+            Math.random()*3
+        );
+
+
+    const z =
         -5+
-        Math.random()*8;
+        Math.random()*9;
+
 
     flower(
+
         x,
+
         -1.5,
+
         z,
+
         .35+
         Math.random()*.5,
+
         flowerColors[
             Math.floor(
                 Math.random()*
                 flowerColors.length
             )
         ]
-    );
-}
 
-
-/* flowers on arch */
-
-for(let i=0;i<35;i++){
-
-    const angle=
-        Math.PI+
-        Math.random()*Math.PI;
-
-    const radius=2.7;
-
-    const x=
-        Math.cos(angle)*radius;
-
-    const y=
-        3.5+
-        Math.sin(angle)*radius;
-
-    flower(
-        x,
-        y,
-        -2.1,
-        .18+
-        Math.random()*.25,
-        flowerColors[
-            Math.floor(
-                Math.random()*
-                flowerColors.length
-            )
-        ]
     );
 
 }
 
 
 /* =====================================================
-   GAZEBO / ALTAR
+   FLOWERS ON ARCH
+===================================================== */
+
+for(
+    let i=0;
+    i<32;
+    i++
+){
+
+    const angle =
+        Math.PI+
+        Math.random()*Math.PI;
+
+
+    const radius=2.7;
+
+
+    const x =
+        Math.cos(angle)*
+        radius;
+
+
+    const y =
+        3.5+
+        Math.sin(angle)*
+        radius;
+
+
+    /*
+       Area tengah dikosongkan.
+    */
+
+    if(
+        Math.abs(x)<1.35
+    ){
+        continue;
+    }
+
+
+    flower(
+
+        x,
+
+        y,
+
+        -2.1,
+
+        .18+
+        Math.random()*.25,
+
+        flowerColors[
+            Math.floor(
+                Math.random()*
+                flowerColors.length
+            )
+        ]
+
+    );
+
+}
+
+
+/* =====================================================
+   ALTAR
 ===================================================== */
 
 const altar =
@@ -969,21 +1449,28 @@ const altar =
 scene.add(altar);
 
 
-/* floor */
+/* FLOOR */
 
 const altarFloor =
     new THREE.Mesh(
+
         new THREE.CylinderGeometry(
-            2.8,
-            2.8,
+            2.7,
+            2.7,
             .25,
             48
         ),
+
         new THREE.MeshStandardMaterial({
+
             color:0x2c161e,
+
             roughness:.8
+
         })
+
     );
+
 
 altarFloor.position.set(
     0,
@@ -994,53 +1481,79 @@ altarFloor.position.set(
 altar.add(altarFloor);
 
 
-/* roof */
+/* =====================================================
+   GAZEBO ROOF
+===================================================== */
 
 const roof =
     new THREE.Mesh(
+
         new THREE.ConeGeometry(
-            3.1,
-            1.3,
+            2.7,
+            1.05,
             8
         ),
+
         new THREE.MeshStandardMaterial({
-            color:0x31151e,
+
+            color:0x351923,
+
             roughness:.8
+
         })
+
     );
+
+
+/*
+   Lebih kecil dan lebih tinggi
+   agar tidak menutup layar.
+*/
 
 roof.position.set(
     0,
-    4.6,
+    4.8,
     -2
 );
 
 altar.add(roof);
 
 
-/* gazebo poles */
+/* =====================================================
+   GAZEBO POLES
+===================================================== */
 
-for(const x of [-2.3,2.3]){
+for(
+    const x of [-2.25,2.25]
+){
 
     const pole =
         new THREE.Mesh(
+
             new THREE.CylinderGeometry(
                 .06,
                 .08,
                 4.5,
                 12
             ),
+
             new THREE.MeshStandardMaterial({
+
                 color:0xc79a59,
+
                 metalness:.7
+
             })
+
         );
+
 
     pole.position.set(
         x,
         1,
         -2
     );
+
 
     altar.add(pole);
 
@@ -1053,38 +1566,55 @@ for(const x of [-2.3,2.3]){
 
 const lanterns=[];
 
-function lantern(x,y,z){
 
-    const group=
+function lantern(
+    x,
+    y,
+    z
+){
+
+    const group =
         new THREE.Group();
 
+
     group.position.set(
-        x,y,z
+        x,
+        y,
+        z
     );
 
-    const body=
+
+    const body =
         new THREE.Mesh(
+
             new THREE.CylinderGeometry(
-                .22,
-                .22,
-                .45,
+                .18,
+                .18,
+                .4,
                 8
             ),
+
             new THREE.MeshStandardMaterial({
+
                 color:0x6d4b2a,
+
                 metalness:.5
+
             })
+
         );
+
 
     group.add(body);
 
 
-    const flame=
+    const flame =
         new THREE.PointLight(
             0xffa83d,
-            2,
+            1.8,
             3
         );
+
 
     flame.position.y=.1;
 
@@ -1093,23 +1623,44 @@ function lantern(x,y,z){
     scene.add(group);
 
     lanterns.push(flame);
+
 }
 
 
-for(let i=0;i<16;i++){
+for(
+    let i=0;
+    i<12;
+    i++
+){
 
-    const x=
-        (Math.random()-.5)*10;
+    const side =
+        Math.random()>.5
+        ?1
+        :-1;
 
-    const z=
+
+    const x =
+        side*
+        (
+            3+
+            Math.random()*3
+        );
+
+
+    const z =
         -4+
         Math.random()*8;
 
+
     lantern(
+
         x,
+
         .5+
         Math.random()*2,
+
         z
+
     );
 
 }
@@ -1119,27 +1670,42 @@ for(let i=0;i<16;i++){
    HANGING LIGHTS
 ===================================================== */
 
-for(let i=0;i<20;i++){
+for(
+    let i=0;
+    i<18;
+    i++
+){
 
     const bulb =
         new THREE.Mesh(
+
             new THREE.SphereGeometry(
                 .07,
                 10,
                 10
             ),
+
             new THREE.MeshBasicMaterial({
+
                 color:0xffd58a
+
             })
+
         );
 
+
     bulb.position.set(
-        (Math.random()-.5)*10,
+
+        (Math.random()-.5)*11,
+
         3+
         Math.random()*4,
+
         -5+
-        Math.random()*7
+        Math.random()*8
+
     );
+
 
     scene.add(bulb);
 
@@ -1152,26 +1718,38 @@ for(let i=0;i<20;i++){
 
 const ring =
     new THREE.Mesh(
+
         new THREE.TorusGeometry(
-            .7,
-            .12,
+            .65,
+            .1,
             20,
             64
         ),
+
         new THREE.MeshStandardMaterial({
+
             color:0xe5b94e,
+
             metalness:.95,
+
             roughness:.18
+
         })
+
     );
+
+
+/*
+   Dipindahkan jauh dari teks.
+*/
 
 ring.position.set(
     0,
-    4.1,
-    -2
+    5.4,
+    -2.3
 );
 
-ring.rotation.x=
+ring.rotation.x =
     Math.PI/2;
 
 scene.add(ring);
@@ -1181,13 +1759,15 @@ scene.add(ring);
    HEART
 ===================================================== */
 
-const heartShape=
+const heartShape =
     new THREE.Shape();
+
 
 heartShape.moveTo(
     0,
     -.5
 );
+
 
 heartShape.bezierCurveTo(
     -1.2,
@@ -1197,6 +1777,7 @@ heartShape.bezierCurveTo(
     0,
     1.4
 );
+
 
 heartShape.bezierCurveTo(
     2,
@@ -1210,31 +1791,55 @@ heartShape.bezierCurveTo(
 
 const heart =
     new THREE.Mesh(
+
         new THREE.ExtrudeGeometry(
+
             heartShape,
+
             {
+
                 depth:.18,
+
                 bevelEnabled:true,
+
                 bevelThickness:.04,
+
                 bevelSize:.04
+
             }
+
         ),
+
         new THREE.MeshStandardMaterial({
+
             color:0xb95772,
+
             roughness:.4,
+
             metalness:.15
+
         })
+
     );
 
-heart.scale.setScalar(.55);
+
+heart.scale.setScalar(
+    .38
+);
+
+
+/*
+   Heart berada di atas tulisan.
+*/
 
 heart.position.set(
     0,
-    2.8,
-    -2
+    4.35,
+    -2.25
 );
 
-heart.rotation.z=
+
+heart.rotation.z =
     Math.PI;
 
 scene.add(heart);
@@ -1246,18 +1851,27 @@ scene.add(heart);
 
 const petals=[];
 
-const petalGeo=
+
+const petalGeo =
     new THREE.PlaneGeometry(
         .13,
         .22
     );
 
-for(let i=0;i<180;i++){
 
-    const petal=
+for(
+    let i=0;
+    i<120;
+    i++
+){
+
+    const petal =
         new THREE.Mesh(
+
             petalGeo,
+
             new THREE.MeshBasicMaterial({
+
                 color:
                     flowerColors[
                         Math.floor(
@@ -1265,36 +1879,58 @@ for(let i=0;i<180;i++){
                             flowerColors.length
                         )
                     ],
+
                 transparent:true,
-                opacity:.75,
-                side:THREE.DoubleSide
+
+                opacity:.6,
+
+                side:
+                    THREE.DoubleSide
+
             })
+
         );
 
+
     petal.position.set(
+
         (Math.random()-.5)*14,
+
         Math.random()*9-1,
+
         (Math.random()-.5)*12
+
     );
+
 
     petal.rotation.set(
+
         Math.random()*3,
+
         Math.random()*3,
+
         Math.random()*3
+
     );
 
+
     petal.userData={
+
         speed:
             .002+
-            Math.random()*.008,
+            Math.random()*.006,
+
         spin:
             .005+
             Math.random()*.012
+
     };
+
 
     scene.add(petal);
 
     petals.push(petal);
+
 }
 
 
@@ -1302,193 +1938,286 @@ for(let i=0;i<180;i++){
    GOLD PARTICLES
 ===================================================== */
 
-const pGeo=
+const pGeo =
     new THREE.BufferGeometry();
+
 
 const pPos=[];
 
-for(let i=0;i<700;i++){
+
+for(
+    let i=0;
+    i<500;
+    i++
+){
 
     pPos.push(
+
         (Math.random()-.5)*18,
+
         Math.random()*10-1,
+
         (Math.random()-.5)*15
+
     );
 
 }
 
+
 pGeo.setAttribute(
+
     "position",
+
     new THREE.Float32BufferAttribute(
         pPos,
         3
     )
+
 );
 
-const pMat=
+
+const pMat =
     new THREE.PointsMaterial({
+
         color:0xe7bd68,
+
         size:.025,
+
         transparent:true,
-        opacity:.7
+
+        opacity:.65
+
     });
 
-const goldParticles=
+
+const goldParticles =
     new THREE.Points(
         pGeo,
         pMat
     );
 
-scene.add(goldParticles);
+
+scene.add(
+    goldParticles
+);
 
 
 /* =====================================================
-   CAMERA DRAG
+   CAMERA CONTROL
 ===================================================== */
 
-let drag=false;
-let oldX=0;
-let oldY=0;
+let dragging=false;
+
+let lastX=0;
+let lastY=0;
 
 let cameraTargetX=0;
-let cameraTargetY=3;
+let cameraTargetY=2.8;
 
-function startDrag(x,y){
 
-    drag=true;
-    oldX=x;
-    oldY=y;
+/* START */
+
+function startDrag(
+    x,
+    y
+){
+
+    dragging=true;
+
+    lastX=x;
+    lastY=y;
 
 }
 
-function moveDrag(x,y){
 
-    if(!drag)return;
+/* MOVE */
 
-    const dx=x-oldX;
-    const dy=y-oldY;
+function moveDrag(
+    x,
+    y
+){
 
-    cameraTargetX -= dx*.008;
-    cameraTargetY += dy*.004;
+    if(!dragging){
+        return;
+    }
 
-    cameraTargetX=
+
+    const dx =
+        x-lastX;
+
+
+    const dy =
+        y-lastY;
+
+
+    cameraTargetX -=
+        dx*.012;
+
+
+    cameraTargetY +=
+        dy*.006;
+
+
+    cameraTargetX =
         Math.max(
-            -1.5,
+            -3,
             Math.min(
-                1.5,
+                3,
                 cameraTargetX
             )
         );
 
-    cameraTargetY=
+
+    cameraTargetY =
         Math.max(
             1.8,
             Math.min(
-                4.5,
+                4.2,
                 cameraTargetY
             )
         );
 
-    oldX=x;
-    oldY=y;
+
+    lastX=x;
+    lastY=y;
 
 }
+
+
+/* END */
 
 function endDrag(){
-    drag=false;
+
+    dragging=false;
+
 }
 
 
-window.addEventListener(
+/* =====================================================
+   POINTER EVENTS
+===================================================== */
+
+renderer.domElement.addEventListener(
     "pointerdown",
     e=>{
+
         startDrag(
             e.clientX,
             e.clientY
         );
+
     }
 );
 
-window.addEventListener(
+
+renderer.domElement.addEventListener(
     "pointermove",
     e=>{
+
         moveDrag(
             e.clientX,
             e.clientY
         );
+
     }
 );
 
-window.addEventListener(
+
+renderer.domElement.addEventListener(
     "pointerup",
     endDrag
 );
 
 
+renderer.domElement.addEventListener(
+    "pointercancel",
+    endDrag
+);
+
+
 /* =====================================================
-   OPENING CAMERA ANIMATION
+   OPEN GARDEN
 ===================================================== */
 
 let entering=false;
 
+
 function enterGarden(){
 
-    if(entering)return;
+    if(entering){
+        return;
+    }
+
 
     entering=true;
 
-    const opening=
+
+    const opening =
         document.getElementById(
             "opening"
         );
 
-    const ui=
+
+    const ui =
         document.getElementById(
             "ui"
         );
 
-    opening.classList.add("hide");
 
-    ui.classList.add("show");
+    opening.classList.add(
+        "hide"
+    );
 
-    /* cinematic camera */
+
+    ui.classList.add(
+        "show"
+    );
+
 
     camera.position.set(
         0,
-        2.5,
-        16
+        2.4,
+        15
     );
 
-    const start=performance.now();
+
+    const start =
+        performance.now();
+
 
     function cinematic(now){
 
-        const p=
+        const p =
             Math.min(
-                (now-start)/2500,
+                (now-start)/2400,
                 1
             );
 
-        const ease=
+
+        const ease =
             1-
             Math.pow(
                 1-p,
                 3
             );
 
-        camera.position.z=
-            16-
-            5*ease;
 
-        camera.position.y=
-            2.5+
+        camera.position.z =
+            15-
+            3.5*ease;
+
+
+        camera.position.y =
+            2.4+
             .5*ease;
+
 
         camera.lookAt(
             0,
             1.3,
             -2
         );
+
 
         if(p<1){
 
@@ -1504,16 +2233,17 @@ function enterGarden(){
 
     }
 
+
     requestAnimationFrame(
         cinematic
     );
 
-    /* coba musik */
 
-    const music=
+    const music =
         document.getElementById(
             "music"
         );
+
 
     if(music.src){
 
@@ -1528,19 +2258,6 @@ function enterGarden(){
 }
 
 
-/* IMPORTANT:
-   tombol dipasang dengan JS,
-   jadi tidak bergantung pada inline onclick
-*/
-
-document
-    .getElementById("openButton")
-    .addEventListener(
-        "click",
-        enterGarden
-    );
-
-
 /* =====================================================
    LETTER
 ===================================================== */
@@ -1548,45 +2265,54 @@ document
 function openLetter(){
 
     document
-        .getElementById("letter")
-        .classList.add("show");
+        .getElementById(
+            "letter"
+        )
+        .classList.add(
+            "show"
+        );
 
 }
+
 
 function closeLetter(){
 
     document
-        .getElementById("letter")
-        .classList.remove("show");
+        .getElementById(
+            "letter"
+        )
+        .classList.remove(
+            "show"
+        );
 
 }
 
 
 /* =====================================================
-   CELEBRATION
+   CELEBRATE
 ===================================================== */
 
 function celebrate(){
 
-    /* camera shake */
-
-    let start=
+    const start =
         performance.now();
+
 
     function shake(now){
 
-        const elapsed=
+        const elapsed =
             now-start;
 
-        if(elapsed<700){
 
-            camera.position.x=
-                cameraTargetX+
-                (Math.random()-.5)*.12;
+        if(elapsed<650){
 
-            camera.position.y=
-                cameraTargetY+
-                (Math.random()-.5)*.08;
+            camera.position.x +=
+                (Math.random()-.5)*.06;
+
+
+            camera.position.y +=
+                (Math.random()-.5)*.04;
+
 
             requestAnimationFrame(
                 shake
@@ -1596,17 +2322,16 @@ function celebrate(){
 
     }
 
+
     requestAnimationFrame(
         shake
     );
 
 
-    /* petal burst */
-
     petals.forEach(
         petal=>{
 
-            petal.position.y=
+            petal.position.y =
                 Math.random()*7;
 
         }
@@ -1621,10 +2346,11 @@ function celebrate(){
 
 function toggleMusic(){
 
-    const music=
+    const music =
         document.getElementById(
             "music"
         );
+
 
     if(!music.src){
 
@@ -1636,9 +2362,8 @@ function toggleMusic(){
 
     }
 
-    if(
-        music.paused
-    ){
+
+    if(music.paused){
 
         music.play();
 
@@ -1652,11 +2377,66 @@ function toggleMusic(){
 
 
 /* =====================================================
+   BUTTON EVENTS
+===================================================== */
+
+document
+    .getElementById(
+        "openButton"
+    )
+    .addEventListener(
+        "click",
+        enterGarden
+    );
+
+
+document
+    .getElementById(
+        "letterButton"
+    )
+    .addEventListener(
+        "click",
+        openLetter
+    );
+
+
+document
+    .getElementById(
+        "closeLetter"
+    )
+    .addEventListener(
+        "click",
+        closeLetter
+    );
+
+
+document
+    .getElementById(
+        "celebrateButton"
+    )
+    .addEventListener(
+        "click",
+        celebrate
+    );
+
+
+document
+    .getElementById(
+        "musicButton"
+    )
+    .addEventListener(
+        "click",
+        toggleMusic
+    );
+
+
+/* =====================================================
    ANIMATION
 ===================================================== */
 
-const clock=
+const clock =
     new THREE.Clock();
+
 
 function animate(){
 
@@ -1664,11 +2444,12 @@ function animate(){
         animate
     );
 
-    const t=
+
+    const t =
         clock.getElapsedTime();
 
 
-    /* camera */
+    /* CAMERA */
 
     if(!entering){
 
@@ -1678,27 +2459,29 @@ function animate(){
                 camera.position.x
             )*.035;
 
+
         camera.position.y +=
             (
                 cameraTargetY-
                 camera.position.y
             )*.035;
 
+
         camera.lookAt(
             0,
-            1.2,
+            1.25,
             -2
         );
 
     }
 
 
-    /* flowers */
+    /* FLOWERS */
 
     flowers.forEach(
         (f,i)=>{
 
-            f.rotation.z=
+            f.rotation.z =
                 Math.sin(
                     t*.4+i
                 )*.025;
@@ -1707,26 +2490,32 @@ function animate(){
     );
 
 
-    /* ring */
+    /* RING */
 
-    ring.rotation.y=
+    ring.rotation.y =
         t*.8;
 
-    ring.rotation.z=
-        Math.sin(t)*.15;
+
+    ring.rotation.z =
+        Math.sin(t)*.12;
 
 
-    /* heart */
+    /* HEART */
 
-    heart.position.y=
-        2.8+
-        Math.sin(t*1.4)*.1;
+    heart.position.y =
+        4.35+
+        Math.sin(
+            t*1.4
+        )*.08;
 
-    heart.rotation.y=
-        Math.sin(t*.8)*.2;
+
+    heart.rotation.y =
+        Math.sin(
+            t*.8
+        )*.18;
 
 
-    /* petals */
+    /* PETALS */
 
     petals.forEach(
         p=>{
@@ -1734,18 +2523,21 @@ function animate(){
             p.position.y -=
                 p.userData.speed;
 
+
             p.rotation.x +=
                 p.userData.spin;
 
+
             p.rotation.z +=
                 p.userData.spin;
+
 
             if(
                 p.position.y<
                 -2
             ){
 
-                p.position.y=
+                p.position.y =
                     8+
                     Math.random()*3;
 
@@ -1755,24 +2547,24 @@ function animate(){
     );
 
 
-    /* lights */
+    /* LANTERNS */
 
     lanterns.forEach(
         (light,i)=>{
 
-            light.intensity=
-                1.6+
+            light.intensity =
+                1.4+
                 Math.sin(
                     t*3+i
-                )*.5;
+                )*.45;
 
         }
     );
 
 
-    /* particles */
+    /* PARTICLES */
 
-    goldParticles.rotation.y=
+    goldParticles.rotation.y =
         t*.012;
 
 
@@ -1782,6 +2574,7 @@ function animate(){
     );
 
 }
+
 
 animate();
 
@@ -1794,11 +2587,13 @@ window.addEventListener(
     "resize",
     ()=>{
 
-        camera.aspect=
+        camera.aspect =
             innerWidth/
             innerHeight;
 
+
         camera.updateProjectionMatrix();
+
 
         renderer.setSize(
             innerWidth,
