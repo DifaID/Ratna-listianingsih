@@ -15,10 +15,6 @@ user-scalable=no">
 
 <style>
 
-/* =========================================
-   DASAR
-========================================= */
-
 *{
     box-sizing:border-box;
     -webkit-tap-highlight-color:transparent;
@@ -29,14 +25,9 @@ html,body{
     width:100%;
     height:100%;
     overflow:hidden;
-
     background:#020202;
     color:#fff;
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        serif;
+    font-family:Georgia,"Times New Roman",serif;
 }
 
 body{
@@ -60,7 +51,6 @@ canvas{
 .background{
     position:fixed;
     inset:0;
-
     z-index:1;
     pointer-events:none;
 
@@ -85,8 +75,7 @@ canvas{
     left:50%;
     top:50%;
 
-    transform:
-        translate(-50%,-50%);
+    transform:translate(-50%,-50%);
 
     border-radius:50%;
 
@@ -131,49 +120,35 @@ canvas{
 #opening.hide{
     opacity:0;
     visibility:hidden;
-
     pointer-events:none;
 }
 
 .open-content{
     width:min(90%,500px);
-
     text-align:center;
 }
 
 .open-ornament{
     color:#c9a65a;
-
     font-size:24px;
-
     letter-spacing:8px;
-
     margin-bottom:24px;
 }
 
 .open-small{
     color:#bda875;
-
     font-size:9px;
-
     letter-spacing:6px;
-
     text-transform:uppercase;
 }
 
 .open-content h1{
-    margin:
-        18px 0 8px;
+    margin:18px 0 8px;
 
     font-size:
-        clamp(
-            52px,
-            15vw,
-            88px
-        );
+        clamp(52px,15vw,88px);
 
     font-weight:normal;
-
     font-style:italic;
 
     color:#f6eee0;
@@ -184,18 +159,14 @@ canvas{
 
 .open-name{
     color:#c9a65a;
-
     font-size:12px;
-
     letter-spacing:5px;
-
     text-transform:uppercase;
 }
 
 .open-line{
     width:130px;
     height:1px;
-
     margin:26px auto;
 
     background:
@@ -209,16 +180,12 @@ canvas{
 
 .open-text{
     color:#aaa39a;
-
     font-size:13px;
-
     line-height:1.9;
-
     margin-bottom:28px;
 }
 
 #openButton{
-
     border:
         1px solid
         rgba(201,166,90,.65);
@@ -232,17 +199,13 @@ canvas{
 
     color:#dbc17e;
 
-    padding:
-        14px 28px;
+    padding:14px 28px;
 
     border-radius:2px;
 
-    font-family:
-        Georgia,
-        serif;
+    font-family:Georgia,serif;
 
     font-size:10px;
-
     letter-spacing:4px;
 
     cursor:pointer;
@@ -269,12 +232,12 @@ canvas{
 
     pointer-events:none;
 
-    transition:
-        opacity 2s ease;
+    transition:opacity 2s ease;
 }
 
 #ui.show{
     opacity:1;
+    pointer-events:auto;
 }
 
 
@@ -299,20 +262,15 @@ canvas{
 
 .top-small{
     color:#aa9665;
-
     font-size:8px;
-
     letter-spacing:5px;
-
     text-transform:uppercase;
 }
 
 .top-line{
     width:55px;
     height:1px;
-
     margin:10px auto;
-
     background:#8c723e;
 }
 
@@ -328,11 +286,9 @@ canvas{
     top:50%;
 
     width:min(86vw,430px);
-
     height:min(62vh,530px);
 
-    transform:
-        translate(-50%,-50%);
+    transform:translate(-50%,-50%);
 
     border:
         1px solid
@@ -360,40 +316,31 @@ canvas{
     height:25px;
 
     border-color:#b99651;
-
     border-style:solid;
 }
 
 .corner.tl{
     top:-1px;
     left:-1px;
-
-    border-width:
-        1px 0 0 1px;
+    border-width:1px 0 0 1px;
 }
 
 .corner.tr{
     top:-1px;
     right:-1px;
-
-    border-width:
-        1px 1px 0 0;
+    border-width:1px 1px 0 0;
 }
 
 .corner.bl{
     bottom:-1px;
     left:-1px;
-
-    border-width:
-        0 0 1px 1px;
+    border-width:0 0 1px 1px;
 }
 
 .corner.br{
     bottom:-1px;
     right:-1px;
-
-    border-width:
-        0 1px 1px 0;
+    border-width:0 1px 1px 0;
 }
 
 
@@ -407,8 +354,7 @@ canvas{
     left:50%;
     top:47%;
 
-    transform:
-        translate(-50%,-50%);
+    transform:translate(-50%,-50%);
 
     width:min(90%,500px);
 
@@ -417,11 +363,8 @@ canvas{
 
 .ornament{
     color:#c8a45b;
-
     font-size:25px;
-
     letter-spacing:8px;
-
     margin-bottom:15px;
 
     text-shadow:
@@ -431,13 +374,9 @@ canvas{
 
 .invite-title{
     color:#b8aa92;
-
     font-size:9px;
-
     letter-spacing:5px;
-
     text-transform:uppercase;
-
     margin-bottom:15px;
 }
 
@@ -447,16 +386,10 @@ canvas{
     color:#f5eee3;
 
     font-size:
-        clamp(
-            50px,
-            14vw,
-            84px
-        );
+        clamp(50px,14vw,84px);
 
     font-weight:normal;
-
     font-style:italic;
-
     line-height:.95;
 
     text-shadow:
@@ -469,14 +402,9 @@ canvas{
     color:#c9a65a;
 
     font-size:
-        clamp(
-            12px,
-            3.5vw,
-            18px
-        );
+        clamp(12px,3.5vw,18px);
 
     letter-spacing:5px;
-
     text-transform:uppercase;
 }
 
@@ -486,7 +414,6 @@ canvas{
     color:#b7b0a7;
 
     font-size:10px;
-
     letter-spacing:4px;
 }
 
@@ -502,8 +429,7 @@ canvas{
     width:35px;
     height:1px;
 
-    margin:
-        0 9px;
+    margin:0 9px;
 
     background:#6e5b38;
 }
@@ -532,8 +458,7 @@ canvas{
 
     pointer-events:auto;
 
-    padding:
-        12px 23px;
+    padding:12px 23px;
 
     color:#cbb477;
 
@@ -546,12 +471,9 @@ canvas{
 
     border-radius:2px;
 
-    font-family:
-        Georgia,
-        serif;
+    font-family:Georgia,serif;
 
     font-size:9px;
-
     letter-spacing:2px;
 
     cursor:pointer;
@@ -570,7 +492,6 @@ canvas{
         rgba(255,255,255,.25);
 
     font-size:7px;
-
     letter-spacing:3px;
 }
 
@@ -599,7 +520,6 @@ canvas{
 
     opacity:0;
     visibility:hidden;
-
     pointer-events:none;
 
     transition:
@@ -609,14 +529,11 @@ canvas{
 
 #letter.show{
     opacity:1;
-
     visibility:visible;
-
     pointer-events:auto;
 }
 
 .paper{
-
     position:relative;
 
     z-index:501;
@@ -627,8 +544,7 @@ canvas{
 
     overflow:auto;
 
-    padding:
-        42px 28px;
+    padding:42px 28px;
 
     text-align:center;
 
@@ -657,7 +573,6 @@ canvas{
 }
 
 .paper::before{
-
     content:"";
 
     position:absolute;
@@ -673,26 +588,20 @@ canvas{
 
 .paper-ornament{
     color:#a57b35;
-
     font-size:25px;
-
     letter-spacing:6px;
 }
 
 .paper h2{
-
-    margin:
-        16px 0 8px;
+    margin:16px 0 8px;
 
     font-size:35px;
 
     font-weight:normal;
-
     font-style:italic;
 }
 
 .paper-name{
-
     color:#9c763c;
 
     font-size:11px;
@@ -701,7 +610,6 @@ canvas{
 }
 
 .paper hr{
-
     width:75px;
 
     border:0;
@@ -710,38 +618,28 @@ canvas{
         1px solid
         #b08a4c;
 
-    margin:
-        23px auto;
+    margin:23px auto;
 }
 
 .paper p{
-
     font-size:13px;
-
     line-height:1.9;
-
-    margin:
-        13px 0;
+    margin:13px 0;
 }
 
 .paper strong{
-
     color:#76572d;
-
     font-weight:normal;
-
 }
 
 .close{
-
     position:relative;
 
     z-index:510;
 
     margin-top:18px;
 
-    padding:
-        10px 22px;
+    padding:10px 22px;
 
     background:transparent;
 
@@ -753,9 +651,7 @@ canvas{
 
     border-radius:2px;
 
-    font-family:
-        Georgia,
-        serif;
+    font-family:Georgia,serif;
 
     font-size:10px;
 
@@ -774,7 +670,6 @@ canvas{
 ========================================= */
 
 .vignette{
-
     position:fixed;
 
     inset:0;
@@ -795,16 +690,9 @@ canvas{
 </style>
 </head>
 
-
 <body>
 
-
-<!-- =====================================
-     THREE.JS
-===================================== -->
-
 <div id="scene"></div>
-
 
 <div class="background">
     <div class="gold-glow"></div>
@@ -850,8 +738,12 @@ canvas{
 
         </div>
 
-        <button id="openButton">
+        <button
+            type="button"
+            id="openButton">
+
             BUKA UNDANGAN
+
         </button>
 
     </div>
@@ -865,7 +757,6 @@ canvas{
 
 <div id="ui">
 
-
     <div class="top">
 
         <div class="top-small">
@@ -877,22 +768,15 @@ canvas{
     </div>
 
 
-    <!-- FRAME -->
-
     <div class="card-frame">
 
         <div class="corner tl"></div>
-
         <div class="corner tr"></div>
-
         <div class="corner bl"></div>
-
         <div class="corner br"></div>
 
     </div>
 
-
-    <!-- CENTER -->
 
     <div class="center">
 
@@ -919,12 +803,14 @@ canvas{
     </div>
 
 
-    <!-- BOTTOM -->
-
     <div class="bottom">
 
-        <button id="letterButton">
+        <button
+            type="button"
+            id="letterButton">
+
             💌 BUKA SURAT
+
         </button>
 
         <div class="hint">
@@ -944,45 +830,32 @@ canvas{
 
     <div class="paper">
 
-
         <div class="paper-ornament">
             ✦ ❦ ✦
         </div>
-
 
         <div class="paper-name">
             SEBUAH SURAT KENANGAN
         </div>
 
-
         <h2>
             Untuk Ratna
         </h2>
-
 
         <div class="paper-name">
             RATNA LISTIANINGSIH
         </div>
 
-
         <hr>
 
-
         <p>
-
             Mungkin tidak banyak yang tahu,
-
             bahwa sebelum hari ini tiba,
-
             pernah ada satu cerita kecil
-
             yang sempat kita jalani.
-
         </p>
 
-
         <p>
-
             Kita pernah saling mengenal
             selama satu bulan,
             tepatnya di bulan Juli.
@@ -992,12 +865,9 @@ canvas{
             saling mengenal lebih dekat,
             dan perlahan menjadi nyaman
             satu sama lain.
-
         </p>
 
-
         <p>
-
             Di bulan Juli itu juga,
             kita pernah bertemu.
 
@@ -1009,36 +879,27 @@ canvas{
             pertemuan itu tetap menjadi
             salah satu bagian dari kenangan
             yang pernah kita punya.
-
         </p>
 
-
         <p>
-
             Waktu kemudian terus berjalan.
 
             Entah bagaimana,
             jalan yang awalnya mempertemukan kita
             perlahan membawa kita
             ke arah yang berbeda.
-
         </p>
 
-
         <p>
-
             Yang sebelumnya saling mengenal,
             akhirnya menjadi asing.
 
             Yang pernah saling nyaman,
             akhirnya kembali menjalani
             kehidupan masing-masing.
-
         </p>
 
-
         <p>
-
             Mungkin memang tidak semua
             pertemuan diciptakan untuk
             berlangsung selamanya.
@@ -1049,12 +910,9 @@ canvas{
             sebuah kenangan,
             atau sebuah bagian kecil
             dalam perjalanan hidup kita.
-
         </p>
 
-
         <p>
-
             Dan bagaimanapun akhirnya,
             aku tetap menghargai
             cerita yang pernah ada.
@@ -1065,56 +923,40 @@ canvas{
             saling nyaman,
             dan pernah bertemu
             walaupun hanya sekali.
-
         </p>
-
 
         <hr>
 
-
         <p>
-
             Di hari ulang tahunmu ini,
             aku tidak ingin meminta apa-apa.
 
             Aku hanya ingin mengucapkan
             sesuatu yang sederhana.
-
         </p>
 
-
         <p>
-
             <strong>
                 Selamat ulang tahun, Ratna.
             </strong>
-
         </p>
 
-
         <p>
-
             Semoga di usia yang baru,
             kamu menemukan lebih banyak
             kebahagiaan,
             ketenangan,
             dan hal-hal baik
             yang memang pantas kamu dapatkan.
-
         </p>
 
-
         <p>
-
             Semoga jalan yang kamu pilih
             membawa kamu ke tempat
             yang kamu inginkan.
-
         </p>
 
-
         <p>
-
             Kita mungkin sekarang
             berjalan di jalan masing-masing.
 
@@ -1122,12 +964,9 @@ canvas{
 
             cerita yang pernah ada
             tetap pernah menjadi cerita.
-
         </p>
 
-
         <p>
-
             Terima kasih
             untuk satu bulan di bulan Juli itu.
 
@@ -1136,29 +975,23 @@ canvas{
             pertemuan,
             dan kenangan
             yang pernah kita punya.
-
         </p>
-
 
         <p>
             ✦
         </p>
 
-
         <div class="paper-name">
             DARI MUHAMMAD FAJAR M.
         </div>
-
 
         <p style="
             font-size:10px;
             letter-spacing:2px;
             color:#8b7759;
         ">
-
             UNTUK SEBUAH KENANGAN
         </p>
-
 
         <button
             type="button"
@@ -1169,7 +1002,6 @@ canvas{
 
         </button>
 
-
     </div>
 
 </div>
@@ -1177,9 +1009,6 @@ canvas{
 
 <!-- =====================================
      MUSIK
-     
-     Taruh music.mp3 di folder yang sama
-     dengan index.html
 ===================================== -->
 
 <audio
@@ -1193,12 +1022,10 @@ canvas{
 <script>
 
 /* =========================================
-   THREE.JS SCENE
+   THREE.JS
 ========================================= */
 
-const scene =
-new THREE.Scene();
-
+const scene = new THREE.Scene();
 
 const camera =
 new THREE.PerspectiveCamera(
@@ -1207,7 +1034,6 @@ new THREE.PerspectiveCamera(
     .1,
     100
 );
-
 
 camera.position.set(
     0,
@@ -1218,33 +1044,22 @@ camera.position.set(
 
 const renderer =
 new THREE.WebGLRenderer({
-
     antialias:true,
-
     alpha:true
-
 });
-
 
 renderer.setSize(
     innerWidth,
     innerHeight
 );
 
-
 renderer.setPixelRatio(
-    Math.min(
-        devicePixelRatio,
-        2
-    )
+    Math.min(devicePixelRatio,2)
 );
-
 
 document
 .getElementById("scene")
-.appendChild(
-    renderer.domElement
-);
+.appendChild(renderer.domElement);
 
 
 /* =========================================
@@ -1258,7 +1073,6 @@ scene.add(
     )
 );
 
-
 const goldLight =
 new THREE.PointLight(
     0xd8ae58,
@@ -1266,17 +1080,13 @@ new THREE.PointLight(
     18
 );
 
-
 goldLight.position.set(
     0,
     2,
     3
 );
 
-
-scene.add(
-    goldLight
-);
+scene.add(goldLight);
 
 
 const leftLight =
@@ -1286,17 +1096,13 @@ new THREE.PointLight(
     12
 );
 
-
 leftLight.position.set(
     -5,
     1,
     1
 );
 
-
-scene.add(
-    leftLight
-);
+scene.add(leftLight);
 
 
 const rightLight =
@@ -1306,17 +1112,13 @@ new THREE.PointLight(
     12
 );
 
-
 rightLight.position.set(
     5,
     1,
     1
 );
 
-
-scene.add(
-    rightLight
-);
+scene.add(rightLight);
 
 
 /* =========================================
@@ -1326,9 +1128,7 @@ scene.add(
 const particleGeometry =
 new THREE.BufferGeometry();
 
-
 const particlePositions=[];
-
 
 for(
     let i=0;
@@ -1337,65 +1137,45 @@ for(
 ){
 
     particlePositions.push(
-
         (Math.random()-.5)*16,
-
         (Math.random()-.5)*10,
-
         (Math.random()-.5)*8
-
     );
 
 }
 
-
 particleGeometry.setAttribute(
-
     "position",
-
     new THREE.Float32BufferAttribute(
         particlePositions,
         3
     )
-
 );
 
 
 const particleMaterial =
 new THREE.PointsMaterial({
-
     color:0xc8a45b,
-
     size:.025,
-
     transparent:true,
-
     opacity:.65
-
 });
 
 
 const particles =
 new THREE.Points(
-
     particleGeometry,
-
     particleMaterial
-
 );
 
-
-scene.add(
-    particles
-);
+scene.add(particles);
 
 
 /* =========================================
-   CINCIN LINGKARAN BELAKANG
+   CINCIN BELAKANG
 ========================================= */
 
 const rings=[];
-
 
 for(
     let i=0;
@@ -1414,18 +1194,12 @@ for(
         ),
 
         new THREE.MeshBasicMaterial({
-
             color:0xb9944c,
-
             transparent:true,
-
-            opacity:
-                .13-i*.025
-
+            opacity:.13-i*.025
         })
 
     );
-
 
     ring.position.set(
         0,
@@ -1433,20 +1207,12 @@ for(
         -1
     );
 
-
-    ring.rotation.x=
+    ring.rotation.x =
         Math.PI/2;
 
+    scene.add(ring);
 
-    scene.add(
-        ring
-    );
-
-
-    rings.push(
-        ring
-    );
-
+    rings.push(ring);
 }
 
 
@@ -1456,31 +1222,19 @@ for(
 
 const ringMaterial1 =
 new THREE.MeshStandardMaterial({
-
     color:0xd4ad5f,
-
     metalness:.95,
-
     roughness:.2
-
 });
 
 
 const ringMaterial2 =
 new THREE.MeshStandardMaterial({
-
     color:0xe6cf91,
-
     metalness:.95,
-
     roughness:.18
-
 });
 
-
-/*
-   Cincin kiri
-*/
 
 const weddingRing1 =
 new THREE.Mesh(
@@ -1496,30 +1250,16 @@ new THREE.Mesh(
 
 );
 
-
 weddingRing1.position.set(
-
     -.32,
-
     2.35,
-
     -1.5
-
 );
 
+weddingRing1.rotation.z=.20;
 
-weddingRing1.rotation.z=
-    .20;
+scene.add(weddingRing1);
 
-
-scene.add(
-    weddingRing1
-);
-
-
-/*
-   Cincin kanan
-*/
 
 const weddingRing2 =
 new THREE.Mesh(
@@ -1535,35 +1275,19 @@ new THREE.Mesh(
 
 );
 
-
 weddingRing2.position.set(
-
     .32,
-
     2.35,
-
     -1.5
-
 );
 
+weddingRing2.rotation.z=-.20;
 
-weddingRing2.rotation.z=
-    -.20;
-
-
-scene.add(
-    weddingRing2
-);
-
-
-/*
-   TIDAK ADA DIAMOND
-   DI TENGAH CINCIN
-*/
+scene.add(weddingRing2);
 
 
 /* =========================================
-   BUNGA KECIL
+   BUNGA
 ========================================= */
 
 function flower(
@@ -1577,13 +1301,11 @@ function flower(
     const group =
     new THREE.Group();
 
-
     group.position.set(
         x,
         y,
         z
     );
-
 
     group.scale.setScalar(
         scale
@@ -1600,19 +1322,13 @@ function flower(
         ),
 
         new THREE.MeshStandardMaterial({
-
             color:0xd4a74e,
-
             roughness:.5
-
         })
 
     );
 
-
-    group.add(
-        center
-    );
+    group.add(center);
 
 
     for(
@@ -1622,9 +1338,7 @@ function flower(
     ){
 
         const angle =
-            i/6*
-            Math.PI*2;
-
+            i/6*Math.PI*2;
 
         const petal =
         new THREE.Mesh(
@@ -1636,41 +1350,25 @@ function flower(
             ),
 
             new THREE.MeshStandardMaterial({
-
                 color:color,
-
                 roughness:.55
-
             })
 
         );
 
-
         petal.position.set(
-
             Math.cos(angle)*.18,
-
             0,
-
             Math.sin(angle)*.18
-
         );
-
 
         petal.scale.y=.6;
 
-
-        group.add(
-            petal
-        );
+        group.add(petal);
 
     }
 
-
-    scene.add(
-        group
-    );
-
+    scene.add(group);
 
     return group;
 }
@@ -1678,9 +1376,7 @@ function flower(
 
 const decorativeFlowers=[];
 
-
 decorativeFlowers.push(
-
     flower(
         -4.3,
         -2.8,
@@ -1688,12 +1384,9 @@ decorativeFlowers.push(
         .7,
         0x8d2437
     )
-
 );
 
-
 decorativeFlowers.push(
-
     flower(
         -4.8,
         -3.2,
@@ -1701,12 +1394,9 @@ decorativeFlowers.push(
         .5,
         0xd7d0c2
     )
-
 );
 
-
 decorativeFlowers.push(
-
     flower(
         4.3,
         -2.8,
@@ -1714,12 +1404,9 @@ decorativeFlowers.push(
         .7,
         0x8d2437
     )
-
 );
 
-
 decorativeFlowers.push(
-
     flower(
         4.8,
         -3.2,
@@ -1727,7 +1414,6 @@ decorativeFlowers.push(
         .5,
         0xd7d0c2
     )
-
 );
 
 
@@ -1737,26 +1423,17 @@ decorativeFlowers.push(
 
 const ornamentMaterial =
 new THREE.LineBasicMaterial({
-
     color:0xa98243,
-
     transparent:true,
-
     opacity:.3
-
 });
 
 
-function makeLine(
-    points
-){
+function makeLine(points){
 
     const geometry =
     new THREE.BufferGeometry()
-    .setFromPoints(
-        points
-    );
-
+    .setFromPoints(points);
 
     const line =
     new THREE.Line(
@@ -1764,45 +1441,21 @@ function makeLine(
         ornamentMaterial
     );
 
-
-    scene.add(
-        line
-    );
-
+    scene.add(line);
 }
 
 
 makeLine([
-
-    new THREE.Vector3(
-        -5,2,-1
-    ),
-
-    new THREE.Vector3(
-        -3.5,3,-1
-    ),
-
-    new THREE.Vector3(
-        -2,2.4,-1
-    )
-
+    new THREE.Vector3(-5,2,-1),
+    new THREE.Vector3(-3.5,3,-1),
+    new THREE.Vector3(-2,2.4,-1)
 ]);
 
 
 makeLine([
-
-    new THREE.Vector3(
-        5,2,-1
-    ),
-
-    new THREE.Vector3(
-        3.5,3,-1
-    ),
-
-    new THREE.Vector3(
-        2,2.4,-1
-    )
-
+    new THREE.Vector3(5,2,-1),
+    new THREE.Vector3(3.5,3,-1),
+    new THREE.Vector3(2,2.4,-1)
 ]);
 
 
@@ -1811,19 +1464,15 @@ makeLine([
 ========================================= */
 
 const music =
-document.getElementById(
-    "music"
-);
+document.getElementById("music");
 
 
 function startMusic(){
 
     music.volume=.65;
 
-
     const promise =
         music.play();
-
 
     if(
         promise !== undefined
@@ -1831,37 +1480,14 @@ function startMusic(){
 
         promise.catch(
             function(){
-
-                /*
-                   Autoplay dapat diblokir
-                   oleh Chrome Android.
-
-                   Akan dicoba lagi setelah
-                   pengguna menekan
-                   BUKA UNDANGAN.
-                */
-
+                console.log(
+                    "Autoplay diblokir browser."
+                );
             }
         );
 
     }
-
 }
-
-
-/*
-   Coba otomatis saat halaman
-   pertama kali dibuka.
-*/
-
-window.addEventListener(
-    "load",
-    function(){
-
-        startMusic();
-
-    }
-);
 
 
 /* =========================================
@@ -1876,35 +1502,24 @@ function enter(){
     if(entering)
         return;
 
-
     entering=true;
 
 
-    /*
-       Karena tombol ditekan,
-       browser sudah mendapat
-       interaksi pengguna.
-
-       Musik akan diputar di sini.
-    */
+    /* Musik dijalankan setelah user menyentuh tombol */
 
     startMusic();
 
 
-    document
-    .getElementById(
-        "opening"
-    )
-    .classList
-    .add("hide");
+    const opening =
+        document.getElementById("opening");
+
+    const ui =
+        document.getElementById("ui");
 
 
-    document
-    .getElementById(
-        "ui"
-    )
-    .classList
-    .add("show");
+    opening.classList.add("hide");
+
+    ui.classList.add("show");
 
 
     camera.position.set(
@@ -1952,9 +1567,7 @@ function enter(){
         );
 
 
-        if(
-            progress<1
-        ){
+        if(progress<1){
 
             requestAnimationFrame(
                 cinematic
@@ -1977,6 +1590,30 @@ function enter(){
 
 
 /* =========================================
+   FIX UTAMA
+   TOMBOL BUKA UNDANGAN
+========================================= */
+
+const openButton =
+document.getElementById(
+    "openButton"
+);
+
+
+openButton.addEventListener(
+    "click",
+    function(e){
+
+        e.preventDefault();
+        e.stopPropagation();
+
+        enter();
+
+    }
+);
+
+
+/* =========================================
    SURAT
 ========================================= */
 
@@ -1985,12 +1622,10 @@ document.getElementById(
     "letter"
 );
 
-
 const letterButton =
 document.getElementById(
     "letterButton"
 );
-
 
 const closeLetter =
 document.getElementById(
@@ -2003,9 +1638,7 @@ letterButton.addEventListener(
     function(e){
 
         e.preventDefault();
-
         e.stopPropagation();
-
 
         letter.classList.add(
             "show"
@@ -2020,9 +1653,7 @@ closeLetter.addEventListener(
     function(e){
 
         e.preventDefault();
-
         e.stopPropagation();
-
 
         letter.classList.remove(
             "show"
@@ -2055,9 +1686,7 @@ letter.addEventListener(
 ========================================= */
 
 let dragging=false;
-
 let lastX=0;
-
 let cameraOffset=0;
 
 
@@ -2066,7 +1695,6 @@ renderer.domElement.addEventListener(
     function(e){
 
         dragging=true;
-
         lastX=e.clientX;
 
     }
@@ -2080,14 +1708,11 @@ renderer.domElement.addEventListener(
         if(!dragging)
             return;
 
-
         const dx =
             e.clientX-lastX;
 
-
         cameraOffset -=
             dx*.006;
-
 
         cameraOffset =
             Math.max(
@@ -2097,7 +1722,6 @@ renderer.domElement.addEventListener(
                     cameraOffset
                 )
             );
-
 
         lastX=e.clientX;
 
@@ -2117,6 +1741,16 @@ renderer.domElement.addEventListener(
 
 renderer.domElement.addEventListener(
     "pointercancel",
+    function(){
+
+        dragging=false;
+
+    }
+);
+
+
+renderer.domElement.addEventListener(
+    "pointerleave",
     function(){
 
         dragging=false;
@@ -2147,9 +1781,8 @@ function animate(){
     if(!entering){
 
         camera.position.x +=
-
             (
-                cameraOffset-
+                cameraOffset -
                 camera.position.x
             )*.025;
 
@@ -2163,30 +1796,18 @@ function animate(){
     }
 
 
-    /*
-       Partikel bergerak perlahan
-    */
-
     particles.rotation.y =
         t*.008;
 
-
-    /*
-       Lingkaran dekorasi
-    */
 
     rings.forEach(
         function(ring,i){
 
             ring.rotation.z =
-                t*
-                (.08+i*.025);
-
+                t*(.08+i*.025);
 
             ring.rotation.x =
-
                 Math.PI/2+
-
                 Math.sin(
                     t*.3+i
                 )*.08;
@@ -2195,30 +1816,17 @@ function animate(){
     );
 
 
-    /*
-       Cincin pernikahan
-    */
-
     weddingRing1.rotation.y =
         t*.25;
-
 
     weddingRing2.rotation.y =
         -t*.25;
 
 
-    /*
-       Bunga
-    */
-
     decorativeFlowers.forEach(
-        function(
-            flower,
-            i
-        ){
+        function(flower,i){
 
             flower.rotation.z =
-
                 Math.sin(
                     t*.6+i
                 )*.05;
@@ -2250,14 +1858,26 @@ window.addEventListener(
             innerWidth/
             innerHeight;
 
-
         camera.updateProjectionMatrix();
-
 
         renderer.setSize(
             innerWidth,
             innerHeight
         );
+
+    }
+);
+
+
+/* =========================================
+   START MUSIC
+========================================= */
+
+window.addEventListener(
+    "load",
+    function(){
+
+        startMusic();
 
     }
 );
