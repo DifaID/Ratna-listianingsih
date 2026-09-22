@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#050505">
 
 <title>Untuk Ratna Listianingsih</title>
 
@@ -19,370 +20,571 @@ html,body{
   width:100%;
   height:100%;
   overflow:hidden;
-  background:#030303;
-  color:#fff;
+  background:#050505;
+  color:#eee;
   font-family:Georgia,"Times New Roman",serif;
 }
 
+body{
+  position:relative;
+}
+
 /* =========================
-   BACKGROUND
+   THREE BACKGROUND
 ========================= */
 
 #scene{
   position:fixed;
   inset:0;
-  z-index:1;
+  z-index:0;
 }
 
-canvas{
+#scene canvas{
   display:block;
 }
 
 /* =========================
-   OPENING
+   GOLD ATMOSPHERE
 ========================= */
 
-#opening{
+.gold-glow{
   position:fixed;
-  inset:0;
-  z-index:1000;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  background:
-    radial-gradient(circle at center,
-      rgba(120,95,35,.16),
-      rgba(0,0,0,.96) 65%);
-  transition:
-    opacity 1.2s ease,
-    visibility 1.2s ease;
+  width:420px;
+  height:420px;
+  left:50%;
+  top:42%;
+  transform:translate(-50%,-50%);
+  border-radius:50%;
+  background:radial-gradient(
+    circle,
+    rgba(177,139,55,.10) 0%,
+    rgba(177,139,55,.035) 35%,
+    transparent 70%
+  );
+  pointer-events:none;
+  z-index:1;
 }
 
-#opening.hide{
+/* =========================
+   PAGE SYSTEM
+========================= */
+
+.page{
+  position:fixed;
+  inset:0;
+  z-index:10;
+
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+
+  padding:25px;
+
   opacity:0;
   visibility:hidden;
   pointer-events:none;
+
+  transform:scale(1.025);
+
+  transition:
+    opacity .9s ease,
+    transform 1s ease,
+    visibility .9s ease;
 }
 
-.opening-content{
-  width:min(90%,420px);
-  padding:30px;
+.page.active{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  transform:scale(1);
 }
 
-.small-title{
-  color:#c9a85b;
+/* =========================
+   ORNAMENT FRAME
+========================= */
+
+.frame{
+  position:absolute;
+  inset:17px;
+
+  border:1px solid rgba(191,155,74,.28);
+
+  pointer-events:none;
+}
+
+.frame:before,
+.frame:after{
+  content:"";
+  position:absolute;
+
+  width:65px;
+  height:65px;
+
+  border-color:rgba(210,177,94,.7);
+  border-style:solid;
+}
+
+.frame:before{
+  top:-1px;
+  left:-1px;
+  border-width:1px 0 0 1px;
+}
+
+.frame:after{
+  bottom:-1px;
+  right:-1px;
+  border-width:0 1px 1px 0;
+}
+
+/* =========================
+   TOP LABEL
+========================= */
+
+.eyebrow{
+  color:#bfa05b;
+  font-size:9px;
   letter-spacing:5px;
-  font-size:11px;
-  margin-bottom:25px;
+  text-transform:uppercase;
+  margin-bottom:22px;
 }
 
-.opening-content h1{
-  margin:0;
-  font-size:clamp(42px,13vw,75px);
-  font-weight:400;
+/* =========================
+   COVER
+========================= */
+
+.cover{
+  text-align:center;
+  width:min(90%,500px);
+}
+
+.cover .tiny{
+  color:#8d8d8d;
+  font-size:10px;
   letter-spacing:4px;
-  color:#d8b96a;
-  text-shadow:
-    0 0 15px rgba(216,185,106,.15);
+  margin-bottom:24px;
 }
 
-.opening-content .date{
-  margin-top:12px;
-  color:#aaa;
-  font-size:13px;
+.cover h1{
+  margin:0;
+
+  font-size:clamp(50px,15vw,92px);
+  font-weight:400;
+  line-height:.9;
+
   letter-spacing:3px;
+
+  color:#d4b568;
+
+  text-shadow:
+    0 0 25px rgba(211,177,91,.10);
+}
+
+.cover .full-name{
+  margin-top:17px;
+
+  color:#ddd;
+
+  font-size:12px;
+  letter-spacing:4px;
+}
+
+.cover .date{
+  margin-top:28px;
+
+  color:#8c8c8c;
+
+  font-size:10px;
+  letter-spacing:4px;
+}
+
+/* =========================
+   RINGS
+========================= */
+
+.rings{
+  position:relative;
+
+  width:135px;
+  height:72px;
+
+  margin:0 auto 30px;
+}
+
+.ring{
+  position:absolute;
+
+  width:57px;
+  height:57px;
+
+  border:1.5px solid #c5a65d;
+  border-radius:50%;
+
+  box-shadow:
+    0 0 13px rgba(197,166,93,.10);
+}
+
+.ring:nth-child(1){
+  left:17px;
+  top:5px;
+}
+
+.ring:nth-child(2){
+  left:61px;
+  top:5px;
+}
+
+.ring:after{
+  content:"";
+
+  position:absolute;
+
+  width:8px;
+  height:8px;
+
+  left:23px;
+  top:-5px;
+
+  transform:rotate(45deg);
+
+  border:1px solid #d5b96e;
+
+  background:#050505;
 }
 
 /* =========================
    BUTTON
 ========================= */
 
-.gold-button{
+.gold-btn{
+  position:relative;
+
   margin-top:38px;
-  padding:13px 30px;
-  border:1px solid #b9964b;
-  background:rgba(0,0,0,.5);
-  color:#d9ba6b;
+
+  min-width:175px;
+
+  padding:13px 25px;
+
+  border:1px solid #b99a55;
+
+  background:rgba(8,8,8,.65);
+
+  color:#d7ba70;
+
   font-family:Georgia,"Times New Roman",serif;
-  font-size:11px;
+
+  font-size:10px;
   letter-spacing:4px;
+
   cursor:pointer;
-  transition:.3s;
+
+  transition:
+    background .3s,
+    color .3s,
+    transform .3s,
+    box-shadow .3s;
 }
 
-.gold-button:hover{
-  background:#b9964b;
-  color:#050505;
+.gold-btn:hover{
+  background:#c3a45c;
+  color:#080808;
+
+  box-shadow:
+    0 0 25px rgba(195,164,92,.15);
 }
 
-.gold-button:active{
+.gold-btn:active{
   transform:scale(.96);
 }
 
 /* =========================
-   MAIN UI
+   1 BULAN PAGE
 ========================= */
 
-#ui{
-  position:fixed;
-  inset:0;
-  z-index:50;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  pointer-events:none;
-  opacity:0;
-  transition:opacity 1.5s ease;
+.memory{
+  width:min(90%,500px);
+  text-align:center;
 }
 
-#ui.show{
-  opacity:1;
-  pointer-events:auto;
-}
+.memory-icon{
+  width:58px;
+  height:58px;
 
-/* =========================
-   DECORATION
-========================= */
+  margin:0 auto 25px;
 
-.top-decoration{
-  position:absolute;
-  top:7%;
-  left:50%;
-  transform:translateX(-50%);
-  width:180px;
-  height:80px;
-}
+  border:1px solid #b89a57;
 
-.ring{
-  position:absolute;
-  width:62px;
-  height:62px;
-  border:2px solid #c9a85b;
-  border-radius:50%;
-  top:5px;
-  box-shadow:
-    0 0 8px rgba(201,168,91,.18);
-}
-
-.ring.one{
-  left:34px;
-}
-
-.ring.two{
-  left:82px;
-}
-
-.ring:after{
-  content:"";
-  position:absolute;
-  width:9px;
-  height:9px;
-  border:1px solid #d8bd78;
   transform:rotate(45deg);
-  top:-5px;
-  left:24px;
-  background:#050505;
-}
 
-/* =========================
-   TITLE
-========================= */
-
-.main-title{
-  text-align:center;
-  margin-top:-20px;
-}
-
-.main-title .small{
-  color:#c8a65b;
-  font-size:10px;
-  letter-spacing:5px;
-  margin-bottom:12px;
-}
-
-.main-title h1{
-  margin:0;
-  color:#d8b96a;
-  font-size:clamp(40px,12vw,76px);
-  font-weight:400;
-  letter-spacing:3px;
-}
-
-.main-title .birthday{
-  margin-top:10px;
-  font-size:12px;
-  color:#aaa;
-  letter-spacing:3px;
-}
-
-/* =========================
-   BOTTOM
-========================= */
-
-.bottom{
-  position:absolute;
-  bottom:8%;
-  left:50%;
-  transform:translateX(-50%);
-  text-align:center;
-}
-
-/* =========================
-   LETTER MODAL
-========================= */
-
-#letter{
-  position:fixed;
-  inset:0;
-  z-index:2000;
   display:flex;
-  justify-content:center;
   align-items:center;
-  padding:20px;
-
-  background:rgba(0,0,0,.82);
-  backdrop-filter:blur(8px);
-
-  opacity:0;
-  visibility:hidden;
-  pointer-events:none;
-
-  transition:
-    opacity .5s ease,
-    visibility .5s ease;
+  justify-content:center;
 }
 
-#letter.open{
-  opacity:1;
-  visibility:visible;
-  pointer-events:auto;
+.memory-icon span{
+  transform:rotate(-45deg);
+
+  color:#d5b66c;
+
+  font-size:18px;
 }
 
-.letter-card{
+.memory h2{
+  margin:0;
+
+  color:#d5b66c;
+
+  font-size:38px;
+
+  font-weight:400;
+
+  letter-spacing:5px;
+}
+
+.memory .line{
+  width:55px;
+  height:1px;
+
+  background:#9f8144;
+
+  margin:20px auto;
+}
+
+.memory .july{
+  color:#8c8c8c;
+
+  font-size:10px;
+
+  letter-spacing:4px;
+}
+
+.memory p{
+  max-width:420px;
+
+  margin:27px auto 0;
+
+  color:#d4d4d4;
+
+  font-size:14px;
+
+  line-height:1.9;
+}
+
+.memory .quote{
+  margin-top:25px;
+
+  color:#bca064;
+
+  font-size:12px;
+
+  font-style:italic;
+
+  line-height:1.7;
+}
+
+/* =========================
+   LETTER PAGE
+========================= */
+
+.letter-page{
+  overflow:auto;
+}
+
+.letter-paper{
   position:relative;
-  width:min(92%,520px);
-  max-height:82vh;
-  overflow-y:auto;
 
-  padding:35px 28px;
+  width:min(92%,510px);
+
+  max-height:82vh;
+
+  overflow:auto;
+
+  padding:38px 27px 32px;
 
   background:
     linear-gradient(
       145deg,
-      rgba(28,25,19,.98),
-      rgba(7,7,7,.98)
+      rgba(25,23,19,.97),
+      rgba(8,8,8,.98)
     );
 
-  border:1px solid rgba(201,168,91,.65);
+  border:1px solid rgba(194,158,77,.65);
 
   box-shadow:
-    0 0 40px rgba(0,0,0,.8),
-    0 0 25px rgba(201,168,91,.08);
-
-  transform:translateY(30px) scale(.96);
-  transition:transform .5s ease;
+    0 0 50px rgba(0,0,0,.7),
+    inset 0 0 50px rgba(195,158,77,.025);
 }
 
-#letter.open .letter-card{
-  transform:translateY(0) scale(1);
-}
-
-.letter-card:before,
-.letter-card:after{
+.letter-paper:before{
   content:"";
+
   position:absolute;
-  width:35px;
-  height:35px;
-  border-color:#c9a85b;
-  border-style:solid;
+
+  inset:10px;
+
+  border:1px solid rgba(196,161,82,.16);
+
+  pointer-events:none;
 }
 
-.letter-card:before{
-  top:12px;
-  left:12px;
-  border-width:1px 0 0 1px;
-}
+.letter-head{
+  position:relative;
 
-.letter-card:after{
-  right:12px;
-  bottom:12px;
-  border-width:0 1px 1px 0;
-}
-
-.letter-title{
   text-align:center;
-  color:#d8b96a;
-  font-size:25px;
-  font-weight:400;
-  letter-spacing:3px;
-  margin-bottom:8px;
+
+  margin-bottom:27px;
 }
 
-.letter-subtitle{
-  text-align:center;
-  color:#888;
-  font-size:10px;
+.letter-head .small{
+  color:#a98a4b;
+
+  font-size:9px;
+
   letter-spacing:4px;
-  margin-bottom:28px;
+
+  margin-bottom:13px;
+}
+
+.letter-head h2{
+  margin:0;
+
+  color:#d7b86a;
+
+  font-weight:400;
+
+  font-size:27px;
+
+  letter-spacing:3px;
 }
 
 .letter-section{
-  margin-bottom:25px;
+  position:relative;
+
+  margin-bottom:27px;
+
+  padding:0 4px;
 }
 
-.letter-section h2{
+.letter-section h3{
   margin:0 0 12px;
-  color:#c9a85b;
-  font-size:13px;
+
+  color:#c5a45b;
+
+  font-size:11px;
+
   font-weight:400;
-  letter-spacing:3px;
+
+  letter-spacing:4px;
+
   text-align:center;
 }
 
 .letter-section p{
   margin:0;
-  color:#ddd;
-  font-size:14px;
-  line-height:1.8;
+
+  color:#d8d8d8;
+
+  font-size:13px;
+
+  line-height:1.85;
+
   text-align:center;
 }
 
+.divider{
+  width:42px;
+  height:1px;
+
+  margin:0 auto 26px;
+
+  background:#92763e;
+}
+
 .signature{
-  margin-top:28px;
+  position:relative;
+
+  margin-top:25px;
+
   text-align:center;
-  color:#aaa;
-  font-size:12px;
+
+  color:#999;
+
+  font-size:11px;
+
   line-height:1.8;
 }
 
 .signature strong{
-  color:#d8b96a;
+  color:#d5b66b;
+
+  font-size:13px;
+
   font-weight:400;
+
   letter-spacing:1px;
 }
 
-.close-letter{
-  display:block;
-  margin:28px auto 0;
+/* =========================
+   BACK BUTTON
+========================= */
 
-  padding:10px 25px;
+.back-btn{
+  display:block;
+
+  margin:26px auto 0;
+
+  padding:9px 20px;
 
   background:transparent;
-  border:1px solid #9c7b3c;
 
-  color:#c9a85b;
+  border:1px solid rgba(187,155,82,.65);
+
+  color:#bfa05c;
+
   font-family:Georgia,"Times New Roman",serif;
-  font-size:10px;
+
+  font-size:9px;
+
   letter-spacing:3px;
 
   cursor:pointer;
 }
 
-.close-letter:hover{
-  background:#c9a85b;
+.back-btn:hover{
+  background:#bfa05c;
   color:#050505;
+}
+
+/* =========================
+   MUSIC
+========================= */
+
+.music-indicator{
+  position:fixed;
+
+  right:23px;
+  bottom:22px;
+
+  z-index:100;
+
+  width:28px;
+  height:28px;
+
+  border:1px solid rgba(193,161,86,.5);
+
+  border-radius:50%;
+
+  display:flex;
+  align-items:center;
+  justify-content:center;
+
+  color:#c7a85f;
+
+  font-size:11px;
+
+  opacity:.7;
+
+  pointer-events:none;
 }
 
 /* =========================
@@ -391,77 +593,107 @@ canvas{
 
 @media(max-width:600px){
 
-  .top-decoration{
-    top:6%;
-    transform:translateX(-50%) scale(.85);
+  .frame{
+    inset:13px;
   }
 
-  .main-title{
-    margin-top:-10px;
+  .cover h1{
+    font-size:65px;
   }
 
-  .main-title h1{
-    font-size:50px;
+  .cover .full-name{
+    font-size:10px;
+    letter-spacing:3px;
   }
 
-  .opening-content h1{
-    font-size:55px;
+  .memory h2{
+    font-size:31px;
   }
 
-  .letter-card{
-    padding:32px 22px;
-    max-height:84vh;
+  .memory p{
+    font-size:13px;
+    line-height:1.85;
   }
 
-  .letter-title{
-    font-size:22px;
+  .letter-paper{
+    padding:34px 21px 27px;
+  }
+
+  .letter-head h2{
+    font-size:23px;
   }
 
   .letter-section p{
-    font-size:13px;
-    line-height:1.75;
+    font-size:12.5px;
   }
 
-  .bottom{
-    bottom:7%;
+}
+
+@media(max-height:650px){
+
+  .eyebrow{
+    margin-bottom:12px;
   }
+
+  .rings{
+    margin-bottom:17px;
+    transform:scale(.8);
+  }
+
+  .gold-btn{
+    margin-top:25px;
+  }
+
 }
 </style>
 </head>
 
 <body>
 
-<!-- =========================
-     THREE.JS BACKGROUND
-========================= -->
-
+<!-- BACKGROUND -->
 <div id="scene"></div>
+<div class="gold-glow"></div>
 
 
 <!-- =========================
-     OPENING SCREEN
+     COVER
 ========================= -->
 
-<section id="opening">
+<section id="coverPage" class="page active">
 
-  <div class="opening-content">
+  <div class="frame"></div>
 
-    <div class="small-title">
-      SEBUAH UNDANGAN KECIL
+  <div class="cover">
+
+    <div class="eyebrow">
+      Sebuah halaman kecil untukmu
+    </div>
+
+    <div class="rings">
+      <div class="ring"></div>
+      <div class="ring"></div>
+    </div>
+
+    <div class="tiny">
+      HAPPY BIRTHDAY
     </div>
 
     <h1>Ratna</h1>
 
+    <div class="full-name">
+      RATNA LISTIANINGSIH
+    </div>
+
     <div class="date">
-      01 • 10 • 2006
+      01 • OKTOBER • 2026
     </div>
 
     <button
-      id="openButton"
-      class="gold-button"
+      id="memoryButton"
+      class="gold-btn"
       type="button"
     >
-      BUKA UNDANGAN
+      1 BULAN
     </button>
 
   </div>
@@ -470,39 +702,48 @@ canvas{
 
 
 <!-- =========================
-     MAIN PAGE
+     MEMORY PAGE
 ========================= -->
 
-<section id="ui">
+<section id="memoryPage" class="page">
 
-  <div class="top-decoration">
+  <div class="frame"></div>
 
-    <div class="ring one"></div>
-    <div class="ring two"></div>
+  <div class="memory">
 
-  </div>
-
-
-  <div class="main-title">
-
-    <div class="small">
-      SELAMAT ULANG TAHUN
+    <div class="eyebrow">
+      Sebuah kenangan
     </div>
 
-    <h1>Ratna</h1>
-
-    <div class="birthday">
-      20 TAHUN • 01 OKTOBER 2026
+    <div class="memory-icon">
+      <span>♡</span>
     </div>
 
-  </div>
+    <h2>1 BULAN</h2>
 
+    <div class="line"></div>
 
-  <div class="bottom">
+    <div class="july">
+      JULI • SEBUAH WAKTU YANG SINGKAT
+    </div>
+
+    <p>
+      Kita pernah kenal selama satu bulan
+      di bulan Juli.
+      <br><br>
+      Pernah dekat, pernah bertemu,
+      lalu akhirnya kembali menjadi
+      dua orang yang berjalan di jalan masing-masing.
+    </p>
+
+    <div class="quote">
+      “Singkat waktunya, tapi bukan berarti
+      semua yang pernah terjadi harus dilupakan.”
+    </div>
 
     <button
-      id="openLetter"
-      class="gold-button"
+      id="letterButton"
+      class="gold-btn"
       type="button"
     >
       BUKA SURAT
@@ -514,19 +755,23 @@ canvas{
 
 
 <!-- =========================
-     LETTER
+     LETTER PAGE
 ========================= -->
 
-<div id="letter">
+<section id="letterPage" class="page letter-page">
 
-  <div class="letter-card">
+  <div class="frame"></div>
 
-    <div class="letter-title">
-      Untuk Ratna
-    </div>
+  <div class="letter-paper">
 
-    <div class="letter-subtitle">
-      SEBUAH CATATAN KECIL
+    <div class="letter-head">
+
+      <div class="small">
+        SEBUAH SURAT KECIL
+      </div>
+
+      <h2>Untuk Ratna</h2>
+
     </div>
 
 
@@ -534,7 +779,7 @@ canvas{
 
     <div class="letter-section">
 
-      <h2>KENANGAN</h2>
+      <h3>KENANGAN</h3>
 
       <p>
         Kita pernah kenal selama satu bulan
@@ -542,19 +787,22 @@ canvas{
         <br><br>
         Walaupun singkat, ada beberapa
         kenangan yang masih aku ingat.
-        Kita pernah bertemu, pernah dekat,
-        lalu akhirnya kembali menjadi dua
-        orang yang berjalan di jalan masing-masing.
+        Kita pernah bertemu dan pernah dekat,
+        sebelum akhirnya kembali berjalan
+        di jalan masing-masing.
       </p>
 
     </div>
 
 
-    <!-- ULANG TAHUN -->
+    <div class="divider"></div>
+
+
+    <!-- UCAPAN -->
 
     <div class="letter-section">
 
-      <h2>SELAMAT ULANG TAHUN</h2>
+      <h3>SELAMAT ULANG TAHUN</h3>
 
       <p>
         Selamat ulang tahun, Ratna.
@@ -575,30 +823,25 @@ canvas{
 
       <br>
 
-      <strong>
-        Muhammad Fajar M.
-      </strong>
+      <strong>Muhammad Fajar M.</strong>
 
     </div>
 
 
     <button
-      id="closeLetter"
-      class="close-letter"
+      id="backButton"
+      class="back-btn"
       type="button"
     >
-      TUTUP SURAT
+      KEMBALI
     </button>
 
   </div>
 
-</div>
+</section>
 
 
-<!-- =========================
-     MUSIC
-========================= -->
-
+<!-- MUSIC -->
 <audio
   id="music"
   src="music.mp3"
@@ -606,45 +849,76 @@ canvas{
   preload="auto">
 </audio>
 
+<div class="music-indicator">♪</div>
+
 
 <script>
 
-/* ==========================================
-   ELEMENT
-========================================== */
+/* =====================================================
+   PAGE
+===================================================== */
 
-const opening = document.getElementById("opening");
-const openButton = document.getElementById("openButton");
+const coverPage =
+  document.getElementById("coverPage");
 
-const ui = document.getElementById("ui");
+const memoryPage =
+  document.getElementById("memoryPage");
 
-const letter = document.getElementById("letter");
-const openLetter = document.getElementById("openLetter");
-const closeLetter = document.getElementById("closeLetter");
-
-const music = document.getElementById("music");
+const letterPage =
+  document.getElementById("letterPage");
 
 
-/* ==========================================
+const memoryButton =
+  document.getElementById("memoryButton");
+
+const letterButton =
+  document.getElementById("letterButton");
+
+const backButton =
+  document.getElementById("backButton");
+
+
+/* =====================================================
+   PAGE TRANSITION
+===================================================== */
+
+function showPage(page){
+
+  document
+    .querySelectorAll(".page")
+    .forEach(function(item){
+
+      item.classList.remove("active");
+
+    });
+
+  page.classList.add("active");
+
+}
+
+
+/* =====================================================
    MUSIC
-========================================== */
+===================================================== */
 
-function startMusic(){
+const music =
+  document.getElementById("music");
+
+function playMusic(){
 
   if(!music) return;
 
-  music.volume = 0.65;
+  music.volume = 0.55;
 
-  const playPromise = music.play();
+  const promise =
+    music.play();
 
-  if(playPromise !== undefined){
+  if(promise){
 
-    playPromise.catch(() => {
-      /*
-        Beberapa browser memblokir autoplay.
-        Musik akan tetap mencoba diputar
-        setelah interaksi pengguna.
-      */
+    promise.catch(function(){
+
+      /* Browser bisa memblokir autoplay */
+
     });
 
   }
@@ -652,112 +926,99 @@ function startMusic(){
 }
 
 
-/* ==========================================
-   BUKA UNDANGAN
-========================================== */
+/* =====================================================
+   1 BULAN
+===================================================== */
 
-function enter(){
+memoryButton.addEventListener(
+  "click",
+  function(){
 
-  opening.classList.add("hide");
+    playMusic();
 
-  ui.classList.add("show");
-
-  startMusic();
-
-}
-
-
-/*
-  Listener tombol BUKA UNDANGAN
-*/
-
-openButton.addEventListener("click", function(e){
-
-  e.preventDefault();
-  e.stopPropagation();
-
-  enter();
-
-});
-
-
-/* ==========================================
-   SURAT
-========================================== */
-
-openLetter.addEventListener("click", function(){
-
-  letter.classList.add("open");
-
-});
-
-
-closeLetter.addEventListener("click", function(){
-
-  letter.classList.remove("open");
-
-});
-
-
-/*
-  Klik area luar surat untuk menutup
-*/
-
-letter.addEventListener("click", function(e){
-
-  if(e.target === letter){
-
-    letter.classList.remove("open");
+    showPage(memoryPage);
 
   }
+);
 
-});
+
+/* =====================================================
+   BUKA SURAT
+===================================================== */
+
+letterButton.addEventListener(
+  "click",
+  function(){
+
+    showPage(letterPage);
+
+  }
+);
 
 
-/* ==========================================
-   THREE.JS
-========================================== */
+/* =====================================================
+   KEMBALI
+===================================================== */
+
+backButton.addEventListener(
+  "click",
+  function(){
+
+    showPage(memoryPage);
+
+  }
+);
+
+
+/* =====================================================
+   THREE.JS BACKGROUND
+===================================================== */
 
 let scene;
 let camera;
 let renderer;
 
-let particles = [];
-
-let mouseX = 0;
-let mouseY = 0;
-
-let targetX = 0;
-let targetY = 0;
+let stars;
 
 
 function initThree(){
 
-  scene = new THREE.Scene();
+  scene =
+    new THREE.Scene();
 
-  camera = new THREE.PerspectiveCamera(
-    55,
-    window.innerWidth / window.innerHeight,
-    0.1,
-    1000
-  );
+
+  camera =
+    new THREE.PerspectiveCamera(
+      55,
+      window.innerWidth /
+      window.innerHeight,
+      .1,
+      100
+    );
 
   camera.position.z = 8;
 
 
-  renderer = new THREE.WebGLRenderer({
-    antialias:true,
-    alpha:true
-  });
+  renderer =
+    new THREE.WebGLRenderer({
+      alpha:true,
+      antialias:true
+    });
+
 
   renderer.setPixelRatio(
-    Math.min(window.devicePixelRatio,2)
+    Math.min(
+      window.devicePixelRatio,
+      2
+    )
   );
+
 
   renderer.setSize(
     window.innerWidth,
     window.innerHeight
   );
+
 
   document
     .getElementById("scene")
@@ -765,28 +1026,26 @@ function initThree(){
 
 
   /* ==========================
-     PARTICLES
+     STARS / GOLD DUST
   ========================== */
 
   const geometry =
     new THREE.BufferGeometry();
 
+
   const positions = [];
 
-  for(let i=0;i<500;i++){
 
-    const x =
-      (Math.random()-.5)*18;
+  for(let i=0;i<650;i++){
 
-    const y =
-      (Math.random()-.5)*12;
-
-    const z =
-      (Math.random()-.5)*10;
-
-    positions.push(x,y,z);
+    positions.push(
+      (Math.random()-.5)*20,
+      (Math.random()-.5)*14,
+      (Math.random()-.5)*12
+    );
 
   }
+
 
   geometry.setAttribute(
     "position",
@@ -800,9 +1059,9 @@ function initThree(){
   const material =
     new THREE.PointsMaterial({
 
-      color:0xd0ae5d,
+      color:0xd1b36a,
 
-      size:.025,
+      size:.018,
 
       transparent:true,
 
@@ -811,28 +1070,14 @@ function initThree(){
     });
 
 
-  const points =
+  stars =
     new THREE.Points(
       geometry,
       material
     );
 
-  scene.add(points);
 
-  particles.push(points);
-
-
-  /* ==========================
-     LIGHT
-  ========================== */
-
-  const ambient =
-    new THREE.AmbientLight(
-      0xffffff,
-      .5
-    );
-
-  scene.add(ambient);
+  scene.add(stars);
 
 
   animate();
@@ -840,49 +1085,27 @@ function initThree(){
 }
 
 
-/* ==========================================
+/* =====================================================
    ANIMATION
-========================================== */
+===================================================== */
 
 function animate(){
 
-  requestAnimationFrame(animate);
+  requestAnimationFrame(
+    animate
+  );
 
 
-  targetX +=
-    (mouseX - targetX) * .025;
+  if(stars){
 
-  targetY +=
-    (mouseY - targetY) * .025;
+    stars.rotation.y += .00025;
 
-
-  if(camera){
-
-    camera.position.x =
-      targetX * .15;
-
-    camera.position.y =
-      -targetY * .08;
-
-    camera.lookAt(
-      0,
-      0,
-      0
-    );
+    stars.rotation.x += .00005;
 
   }
 
 
-  particles.forEach((particle)=>{
-
-    particle.rotation.y += .0003;
-
-    particle.rotation.x += .0001;
-
-  });
-
-
-  if(renderer && scene && camera){
+  if(renderer){
 
     renderer.render(
       scene,
@@ -894,59 +1117,25 @@ function animate(){
 }
 
 
-/* ==========================================
-   TOUCH / MOUSE
-========================================== */
-
-document.addEventListener(
-  "mousemove",
-  function(e){
-
-    mouseX =
-      (e.clientX / window.innerWidth - .5) * 2;
-
-    mouseY =
-      (e.clientY / window.innerHeight - .5) * 2;
-
-  }
-);
-
-
-document.addEventListener(
-  "touchmove",
-  function(e){
-
-    if(!e.touches.length) return;
-
-    const touch =
-      e.touches[0];
-
-    mouseX =
-      (touch.clientX / window.innerWidth - .5) * 2;
-
-    mouseY =
-      (touch.clientY / window.innerHeight - .5) * 2;
-
-  },
-  {passive:true}
-);
-
-
-/* ==========================================
+/* =====================================================
    RESIZE
-========================================== */
+===================================================== */
 
 window.addEventListener(
   "resize",
   function(){
 
-    if(!camera || !renderer) return;
+    if(!camera || !renderer)
+      return;
+
 
     camera.aspect =
       window.innerWidth /
       window.innerHeight;
 
+
     camera.updateProjectionMatrix();
+
 
     renderer.setSize(
       window.innerWidth,
@@ -957,9 +1146,9 @@ window.addEventListener(
 );
 
 
-/* ==========================================
+/* =====================================================
    START
-========================================== */
+===================================================== */
 
 try{
 
@@ -968,7 +1157,7 @@ try{
 }catch(error){
 
   console.error(
-    "Three.js error:",
+    "Three.js:",
     error
   );
 
