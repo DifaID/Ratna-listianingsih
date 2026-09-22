@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Ratna Listianingsih</title>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+
+<style>
+*{
+    box-sizing:border-box;
+}
+
+html,body{
+    margin:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    font-family:Georgia,"Times New Roman",serif;
+    background:#090507;
+    color:white;
+}
+
+#scene{
+    position:fixed;
+    inset:0;
+}
+
+canvas{
+    display:block;
+}
+
+.overlay{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+}
+
+.vignette{
+    position:absolute;
+    inset:0;
+    background:
+      radial-gradient(circle at center,
+        transparent 20%,
+        rgba(0,0,0,.18) 55%,
+        rgba(0,0,0,.75) 100%);
+}
+
+.top{
+    position:absolute;
+    top:25px;
+    left:0;
+    right:0;
+    text-align:center;
+    letter-spacing:4px;
+    font-size:11px;
+    color:#e9c98c;
+    text-transform:uppercase;
+    text-shadow:0 0 15px rgba(255,220,150,.5);
+}
+
+.center{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%,-50%);
+    width:min(90%,650px);
+    text-align:center;
+}
+
+.ornament{
+    color:#d9ad63;
+    font-size:25px;
+    letter-spacing:8px;
+    margin-bottom:15px;
+}
+
+.subtitle{
+    font-size:15px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    color:#ead7bb;
+    margin-bottom:12px;
+}
+
+h1{
+    margin:0;
+    font-size:clamp(42px,10vw,90px);
+    line-height:.95;
+    font-weight:normal;
+    font-style:italic;
+    color:#fff8ef;
+    text-shadow:
+      0 2px 3px #000,
+      0 0 25px rgba(255,215,160,.25);
+}
+
+.name{
+    margin-top:14px;
+    font-size:clamp(18px,4vw,30px);
+    letter-spacing:5px;
+    color:#e8c584;
+    text-transform:uppercase;
+}
+
+.date{
+    margin-top:22px;
+    font-size:14px;
+    letter-spacing:3px;
+    color:#eadfd1;
+}
+
+.divider{
+    width:130px;
+    height:1px;
+    background:linear-gradient(
+        90deg,
+        transparent,
+        #d8ad68,
+        transparent
+    );
+    margin:25px auto;
+}
+
+.message{
+    font-size:16px;
+    line-height:1.8;
+    color:#eee4da;
+    max-width:500px;
+    margin:auto;
+}
+
+.card{
+    margin:30px auto 0;
+    width:min(92%,500px);
+    padding:22px 25px;
+    border:1px solid rgba(218,180,112,.4);
+    background:rgba(20,10,13,.45);
+    backdrop-filter:blur(8px);
+    box-shadow:
+      0 0 40px rgba(0,0,0,.35),
+      inset 0 0 30px rgba(255,200,130,.03);
+    border-radius:3px;
+}
+
+.card p{
+    margin:0;
+    font-size:15px;
+    line-height:1.7;
+    color:#eee5dc;
+}
+
+.countdown{
+    margin-top:18px;
+    display:flex;
+    justify-content:center;
+    gap:12px;
+}
+
+.time{
+    min-width:62px;
+    padding:9px 6px;
+    border:1px solid rgba(218,180,112,.3);
+    background:rgba(0,0,0,.2);
+}
+
+.time strong{
+    display:block;
+    font-size:22px;
+    font-weight:normal;
+    color:#e7c47f;
+}
+
+.time span{
+    font-size:8px;
+    letter-spacing:2px;
+    color:#cfc3b6;
+}
+
+.buttons{
+    position:absolute;
+    bottom:25px;
+    left:0;
+    right:0;
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    pointer-events:auto;
+}
+
+button{
+    border:1px solid rgba(226,191,126,.5);
+    background:rgba(22,11,14,.65);
+    color:#f4dfbd;
+    padding:11px 17px;
+    border-radius:30px;
+    cursor:pointer;
+    font-family:inherit;
+    backdrop-filter:blur(8px);
+    transition:.3s;
+}
+
+button:hover{
+    background:rgba(214,169,94,.2);
+    transform:translateY(-2px);
+}
+
+.hint{
+    position:absolute;
+    bottom:8px;
+    left:0;
+    right:0;
+    text-align:center;
+    font-size:9px;
+    letter-spacing:2px;
+    color:rgba(255,255,255,.35);
+}
+
+/* OPENING */
+
+.opening{
+    position:fixed;
+    inset:0;
+    z-index:20;
+    background:
+      radial-gradient(circle at center,#24131a,#080406 75%);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-align:center;
+    transition:1.5s ease;
+}
+
+.opening.hide{
+    opacity:0;
+    pointer-events:none;
+}
+
+.openBox{
+    width:min(90%,500px);
+}
+
+.openBox .small{
+    color:#d9b474;
+    font-size:11px;
+    letter-spacing:5px;
+    text-transform:uppercase;
+    margin-bottom:20px;
+}
+
+.openBox h2{
+    margin:0;
+    font-size:clamp(40px,10vw,70px);
+    font-weight:normal;
+    font-style:italic;
+}
+
+.openBox p{
+    color:#d8cbc0;
+    margin:18px 0 30px;
+}
+
+.openBtn{
+    padding:14px 30px;
+    border-radius:50px;
+    font-size:13px;
+    letter-spacing:2px;
+}
+
+/* mobile */
+
+@media(max-width:600px){
+
+    .center{
+        top:47%;
+    }
+
+    .message{
+        font-size:14px;
+        padding:0 8px;
+    }
+
+    .card{
+        padding:18px;
+        margin-top:22px;
+    }
+
+    .countdown{
+        gap:6px;
+    }
+
+    .time{
+        min-width:52px;
+    }
+
+    .buttons{
+        bottom:35px;
+    }
+
+    .top{
+        font-size:8px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div id="scene"></div>
+
+<div class="opening" id="opening">
+
+    <div class="openBox">
+
+        <div class="small">
+            A Little Celebration
+        </div>
+
+        <h2>For Ratna</h2>
+
+        <p>
+            Ada sebuah taman kecil yang disiapkan khusus
+            untuk hari istimewa seseorang...
+        </p>
+
+        <button class="openBtn" onclick="enterGarden()">
+            BUKA UCAPAN ✦
+        </button>
+
+    </div>
+
+</div>
+
+
+<div class="overlay">
+
+    <div class="top">
+        ✦ A Special Day For Someone Special ✦
+    </div>
+
+    <div class="vignette"></div>
+
+    <div class="center">
+
+        <div class="ornament">
+            ❦ ✦ ❦
+        </div>
+
+        <div class="subtitle">
+            Happy Birthday
+        </div>
+
+        <h1>
+            Ratna
+        </h1>
+
+        <div class="name">
+            Listianingsih
+        </div>
+
+        <div class="date">
+            01 • 10 • 2006
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="message">
+            Semoga langkahmu selalu dipertemukan dengan
+            hal-hal baik, orang-orang baik, dan hari-hari
+            yang membuatmu tersenyum lebih lama.
+        </div>
+
+        <div class="card">
+
+            <p>
+                Selamat ulang tahun ke-20, Ratna.
+                <br>
+                Semoga tahun ini menjadi salah satu
+                halaman paling indah dalam cerita hidupmu.
+            </p>
+
+            <div class="countdown">
+
+                <div class="time">
+                    <strong id="days">00</strong>
+                    <span>HARI</span>
+                </div>
+
+                <div class="time">
+                    <strong id="hours">00</strong>
+                    <span>JAM</span>
+                </div>
+
+                <div class="time">
+                    <strong id="minutes">00</strong>
+                    <span>MENIT</span>
+                </div>
+
+                <div class="time">
+                    <strong id="seconds">00</strong>
+                    <span>DETIK</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="buttons">
+
+        <button onclick="toggleMusic()">
+            ♫ Musik
+        </button>
+
+        <button onclick="celebrate()">
+            ✦ Rayakan
+        </button>
+
+    </div>
+
+    <div class="hint">
+        GESER LAYAR UNTUK MELIHAT TAMAN
+    </div>
+
+</div>
+
+
+<audio id="music" loop>
+    <!-- GANTI DENGAN FILE MUSIK KAMU -->
+    <!-- contoh:
+    <source src="musik.mp3" type="audio/mpeg">
+    -->
+</audio>
+
+
+<script>
+
+/* =====================================================
+   THREE.JS SCENE
+===================================================== */
+
+const scene = new THREE.Scene();
+
+scene.background = new THREE.Color(0x090507);
+
+const camera = new THREE.PerspectiveCamera(
+    55,
+    innerWidth / innerHeight,
+    0.1,
+    100
+);
+
+camera.position.set(0,2.4,8);
+
+const renderer = new THREE.WebGLRenderer({
+    antialias:true,
+    alpha:true
+});
+
+renderer.setSize(innerWidth,innerHeight);
+renderer.setPixelRatio(
+    Math.min(devicePixelRatio,2)
+);
+
+renderer.shadowMap.enabled = true;
+
+document
+    .getElementById("scene")
+    .appendChild(renderer.domElement);
+
+
+/* =====================================================
+   LIGHT
+===================================================== */
+
+const ambient = new THREE.AmbientLight(
+    0xffd9c2,
+    1.2
+);
+
+scene.add(ambient);
+
+const moonLight = new THREE.DirectionalLight(
+    0xffd6a3,
+    2
+);
+
+moonLight.position.set(
+    3,
+    7,
+    4
+);
+
+moonLight.castShadow = true;
+
+scene.add(moonLight);
+
+const pinkLight = new THREE.PointLight(
+    0xff91b5,
+    3,
+    12
+);
+
+pinkLight.position.set(
+    -3,
+    3,
+    2
+);
+
+scene.add(pinkLight);
+
+
+/* =====================================================
+   GROUND
+===================================================== */
+
+const groundGeometry =
+    new THREE.CircleGeometry(8,64);
+
+const groundMaterial =
+    new THREE.MeshStandardMaterial({
+        color:0x160b10,
+        roughness:.9,
+        metalness:.05
+    });
+
+const ground =
+    new THREE.Mesh(
+        groundGeometry,
+        groundMaterial
+    );
+
+ground.rotation.x = -Math.PI/2;
+
+ground.position.y = -1.3;
+
+ground.receiveShadow = true;
+
+scene.add(ground);
+
+
+/* =====================================================
+   FLOWER CREATOR
+===================================================== */
+
+function createFlower(
+    x,
+    y,
+    z,
+    scale=1,
+    color=0xffb7c9
+){
+
+    const group = new THREE.Group();
+
+    group.position.set(x,y,z);
+
+    group.scale.setScalar(scale);
+
+    /* stem */
+
+    const stemGeometry =
+        new THREE.CylinderGeometry(
+            .025,
+            .04,
+            1.5,
+            8
+        );
+
+    const stemMaterial =
+        new THREE.MeshStandardMaterial({
+            color:0x27472d
+        });
+
+    const stem =
+        new THREE.Mesh(
+            stemGeometry,
+            stemMaterial
+        );
+
+    stem.position.y=.7;
+
+    group.add(stem);
+
+
+    /* petals */
+
+    for(let i=0;i<6;i++){
+
+        const petalGeometry =
+            new THREE.SphereGeometry(
+                .28,
+                12,
+                12
+            );
+
+        const petalMaterial =
+            new THREE.MeshStandardMaterial({
+                color:color,
+                roughness:.6
+            });
+
+        const petal =
+            new THREE.Mesh(
+                petalGeometry,
+                petalMaterial
+            );
+
+        const a =
+            i / 6 * Math.PI * 2;
+
+        petal.position.set(
+            Math.cos(a)*.23,
+            1.55,
+            Math.sin(a)*.23
+        );
+
+        petal.scale.set(
+            1,
+            .55,
+            1
+        );
+
+        group.add(petal);
+    }
+
+
+    /* center */
+
+    const centerGeometry =
+        new THREE.SphereGeometry(
+            .16,
+            12,
+            12
+        );
+
+    const centerMaterial =
+        new THREE.MeshStandardMaterial({
+            color:0xf7cf69
+        });
+
+    const center =
+        new THREE.Mesh(
+            centerGeometry,
+            centerMaterial
+        );
+
+    center.position.y=1.57;
+
+    group.add(center);
+
+    scene.add(group);
+
+    return group;
+}
+
+
+/* =====================================================
+   FLOWER GARDEN
+===================================================== */
+
+const flowers=[];
+
+const flowerColors=[
+    0xffb7c9,
+    0xffd5df,
+    0xffffff,
+    0xe9a5b8,
+    0xf4c4d2
+];
+
+for(let i=0;i<35;i++){
+
+    const angle =
+        Math.random()*Math.PI*2;
+
+    const radius =
+        3.2 + Math.random()*3;
+
+    const x =
+        Math.cos(angle)*radius;
+
+    const z =
+        Math.sin(angle)*radius;
+
+    const flower =
+        createFlower(
+            x,
+            -1.3,
+            z,
+            .35+Math.random()*.5,
+            flowerColors[
+                Math.floor(
+                    Math.random()*flowerColors.length
+                )
+            ]
+        );
+
+    flowers.push(flower);
+}
+
+
+/* =====================================================
+   WEDDING ARCH
+===================================================== */
+
+const arch = new THREE.Group();
+
+
+function archPiece(x,y,z,rotX=0){
+
+    const geo =
+        new THREE.TorusGeometry(
+            2.3,
+            .07,
+            10,
+            60,
+            Math.PI
+        );
+
+    const mat =
+        new THREE.MeshStandardMaterial({
+            color:0xb98a4d,
+            metalness:.6,
+            roughness:.3
+        });
+
+    const mesh =
+        new THREE.Mesh(geo,mat);
+
+    mesh.position.set(x,y,z);
+
+    mesh.rotation.z=Math.PI/2;
+
+    mesh.rotation.x=rotX;
+
+    return mesh;
+}
+
+
+/* vertical pillars */
+
+const pillarGeo =
+    new THREE.CylinderGeometry(
+        .07,
+        .1,
+        3.8,
+        12
+    );
+
+const pillarMat =
+    new THREE.MeshStandardMaterial({
+        color:0xc39b5e,
+        metalness:.7,
+        roughness:.3
+    });
+
+const leftPillar =
+    new THREE.Mesh(
+        pillarGeo,
+        pillarMat
+    );
+
+leftPillar.position.set(-2.3,.6,0);
+
+arch.add(leftPillar);
+
+
+const rightPillar =
+    new THREE.Mesh(
+        pillarGeo,
+        pillarMat
+    );
+
+rightPillar.position.set(2.3,.6,0);
+
+arch.add(rightPillar);
+
+
+/* arch top */
+
+const topGeo =
+    new THREE.TorusGeometry(
+        2.3,
+        .07,
+        12,
+        64,
+        Math.PI
+    );
+
+const top =
+    new THREE.Mesh(
+        topGeo,
+        pillarMat
+    );
+
+top.position.y=2.5;
+
+top.rotation.z=Math.PI;
+
+arch.add(top);
+
+scene.add(arch);
+
+
+/* flowers around wedding arch */
+
+for(let i=0;i<18;i++){
+
+    const side =
+        Math.random()>.5 ? 1:-1;
+
+    const x =
+        side*(1.8+Math.random()*.7);
+
+    const y =
+        .4+Math.random()*2;
+
+    const z =
+        -.1+Math.random()*.4;
+
+    const f =
+        createFlower(
+            x,
+            y,
+            z,
+            .3+Math.random()*.4,
+            flowerColors[
+                Math.floor(
+                    Math.random()*flowerColors.length
+                )
+            ]
+        );
+
+}
+
+
+/* =====================================================
+   HEART
+===================================================== */
+
+function createHeart(){
+
+    const shape =
+        new THREE.Shape();
+
+    shape.moveTo(0,0);
+
+    shape.bezierCurveTo(
+        0,-.7,
+        -1.2,-.7,
+        -1.2,0
+    );
+
+    shape.bezierCurveTo(
+        -1.2,.7,
+        0,1.2,
+        0,1.6
+    );
+
+    shape.bezierCurveTo(
+        0,1.2,
+        1.2,.7,
+        1.2,0
+    );
+
+    shape.bezierCurveTo(
+        1.2,-.7,
+        0,-.7,
+        0,0
+    );
+
+    const geo =
+        new THREE.ExtrudeGeometry(
+            shape,
+            {
+                depth:.15,
+                bevelEnabled:true,
+                bevelThickness:.04,
+                bevelSize:.04
+            }
+        );
+
+    const mat =
+        new THREE.MeshStandardMaterial({
+            color:0xc56b7e,
+            metalness:.15,
+            roughness:.45
+        });
+
+    const heart =
+        new THREE.Mesh(
+            geo,
+            mat
+        );
+
+    heart.scale.setScalar(.45);
+
+    heart.rotation.z=Math.PI;
+
+    heart.position.set(
+        0,
+        2.5,
+        -.3
+    );
+
+    scene.add(heart);
+
+    return heart;
+}
+
+const heart=createHeart();
+
+
+/* =====================================================
+   FLOATING PETALS
+===================================================== */
+
+const petals=[];
+
+const petalGeometry =
+    new THREE.PlaneGeometry(
+        .13,
+        .2
+    );
+
+for(let i=0;i<120;i++){
+
+    const material =
+        new THREE.MeshBasicMaterial({
+            color:
+                flowerColors[
+                    Math.floor(
+                        Math.random()*
+                        flowerColors.length
+                    )
+                ],
+            side:THREE.DoubleSide,
+            transparent:true,
+            opacity:.8
+        });
+
+    const petal =
+        new THREE.Mesh(
+            petalGeometry,
+            material
+        );
+
+    petal.position.set(
+        (Math.random()-.5)*14,
+        Math.random()*8-1,
+        (Math.random()-.5)*12
+    );
+
+    petal.rotation.set(
+        Math.random()*Math.PI,
+        Math.random()*Math.PI,
+        Math.random()*Math.PI
+    );
+
+    petal.userData={
+        speed:.002+
+            Math.random()*.006,
+        rotation:.005+
+            Math.random()*.01
+    };
+
+    scene.add(petal);
+
+    petals.push(petal);
+}
+
+
+/* =====================================================
+   GOLD PARTICLES
+===================================================== */
+
+const particleGeometry =
+    new THREE.BufferGeometry();
+
+const particleCount=500;
+
+const positions=[];
+
+for(let i=0;i<particleCount;i++){
+
+    positions.push(
+        (Math.random()-.5)*15,
+        Math.random()*8-1,
+        (Math.random()-.5)*12
+    );
+}
+
+particleGeometry.setAttribute(
+    "position",
+    new THREE.Float32BufferAttribute(
+        positions,
+        3
+    )
+);
+
+const particleMaterial =
+    new THREE.PointsMaterial({
+        color:0xf1ce7a,
+        size:.025,
+        transparent:true,
+        opacity:.8
+    });
+
+const particles =
+    new THREE.Points(
+        particleGeometry,
+        particleMaterial
+    );
+
+scene.add(particles);
+
+
+/* =====================================================
+   CAMERA DRAG
+===================================================== */
+
+let targetX=0;
+let targetY=0;
+
+let currentX=0;
+let currentY=0;
+
+let dragging=false;
+let startX=0;
+let startY=0;
+
+function pointerDown(x,y){
+
+    dragging=true;
+
+    startX=x;
+    startY=y;
+}
+
+function pointerMove(x,y){
+
+    if(!dragging)return;
+
+    targetX=(x-startX)*.003;
+    targetY=(y-startY)*.002;
+}
+
+function pointerUp(){
+
+    dragging=false;
+}
+
+window.addEventListener(
+    "pointerdown",
+    e=>pointerDown(e.clientX,e.clientY)
+);
+
+window.addEventListener(
+    "pointermove",
+    e=>pointerMove(e.clientX,e.clientY)
+);
+
+window.addEventListener(
+    "pointerup",
+    pointerUp
+);
+
+
+/* =====================================================
+   ANIMATION
+===================================================== */
+
+const clock=new THREE.Clock();
+
+function animate(){
+
+    requestAnimationFrame(animate);
+
+    const t=clock.getElapsedTime();
+
+    currentX +=
+        (targetX-currentX)*.04;
+
+    currentY +=
+        (targetY-currentY)*.04;
+
+    camera.position.x =
+        currentX*2;
+
+    camera.position.y =
+        2.4-currentY*1.5;
+
+    camera.lookAt(
+        0,
+        .8,
+        0
+    );
+
+
+    /* heart floating */
+
+    heart.position.y =
+        2.5+
+        Math.sin(t*1.5)*.08;
+
+    heart.rotation.y =
+        Math.sin(t*.7)*.15;
+
+
+    /* flowers movement */
+
+    flowers.forEach((flower,i)=>{
+
+        flower.rotation.y =
+            Math.sin(
+                t*.3+i
+            )*.08;
+
+    });
+
+
+    /* petals */
+
+    petals.forEach(p=>{
+
+        p.position.y -=
+            p.userData.speed;
+
+        p.rotation.x +=
+            p.userData.rotation;
+
+        p.rotation.z +=
+            p.userData.rotation;
+
+        if(p.position.y < -2){
+
+            p.position.y=8;
+
+        }
+
+    });
+
+
+    particles.rotation.y =
+        t*.015;
+
+    renderer.render(
+        scene,
+        camera
+    );
+}
+
+animate();
+
+
+/* =====================================================
+   RESIZE
+===================================================== */
+
+window.addEventListener(
+    "resize",
+    ()=>{
+
+        camera.aspect =
+            innerWidth/innerHeight;
+
+        camera.updateProjectionMatrix();
+
+        renderer.setSize(
+            innerWidth,
+            innerHeight
+        );
+
+    }
+);
+
+
+/* =====================================================
+   OPEN WEBSITE
+===================================================== */
+
+function enterGarden(){
+
+    document
+        .getElementById("opening")
+        .classList.add("hide");
+
+    toggleMusic();
+}
+
+
+/* =====================================================
+   MUSIC
+===================================================== */
+
+const music=
+    document.getElementById("music");
+
+let musicOn=false;
+
+function toggleMusic(){
+
+    if(!music.src){
+
+        alert(
+            "Tambahkan file musik.mp3 pada bagian audio HTML."
+        );
+
+        return;
+    }
+
+    if(musicOn){
+
+        music.pause();
+
+        musicOn=false;
+
+    }else{
+
+        music.play();
+
+        musicOn=true;
+
+    }
+}
+
+
+/* =====================================================
+   COUNTDOWN
+===================================================== */
+
+const birthday =
+    new Date(
+        "2026-10-01T00:00:00+07:00"
+    );
+
+function updateCountdown(){
+
+    const now=new Date();
+
+    let diff=
+        birthday-now;
+
+    if(diff<0){
+
+        diff=0;
+
+    }
+
+    const days =
+        Math.floor(
+            diff/(1000*60*60*24)
+        );
+
+    const hours =
+        Math.floor(
+            diff/(1000*60*60)
+        )%24;
+
+    const minutes =
+        Math.floor(
+            diff/(1000*60)
+        )%60;
+
+    const seconds =
+        Math.floor(
+            diff/1000
+        )%60;
+
+    document.getElementById("days")
+        .textContent=
+        String(days).padStart(2,"0");
+
+    document.getElementById("hours")
+        .textContent=
+        String(hours).padStart(2,"0");
+
+    document.getElementById("minutes")
+        .textContent=
+        String(minutes).padStart(2,"0");
+
+    document.getElementById("seconds")
+        .textContent=
+        String(seconds).padStart(2,"0");
+}
+
+setInterval(
+    updateCountdown,
+    1000
+);
+
+updateCountdown();
+
+
+/* =====================================================
+   CELEBRATION
+===================================================== */
+
+function celebrate(){
+
+    for(let i=0;i<50;i++){
+
+        const flower=
+            createFlower(
+                (Math.random()-.5)*6,
+                2+Math.random()*3,
+                (Math.random()-.5)*3,
+                .15+Math.random()*.25,
+                flowerColors[
+                    Math.floor(
+                        Math.random()*
+                        flowerColors.length
+                    )
+                ]
+            );
+
+        setTimeout(
+            ()=>{
+                scene.remove(flower);
+            },
+            5000
+        );
+    }
+
+    heart.scale.set(
+        .7,
+        .7,
+        .7
+    );
+
+    setTimeout(()=>{
+
+        heart.scale.set(
+            .45,
+            .45,
+            .45
+        );
+
+    },400);
+}
+
+</script>
+
+</body>
+</html>
