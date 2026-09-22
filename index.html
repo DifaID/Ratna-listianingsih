@@ -2,1885 +2,977 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta name="viewport"
-content="width=device-width,
-initial-scale=1.0,
-maximum-scale=1.0,
-user-scalable=no">
+<title>Untuk Ratna Listianingsih</title>
 
-<title>Untuk Ratna • Muhammad Fajar M.</title>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.128.0/build/three.min.js"></script>
 
 <style>
-
 *{
-    box-sizing:border-box;
-    -webkit-tap-highlight-color:transparent;
+  box-sizing:border-box;
+  -webkit-tap-highlight-color:transparent;
 }
 
 html,body{
-    margin:0;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    background:#020202;
-    color:#fff;
-    font-family:Georgia,"Times New Roman",serif;
+  margin:0;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+  background:#030303;
+  color:#fff;
+  font-family:Georgia,"Times New Roman",serif;
 }
 
-body{
-    touch-action:none;
-}
+/* =========================
+   BACKGROUND
+========================= */
 
 #scene{
-    position:fixed;
-    inset:0;
+  position:fixed;
+  inset:0;
+  z-index:1;
 }
 
 canvas{
-    display:block;
+  display:block;
 }
 
-
-/* =========================================
-   BACKGROUND
-========================================= */
-
-.background{
-    position:fixed;
-    inset:0;
-    z-index:1;
-    pointer-events:none;
-
-    background:
-        radial-gradient(
-            ellipse at center,
-            rgba(82,67,43,.16) 0%,
-            rgba(30,24,17,.08) 35%,
-            rgba(0,0,0,.94) 85%
-        );
-}
-
-.gold-glow{
-    position:absolute;
-
-    width:65vw;
-    height:65vw;
-
-    max-width:520px;
-    max-height:520px;
-
-    left:50%;
-    top:50%;
-
-    transform:translate(-50%,-50%);
-
-    border-radius:50%;
-
-    background:
-        radial-gradient(
-            circle,
-            rgba(204,166,82,.08),
-            transparent 68%
-        );
-
-    filter:blur(20px);
-}
-
-
-/* =========================================
+/* =========================
    OPENING
-========================================= */
+========================= */
 
 #opening{
-    position:fixed;
-    inset:0;
-
-    z-index:1000;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    background:
-        radial-gradient(
-            circle at center,
-            #191510 0%,
-            #090807 50%,
-            #020202 100%
-        );
-
-    transition:
-        opacity 1.4s ease,
-        visibility 1.4s ease;
+  position:fixed;
+  inset:0;
+  z-index:1000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  background:
+    radial-gradient(circle at center,
+      rgba(120,95,35,.16),
+      rgba(0,0,0,.96) 65%);
+  transition:
+    opacity 1.2s ease,
+    visibility 1.2s ease;
 }
 
 #opening.hide{
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
 }
 
-.open-content{
-    width:min(90%,500px);
-    text-align:center;
+.opening-content{
+  width:min(90%,420px);
+  padding:30px;
 }
 
-.open-ornament{
-    color:#c9a65a;
-    font-size:24px;
-    letter-spacing:8px;
-    margin-bottom:24px;
+.small-title{
+  color:#c9a85b;
+  letter-spacing:5px;
+  font-size:11px;
+  margin-bottom:25px;
 }
 
-.open-small{
-    color:#bda875;
-    font-size:9px;
-    letter-spacing:6px;
-    text-transform:uppercase;
+.opening-content h1{
+  margin:0;
+  font-size:clamp(42px,13vw,75px);
+  font-weight:400;
+  letter-spacing:4px;
+  color:#d8b96a;
+  text-shadow:
+    0 0 15px rgba(216,185,106,.15);
 }
 
-.open-content h1{
-    margin:18px 0 8px;
-
-    font-size:
-        clamp(52px,15vw,88px);
-
-    font-weight:normal;
-    font-style:italic;
-
-    color:#f6eee0;
-
-    text-shadow:
-        0 3px 15px #000;
+.opening-content .date{
+  margin-top:12px;
+  color:#aaa;
+  font-size:13px;
+  letter-spacing:3px;
 }
 
-.open-name{
-    color:#c9a65a;
-    font-size:12px;
-    letter-spacing:5px;
-    text-transform:uppercase;
+/* =========================
+   BUTTON
+========================= */
+
+.gold-button{
+  margin-top:38px;
+  padding:13px 30px;
+  border:1px solid #b9964b;
+  background:rgba(0,0,0,.5);
+  color:#d9ba6b;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:11px;
+  letter-spacing:4px;
+  cursor:pointer;
+  transition:.3s;
 }
 
-.open-line{
-    width:130px;
-    height:1px;
-    margin:26px auto;
-
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #c9a65a,
-            transparent
-        );
+.gold-button:hover{
+  background:#b9964b;
+  color:#050505;
 }
 
-.open-text{
-    color:#aaa39a;
-    font-size:13px;
-    line-height:1.9;
-    margin-bottom:28px;
+.gold-button:active{
+  transform:scale(.96);
 }
 
-#openButton{
-    border:
-        1px solid
-        rgba(201,166,90,.65);
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(201,166,90,.13),
-            rgba(255,255,255,.02)
-        );
-
-    color:#dbc17e;
-
-    padding:14px 28px;
-
-    border-radius:2px;
-
-    font-family:Georgia,serif;
-
-    font-size:10px;
-    letter-spacing:4px;
-
-    cursor:pointer;
-
-    pointer-events:auto;
-}
-
-#openButton:active{
-    transform:scale(.97);
-}
-
-
-/* =========================================
-   UI
-========================================= */
+/* =========================
+   MAIN UI
+========================= */
 
 #ui{
-    position:fixed;
-    inset:0;
-
-    z-index:20;
-
-    opacity:0;
-
-    pointer-events:none;
-
-    transition:opacity 2s ease;
+  position:fixed;
+  inset:0;
+  z-index:50;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity 1.5s ease;
 }
 
 #ui.show{
-    opacity:1;
-    pointer-events:auto;
+  opacity:1;
+  pointer-events:auto;
 }
 
+/* =========================
+   DECORATION
+========================= */
 
-/* =========================================
-   TOP
-========================================= */
-
-.top{
-    position:absolute;
-
-    top:
-        max(
-            22px,
-            env(safe-area-inset-top)
-        );
-
-    left:0;
-    right:0;
-
-    text-align:center;
+.top-decoration{
+  position:absolute;
+  top:7%;
+  left:50%;
+  transform:translateX(-50%);
+  width:180px;
+  height:80px;
 }
 
-.top-small{
-    color:#aa9665;
-    font-size:8px;
-    letter-spacing:5px;
-    text-transform:uppercase;
+.ring{
+  position:absolute;
+  width:62px;
+  height:62px;
+  border:2px solid #c9a85b;
+  border-radius:50%;
+  top:5px;
+  box-shadow:
+    0 0 8px rgba(201,168,91,.18);
 }
 
-.top-line{
-    width:55px;
-    height:1px;
-    margin:10px auto;
-    background:#8c723e;
+.ring.one{
+  left:34px;
 }
 
-
-/* =========================================
-   FRAME
-========================================= */
-
-.card-frame{
-    position:absolute;
-
-    left:50%;
-    top:50%;
-
-    width:min(86vw,430px);
-    height:min(62vh,530px);
-
-    transform:translate(-50%,-50%);
-
-    border:
-        1px solid
-        rgba(196,159,83,.23);
-
-    pointer-events:none;
+.ring.two{
+  left:82px;
 }
 
-.card-frame::before{
-    content:"";
-
-    position:absolute;
-
-    inset:8px;
-
-    border:
-        1px solid
-        rgba(196,159,83,.10);
+.ring:after{
+  content:"";
+  position:absolute;
+  width:9px;
+  height:9px;
+  border:1px solid #d8bd78;
+  transform:rotate(45deg);
+  top:-5px;
+  left:24px;
+  background:#050505;
 }
 
-.corner{
-    position:absolute;
+/* =========================
+   TITLE
+========================= */
 
-    width:25px;
-    height:25px;
-
-    border-color:#b99651;
-    border-style:solid;
+.main-title{
+  text-align:center;
+  margin-top:-20px;
 }
 
-.corner.tl{
-    top:-1px;
-    left:-1px;
-    border-width:1px 0 0 1px;
+.main-title .small{
+  color:#c8a65b;
+  font-size:10px;
+  letter-spacing:5px;
+  margin-bottom:12px;
 }
 
-.corner.tr{
-    top:-1px;
-    right:-1px;
-    border-width:1px 1px 0 0;
+.main-title h1{
+  margin:0;
+  color:#d8b96a;
+  font-size:clamp(40px,12vw,76px);
+  font-weight:400;
+  letter-spacing:3px;
 }
 
-.corner.bl{
-    bottom:-1px;
-    left:-1px;
-    border-width:0 0 1px 1px;
+.main-title .birthday{
+  margin-top:10px;
+  font-size:12px;
+  color:#aaa;
+  letter-spacing:3px;
 }
 
-.corner.br{
-    bottom:-1px;
-    right:-1px;
-    border-width:0 1px 1px 0;
-}
-
-
-/* =========================================
-   TENGAH
-========================================= */
-
-.center{
-    position:absolute;
-
-    left:50%;
-    top:47%;
-
-    transform:translate(-50%,-50%);
-
-    width:min(90%,500px);
-
-    text-align:center;
-}
-
-.ornament{
-    color:#c8a45b;
-    font-size:25px;
-    letter-spacing:8px;
-    margin-bottom:15px;
-
-    text-shadow:
-        0 0 15px
-        rgba(205,170,90,.2);
-}
-
-.invite-title{
-    color:#b8aa92;
-    font-size:9px;
-    letter-spacing:5px;
-    text-transform:uppercase;
-    margin-bottom:15px;
-}
-
-.center h1{
-    margin:0;
-
-    color:#f5eee3;
-
-    font-size:
-        clamp(50px,14vw,84px);
-
-    font-weight:normal;
-    font-style:italic;
-    line-height:.95;
-
-    text-shadow:
-        0 4px 20px #000;
-}
-
-.center-name{
-    margin-top:15px;
-
-    color:#c9a65a;
-
-    font-size:
-        clamp(12px,3.5vw,18px);
-
-    letter-spacing:5px;
-    text-transform:uppercase;
-}
-
-.center-date{
-    margin-top:20px;
-
-    color:#b7b0a7;
-
-    font-size:10px;
-    letter-spacing:4px;
-}
-
-.center-date::before,
-.center-date::after{
-
-    content:"";
-
-    display:inline-block;
-
-    vertical-align:middle;
-
-    width:35px;
-    height:1px;
-
-    margin:0 9px;
-
-    background:#6e5b38;
-}
-
-
-/* =========================================
+/* =========================
    BOTTOM
-========================================= */
+========================= */
 
 .bottom{
-    position:absolute;
-
-    left:0;
-    right:0;
-
-    bottom:
-        max(
-            20px,
-            env(safe-area-inset-bottom)
-        );
-
-    text-align:center;
+  position:absolute;
+  bottom:8%;
+  left:50%;
+  transform:translateX(-50%);
+  text-align:center;
 }
 
-.bottom button{
-
-    pointer-events:auto;
-
-    padding:12px 23px;
-
-    color:#cbb477;
-
-    background:
-        rgba(8,7,6,.88);
-
-    border:
-        1px solid
-        rgba(190,155,82,.38);
-
-    border-radius:2px;
-
-    font-family:Georgia,serif;
-
-    font-size:9px;
-    letter-spacing:2px;
-
-    cursor:pointer;
-
-    backdrop-filter:blur(8px);
-}
-
-.bottom button:active{
-    transform:scale(.96);
-}
-
-.hint{
-    margin-top:9px;
-
-    color:
-        rgba(255,255,255,.25);
-
-    font-size:7px;
-    letter-spacing:3px;
-}
-
-
-/* =========================================
-   SURAT
-========================================= */
+/* =========================
+   LETTER MODAL
+========================= */
 
 #letter{
-    position:fixed;
-    inset:0;
+  position:fixed;
+  inset:0;
+  z-index:2000;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  padding:20px;
 
-    z-index:500;
+  background:rgba(0,0,0,.82);
+  backdrop-filter:blur(8px);
 
-    display:flex;
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
 
-    align-items:center;
-    justify-content:center;
-
-    padding:20px;
-
-    background:
-        rgba(0,0,0,.84);
-
-    backdrop-filter:blur(10px);
-
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
-
-    transition:
-        opacity .6s ease,
-        visibility .6s ease;
+  transition:
+    opacity .5s ease,
+    visibility .5s ease;
 }
 
-#letter.show{
-    opacity:1;
-    visibility:visible;
-    pointer-events:auto;
+#letter.open{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
 }
 
-.paper{
-    position:relative;
+.letter-card{
+  position:relative;
+  width:min(92%,520px);
+  max-height:82vh;
+  overflow-y:auto;
 
-    z-index:501;
+  padding:35px 28px;
 
-    width:min(92%,470px);
+  background:
+    linear-gradient(
+      145deg,
+      rgba(28,25,19,.98),
+      rgba(7,7,7,.98)
+    );
 
-    max-height:86vh;
+  border:1px solid rgba(201,168,91,.65);
 
-    overflow:auto;
+  box-shadow:
+    0 0 40px rgba(0,0,0,.8),
+    0 0 25px rgba(201,168,91,.08);
 
-    padding:42px 28px;
-
-    text-align:center;
-
-    color:#302b24;
-
-    background:
-        linear-gradient(
-            135deg,
-            #faf4e8,
-            #eee2cc
-        );
-
-    border:
-        1px solid
-        #bd9651;
-
-    box-shadow:
-        0 30px 90px
-        rgba(0,0,0,.8);
-
-    pointer-events:auto;
-
-    touch-action:auto;
-
-    -webkit-overflow-scrolling:touch;
+  transform:translateY(30px) scale(.96);
+  transition:transform .5s ease;
 }
 
-.paper::before{
-    content:"";
-
-    position:absolute;
-
-    inset:9px;
-
-    border:
-        1px solid
-        rgba(140,104,49,.35);
-
-    pointer-events:none;
+#letter.open .letter-card{
+  transform:translateY(0) scale(1);
 }
 
-.paper-ornament{
-    color:#a57b35;
-    font-size:25px;
-    letter-spacing:6px;
+.letter-card:before,
+.letter-card:after{
+  content:"";
+  position:absolute;
+  width:35px;
+  height:35px;
+  border-color:#c9a85b;
+  border-style:solid;
 }
 
-.paper h2{
-    margin:16px 0 8px;
-
-    font-size:35px;
-
-    font-weight:normal;
-    font-style:italic;
+.letter-card:before{
+  top:12px;
+  left:12px;
+  border-width:1px 0 0 1px;
 }
 
-.paper-name{
-    color:#9c763c;
-
-    font-size:11px;
-
-    letter-spacing:4px;
+.letter-card:after{
+  right:12px;
+  bottom:12px;
+  border-width:0 1px 1px 0;
 }
 
-.paper hr{
-    width:75px;
-
-    border:0;
-
-    border-top:
-        1px solid
-        #b08a4c;
-
-    margin:23px auto;
+.letter-title{
+  text-align:center;
+  color:#d8b96a;
+  font-size:25px;
+  font-weight:400;
+  letter-spacing:3px;
+  margin-bottom:8px;
 }
 
-.paper p{
+.letter-subtitle{
+  text-align:center;
+  color:#888;
+  font-size:10px;
+  letter-spacing:4px;
+  margin-bottom:28px;
+}
+
+.letter-section{
+  margin-bottom:25px;
+}
+
+.letter-section h2{
+  margin:0 0 12px;
+  color:#c9a85b;
+  font-size:13px;
+  font-weight:400;
+  letter-spacing:3px;
+  text-align:center;
+}
+
+.letter-section p{
+  margin:0;
+  color:#ddd;
+  font-size:14px;
+  line-height:1.8;
+  text-align:center;
+}
+
+.signature{
+  margin-top:28px;
+  text-align:center;
+  color:#aaa;
+  font-size:12px;
+  line-height:1.8;
+}
+
+.signature strong{
+  color:#d8b96a;
+  font-weight:400;
+  letter-spacing:1px;
+}
+
+.close-letter{
+  display:block;
+  margin:28px auto 0;
+
+  padding:10px 25px;
+
+  background:transparent;
+  border:1px solid #9c7b3c;
+
+  color:#c9a85b;
+  font-family:Georgia,"Times New Roman",serif;
+  font-size:10px;
+  letter-spacing:3px;
+
+  cursor:pointer;
+}
+
+.close-letter:hover{
+  background:#c9a85b;
+  color:#050505;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:600px){
+
+  .top-decoration{
+    top:6%;
+    transform:translateX(-50%) scale(.85);
+  }
+
+  .main-title{
+    margin-top:-10px;
+  }
+
+  .main-title h1{
+    font-size:50px;
+  }
+
+  .opening-content h1{
+    font-size:55px;
+  }
+
+  .letter-card{
+    padding:32px 22px;
+    max-height:84vh;
+  }
+
+  .letter-title{
+    font-size:22px;
+  }
+
+  .letter-section p{
     font-size:13px;
-    line-height:1.9;
-    margin:13px 0;
+    line-height:1.75;
+  }
+
+  .bottom{
+    bottom:7%;
+  }
 }
-
-.paper strong{
-    color:#76572d;
-    font-weight:normal;
-}
-
-.close{
-    position:relative;
-
-    z-index:510;
-
-    margin-top:18px;
-
-    padding:10px 22px;
-
-    background:transparent;
-
-    color:#6d502b;
-
-    border:
-        1px solid
-        #a8844a;
-
-    border-radius:2px;
-
-    font-family:Georgia,serif;
-
-    font-size:10px;
-
-    letter-spacing:2px;
-
-    cursor:pointer;
-
-    pointer-events:auto;
-
-    touch-action:manipulation;
-}
-
-
-/* =========================================
-   VIGNETTE
-========================================= */
-
-.vignette{
-    position:fixed;
-
-    inset:0;
-
-    z-index:10;
-
-    pointer-events:none;
-
-    background:
-        radial-gradient(
-            circle,
-            transparent 30%,
-            rgba(0,0,0,.18) 60%,
-            rgba(0,0,0,.75) 100%
-        );
-}
-
 </style>
 </head>
 
 <body>
 
+<!-- =========================
+     THREE.JS BACKGROUND
+========================= -->
+
 <div id="scene"></div>
 
-<div class="background">
-    <div class="gold-glow"></div>
-</div>
 
+<!-- =========================
+     OPENING SCREEN
+========================= -->
 
-<!-- =====================================
-     OPENING
-===================================== -->
+<section id="opening">
 
-<div id="opening">
+  <div class="opening-content">
 
-    <div class="open-content">
-
-        <div class="open-ornament">
-            ✦ ❦ ✦
-        </div>
-
-        <div class="open-small">
-            A Special Invitation
-        </div>
-
-        <h1>
-            Ratna
-        </h1>
-
-        <div class="open-name">
-            LISTIANINGSIH
-        </div>
-
-        <div class="open-line"></div>
-
-        <div class="open-text">
-
-            Sebuah halaman kecil,
-            dibuat untuk seseorang
-            yang pernah menjadi
-            bagian dari sebuah cerita.
-
-            <br><br>
-
-            Silakan masuk.
-
-        </div>
-
-        <button
-            type="button"
-            id="openButton">
-
-            BUKA UNDANGAN
-
-        </button>
-
+    <div class="small-title">
+      SEBUAH UNDANGAN KECIL
     </div>
 
-</div>
+    <h1>Ratna</h1>
 
-
-<!-- =====================================
-     MAIN UI
-===================================== -->
-
-<div id="ui">
-
-    <div class="top">
-
-        <div class="top-small">
-            The Beginning Of Something Beautiful
-        </div>
-
-        <div class="top-line"></div>
-
+    <div class="date">
+      01 • 10 • 2006
     </div>
 
+    <button
+      id="openButton"
+      class="gold-button"
+      type="button"
+    >
+      BUKA UNDANGAN
+    </button>
 
-    <div class="card-frame">
+  </div>
 
-        <div class="corner tl"></div>
-        <div class="corner tr"></div>
-        <div class="corner bl"></div>
-        <div class="corner br"></div>
+</section>
 
+
+<!-- =========================
+     MAIN PAGE
+========================= -->
+
+<section id="ui">
+
+  <div class="top-decoration">
+
+    <div class="ring one"></div>
+    <div class="ring two"></div>
+
+  </div>
+
+
+  <div class="main-title">
+
+    <div class="small">
+      SELAMAT ULANG TAHUN
     </div>
 
+    <h1>Ratna</h1>
 
-    <div class="center">
-
-        <div class="ornament">
-            ❦
-        </div>
-
-        <div class="invite-title">
-            Dengan penuh kasih
-        </div>
-
-        <h1>
-            Ratna
-        </h1>
-
-        <div class="center-name">
-            Listianingsih
-        </div>
-
-        <div class="center-date">
-            01 • 10 • 2006
-        </div>
-
+    <div class="birthday">
+      20 TAHUN • 01 OKTOBER 2026
     </div>
 
-
-    <div class="bottom">
-
-        <button
-            type="button"
-            id="letterButton">
-
-            💌 BUKA SURAT
-
-        </button>
-
-        <div class="hint">
-            GESER LAYAR
-        </div>
-
-    </div>
-
-</div>
+  </div>
 
 
-<!-- =====================================
-     SURAT
-===================================== -->
+  <div class="bottom">
+
+    <button
+      id="openLetter"
+      class="gold-button"
+      type="button"
+    >
+      BUKA SURAT
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- =========================
+     LETTER
+========================= -->
 
 <div id="letter">
 
-    <div class="paper">
+  <div class="letter-card">
 
-        <div class="paper-ornament">
-            ✦ ❦ ✦
-        </div>
+    <div class="letter-title">
+      Untuk Ratna
+    </div>
 
-        <div class="paper-name">
-            SEBUAH SURAT KENANGAN
-        </div>
+    <div class="letter-subtitle">
+      SEBUAH CATATAN KECIL
+    </div>
 
-        <h2>
-            Untuk Ratna
-        </h2>
 
-        <div class="paper-name">
-            RATNA LISTIANINGSIH
-        </div>
+    <!-- KENANGAN -->
 
-        <hr>
+    <div class="letter-section">
 
-        <p>
-            Mungkin tidak banyak yang tahu,
-            bahwa sebelum hari ini tiba,
-            pernah ada satu cerita kecil
-            yang sempat kita jalani.
-        </p>
+      <h2>KENANGAN</h2>
 
-        <p>
-            Kita pernah saling mengenal
-            selama satu bulan,
-            tepatnya di bulan Juli.
-
-            Selama waktu yang singkat itu,
-            kita pernah berbagi cerita,
-            saling mengenal lebih dekat,
-            dan perlahan menjadi nyaman
-            satu sama lain.
-        </p>
-
-        <p>
-            Di bulan Juli itu juga,
-            kita pernah bertemu.
-
-            Hanya sekali.
-
-            Mungkin bagi orang lain
-            itu hanyalah sebuah pertemuan biasa,
-            tetapi bagiku,
-            pertemuan itu tetap menjadi
-            salah satu bagian dari kenangan
-            yang pernah kita punya.
-        </p>
-
-        <p>
-            Waktu kemudian terus berjalan.
-
-            Entah bagaimana,
-            jalan yang awalnya mempertemukan kita
-            perlahan membawa kita
-            ke arah yang berbeda.
-        </p>
-
-        <p>
-            Yang sebelumnya saling mengenal,
-            akhirnya menjadi asing.
-
-            Yang pernah saling nyaman,
-            akhirnya kembali menjalani
-            kehidupan masing-masing.
-        </p>
-
-        <p>
-            Mungkin memang tidak semua
-            pertemuan diciptakan untuk
-            berlangsung selamanya.
-
-            Ada orang yang hadir
-            hanya untuk meninggalkan
-            sebuah cerita,
-            sebuah kenangan,
-            atau sebuah bagian kecil
-            dalam perjalanan hidup kita.
-        </p>
-
-        <p>
-            Dan bagaimanapun akhirnya,
-            aku tetap menghargai
-            cerita yang pernah ada.
-
-            Karena pernah ada satu bulan
-            di bulan Juli,
-            ketika kita saling mengenal,
-            saling nyaman,
-            dan pernah bertemu
-            walaupun hanya sekali.
-        </p>
-
-        <hr>
-
-        <p>
-            Di hari ulang tahunmu ini,
-            aku tidak ingin meminta apa-apa.
-
-            Aku hanya ingin mengucapkan
-            sesuatu yang sederhana.
-        </p>
-
-        <p>
-            <strong>
-                Selamat ulang tahun, Ratna.
-            </strong>
-        </p>
-
-        <p>
-            Semoga di usia yang baru,
-            kamu menemukan lebih banyak
-            kebahagiaan,
-            ketenangan,
-            dan hal-hal baik
-            yang memang pantas kamu dapatkan.
-        </p>
-
-        <p>
-            Semoga jalan yang kamu pilih
-            membawa kamu ke tempat
-            yang kamu inginkan.
-        </p>
-
-        <p>
-            Kita mungkin sekarang
-            berjalan di jalan masing-masing.
-
-            Tetapi satu hal yang tidak berubah:
-
-            cerita yang pernah ada
-            tetap pernah menjadi cerita.
-        </p>
-
-        <p>
-            Terima kasih
-            untuk satu bulan di bulan Juli itu.
-
-            Untuk percakapan,
-            kenyamanan,
-            pertemuan,
-            dan kenangan
-            yang pernah kita punya.
-        </p>
-
-        <p>
-            ✦
-        </p>
-
-        <div class="paper-name">
-            DARI MUHAMMAD FAJAR M.
-        </div>
-
-        <p style="
-            font-size:10px;
-            letter-spacing:2px;
-            color:#8b7759;
-        ">
-            UNTUK SEBUAH KENANGAN
-        </p>
-
-        <button
-            type="button"
-            class="close"
-            id="closeLetter">
-
-            TUTUP SURAT
-
-        </button>
+      <p>
+        Kita pernah kenal selama satu bulan
+        di bulan Juli.
+        <br><br>
+        Walaupun singkat, ada beberapa
+        kenangan yang masih aku ingat.
+        Kita pernah bertemu, pernah dekat,
+        lalu akhirnya kembali menjadi dua
+        orang yang berjalan di jalan masing-masing.
+      </p>
 
     </div>
+
+
+    <!-- ULANG TAHUN -->
+
+    <div class="letter-section">
+
+      <h2>SELAMAT ULANG TAHUN</h2>
+
+      <p>
+        Selamat ulang tahun, Ratna.
+        <br><br>
+        Semoga di usia 20 tahun ini,
+        banyak hal baik datang kepadamu.
+        Semoga langkahmu selalu dimudahkan
+        dan apa yang kamu harapkan
+        bisa tercapai.
+      </p>
+
+    </div>
+
+
+    <div class="signature">
+
+      Dari,
+
+      <br>
+
+      <strong>
+        Muhammad Fajar M.
+      </strong>
+
+    </div>
+
+
+    <button
+      id="closeLetter"
+      class="close-letter"
+      type="button"
+    >
+      TUTUP SURAT
+    </button>
+
+  </div>
 
 </div>
 
 
-<!-- =====================================
-     MUSIK
-===================================== -->
+<!-- =========================
+     MUSIC
+========================= -->
 
 <audio
-    id="music"
-    src="music.mp3"
-    autoplay
-    loop>
+  id="music"
+  src="music.mp3"
+  loop
+  preload="auto">
 </audio>
 
 
 <script>
 
-/* =========================================
-   THREE.JS
-========================================= */
+/* ==========================================
+   ELEMENT
+========================================== */
 
-const scene = new THREE.Scene();
+const opening = document.getElementById("opening");
+const openButton = document.getElementById("openButton");
 
-const camera =
-new THREE.PerspectiveCamera(
-    50,
-    innerWidth / innerHeight,
-    .1,
-    100
-);
+const ui = document.getElementById("ui");
 
-camera.position.set(
-    0,
-    0,
-    10
-);
+const letter = document.getElementById("letter");
+const openLetter = document.getElementById("openLetter");
+const closeLetter = document.getElementById("closeLetter");
 
+const music = document.getElementById("music");
 
-const renderer =
-new THREE.WebGLRenderer({
-    antialias:true,
-    alpha:true
-});
 
-renderer.setSize(
-    innerWidth,
-    innerHeight
-);
-
-renderer.setPixelRatio(
-    Math.min(devicePixelRatio,2)
-);
-
-document
-.getElementById("scene")
-.appendChild(renderer.domElement);
-
-
-/* =========================================
-   LIGHT
-========================================= */
-
-scene.add(
-    new THREE.AmbientLight(
-        0xffffff,
-        .55
-    )
-);
-
-const goldLight =
-new THREE.PointLight(
-    0xd8ae58,
-    2.2,
-    18
-);
-
-goldLight.position.set(
-    0,
-    2,
-    3
-);
-
-scene.add(goldLight);
-
-
-const leftLight =
-new THREE.PointLight(
-    0x8b6a38,
-    1.1,
-    12
-);
-
-leftLight.position.set(
-    -5,
-    1,
-    1
-);
-
-scene.add(leftLight);
-
-
-const rightLight =
-new THREE.PointLight(
-    0x8b6a38,
-    1.1,
-    12
-);
-
-rightLight.position.set(
-    5,
-    1,
-    1
-);
-
-scene.add(rightLight);
-
-
-/* =========================================
-   PARTICLES
-========================================= */
-
-const particleGeometry =
-new THREE.BufferGeometry();
-
-const particlePositions=[];
-
-for(
-    let i=0;
-    i<260;
-    i++
-){
-
-    particlePositions.push(
-        (Math.random()-.5)*16,
-        (Math.random()-.5)*10,
-        (Math.random()-.5)*8
-    );
-
-}
-
-particleGeometry.setAttribute(
-    "position",
-    new THREE.Float32BufferAttribute(
-        particlePositions,
-        3
-    )
-);
-
-
-const particleMaterial =
-new THREE.PointsMaterial({
-    color:0xc8a45b,
-    size:.025,
-    transparent:true,
-    opacity:.65
-});
-
-
-const particles =
-new THREE.Points(
-    particleGeometry,
-    particleMaterial
-);
-
-scene.add(particles);
-
-
-/* =========================================
-   CINCIN BELAKANG
-========================================= */
-
-const rings=[];
-
-for(
-    let i=0;
-    i<3;
-    i++
-){
-
-    const ring =
-    new THREE.Mesh(
-
-        new THREE.TorusGeometry(
-            1.1+i*.45,
-            .012,
-            10,
-            80
-        ),
-
-        new THREE.MeshBasicMaterial({
-            color:0xb9944c,
-            transparent:true,
-            opacity:.13-i*.025
-        })
-
-    );
-
-    ring.position.set(
-        0,
-        0,
-        -1
-    );
-
-    ring.rotation.x =
-        Math.PI/2;
-
-    scene.add(ring);
-
-    rings.push(ring);
-}
-
-
-/* =========================================
-   CINCIN PERNIKAHAN
-========================================= */
-
-const ringMaterial1 =
-new THREE.MeshStandardMaterial({
-    color:0xd4ad5f,
-    metalness:.95,
-    roughness:.2
-});
-
-
-const ringMaterial2 =
-new THREE.MeshStandardMaterial({
-    color:0xe6cf91,
-    metalness:.95,
-    roughness:.18
-});
-
-
-const weddingRing1 =
-new THREE.Mesh(
-
-    new THREE.TorusGeometry(
-        .55,
-        .07,
-        24,
-        80
-    ),
-
-    ringMaterial1
-
-);
-
-weddingRing1.position.set(
-    -.32,
-    2.35,
-    -1.5
-);
-
-weddingRing1.rotation.z=.20;
-
-scene.add(weddingRing1);
-
-
-const weddingRing2 =
-new THREE.Mesh(
-
-    new THREE.TorusGeometry(
-        .55,
-        .07,
-        24,
-        80
-    ),
-
-    ringMaterial2
-
-);
-
-weddingRing2.position.set(
-    .32,
-    2.35,
-    -1.5
-);
-
-weddingRing2.rotation.z=-.20;
-
-scene.add(weddingRing2);
-
-
-/* =========================================
-   BUNGA
-========================================= */
-
-function flower(
-    x,
-    y,
-    z,
-    scale,
-    color
-){
-
-    const group =
-    new THREE.Group();
-
-    group.position.set(
-        x,
-        y,
-        z
-    );
-
-    group.scale.setScalar(
-        scale
-    );
-
-
-    const center =
-    new THREE.Mesh(
-
-        new THREE.SphereGeometry(
-            .12,
-            10,
-            10
-        ),
-
-        new THREE.MeshStandardMaterial({
-            color:0xd4a74e,
-            roughness:.5
-        })
-
-    );
-
-    group.add(center);
-
-
-    for(
-        let i=0;
-        i<6;
-        i++
-    ){
-
-        const angle =
-            i/6*Math.PI*2;
-
-        const petal =
-        new THREE.Mesh(
-
-            new THREE.SphereGeometry(
-                .19,
-                10,
-                8
-            ),
-
-            new THREE.MeshStandardMaterial({
-                color:color,
-                roughness:.55
-            })
-
-        );
-
-        petal.position.set(
-            Math.cos(angle)*.18,
-            0,
-            Math.sin(angle)*.18
-        );
-
-        petal.scale.y=.6;
-
-        group.add(petal);
-
-    }
-
-    scene.add(group);
-
-    return group;
-}
-
-
-const decorativeFlowers=[];
-
-decorativeFlowers.push(
-    flower(
-        -4.3,
-        -2.8,
-        -1,
-        .7,
-        0x8d2437
-    )
-);
-
-decorativeFlowers.push(
-    flower(
-        -4.8,
-        -3.2,
-        -.8,
-        .5,
-        0xd7d0c2
-    )
-);
-
-decorativeFlowers.push(
-    flower(
-        4.3,
-        -2.8,
-        -1,
-        .7,
-        0x8d2437
-    )
-);
-
-decorativeFlowers.push(
-    flower(
-        4.8,
-        -3.2,
-        -.8,
-        .5,
-        0xd7d0c2
-    )
-);
-
-
-/* =========================================
-   ORNAMEN
-========================================= */
-
-const ornamentMaterial =
-new THREE.LineBasicMaterial({
-    color:0xa98243,
-    transparent:true,
-    opacity:.3
-});
-
-
-function makeLine(points){
-
-    const geometry =
-    new THREE.BufferGeometry()
-    .setFromPoints(points);
-
-    const line =
-    new THREE.Line(
-        geometry,
-        ornamentMaterial
-    );
-
-    scene.add(line);
-}
-
-
-makeLine([
-    new THREE.Vector3(-5,2,-1),
-    new THREE.Vector3(-3.5,3,-1),
-    new THREE.Vector3(-2,2.4,-1)
-]);
-
-
-makeLine([
-    new THREE.Vector3(5,2,-1),
-    new THREE.Vector3(3.5,3,-1),
-    new THREE.Vector3(2,2.4,-1)
-]);
-
-
-/* =========================================
-   MUSIK
-========================================= */
-
-const music =
-document.getElementById("music");
-
+/* ==========================================
+   MUSIC
+========================================== */
 
 function startMusic(){
 
-    music.volume=.65;
+  if(!music) return;
 
-    const promise =
-        music.play();
+  music.volume = 0.65;
 
-    if(
-        promise !== undefined
-    ){
+  const playPromise = music.play();
 
-        promise.catch(
-            function(){
-                console.log(
-                    "Autoplay diblokir browser."
-                );
-            }
-        );
+  if(playPromise !== undefined){
 
-    }
+    playPromise.catch(() => {
+      /*
+        Beberapa browser memblokir autoplay.
+        Musik akan tetap mencoba diputar
+        setelah interaksi pengguna.
+      */
+    });
+
+  }
+
 }
 
 
-/* =========================================
-   OPEN INVITATION
-========================================= */
-
-let entering=false;
-
+/* ==========================================
+   BUKA UNDANGAN
+========================================== */
 
 function enter(){
 
-    if(entering)
-        return;
+  opening.classList.add("hide");
 
-    entering=true;
+  ui.classList.add("show");
 
-
-    /* Musik dijalankan setelah user menyentuh tombol */
-
-    startMusic();
-
-
-    const opening =
-        document.getElementById("opening");
-
-    const ui =
-        document.getElementById("ui");
-
-
-    opening.classList.add("hide");
-
-    ui.classList.add("show");
-
-
-    camera.position.set(
-        0,
-        -.5,
-        12
-    );
-
-
-    const start =
-        performance.now();
-
-
-    function cinematic(now){
-
-        const progress =
-            Math.min(
-                (now-start)/2200,
-                1
-            );
-
-
-        const ease =
-            1-
-            Math.pow(
-                1-progress,
-                3
-            );
-
-
-        camera.position.z =
-            12-
-            3*ease;
-
-
-        camera.position.y =
-            -.5+
-            .4*ease;
-
-
-        camera.lookAt(
-            0,
-            0,
-            -1
-        );
-
-
-        if(progress<1){
-
-            requestAnimationFrame(
-                cinematic
-            );
-
-        }else{
-
-            entering=false;
-
-        }
-
-    }
-
-
-    requestAnimationFrame(
-        cinematic
-    );
+  startMusic();
 
 }
 
 
-/* =========================================
-   FIX UTAMA
-   TOMBOL BUKA UNDANGAN
-========================================= */
+/*
+  Listener tombol BUKA UNDANGAN
+*/
 
-const openButton =
-document.getElementById(
-    "openButton"
-);
+openButton.addEventListener("click", function(e){
 
+  e.preventDefault();
+  e.stopPropagation();
 
-openButton.addEventListener(
-    "click",
-    function(e){
+  enter();
 
-        e.preventDefault();
-        e.stopPropagation();
-
-        enter();
-
-    }
-);
+});
 
 
-/* =========================================
+/* ==========================================
    SURAT
-========================================= */
+========================================== */
 
-const letter =
-document.getElementById(
-    "letter"
-);
+openLetter.addEventListener("click", function(){
 
-const letterButton =
-document.getElementById(
-    "letterButton"
-);
+  letter.classList.add("open");
 
-const closeLetter =
-document.getElementById(
-    "closeLetter"
-);
+});
 
 
-letterButton.addEventListener(
-    "click",
-    function(e){
+closeLetter.addEventListener("click", function(){
 
-        e.preventDefault();
-        e.stopPropagation();
+  letter.classList.remove("open");
 
-        letter.classList.add(
-            "show"
-        );
-
-    }
-);
+});
 
 
-closeLetter.addEventListener(
-    "click",
-    function(e){
+/*
+  Klik area luar surat untuk menutup
+*/
 
-        e.preventDefault();
-        e.stopPropagation();
+letter.addEventListener("click", function(e){
 
-        letter.classList.remove(
-            "show"
-        );
+  if(e.target === letter){
 
-    }
-);
+    letter.classList.remove("open");
 
+  }
 
-letter.addEventListener(
-    "click",
-    function(e){
-
-        if(
-            e.target === letter
-        ){
-
-            letter.classList.remove(
-                "show"
-            );
-
-        }
-
-    }
-);
+});
 
 
-/* =========================================
-   DRAG KAMERA
-========================================= */
+/* ==========================================
+   THREE.JS
+========================================== */
 
-let dragging=false;
-let lastX=0;
-let cameraOffset=0;
+let scene;
+let camera;
+let renderer;
 
+let particles = [];
 
-renderer.domElement.addEventListener(
-    "pointerdown",
-    function(e){
+let mouseX = 0;
+let mouseY = 0;
 
-        dragging=true;
-        lastX=e.clientX;
-
-    }
-);
+let targetX = 0;
+let targetY = 0;
 
 
-renderer.domElement.addEventListener(
-    "pointermove",
-    function(e){
+function initThree(){
 
-        if(!dragging)
-            return;
+  scene = new THREE.Scene();
 
-        const dx =
-            e.clientX-lastX;
+  camera = new THREE.PerspectiveCamera(
+    55,
+    window.innerWidth / window.innerHeight,
+    0.1,
+    1000
+  );
 
-        cameraOffset -=
-            dx*.006;
-
-        cameraOffset =
-            Math.max(
-                -1.2,
-                Math.min(
-                    1.2,
-                    cameraOffset
-                )
-            );
-
-        lastX=e.clientX;
-
-    }
-);
+  camera.position.z = 8;
 
 
-renderer.domElement.addEventListener(
-    "pointerup",
-    function(){
+  renderer = new THREE.WebGLRenderer({
+    antialias:true,
+    alpha:true
+  });
 
-        dragging=false;
+  renderer.setPixelRatio(
+    Math.min(window.devicePixelRatio,2)
+  );
 
-    }
-);
+  renderer.setSize(
+    window.innerWidth,
+    window.innerHeight
+  );
 
-
-renderer.domElement.addEventListener(
-    "pointercancel",
-    function(){
-
-        dragging=false;
-
-    }
-);
-
-
-renderer.domElement.addEventListener(
-    "pointerleave",
-    function(){
-
-        dragging=false;
-
-    }
-);
+  document
+    .getElementById("scene")
+    .appendChild(renderer.domElement);
 
 
-/* =========================================
+  /* ==========================
+     PARTICLES
+  ========================== */
+
+  const geometry =
+    new THREE.BufferGeometry();
+
+  const positions = [];
+
+  for(let i=0;i<500;i++){
+
+    const x =
+      (Math.random()-.5)*18;
+
+    const y =
+      (Math.random()-.5)*12;
+
+    const z =
+      (Math.random()-.5)*10;
+
+    positions.push(x,y,z);
+
+  }
+
+  geometry.setAttribute(
+    "position",
+    new THREE.Float32BufferAttribute(
+      positions,
+      3
+    )
+  );
+
+
+  const material =
+    new THREE.PointsMaterial({
+
+      color:0xd0ae5d,
+
+      size:.025,
+
+      transparent:true,
+
+      opacity:.55
+
+    });
+
+
+  const points =
+    new THREE.Points(
+      geometry,
+      material
+    );
+
+  scene.add(points);
+
+  particles.push(points);
+
+
+  /* ==========================
+     LIGHT
+  ========================== */
+
+  const ambient =
+    new THREE.AmbientLight(
+      0xffffff,
+      .5
+    );
+
+  scene.add(ambient);
+
+
+  animate();
+
+}
+
+
+/* ==========================================
    ANIMATION
-========================================= */
-
-const clock =
-new THREE.Clock();
-
+========================================== */
 
 function animate(){
 
-    requestAnimationFrame(
-        animate
+  requestAnimationFrame(animate);
+
+
+  targetX +=
+    (mouseX - targetX) * .025;
+
+  targetY +=
+    (mouseY - targetY) * .025;
+
+
+  if(camera){
+
+    camera.position.x =
+      targetX * .15;
+
+    camera.position.y =
+      -targetY * .08;
+
+    camera.lookAt(
+      0,
+      0,
+      0
     );
 
-
-    const t =
-        clock.getElapsedTime();
+  }
 
 
-    if(!entering){
+  particles.forEach((particle)=>{
 
-        camera.position.x +=
-            (
-                cameraOffset -
-                camera.position.x
-            )*.025;
+    particle.rotation.y += .0003;
 
+    particle.rotation.x += .0001;
 
-        camera.lookAt(
-            0,
-            .1,
-            -1
-        );
-
-    }
+  });
 
 
-    particles.rotation.y =
-        t*.008;
-
-
-    rings.forEach(
-        function(ring,i){
-
-            ring.rotation.z =
-                t*(.08+i*.025);
-
-            ring.rotation.x =
-                Math.PI/2+
-                Math.sin(
-                    t*.3+i
-                )*.08;
-
-        }
-    );
-
-
-    weddingRing1.rotation.y =
-        t*.25;
-
-    weddingRing2.rotation.y =
-        -t*.25;
-
-
-    decorativeFlowers.forEach(
-        function(flower,i){
-
-            flower.rotation.z =
-                Math.sin(
-                    t*.6+i
-                )*.05;
-
-        }
-    );
-
+  if(renderer && scene && camera){
 
     renderer.render(
-        scene,
-        camera
+      scene,
+      camera
     );
+
+  }
 
 }
 
 
-animate();
+/* ==========================================
+   TOUCH / MOUSE
+========================================== */
+
+document.addEventListener(
+  "mousemove",
+  function(e){
+
+    mouseX =
+      (e.clientX / window.innerWidth - .5) * 2;
+
+    mouseY =
+      (e.clientY / window.innerHeight - .5) * 2;
+
+  }
+);
 
 
-/* =========================================
+document.addEventListener(
+  "touchmove",
+  function(e){
+
+    if(!e.touches.length) return;
+
+    const touch =
+      e.touches[0];
+
+    mouseX =
+      (touch.clientX / window.innerWidth - .5) * 2;
+
+    mouseY =
+      (touch.clientY / window.innerHeight - .5) * 2;
+
+  },
+  {passive:true}
+);
+
+
+/* ==========================================
    RESIZE
-========================================= */
+========================================== */
 
 window.addEventListener(
-    "resize",
-    function(){
+  "resize",
+  function(){
 
-        camera.aspect =
-            innerWidth/
-            innerHeight;
+    if(!camera || !renderer) return;
 
-        camera.updateProjectionMatrix();
+    camera.aspect =
+      window.innerWidth /
+      window.innerHeight;
 
-        renderer.setSize(
-            innerWidth,
-            innerHeight
-        );
+    camera.updateProjectionMatrix();
 
-    }
+    renderer.setSize(
+      window.innerWidth,
+      window.innerHeight
+    );
+
+  }
 );
 
 
-/* =========================================
-   START MUSIC
-========================================= */
+/* ==========================================
+   START
+========================================== */
 
-window.addEventListener(
-    "load",
-    function(){
+try{
 
-        startMusic();
+  initThree();
 
-    }
-);
+}catch(error){
+
+  console.error(
+    "Three.js error:",
+    error
+  );
+
+}
 
 </script>
 
