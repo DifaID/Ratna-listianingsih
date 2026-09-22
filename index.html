@@ -2,13 +2,23 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<title>Invitation • Ratna Listianingsih</title>
+<meta name="viewport"
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no">
+
+<title>Untuk Ratna • Muhammad Fajar M.</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <style>
+
+/* =========================================
+   DASAR
+========================================= */
+
 *{
     box-sizing:border-box;
     -webkit-tap-highlight-color:transparent;
@@ -19,9 +29,14 @@ html,body{
     width:100%;
     height:100%;
     overflow:hidden;
-    background:#030303;
+
+    background:#020202;
     color:#fff;
-    font-family:Georgia,"Times New Roman",serif;
+
+    font-family:
+        Georgia,
+        "Times New Roman",
+        serif;
 }
 
 body{
@@ -37,11 +52,15 @@ canvas{
     display:block;
 }
 
-/* BACKGROUND */
+
+/* =========================================
+   BACKGROUND
+========================================= */
 
 .background{
     position:fixed;
     inset:0;
+
     z-index:1;
     pointer-events:none;
 
@@ -50,21 +69,24 @@ canvas{
             ellipse at center,
             rgba(82,67,43,.16) 0%,
             rgba(30,24,17,.08) 35%,
-            rgba(0,0,0,.92) 85%
+            rgba(0,0,0,.94) 85%
         );
 }
 
 .gold-glow{
     position:absolute;
-    width:60vw;
-    height:60vw;
-    max-width:500px;
-    max-height:500px;
+
+    width:65vw;
+    height:65vw;
+
+    max-width:520px;
+    max-height:520px;
 
     left:50%;
     top:50%;
 
-    transform:translate(-50%,-50%);
+    transform:
+        translate(-50%,-50%);
 
     border-radius:50%;
 
@@ -79,11 +101,14 @@ canvas{
 }
 
 
-/* OPENING */
+/* =========================================
+   OPENING
+========================================= */
 
 #opening{
     position:fixed;
     inset:0;
+
     z-index:1000;
 
     display:flex;
@@ -106,35 +131,49 @@ canvas{
 #opening.hide{
     opacity:0;
     visibility:hidden;
+
     pointer-events:none;
 }
 
 .open-content{
     width:min(90%,500px);
+
     text-align:center;
 }
 
 .open-ornament{
     color:#c9a65a;
+
     font-size:24px;
+
     letter-spacing:8px;
+
     margin-bottom:24px;
 }
 
 .open-small{
     color:#bda875;
+
     font-size:9px;
+
     letter-spacing:6px;
+
     text-transform:uppercase;
 }
 
 .open-content h1{
-    margin:18px 0 8px;
+    margin:
+        18px 0 8px;
 
     font-size:
-        clamp(52px,15vw,88px);
+        clamp(
+            52px,
+            15vw,
+            88px
+        );
 
     font-weight:normal;
+
     font-style:italic;
 
     color:#f6eee0;
@@ -147,6 +186,7 @@ canvas{
     color:#c9a65a;
 
     font-size:12px;
+
     letter-spacing:5px;
 
     text-transform:uppercase;
@@ -171,13 +211,17 @@ canvas{
     color:#aaa39a;
 
     font-size:13px;
+
     line-height:1.9;
 
     margin-bottom:28px;
 }
 
 #openButton{
-    border:1px solid rgba(201,166,90,.65);
+
+    border:
+        1px solid
+        rgba(201,166,90,.65);
 
     background:
         linear-gradient(
@@ -188,11 +232,14 @@ canvas{
 
     color:#dbc17e;
 
-    padding:14px 28px;
+    padding:
+        14px 28px;
 
     border-radius:2px;
 
-    font-family:Georgia,serif;
+    font-family:
+        Georgia,
+        serif;
 
     font-size:10px;
 
@@ -203,19 +250,27 @@ canvas{
     pointer-events:auto;
 }
 
+#openButton:active{
+    transform:scale(.97);
+}
 
-/* MAIN UI */
+
+/* =========================================
+   UI
+========================================= */
 
 #ui{
     position:fixed;
     inset:0;
+
     z-index:20;
 
     opacity:0;
 
     pointer-events:none;
 
-    transition:opacity 2s ease;
+    transition:
+        opacity 2s ease;
 }
 
 #ui.show{
@@ -223,7 +278,9 @@ canvas{
 }
 
 
-/* TOP */
+/* =========================================
+   TOP
+========================================= */
 
 .top{
     position:absolute;
@@ -260,7 +317,89 @@ canvas{
 }
 
 
-/* CENTER */
+/* =========================================
+   FRAME
+========================================= */
+
+.card-frame{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:min(86vw,430px);
+
+    height:min(62vh,530px);
+
+    transform:
+        translate(-50%,-50%);
+
+    border:
+        1px solid
+        rgba(196,159,83,.23);
+
+    pointer-events:none;
+}
+
+.card-frame::before{
+    content:"";
+
+    position:absolute;
+
+    inset:8px;
+
+    border:
+        1px solid
+        rgba(196,159,83,.10);
+}
+
+.corner{
+    position:absolute;
+
+    width:25px;
+    height:25px;
+
+    border-color:#b99651;
+
+    border-style:solid;
+}
+
+.corner.tl{
+    top:-1px;
+    left:-1px;
+
+    border-width:
+        1px 0 0 1px;
+}
+
+.corner.tr{
+    top:-1px;
+    right:-1px;
+
+    border-width:
+        1px 1px 0 0;
+}
+
+.corner.bl{
+    bottom:-1px;
+    left:-1px;
+
+    border-width:
+        0 0 1px 1px;
+}
+
+.corner.br{
+    bottom:-1px;
+    right:-1px;
+
+    border-width:
+        0 1px 1px 0;
+}
+
+
+/* =========================================
+   TENGAH
+========================================= */
 
 .center{
     position:absolute;
@@ -284,6 +423,10 @@ canvas{
     letter-spacing:8px;
 
     margin-bottom:15px;
+
+    text-shadow:
+        0 0 15px
+        rgba(205,170,90,.2);
 }
 
 .invite-title{
@@ -349,7 +492,9 @@ canvas{
 
 .center-date::before,
 .center-date::after{
+
     content:"";
+
     display:inline-block;
 
     vertical-align:middle;
@@ -357,79 +502,16 @@ canvas{
     width:35px;
     height:1px;
 
-    margin:0 9px;
+    margin:
+        0 9px;
 
     background:#6e5b38;
 }
 
 
-/* FRAME */
-
-.card-frame{
-    position:absolute;
-
-    left:50%;
-    top:50%;
-
-    width:min(86vw,430px);
-    height:min(62vh,530px);
-
-    transform:
-        translate(-50%,-50%);
-
-    border:1px solid rgba(196,159,83,.23);
-
-    pointer-events:none;
-}
-
-.card-frame::before{
-    content:"";
-
-    position:absolute;
-
-    inset:8px;
-
-    border:
-        1px solid
-        rgba(196,159,83,.10);
-}
-
-.corner{
-    position:absolute;
-
-    width:25px;
-    height:25px;
-
-    border-color:#b99651;
-    border-style:solid;
-}
-
-.corner.tl{
-    top:-1px;
-    left:-1px;
-    border-width:1px 0 0 1px;
-}
-
-.corner.tr{
-    top:-1px;
-    right:-1px;
-    border-width:1px 1px 0 0;
-}
-
-.corner.bl{
-    bottom:-1px;
-    left:-1px;
-    border-width:0 0 1px 1px;
-}
-
-.corner.br{
-    bottom:-1px;
-    right:-1px;
-    border-width:0 1px 1px 0;
-}
-
-
-/* BOTTOM */
+/* =========================================
+   BOTTOM
+========================================= */
 
 .bottom{
     position:absolute;
@@ -447,11 +529,11 @@ canvas{
 }
 
 .bottom button{
+
     pointer-events:auto;
 
-    margin:3px;
-
-    padding:11px 18px;
+    padding:
+        12px 23px;
 
     color:#cbb477;
 
@@ -464,7 +546,9 @@ canvas{
 
     border-radius:2px;
 
-    font-family:Georgia,serif;
+    font-family:
+        Georgia,
+        serif;
 
     font-size:9px;
 
@@ -475,10 +559,15 @@ canvas{
     backdrop-filter:blur(8px);
 }
 
+.bottom button:active{
+    transform:scale(.96);
+}
+
 .hint{
     margin-top:9px;
 
-    color:rgba(255,255,255,.25);
+    color:
+        rgba(255,255,255,.25);
 
     font-size:7px;
 
@@ -486,7 +575,9 @@ canvas{
 }
 
 
-/* LETTER */
+/* =========================================
+   SURAT
+========================================= */
 
 #letter{
     position:fixed;
@@ -502,7 +593,7 @@ canvas{
     padding:20px;
 
     background:
-        rgba(0,0,0,.82);
+        rgba(0,0,0,.84);
 
     backdrop-filter:blur(10px);
 
@@ -518,22 +609,26 @@ canvas{
 
 #letter.show{
     opacity:1;
+
     visibility:visible;
+
     pointer-events:auto;
 }
 
 .paper{
+
     position:relative;
 
     z-index:501;
 
     width:min(92%,470px);
 
-    max-height:85vh;
+    max-height:86vh;
 
     overflow:auto;
 
-    padding:42px 28px;
+    padding:
+        42px 28px;
 
     text-align:center;
 
@@ -547,17 +642,22 @@ canvas{
         );
 
     border:
-        1px solid #bd9651;
+        1px solid
+        #bd9651;
 
     box-shadow:
-        0 30px 90px rgba(0,0,0,.8);
+        0 30px 90px
+        rgba(0,0,0,.8);
 
     pointer-events:auto;
 
     touch-action:auto;
+
+    -webkit-overflow-scrolling:touch;
 }
 
 .paper::before{
+
     content:"";
 
     position:absolute;
@@ -580,7 +680,9 @@ canvas{
 }
 
 .paper h2{
-    margin:16px 0 8px;
+
+    margin:
+        16px 0 8px;
 
     font-size:35px;
 
@@ -590,6 +692,7 @@ canvas{
 }
 
 .paper-name{
+
     color:#9c763c;
 
     font-size:11px;
@@ -598,43 +701,61 @@ canvas{
 }
 
 .paper hr{
+
     width:75px;
 
     border:0;
 
     border-top:
-        1px solid #b08a4c;
+        1px solid
+        #b08a4c;
 
-    margin:23px auto;
+    margin:
+        23px auto;
 }
 
 .paper p{
+
     font-size:13px;
 
     line-height:1.9;
 
-    margin:13px 0;
+    margin:
+        13px 0;
+}
+
+.paper strong{
+
+    color:#76572d;
+
+    font-weight:normal;
+
 }
 
 .close{
+
     position:relative;
 
     z-index:510;
 
     margin-top:18px;
 
-    padding:10px 22px;
+    padding:
+        10px 22px;
 
     background:transparent;
 
     color:#6d502b;
 
     border:
-        1px solid #a8844a;
+        1px solid
+        #a8844a;
 
     border-radius:2px;
 
-    font-family:Georgia,serif;
+    font-family:
+        Georgia,
+        serif;
 
     font-size:10px;
 
@@ -648,10 +769,14 @@ canvas{
 }
 
 
-/* VIGNETTE */
+/* =========================================
+   VIGNETTE
+========================================= */
 
 .vignette{
+
     position:fixed;
+
     inset:0;
 
     z-index:10;
@@ -670,16 +795,25 @@ canvas{
 </style>
 </head>
 
+
 <body>
 
+
+<!-- =====================================
+     THREE.JS
+===================================== -->
+
 <div id="scene"></div>
+
 
 <div class="background">
     <div class="gold-glow"></div>
 </div>
 
 
-<!-- OPENING -->
+<!-- =====================================
+     OPENING
+===================================== -->
 
 <div id="opening">
 
@@ -693,7 +827,9 @@ canvas{
             A Special Invitation
         </div>
 
-        <h1>Ratna</h1>
+        <h1>
+            Ratna
+        </h1>
 
         <div class="open-name">
             LISTIANINGSIH
@@ -702,11 +838,16 @@ canvas{
         <div class="open-line"></div>
 
         <div class="open-text">
+
             Sebuah halaman kecil,
             dibuat untuk seseorang
-            yang memiliki tempat istimewa.
+            yang pernah menjadi
+            bagian dari sebuah cerita.
+
             <br><br>
+
             Silakan masuk.
+
         </div>
 
         <button id="openButton">
@@ -718,9 +859,12 @@ canvas{
 </div>
 
 
-<!-- MAIN -->
+<!-- =====================================
+     MAIN UI
+===================================== -->
 
 <div id="ui">
+
 
     <div class="top">
 
@@ -733,15 +877,22 @@ canvas{
     </div>
 
 
+    <!-- FRAME -->
+
     <div class="card-frame">
 
         <div class="corner tl"></div>
+
         <div class="corner tr"></div>
+
         <div class="corner bl"></div>
+
         <div class="corner br"></div>
 
     </div>
 
+
+    <!-- CENTER -->
 
     <div class="center">
 
@@ -768,7 +919,7 @@ canvas{
     </div>
 
 
-    <!-- HANYA BUKA SURAT -->
+    <!-- BOTTOM -->
 
     <div class="bottom">
 
@@ -785,65 +936,251 @@ canvas{
 </div>
 
 
-<!-- SURAT -->
+<!-- =====================================
+     SURAT
+===================================== -->
 
 <div id="letter">
 
     <div class="paper">
 
+
         <div class="paper-ornament">
             ✦ ❦ ✦
         </div>
+
+
+        <div class="paper-name">
+            SEBUAH SURAT KENANGAN
+        </div>
+
 
         <h2>
             Untuk Ratna
         </h2>
 
+
         <div class="paper-name">
             RATNA LISTIANINGSIH
         </div>
 
+
         <hr>
 
-        <p>
-            Pada tanggal yang istimewa ini,
-            semoga satu tahun baru dalam hidupmu
-            membawa lebih banyak cerita indah.
-        </p>
 
         <p>
-            Semoga langkahmu selalu ditemani
-            hal-hal baik, orang-orang yang tulus,
-            dan alasan-alasan kecil untuk tersenyum.
+
+            Mungkin tidak banyak yang tahu,
+
+            bahwa sebelum hari ini tiba,
+
+            pernah ada satu cerita kecil
+
+            yang sempat kita jalani.
+
         </p>
+
 
         <p>
-            Semoga semua harapan yang kamu simpan
-            perlahan menemukan jalannya.
+
+            Kita pernah saling mengenal
+            selama satu bulan,
+            tepatnya di bulan Juli.
+
+            Selama waktu yang singkat itu,
+            kita pernah berbagi cerita,
+            saling mengenal lebih dekat,
+            dan perlahan menjadi nyaman
+            satu sama lain.
+
         </p>
+
 
         <p>
-            Selamat ulang tahun, Ratna.
-            <br>
-            Semoga hari ini menjadi salah satu
-            halaman yang ingin kamu ingat.
+
+            Di bulan Juli itu juga,
+            kita pernah bertemu.
+
+            Hanya sekali.
+
+            Mungkin bagi orang lain
+            itu hanyalah sebuah pertemuan biasa,
+            tetapi bagiku,
+            pertemuan itu tetap menjadi
+            salah satu bagian dari kenangan
+            yang pernah kita punya.
+
         </p>
 
-        <p>✦</p>
+
+        <p>
+
+            Waktu kemudian terus berjalan.
+
+            Entah bagaimana,
+            jalan yang awalnya mempertemukan kita
+            perlahan membawa kita
+            ke arah yang berbeda.
+
+        </p>
+
+
+        <p>
+
+            Yang sebelumnya saling mengenal,
+            akhirnya menjadi asing.
+
+            Yang pernah saling nyaman,
+            akhirnya kembali menjalani
+            kehidupan masing-masing.
+
+        </p>
+
+
+        <p>
+
+            Mungkin memang tidak semua
+            pertemuan diciptakan untuk
+            berlangsung selamanya.
+
+            Ada orang yang hadir
+            hanya untuk meninggalkan
+            sebuah cerita,
+            sebuah kenangan,
+            atau sebuah bagian kecil
+            dalam perjalanan hidup kita.
+
+        </p>
+
+
+        <p>
+
+            Dan bagaimanapun akhirnya,
+            aku tetap menghargai
+            cerita yang pernah ada.
+
+            Karena pernah ada satu bulan
+            di bulan Juli,
+            ketika kita saling mengenal,
+            saling nyaman,
+            dan pernah bertemu
+            walaupun hanya sekali.
+
+        </p>
+
+
+        <hr>
+
+
+        <p>
+
+            Di hari ulang tahunmu ini,
+            aku tidak ingin meminta apa-apa.
+
+            Aku hanya ingin mengucapkan
+            sesuatu yang sederhana.
+
+        </p>
+
+
+        <p>
+
+            <strong>
+                Selamat ulang tahun, Ratna.
+            </strong>
+
+        </p>
+
+
+        <p>
+
+            Semoga di usia yang baru,
+            kamu menemukan lebih banyak
+            kebahagiaan,
+            ketenangan,
+            dan hal-hal baik
+            yang memang pantas kamu dapatkan.
+
+        </p>
+
+
+        <p>
+
+            Semoga jalan yang kamu pilih
+            membawa kamu ke tempat
+            yang kamu inginkan.
+
+        </p>
+
+
+        <p>
+
+            Kita mungkin sekarang
+            berjalan di jalan masing-masing.
+
+            Tetapi satu hal yang tidak berubah:
+
+            cerita yang pernah ada
+            tetap pernah menjadi cerita.
+
+        </p>
+
+
+        <p>
+
+            Terima kasih
+            untuk satu bulan di bulan Juli itu.
+
+            Untuk percakapan,
+            kenyamanan,
+            pertemuan,
+            dan kenangan
+            yang pernah kita punya.
+
+        </p>
+
+
+        <p>
+            ✦
+        </p>
+
+
+        <div class="paper-name">
+            DARI MUHAMMAD FAJAR M.
+        </div>
+
+
+        <p style="
+            font-size:10px;
+            letter-spacing:2px;
+            color:#8b7759;
+        ">
+
+            UNTUK SEBUAH KENANGAN
+        </p>
+
 
         <button
             type="button"
             class="close"
             id="closeLetter">
+
             TUTUP SURAT
+
         </button>
+
 
     </div>
 
 </div>
 
 
-<!-- MUSIK OTOMATIS -->
+<!-- =====================================
+     MUSIK
+     
+     Taruh music.mp3 di folder yang sama
+     dengan index.html
+===================================== -->
 
 <audio
     id="music"
@@ -855,9 +1192,9 @@ canvas{
 
 <script>
 
-/* =====================================
-   THREE.JS
-===================================== */
+/* =========================================
+   THREE.JS SCENE
+========================================= */
 
 const scene =
 new THREE.Scene();
@@ -871,6 +1208,7 @@ new THREE.PerspectiveCamera(
     100
 );
 
+
 camera.position.set(
     0,
     0,
@@ -880,25 +1218,38 @@ camera.position.set(
 
 const renderer =
 new THREE.WebGLRenderer({
+
     antialias:true,
+
     alpha:true
+
 });
+
 
 renderer.setSize(
     innerWidth,
     innerHeight
 );
 
+
 renderer.setPixelRatio(
-    Math.min(devicePixelRatio,2)
+    Math.min(
+        devicePixelRatio,
+        2
+    )
 );
+
 
 document
 .getElementById("scene")
-.appendChild(renderer.domElement);
+.appendChild(
+    renderer.domElement
+);
 
 
-/* LIGHT */
+/* =========================================
+   LIGHT
+========================================= */
 
 scene.add(
     new THREE.AmbientLight(
@@ -915,11 +1266,17 @@ new THREE.PointLight(
     18
 );
 
+
 goldLight.position.set(
-    0,2,3
+    0,
+    2,
+    3
 );
 
-scene.add(goldLight);
+
+scene.add(
+    goldLight
+);
 
 
 const leftLight =
@@ -929,11 +1286,17 @@ new THREE.PointLight(
     12
 );
 
+
 leftLight.position.set(
-    -5,1,1
+    -5,
+    1,
+    1
 );
 
-scene.add(leftLight);
+
+scene.add(
+    leftLight
+);
 
 
 const rightLight =
@@ -943,22 +1306,35 @@ new THREE.PointLight(
     12
 );
 
+
 rightLight.position.set(
-    5,1,1
+    5,
+    1,
+    1
 );
 
-scene.add(rightLight);
+
+scene.add(
+    rightLight
+);
 
 
-/* PARTICLES */
+/* =========================================
+   PARTICLES
+========================================= */
 
 const particleGeometry =
 new THREE.BufferGeometry();
 
+
 const particlePositions=[];
 
 
-for(let i=0;i<260;i++){
+for(
+    let i=0;
+    i<260;
+    i++
+){
 
     particlePositions.push(
 
@@ -974,11 +1350,14 @@ for(let i=0;i<260;i++){
 
 
 particleGeometry.setAttribute(
+
     "position",
+
     new THREE.Float32BufferAttribute(
         particlePositions,
         3
     )
+
 );
 
 
@@ -998,20 +1377,31 @@ new THREE.PointsMaterial({
 
 const particles =
 new THREE.Points(
+
     particleGeometry,
+
     particleMaterial
+
 );
 
-scene.add(particles);
+
+scene.add(
+    particles
+);
 
 
-/* =====================================
-   RINGS DI TENGAH
-===================================== */
+/* =========================================
+   CINCIN LINGKARAN BELAKANG
+========================================= */
 
 const rings=[];
 
-for(let i=0;i<3;i++){
+
+for(
+    let i=0;
+    i<3;
+    i++
+){
 
     const ring =
     new THREE.Mesh(
@@ -1029,11 +1419,13 @@ for(let i=0;i<3;i++){
 
             transparent:true,
 
-            opacity:.13-i*.025
+            opacity:
+                .13-i*.025
 
         })
 
     );
+
 
     ring.position.set(
         0,
@@ -1041,19 +1433,26 @@ for(let i=0;i<3;i++){
         -1
     );
 
+
     ring.rotation.x=
         Math.PI/2;
 
-    scene.add(ring);
 
-    rings.push(ring);
+    scene.add(
+        ring
+    );
+
+
+    rings.push(
+        ring
+    );
+
 }
 
 
-/* =====================================
-   DUA CINCIN PERNIKAHAN
-   POSISI SIMETRIS
-===================================== */
+/* =========================================
+   CINCIN PERNIKAHAN
+========================================= */
 
 const ringMaterial1 =
 new THREE.MeshStandardMaterial({
@@ -1079,6 +1478,10 @@ new THREE.MeshStandardMaterial({
 });
 
 
+/*
+   Cincin kiri
+*/
+
 const weddingRing1 =
 new THREE.Mesh(
 
@@ -1094,18 +1497,29 @@ new THREE.Mesh(
 );
 
 
-/* kiri */
-
 weddingRing1.position.set(
+
     -.32,
+
     2.35,
+
     -1.5
+
 );
 
-weddingRing1.rotation.z=.20;
 
-scene.add(weddingRing1);
+weddingRing1.rotation.z=
+    .20;
 
+
+scene.add(
+    weddingRing1
+);
+
+
+/*
+   Cincin kanan
+*/
 
 const weddingRing2 =
 new THREE.Mesh(
@@ -1122,38 +1536,54 @@ new THREE.Mesh(
 );
 
 
-/* kanan */
-
 weddingRing2.position.set(
+
     .32,
+
     2.35,
+
     -1.5
+
 );
 
-weddingRing2.rotation.z=-.20;
 
-scene.add(weddingRing2);
+weddingRing2.rotation.z=
+    -.20;
+
+
+scene.add(
+    weddingRing2
+);
 
 
 /*
-   DIAMOND DIHAPUS.
-   Jadi bagian tengah cincin sekarang
-   benar-benar kosong dan bersih.
+   TIDAK ADA DIAMOND
+   DI TENGAH CINCIN
 */
 
 
-/* FLOWERS */
+/* =========================================
+   BUNGA KECIL
+========================================= */
 
 function flower(
-    x,y,z,scale,color
+    x,
+    y,
+    z,
+    scale,
+    color
 ){
 
     const group =
     new THREE.Group();
 
+
     group.position.set(
-        x,y,z
+        x,
+        y,
+        z
     );
+
 
     group.scale.setScalar(
         scale
@@ -1164,7 +1594,9 @@ function flower(
     new THREE.Mesh(
 
         new THREE.SphereGeometry(
-            .12,10,10
+            .12,
+            10,
+            10
         ),
 
         new THREE.MeshStandardMaterial({
@@ -1177,19 +1609,30 @@ function flower(
 
     );
 
-    group.add(center);
+
+    group.add(
+        center
+    );
 
 
-    for(let i=0;i<6;i++){
+    for(
+        let i=0;
+        i<6;
+        i++
+    ){
 
-        const angle=
-            i/6*Math.PI*2;
+        const angle =
+            i/6*
+            Math.PI*2;
+
 
         const petal =
         new THREE.Mesh(
 
             new THREE.SphereGeometry(
-                .19,10,8
+                .19,
+                10,
+                8
             ),
 
             new THREE.MeshStandardMaterial({
@@ -1202,21 +1645,32 @@ function flower(
 
         );
 
+
         petal.position.set(
 
             Math.cos(angle)*.18,
+
             0,
+
             Math.sin(angle)*.18
 
         );
 
+
         petal.scale.y=.6;
 
-        group.add(petal);
+
+        group.add(
+            petal
+        );
 
     }
 
-    scene.add(group);
+
+    scene.add(
+        group
+    );
+
 
     return group;
 }
@@ -1226,6 +1680,7 @@ const decorativeFlowers=[];
 
 
 decorativeFlowers.push(
+
     flower(
         -4.3,
         -2.8,
@@ -1233,9 +1688,12 @@ decorativeFlowers.push(
         .7,
         0x8d2437
     )
+
 );
 
+
 decorativeFlowers.push(
+
     flower(
         -4.8,
         -3.2,
@@ -1243,10 +1701,12 @@ decorativeFlowers.push(
         .5,
         0xd7d0c2
     )
+
 );
 
 
 decorativeFlowers.push(
+
     flower(
         4.3,
         -2.8,
@@ -1254,9 +1714,12 @@ decorativeFlowers.push(
         .7,
         0x8d2437
     )
+
 );
 
+
 decorativeFlowers.push(
+
     flower(
         4.8,
         -3.2,
@@ -1264,10 +1727,13 @@ decorativeFlowers.push(
         .5,
         0xd7d0c2
     )
+
 );
 
 
-/* ORNAMENT LINES */
+/* =========================================
+   ORNAMEN
+========================================= */
 
 const ornamentMaterial =
 new THREE.LineBasicMaterial({
@@ -1281,61 +1747,98 @@ new THREE.LineBasicMaterial({
 });
 
 
-function makeLine(points){
+function makeLine(
+    points
+){
 
     const geometry =
     new THREE.BufferGeometry()
-    .setFromPoints(points);
+    .setFromPoints(
+        points
+    );
+
+
+    const line =
+    new THREE.Line(
+        geometry,
+        ornamentMaterial
+    );
+
 
     scene.add(
-        new THREE.Line(
-            geometry,
-            ornamentMaterial
-        )
+        line
     );
 
 }
 
 
 makeLine([
-    new THREE.Vector3(-5,2,-1),
-    new THREE.Vector3(-3.5,3,-1),
-    new THREE.Vector3(-2,2.4,-1)
+
+    new THREE.Vector3(
+        -5,2,-1
+    ),
+
+    new THREE.Vector3(
+        -3.5,3,-1
+    ),
+
+    new THREE.Vector3(
+        -2,2.4,-1
+    )
+
 ]);
 
 
 makeLine([
-    new THREE.Vector3(5,2,-1),
-    new THREE.Vector3(3.5,3,-1),
-    new THREE.Vector3(2,2.4,-1)
+
+    new THREE.Vector3(
+        5,2,-1
+    ),
+
+    new THREE.Vector3(
+        3.5,3,-1
+    ),
+
+    new THREE.Vector3(
+        2,2.4,-1
+    )
+
 ]);
 
 
-/* =====================================
-   MUSIK OTOMATIS
-===================================== */
+/* =========================================
+   MUSIK
+========================================= */
 
 const music =
-document.getElementById("music");
+document.getElementById(
+    "music"
+);
 
 
 function startMusic(){
 
     music.volume=.65;
 
+
     const promise =
         music.play();
 
-    if(promise !== undefined){
+
+    if(
+        promise !== undefined
+    ){
 
         promise.catch(
             function(){
 
                 /*
-                 Chrome/Android bisa menolak
-                 autoplay sebelum ada sentuhan.
-                 Akan dicoba lagi saat tombol
-                 BUKA UNDANGAN ditekan.
+                   Autoplay dapat diblokir
+                   oleh Chrome Android.
+
+                   Akan dicoba lagi setelah
+                   pengguna menekan
+                   BUKA UNDANGAN.
                 */
 
             }
@@ -1346,7 +1849,10 @@ function startMusic(){
 }
 
 
-/* coba langsung ketika halaman masuk */
+/*
+   Coba otomatis saat halaman
+   pertama kali dibuka.
+*/
 
 window.addEventListener(
     "load",
@@ -1358,34 +1864,47 @@ window.addEventListener(
 );
 
 
-/* =====================================
-   OPEN
-===================================== */
+/* =========================================
+   OPEN INVITATION
+========================================= */
 
 let entering=false;
 
 
 function enter(){
 
-    if(entering)return;
+    if(entering)
+        return;
+
 
     entering=true;
 
 
-    /* musik dipastikan mulai
-       setelah interaksi user */
+    /*
+       Karena tombol ditekan,
+       browser sudah mendapat
+       interaksi pengguna.
+
+       Musik akan diputar di sini.
+    */
 
     startMusic();
 
 
     document
-    .getElementById("opening")
-    .classList.add("hide");
+    .getElementById(
+        "opening"
+    )
+    .classList
+    .add("hide");
 
 
     document
-    .getElementById("ui")
-    .classList.add("show");
+    .getElementById(
+        "ui"
+    )
+    .classList
+    .add("show");
 
 
     camera.position.set(
@@ -1395,20 +1914,20 @@ function enter(){
     );
 
 
-    const start=
+    const start =
         performance.now();
 
 
     function cinematic(now){
 
-        const progress=
+        const progress =
             Math.min(
                 (now-start)/2200,
                 1
             );
 
 
-        const ease=
+        const ease =
             1-
             Math.pow(
                 1-progress,
@@ -1416,11 +1935,14 @@ function enter(){
             );
 
 
-        camera.position.z=
-            12-3*ease;
+        camera.position.z =
+            12-
+            3*ease;
 
-        camera.position.y=
-            -.5+.4*ease;
+
+        camera.position.y =
+            -.5+
+            .4*ease;
 
 
         camera.lookAt(
@@ -1430,7 +1952,9 @@ function enter(){
         );
 
 
-        if(progress<1){
+        if(
+            progress<1
+        ){
 
             requestAnimationFrame(
                 cinematic
@@ -1452,9 +1976,9 @@ function enter(){
 }
 
 
-/* =====================================
+/* =========================================
    SURAT
-===================================== */
+========================================= */
 
 const letter =
 document.getElementById(
@@ -1462,15 +1986,26 @@ document.getElementById(
 );
 
 
-document
-.getElementById("letterButton")
-.addEventListener(
+const letterButton =
+document.getElementById(
+    "letterButton"
+);
+
+
+const closeLetter =
+document.getElementById(
+    "closeLetter"
+);
+
+
+letterButton.addEventListener(
     "click",
     function(e){
 
         e.preventDefault();
 
         e.stopPropagation();
+
 
         letter.classList.add(
             "show"
@@ -1480,15 +2015,14 @@ document
 );
 
 
-document
-.getElementById("closeLetter")
-.addEventListener(
+closeLetter.addEventListener(
     "click",
     function(e){
 
         e.preventDefault();
 
         e.stopPropagation();
+
 
         letter.classList.remove(
             "show"
@@ -1502,7 +2036,9 @@ letter.addEventListener(
     "click",
     function(e){
 
-        if(e.target===letter){
+        if(
+            e.target === letter
+        ){
 
             letter.classList.remove(
                 "show"
@@ -1514,21 +2050,9 @@ letter.addEventListener(
 );
 
 
-/* =====================================
-   BUKA UNDANGAN
-===================================== */
-
-document
-.getElementById("openButton")
-.addEventListener(
-    "click",
-    enter
-);
-
-
-/* =====================================
-   DRAG
-===================================== */
+/* =========================================
+   DRAG KAMERA
+========================================= */
 
 let dragging=false;
 
@@ -1553,15 +2077,19 @@ renderer.domElement.addEventListener(
     "pointermove",
     function(e){
 
-        if(!dragging)return;
+        if(!dragging)
+            return;
 
-        const dx=
+
+        const dx =
             e.clientX-lastX;
 
-        cameraOffset-=
+
+        cameraOffset -=
             dx*.006;
 
-        cameraOffset=
+
+        cameraOffset =
             Math.max(
                 -1.2,
                 Math.min(
@@ -1569,6 +2097,7 @@ renderer.domElement.addEventListener(
                     cameraOffset
                 )
             );
+
 
         lastX=e.clientX;
 
@@ -1596,11 +2125,11 @@ renderer.domElement.addEventListener(
 );
 
 
-/* =====================================
+/* =========================================
    ANIMATION
-===================================== */
+========================================= */
 
-const clock=
+const clock =
 new THREE.Clock();
 
 
@@ -1611,17 +2140,19 @@ function animate(){
     );
 
 
-    const t=
+    const t =
         clock.getElapsedTime();
 
 
     if(!entering){
 
         camera.position.x +=
+
             (
                 cameraOffset-
                 camera.position.x
             )*.025;
+
 
         camera.lookAt(
             0,
@@ -1632,36 +2163,62 @@ function animate(){
     }
 
 
-    particles.rotation.y=
+    /*
+       Partikel bergerak perlahan
+    */
+
+    particles.rotation.y =
         t*.008;
 
+
+    /*
+       Lingkaran dekorasi
+    */
 
     rings.forEach(
         function(ring,i){
 
-            ring.rotation.z=
-                t*(.08+i*.025);
+            ring.rotation.z =
+                t*
+                (.08+i*.025);
 
-            ring.rotation.x=
+
+            ring.rotation.x =
+
                 Math.PI/2+
-                Math.sin(t*.3+i)*.08;
+
+                Math.sin(
+                    t*.3+i
+                )*.08;
 
         }
     );
 
 
-    weddingRing1.rotation.y=
+    /*
+       Cincin pernikahan
+    */
+
+    weddingRing1.rotation.y =
         t*.25;
 
 
-    weddingRing2.rotation.y=
+    weddingRing2.rotation.y =
         -t*.25;
 
 
-    decorativeFlowers.forEach(
-        function(flower,i){
+    /*
+       Bunga
+    */
 
-            flower.rotation.z=
+    decorativeFlowers.forEach(
+        function(
+            flower,
+            i
+        ){
+
+            flower.rotation.z =
+
                 Math.sin(
                     t*.6+i
                 )*.05;
@@ -1681,17 +2238,21 @@ function animate(){
 animate();
 
 
-/* RESIZE */
+/* =========================================
+   RESIZE
+========================================= */
 
 window.addEventListener(
     "resize",
     function(){
 
-        camera.aspect=
+        camera.aspect =
             innerWidth/
             innerHeight;
 
+
         camera.updateProjectionMatrix();
+
 
         renderer.setSize(
             innerWidth,
