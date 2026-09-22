@@ -2,30 +2,25 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-
 <meta name="viewport"
       content="width=device-width,
       initial-scale=1.0,
       maximum-scale=1.0,
       user-scalable=no">
 
-<title>Undangan Untuk Ratna</title>
+<title>Untuk Ratna ♡</title>
 
-<!-- ==============================
-     GOOGLE FONTS
-================================= -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600;700&display=swap"
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Great+Vibes&family=Playfair+Display:wght@400;500;600&display=swap"
 rel="stylesheet">
-
 
 <style>
 
-/* =========================================================
+/* =====================================================
    RESET
-========================================================= */
+===================================================== */
 
 *{
     box-sizing:border-box;
@@ -33,103 +28,119 @@ rel="stylesheet">
     padding:0;
 }
 
-html{
-    scroll-behavior:smooth;
-}
-
+html,
 body{
     width:100%;
-    min-height:100vh;
-
-    overflow-x:hidden;
-
-    background:#061633;
-
-    color:#eee5d0;
-
-    font-family:
-        "Cormorant Garamond",
-        serif;
+    min-height:100%;
 }
-
-
-/* =========================================================
-   MAIN BACKGROUND
-   Tidak memakai gambar sama sekali.
-========================================================= */
 
 body{
-
-    background:
-
-        /* cahaya lembut tengah */
-        radial-gradient(
-            ellipse at 50% 45%,
-            rgba(27,63,111,.55) 0%,
-            rgba(8,27,61,.75) 38%,
-            rgba(3,14,35,1) 100%
-        ),
-
-        /* gradasi navy */
-        linear-gradient(
-            145deg,
-            #071a3a 0%,
-            #04132e 45%,
-            #020d24 100%
-        );
+    overflow-x:hidden;
+    font-family:"Cormorant Garamond",serif;
+    color:#fff;
+    background:#09051b;
 }
 
 
-/* tekstur cahaya sangat halus */
+/* =====================================================
+   DREAMY BACKGROUND
+===================================================== */
 
 body::before{
-
     content:"";
-
     position:fixed;
-
-    inset:0;
-
-    pointer-events:none;
-
+    inset:-30%;
     z-index:-10;
 
     background:
-
         radial-gradient(
-            circle at 15% 20%,
-            rgba(255,255,255,.05),
-            transparent 18%
+            circle at 50% 35%,
+            rgba(156,126,255,.20),
+            transparent 24%
         ),
 
         radial-gradient(
-            circle at 85% 70%,
-            rgba(120,170,240,.05),
-            transparent 20%
+            circle at 15% 80%,
+            rgba(255,139,207,.13),
+            transparent 25%
+        ),
+
+        radial-gradient(
+            circle at 85% 20%,
+            rgba(110,150,255,.12),
+            transparent 25%
+        ),
+
+        linear-gradient(
+            145deg,
+            #12072c 0%,
+            #0a0820 45%,
+            #040817 100%
         );
+
+    animation:
+        backgroundBreath 12s ease-in-out infinite alternate;
+}
+
+@keyframes backgroundBreath{
+    from{
+        transform:scale(1);
+    }
+
+    to{
+        transform:scale(1.08);
+    }
 }
 
 
-/* =========================================================
-   STAR FIELD
-========================================================= */
+/* =====================================================
+   SOFT LIGHT
+===================================================== */
 
-#stars{
-
+.light{
     position:fixed;
+    width:280px;
+    height:280px;
+    border-radius:50%;
 
-    inset:0;
-
-    overflow:hidden;
+    filter:blur(70px);
 
     pointer-events:none;
+    z-index:0;
+}
 
-    z-index:2;
+.light.one{
+    top:-100px;
+    left:-80px;
+    background:rgba(174,125,255,.15);
+}
+
+.light.two{
+    right:-100px;
+    bottom:5%;
+    background:rgba(255,135,208,.12);
+}
+
+.light.three{
+    left:30%;
+    bottom:-150px;
+    background:rgba(100,150,255,.10);
 }
 
 
-.star{
+/* =====================================================
+   STARS
+===================================================== */
 
+#stars{
+    position:fixed;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+    overflow:hidden;
+}
+
+.star{
     position:absolute;
 
     width:2px;
@@ -137,461 +148,547 @@ body::before{
 
     border-radius:50%;
 
-    background:#e8dfc5;
+    background:rgba(255,255,255,.8);
 
-    opacity:.25;
+    box-shadow:
+        0 0 5px rgba(255,255,255,.7);
 
     animation:
-        starFloat
-        var(--duration)
-        ease-in-out
-        infinite alternate;
+        twinkle var(--duration) ease-in-out infinite;
 }
 
+@keyframes twinkle{
 
-@keyframes starFloat{
-
-    0%{
-        opacity:.12;
+    0%,
+    100%{
+        opacity:.15;
         transform:scale(.7);
     }
 
-    100%{
-        opacity:.7;
-        transform:scale(1.6);
+    50%{
+        opacity:1;
+        transform:scale(1.5);
     }
 }
 
 
-/* =========================================================
-   FLORAL SVG ORNAMENT
-========================================================= */
+/* =====================================================
+   FLOATING PETALS
+===================================================== */
+
+#petals{
+    position:fixed;
+    inset:0;
+    overflow:hidden;
+    pointer-events:none;
+    z-index:2;
+}
+
+.petal{
+    position:absolute;
+
+    width:9px;
+    height:14px;
+
+    border-radius:80% 20% 80% 20%;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,210,239,.75),
+            rgba(188,142,255,.35)
+        );
+
+    filter:blur(.1px);
+
+    animation:
+        petalFall linear infinite;
+}
+
+@keyframes petalFall{
+
+    0%{
+        transform:
+            translate3d(0,-15vh,0)
+            rotate(0deg);
+        opacity:0;
+    }
+
+    10%{
+        opacity:.75;
+    }
+
+    50%{
+        transform:
+            translate3d(60px,50vh,0)
+            rotate(160deg);
+    }
+
+    100%{
+        transform:
+            translate3d(-70px,115vh,0)
+            rotate(330deg);
+        opacity:0;
+    }
+}
+
+
+/* =====================================================
+   MOON
+===================================================== */
+
+.moon{
+    position:fixed;
+
+    width:190px;
+    height:190px;
+
+    top:6%;
+    right:-55px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 35%,
+            rgba(255,255,255,.95),
+            rgba(218,207,255,.9) 35%,
+            rgba(157,135,230,.5) 65%,
+            transparent 72%
+        );
+
+    opacity:.8;
+
+    filter:
+        drop-shadow(
+            0 0 25px
+            rgba(208,189,255,.45)
+        );
+
+    z-index:1;
+}
+
+.moon::after{
+    content:"";
+
+    position:absolute;
+
+    width:170px;
+    height:170px;
+
+    top:-8px;
+    left:-18px;
+
+    border-radius:50%;
+
+    background:#0c0924;
+}
+
+
+/* =====================================================
+   LITTLE HEART CONSTELLATION
+===================================================== */
+
+.constellation{
+    position:fixed;
+    left:8%;
+    top:18%;
+
+    width:90px;
+    height:80px;
+
+    opacity:.45;
+    z-index:2;
+}
+
+.constellation span{
+    position:absolute;
+
+    width:4px;
+    height:4px;
+
+    border-radius:50%;
+
+    background:#fff;
+
+    box-shadow:
+        0 0 8px rgba(255,255,255,.8);
+}
+
+.constellation span:nth-child(1){
+    left:10px;
+    top:25px;
+}
+
+.constellation span:nth-child(2){
+    left:35px;
+    top:10px;
+}
+
+.constellation span:nth-child(3){
+    left:60px;
+    top:25px;
+}
+
+.constellation span:nth-child(4){
+    left:30px;
+    top:55px;
+}
+
+.constellation span:nth-child(5){
+    left:55px;
+    top:55px;
+}
+
+.constellation::before,
+.constellation::after{
+    content:"";
+    position:absolute;
+
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,255,255,.45),
+            transparent
+        );
+
+    transform-origin:left center;
+}
+
+.constellation::before{
+    width:38px;
+    left:13px;
+    top:24px;
+    transform:rotate(-29deg);
+}
+
+.constellation::after{
+    width:48px;
+    left:35px;
+    top:11px;
+    transform:rotate(37deg);
+}
+
+
+/* =====================================================
+   FLORAL CORNERS
+===================================================== */
 
 .flower{
-
     position:fixed;
+
+    width:190px;
+    height:190px;
 
     pointer-events:none;
 
     z-index:3;
 
-    opacity:.95;
+    opacity:.78;
 }
 
-
-/* kanan atas */
-
-.flower-top{
-
+.flower.top{
     top:-25px;
-
-    right:-20px;
-
-    width:270px;
-
-    height:270px;
+    left:-30px;
 }
 
-
-/* kiri bawah */
-
-.flower-bottom{
-
+.flower.bottom{
+    right:-30px;
     bottom:-25px;
-
-    left:-25px;
-
-    width:285px;
-
-    height:285px;
 
     transform:rotate(180deg);
 }
 
+.flower svg{
+    width:100%;
+    height:100%;
+}
 
-/* bunga */
+.petalShape{
+    fill:url(#petalColor);
+}
 
-.flower-petal{
-
-    fill:url(#petalGradient);
-
-    stroke:#dce8fa;
-
-    stroke-width:.8;
-
-    opacity:.94;
+.leafShape{
+    fill:#8990c7;
+    opacity:.38;
 }
 
 
-/* daun */
-
-.flower-leaf{
-
-    fill:#b7cae6;
-
-    opacity:.85;
-}
-
-
-/* =========================================================
-   OPENING SCREEN
-========================================================= */
+/* =====================================================
+   OPENING
+===================================================== */
 
 #opening{
-
     position:fixed;
-
     inset:0;
 
-    z-index:100;
-
     display:flex;
-
     align-items:center;
-
     justify-content:center;
 
-    padding:20px;
+    padding:22px;
 
     background:
-
         radial-gradient(
-            ellipse at center,
-            rgba(16,43,82,.7),
-            rgba(2,13,32,.96)
+            circle at center,
+            rgba(53,35,93,.45),
+            rgba(5,5,19,.96)
         );
 
-    transition:
+    z-index:9999;
 
+    transition:
         opacity 1s ease,
         visibility 1s ease;
 }
 
-
 #opening.hide{
-
     opacity:0;
-
     visibility:hidden;
-
     pointer-events:none;
 }
 
 
-/* =========================================================
-   OPENING CARD
-========================================================= */
+/* =====================================================
+   OPEN CARD
+===================================================== */
 
 .open-card{
-
     position:relative;
 
     width:min(430px,94vw);
+    min-height:650px;
 
-    min-height:680px;
-
-    padding:
-        70px
-        30px
-        50px;
+    padding:55px 28px;
 
     display:flex;
-
     flex-direction:column;
 
     align-items:center;
-
     justify-content:center;
 
     text-align:center;
 
-    background:
+    overflow:hidden;
 
+    border:
+        1px solid
+        rgba(222,202,255,.35);
+
+    border-radius:32px;
+
+    background:
         linear-gradient(
-            150deg,
-            rgba(10,35,70,.97),
-            rgba(3,18,43,.97)
+            145deg,
+            rgba(36,23,67,.78),
+            rgba(9,8,29,.82)
         );
 
-    border:1px solid rgba(218,190,123,.75);
-
     box-shadow:
+        0 30px 100px rgba(0,0,0,.55),
+        inset 0 0 50px rgba(172,130,255,.04);
 
-        0 25px 80px rgba(0,0,0,.55),
+    backdrop-filter:blur(16px);
 
-        inset 0 0 70px
-        rgba(125,160,205,.05);
+    z-index:10000;
 }
 
 
-/* frame dalam */
+/* decorative ring */
 
 .open-card::before{
-
     content:"";
 
     position:absolute;
 
-    inset:18px;
+    width:330px;
+    height:330px;
 
-    border:1px solid
-        rgba(214,188,119,.25);
+    border-radius:50%;
+
+    border:
+        1px solid
+        rgba(222,202,255,.10);
+
+    box-shadow:
+        0 0 50px
+        rgba(179,138,255,.08);
+
+    animation:
+        slowRotate 25s linear infinite;
+}
+
+.open-card::after{
+    content:"";
+
+    position:absolute;
+
+    inset:15px;
+
+    border:
+        1px solid
+        rgba(255,255,255,.06);
+
+    border-radius:24px;
 
     pointer-events:none;
 }
 
-
-/* sudut frame */
-
-.open-card::after{
-
-    content:"";
-
-    position:absolute;
-
-    top:30px;
-    left:30px;
-
-    width:65px;
-    height:65px;
-
-    border-top:1px solid #d7ba72;
-    border-left:1px solid #d7ba72;
-
-    opacity:.9;
+@keyframes slowRotate{
+    to{
+        transform:rotate(360deg);
+    }
 }
 
 
-/* sudut kanan bawah */
-
-.open-corner{
-
-    position:absolute;
-
-    right:30px;
-    bottom:30px;
-
-    width:65px;
-    height:65px;
-
-    border-right:1px solid #d7ba72;
-    border-bottom:1px solid #d7ba72;
-}
-
-
-/* =========================================================
+/* =====================================================
    OPENING TEXT
-========================================================= */
+===================================================== */
 
-.label{
+.small-title{
+    font-family:"Playfair Display",serif;
 
-    font-family:
-        "Playfair Display",
-        serif;
+    font-size:11px;
 
-    font-size:12px;
+    letter-spacing:5px;
 
-    letter-spacing:6px;
+    color:#d9c9ff;
 
-    color:#d9bd79;
+    margin-bottom:35px;
+
+    position:relative;
+    z-index:2;
 }
 
+.open-card h1{
+    font-family:"Great Vibes",cursive;
 
-.bismillah{
+    font-size:65px;
 
-    margin-top:25px;
-
-    font-size:25px;
-
-    color:#eee7d7;
-}
-
-
-.open-intro{
-
-    margin-top:30px;
-
-    font-size:16px;
-
-    line-height:1.6;
-
-    max-width:310px;
-
-    color:#d6d3c9;
-}
-
-
-.script-name{
-
-    margin-top:22px;
-
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    font-size:78px;
+    font-weight:400;
 
     line-height:1;
 
-    color:#f1e1b6;
+    color:#fff;
 
     text-shadow:
         0 0 25px
-        rgba(231,205,143,.12);
+        rgba(210,181,255,.35);
+
+    position:relative;
+    z-index:2;
 }
 
-
-.open-date{
-
-    margin-top:12px;
-
-    font-family:
-        "Playfair Display",
-        serif;
+.open-card .subtitle{
+    margin-top:22px;
 
     font-size:17px;
 
-    letter-spacing:3px;
+    letter-spacing:2px;
 
-    color:#d9bd79;
+    color:#dcd7eb;
+
+    position:relative;
+    z-index:2;
+}
+
+.open-card .date{
+    margin-top:14px;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:12px;
+
+    letter-spacing:4px;
+
+    color:#aeb4d7;
+
+    position:relative;
+    z-index:2;
 }
 
 
-/* =========================================================
-   ORNAMENT LINE
-========================================================= */
-
-.ornament{
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    width:100%;
-
-    margin:27px 0;
-}
-
-
-.ornament::before,
-.ornament::after{
-
-    content:"";
-
-    height:1px;
-
-    flex:1;
-
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            #cdb16b
-        );
-}
-
-
-.ornament::after{
-
-    background:
-        linear-gradient(
-            to left,
-            transparent,
-            #cdb16b
-        );
-}
-
-
-.ornament span{
-
-    margin:0 12px;
-
-    color:#d9bd76;
-
-    font-size:20px;
-}
-
-
-/* =========================================================
-   OPEN BUTTON
-========================================================= */
+/* =====================================================
+   BUTTON
+===================================================== */
 
 .open-button{
+    position:relative;
 
-    margin-top:32px;
+    z-index:10001;
 
-    padding:14px 34px;
+    margin-top:55px;
 
-    border:1px solid #d6b86d;
+    min-width:205px;
+
+    padding:16px 27px;
+
+    border:1px solid
+        rgba(231,216,255,.55);
+
+    border-radius:50px;
 
     background:
         linear-gradient(
             135deg,
-            #b79650,
-            #ecd596,
-            #b28e48
+            rgba(188,147,255,.18),
+            rgba(255,185,222,.10)
         );
 
-    color:#081631;
+    color:#fff;
 
-    font-family:
-        "Playfair Display",
-        serif;
+    font-family:"Playfair Display",serif;
 
     font-size:11px;
 
-    font-weight:600;
-
-    letter-spacing:3px;
+    letter-spacing:4px;
 
     cursor:pointer;
 
-    transition:.3s;
+    pointer-events:auto;
 
-    box-shadow:
-        0 8px 30px rgba(0,0,0,.35);
+    touch-action:manipulation;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        box-shadow .3s ease;
 }
-
 
 .open-button:hover{
+    transform:translateY(-3px);
 
-    transform:
-        translateY(-3px);
+    background:
+        rgba(194,159,255,.25);
 
     box-shadow:
-        0 12px 35px
-        rgba(224,194,120,.2);
+        0 10px 35px
+        rgba(174,128,255,.18);
 }
-
 
 .open-button:active{
-
-    transform:
-        scale(.96);
+    transform:scale(.96);
 }
 
 
-/* =========================================================
+/* =====================================================
    MAIN
-========================================================= */
+===================================================== */
 
 #main{
-
     position:relative;
 
     min-height:100vh;
 
     padding:
-        30px
-        15px
-        60px;
+        40px 15px 70px;
 
     display:flex;
 
     align-items:center;
-
     justify-content:center;
 
     opacity:0;
@@ -599,385 +696,269 @@ body::before{
     pointer-events:none;
 
     transition:
-        opacity 1.2s ease;
+        opacity 1.3s ease;
+
+    z-index:5;
 }
 
-
 #main.show{
-
     opacity:1;
-
     pointer-events:auto;
 }
 
 
-/* =========================================================
+/* =====================================================
    INVITATION CARD
-========================================================= */
+===================================================== */
 
 .invitation{
-
     position:relative;
 
-    width:min(480px,100%);
-
-    min-height:900px;
+    width:min(480px,94vw);
 
     padding:
-        72px
-        38px
-        60px;
+        48px 25px 38px;
 
-    text-align:center;
-
-    background:
-
-        linear-gradient(
-            145deg,
-            rgba(7,29,61,.96),
-            rgba(3,17,40,.97)
-        );
+    border-radius:30px;
 
     border:
         1px solid
-        rgba(219,191,119,.75);
+        rgba(226,211,255,.30);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(27,18,52,.76),
+            rgba(8,8,27,.84)
+        );
 
     box-shadow:
-
-        0 35px 90px
-        rgba(0,0,0,.55),
-
+        0 35px 100px rgba(0,0,0,.55),
         inset 0 0 80px
-        rgba(110,145,195,.04);
+        rgba(174,133,255,.035);
+
+    backdrop-filter:blur(20px);
+
+    overflow:hidden;
 }
 
 
-/* inner frame */
+/* inner border */
 
 .invitation::before{
-
     content:"";
 
     position:absolute;
 
-    inset:18px;
+    inset:13px;
 
     border:
         1px solid
-        rgba(214,188,118,.25);
+        rgba(221,203,255,.12);
+
+    border-radius:22px;
 
     pointer-events:none;
 }
 
 
-/* =========================================================
-   CORNERS
-========================================================= */
+/* glow */
 
-.corner{
+.invitation::after{
+    content:"";
 
     position:absolute;
 
-    width:75px;
+    width:220px;
+    height:220px;
 
-    height:75px;
+    left:50%;
+    top:0;
 
-    border-color:#d7ba72;
+    transform:translateX(-50%);
 
-    border-style:solid;
+    border-radius:50%;
 
-    opacity:.9;
+    background:
+        rgba(171,127,255,.08);
+
+    filter:blur(60px);
+
+    pointer-events:none;
 }
 
 
-.corner.tl{
+/* =====================================================
+   CONTENT
+===================================================== */
 
-    top:25px;
-    left:25px;
+.content{
+    position:relative;
 
-    border-width:
-        1px
-        0
-        0
-        1px;
+    z-index:2;
+
+    text-align:center;
 }
 
+.top-label{
+    font-family:"Playfair Display",serif;
 
-.corner.tr{
+    font-size:10px;
 
-    top:25px;
-    right:25px;
+    letter-spacing:5px;
 
-    border-width:
-        1px
-        1px
-        0
-        0;
+    color:#bbb0d8;
+
+    margin-bottom:25px;
 }
 
-
-.corner.bl{
-
-    bottom:25px;
-    left:25px;
-
-    border-width:
-        0
-        0
-        1px
-        1px;
-}
-
-
-.corner.br{
-
-    right:25px;
-    bottom:25px;
-
-    border-width:
-        0
-        1px
-        1px
-        0;
-}
-
-
-/* =========================================================
-   MAIN HEADER
-========================================================= */
-
-.invite-label{
-
-    font-family:
-        "Playfair Display",
-        serif;
-
-    font-size:12px;
-
-    letter-spacing:6px;
-
-    color:#d9bd78;
-}
-
-
-.main-bismillah{
-
-    margin-top:19px;
-
-    font-size:24px;
-
-    color:#eee6d4;
-}
-
-
-.intro{
-
-    margin-top:22px;
-
-    font-size:17px;
-
-    line-height:1.55;
-
-    color:#d9d6cc;
-}
-
-
-.main-name{
-
-    margin-top:25px;
-
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    font-size:88px;
-
-    line-height:1;
-
-    color:#f1e1b9;
-}
-
-
-.main-age{
-
-    margin-top:8px;
-
-    font-family:
-        "Playfair Display",
-        serif;
+.content h2{
+    font-family:"Playfair Display",serif;
 
     font-size:19px;
 
     letter-spacing:5px;
 
-    color:#d8bb75;
+    font-weight:500;
+
+    color:#eeeaff;
 }
 
-
-.main-date{
-
-    margin-top:12px;
-
-    font-size:18px;
-
-    letter-spacing:2px;
-
-    color:#e1dbc9;
-}
-
-
-/* =========================================================
-   GOLD DIVIDER
-========================================================= */
-
-.divider{
-
-    display:flex;
-
-    align-items:center;
-
-    margin:
-        34px 0
-        27px;
-}
-
-
-.divider::before,
-.divider::after{
-
-    content:"";
-
-    height:1px;
-
-    flex:1;
-
-    background:#cdb16c;
-}
-
-
-.divider-symbol{
-
-    margin:0 14px;
+.bismillah{
+    margin:27px 0 20px;
 
     font-size:22px;
 
-    color:#d8bb73;
+    color:#e7ddff;
+
+    opacity:.9;
 }
 
+.intro{
+    max-width:330px;
 
-/* =========================================================
-   BIRTHDAY SECTION
-========================================================= */
+    margin:auto;
 
-.section-title{
+    color:#bbb7c9;
 
-    font-family:
-        "Playfair Display",
-        serif;
+    font-size:15px;
 
-    font-size:18px;
-
-    letter-spacing:3px;
-
-    color:#e0c687;
+    line-height:1.8;
 }
 
+.name{
+    margin-top:25px;
 
-.big-number{
+    font-family:"Great Vibes",cursive;
 
-    margin-top:8px;
+    font-size:68px;
 
-    font-family:
-        "Playfair Display",
-        serif;
+    font-weight:400;
 
-    font-size:60px;
+    color:#fff;
 
     line-height:1;
 
-    color:#f1e8d1;
+    text-shadow:
+        0 0 25px
+        rgba(216,190,255,.25);
 }
 
+.twenty{
+    margin-top:17px;
 
-.big-number span{
+    font-family:"Playfair Display",serif;
 
-    font-size:19px;
+    font-size:10px;
+
+    letter-spacing:7px;
+
+    color:#a9a1c7;
+}
+
+.date-main{
+    margin-top:22px;
+
+    font-family:"Playfair Display",serif;
+
+    font-size:12px;
+
+    letter-spacing:4px;
+
+    color:#ded8ed;
+}
+
+.divider{
+    width:70px;
+    height:1px;
+
+    margin:27px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #c9b9ef,
+            transparent
+        );
+}
+
+.age{
+    font-family:"Great Vibes",cursive;
+
+    font-size:47px;
+
+    color:#e9ddff;
+}
+
+.day{
+    margin-top:5px;
+
+    font-size:13px;
 
     letter-spacing:3px;
 
-    vertical-align:middle;
-
-    color:#d7bd7b;
+    color:#a9a5ba;
 }
-
-
-.location{
-
-    margin-top:13px;
-
-    font-size:16px;
-
-    line-height:1.5;
-
-    color:#d0cdc2;
-}
-
-
-/* =========================================================
-   QUOTE
-========================================================= */
 
 .quote{
+    max-width:310px;
 
-    margin-top:38px;
+    margin:28px auto;
 
-    font-size:18px;
+    font-size:14px;
 
-    line-height:1.6;
+    line-height:1.8;
+
+    color:#b8b4c4;
 
     font-style:italic;
-
-    color:#ddd7c8;
 }
 
 
-.quote-mark{
-
-    display:block;
-
-    font-family:serif;
-
-    font-size:42px;
-
-    line-height:25px;
-
-    color:#d5b66d;
-}
-
-
-/* =========================================================
-   BUTTON SURAT
-========================================================= */
+/* =====================================================
+   LETTER BUTTON
+===================================================== */
 
 .letter-button{
+    margin-top:15px;
 
-    margin-top:35px;
+    padding:14px 25px;
 
-    padding:13px 30px;
-
-    background:transparent;
+    border-radius:50px;
 
     border:
         1px solid
-        #cdb16c;
+        rgba(220,204,255,.4);
 
-    color:#e2cb91;
+    background:
+        rgba(164,126,226,.08);
 
-    font-family:
-        "Playfair Display",
-        serif;
+    color:#eee9fa;
 
-    font-size:11px;
+    font-family:"Playfair Display",serif;
+
+    font-size:10px;
 
     letter-spacing:3px;
 
@@ -986,380 +967,232 @@ body::before{
     transition:.3s;
 }
 
-
 .letter-button:hover{
-
     background:
-        rgba(210,181,108,.1);
+        rgba(182,144,255,.18);
 
-    transform:
-        translateY(-2px);
+    transform:translateY(-2px);
 }
-
-
-/* =========================================================
-   FOOTER
-========================================================= */
 
 .footer{
+    margin-top:38px;
 
-    margin-top:32px;
+    font-size:12px;
 
-    font-size:13px;
+    letter-spacing:1px;
 
-    letter-spacing:2px;
-
-    color:#aaa99f;
+    color:#8f8a9f;
 }
 
 
-/* =========================================================
+/* =====================================================
    LETTER MODAL
-========================================================= */
+===================================================== */
 
 #letter{
-
     position:fixed;
 
     inset:0;
 
-    z-index:200;
-
     display:flex;
 
-    justify-content:center;
-
     align-items:center;
+    justify-content:center;
 
     padding:20px;
 
     background:
-        rgba(1,9,24,.86);
+        rgba(3,2,14,.78);
 
-    backdrop-filter:
-        blur(8px);
+    backdrop-filter:blur(12px);
 
     opacity:0;
-
     visibility:hidden;
 
     pointer-events:none;
 
     transition:
-        opacity .45s ease,
-        visibility .45s ease;
+        opacity .5s ease,
+        visibility .5s ease;
+
+    z-index:20000;
 }
 
-
 #letter.open{
-
     opacity:1;
-
     visibility:visible;
-
     pointer-events:auto;
 }
 
-
-/* =========================================================
-   LETTER CARD
-========================================================= */
-
-.letter-card{
-
+.letter-box{
     position:relative;
 
     width:min(440px,94vw);
 
-    max-height:88vh;
+    max-height:85vh;
 
     overflow-y:auto;
 
-    padding:
-        50px 32px
-        40px;
+    padding:42px 28px;
 
-    background:
-
-        linear-gradient(
-            145deg,
-            #09224a,
-            #04142f
-        );
+    border-radius:27px;
 
     border:
         1px solid
-        rgba(218,190,119,.75);
+        rgba(224,207,255,.30);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(30,20,55,.96),
+            rgba(8,8,27,.98)
+        );
 
     box-shadow:
         0 30px 100px
-        rgba(0,0,0,.65);
-
-    text-align:center;
+        rgba(0,0,0,.7);
 }
-
-
-/* inner */
-
-.letter-card::before{
-
-    content:"";
-
-    position:absolute;
-
-    inset:14px;
-
-    border:
-        1px solid
-        rgba(215,187,116,.2);
-
-    pointer-events:none;
-}
-
-
-/* =========================================================
-   LETTER HEADER
-========================================================= */
 
 .letter-small{
+    font-family:"Playfair Display",serif;
 
-    font-family:
-        "Playfair Display",
-        serif;
+    font-size:9px;
+
+    letter-spacing:4px;
+
+    color:#aaa1c0;
+
+    text-align:center;
+
+    margin-bottom:15px;
+}
+
+.letter-box h3{
+    font-family:"Great Vibes",cursive;
+
+    font-size:48px;
+
+    font-weight:400;
+
+    text-align:center;
+
+    color:#eee6ff;
+
+    margin-bottom:25px;
+}
+
+.letter-box p{
+    font-size:16px;
+
+    line-height:1.8;
+
+    color:#cbc6d4;
+
+    text-align:center;
+
+    margin-bottom:20px;
+}
+
+.section-title{
+    font-family:"Playfair Display",serif;
 
     font-size:10px;
 
     letter-spacing:4px;
 
-    color:#d6b970;
+    color:#cdbcf0;
+
+    text-align:center;
+
+    margin:
+        28px 0 15px;
 }
-
-
-.letter-title{
-
-    margin-top:13px;
-
-    font-family:
-        "Great Vibes",
-        cursive;
-
-    font-size:58px;
-
-    color:#f0dfb5;
-}
-
-
-.letter-divider{
-
-    margin:23px 0;
-
-    height:1px;
-
-    background:
-        linear-gradient(
-            to right,
-            transparent,
-            #d0b26b,
-            transparent
-        );
-}
-
-
-/* =========================================================
-   LETTER CONTENT
-========================================================= */
-
-.letter-section{
-
-    margin-top:25px;
-}
-
-
-.letter-section h3{
-
-    font-family:
-        "Playfair Display",
-        serif;
-
-    font-size:15px;
-
-    letter-spacing:3px;
-
-    color:#d9bd79;
-}
-
-
-.letter-section p{
-
-    margin-top:14px;
-
-    font-size:17px;
-
-    line-height:1.65;
-
-    color:#dedbd1;
-}
-
 
 .signature{
-
     margin-top:30px;
 
-    font-size:16px;
+    font-family:"Great Vibes",cursive;
 
-    line-height:1.6;
+    font-size:35px;
 
-    color:#cfc9ba;
+    color:#e8ddff;
+
+    text-align:center;
 }
 
 
-.signature strong{
-
-    color:#ead7a8;
-
-    font-family:
-        "Playfair Display",
-        serif;
-}
-
-
-/* =========================================================
-   CLOSE
-========================================================= */
+/* CLOSE */
 
 .close-letter{
+    position:absolute;
 
-    margin-top:30px;
+    top:13px;
+    right:17px;
 
-    padding:11px 25px;
+    width:35px;
+    height:35px;
 
-    border:
-        1px solid
-        #c9ad68;
+    border-radius:50%;
 
-    background:transparent;
+    border:1px solid
+        rgba(255,255,255,.15);
 
-    color:#dfc88e;
+    background:
+        rgba(255,255,255,.04);
 
-    font-family:
-        "Playfair Display",
-        serif;
+    color:#fff;
 
-    font-size:10px;
-
-    letter-spacing:3px;
+    font-size:20px;
 
     cursor:pointer;
 }
 
 
-/* =========================================================
-   RESPONSIVE
-========================================================= */
+/* =====================================================
+   MOBILE
+===================================================== */
 
-@media(max-width:600px){
+@media(max-width:480px){
+
+    .moon{
+        width:145px;
+        height:145px;
+
+        right:-55px;
+        top:5%;
+    }
+
+    .moon::after{
+        width:130px;
+        height:130px;
+    }
+
+    .flower{
+        width:145px;
+        height:145px;
+    }
 
     .open-card{
-
-        min-height:650px;
-
-        padding:
-            60px
-            25px
-            45px;
+        min-height:620px;
     }
 
-
-    .script-name{
-
-        font-size:70px;
+    .open-card h1{
+        font-size:57px;
     }
 
+    .name{
+        font-size:59px;
+    }
 
     .invitation{
-
-        min-height:850px;
-
         padding:
-            68px
-            27px
-            50px;
+            42px 20px 32px;
     }
 
-
-    .main-name{
-
-        font-size:76px;
-    }
-
-
-    .big-number{
-
-        font-size:52px;
-    }
-
-
-    .flower-top{
-
-        width:220px;
-        height:220px;
-
-        right:-35px;
-        top:-15px;
-    }
-
-
-    .flower-bottom{
-
-        width:230px;
-        height:230px;
-
-        left:-35px;
-        bottom:-20px;
-    }
-
-}
-
-
-@media(max-width:380px){
-
-    .open-card{
-
-        min-height:610px;
-
+    .letter-box{
         padding:
-            50px
-            20px
-            35px;
+            38px 22px;
     }
-
-
-    .script-name{
-
-        font-size:62px;
-    }
-
-
-    .main-name{
-
-        font-size:68px;
-    }
-
-
-    .invitation{
-
-        padding:
-            62px
-            22px
-            45px;
-    }
-
-
-    .intro{
-
-        font-size:16px;
-    }
-
 }
 
 </style>
@@ -1370,280 +1203,525 @@ body::before{
 
 
 <!-- =====================================================
-     STAR PARTICLES
-====================================================== -->
+     BACKGROUND ELEMENTS
+===================================================== -->
+
+<div class="light one"></div>
+<div class="light two"></div>
+<div class="light three"></div>
 
 <div id="stars"></div>
+<div id="petals"></div>
+
+
+<!-- MOON -->
+
+<div class="moon"></div>
+
+
+<!-- CONSTELLATION -->
+
+<div class="constellation">
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+    <span></span>
+</div>
 
 
 <!-- =====================================================
-     FLOWER TOP RIGHT
-     SVG, bukan gambar
-====================================================== -->
+     FLOWER SVG
+===================================================== -->
 
-<svg
-    class="flower flower-top"
-    viewBox="0 0 300 300"
-    xmlns="http://www.w3.org/2000/svg">
+<div class="flower top">
 
-    <defs>
+<svg viewBox="0 0 200 200">
 
-        <linearGradient
-            id="petalGradient"
-            x1="0"
-            y1="0"
-            x2="1"
-            y2="1">
+<defs>
 
-            <stop
-                offset="0%"
-                stop-color="#ffffff"/>
+<linearGradient
+    id="petalColor"
+    x1="0"
+    y1="0"
+    x2="1"
+    y2="1">
 
-            <stop
-                offset="45%"
-                stop-color="#e7effb"/>
+    <stop
+        offset="0%"
+        stop-color="#f8edff"/>
 
-            <stop
-                offset="100%"
-                stop-color="#a9c2e5"/>
+    <stop
+        offset="55%"
+        stop-color="#d9c4ff"/>
 
-        </linearGradient>
+    <stop
+        offset="100%"
+        stop-color="#9d86d0"/>
 
-    </defs>
+</linearGradient>
+
+</defs>
 
 
-    <!-- batang -->
+<!-- stems -->
 
-    <path
-        d="M300 20
-           C245 55 220 105 205 160
-           C190 215 135 260 70 285"
-        fill="none"
-        stroke="#9db7dc"
-        stroke-width="2"
-        opacity=".7"/>
+<path
+    d="M25 170 Q70 110 120 65"
+    fill="none"
+    stroke="#8d86b8"
+    stroke-width="2"
+    opacity=".4"/>
 
-
-    <!-- daun -->
-
-    <path
-        class="flower-leaf"
-        d="M245 74
-           C215 45 190 48 177 65
-           C205 72 226 78 245 74Z"/>
-
-    <path
-        class="flower-leaf"
-        d="M216 126
-           C185 104 162 110 151 130
-           C176 133 196 133 216 126Z"/>
-
-    <path
-        class="flower-leaf"
-        d="M175 181
-           C147 161 125 168 116 188
-           C140 190 157 189 175 181Z"/>
+<path
+    d="M55 185 Q90 125 150 100"
+    fill="none"
+    stroke="#8d86b8"
+    stroke-width="2"
+    opacity=".35"/>
 
 
-    <!-- bunga besar -->
+<!-- leaves -->
 
-    <g transform="translate(210 65)">
+<ellipse
+    class="leafShape"
+    cx="65"
+    cy="125"
+    rx="12"
+    ry="28"
+    transform="rotate(-45 65 125)"/>
 
-        <ellipse
-            class="flower-petal"
-            cx="0"
-            cy="-38"
-            rx="25"
-            ry="46"/>
+<ellipse
+    class="leafShape"
+    cx="105"
+    cy="110"
+    rx="11"
+    ry="26"
+    transform="rotate(50 105 110)"/>
 
-        <ellipse
-            class="flower-petal"
-            cx="38"
-            cy="-5"
-            rx="25"
-            ry="46"
-            transform="rotate(65 38 -5)"/>
-
-        <ellipse
-            class="flower-petal"
-            cx="25"
-            cy="38"
-            rx="25"
-            ry="46"
-            transform="rotate(120 25 38)"/>
-
-        <ellipse
-            class="flower-petal"
-            cx="-25"
-            cy="38"
-            rx="25"
-            ry="46"
-            transform="rotate(-120 -25 38)"/>
-
-        <ellipse
-            class="flower-petal"
-            cx="-38"
-            cy="-5"
-            rx="25"
-            ry="46"
-            transform="rotate(-65 -38 -5)"/>
-
-        <circle
-            cx="0"
-            cy="0"
-            r="16"
-            fill="#d7c18a"/>
-
-    </g>
+<ellipse
+    class="leafShape"
+    cx="90"
+    cy="155"
+    rx="10"
+    ry="24"
+    transform="rotate(-50 90 155)"/>
 
 
-    <!-- bunga kedua -->
+<!-- flower 1 -->
 
-    <g transform="translate(275 10) scale(.65)">
+<g transform="translate(125 60)">
 
-        <ellipse
-            class="flower-petal"
-            cx="0"
-            cy="-38"
-            rx="25"
-            ry="46"/>
+    <circle
+        cx="0"
+        cy="0"
+        r="8"
+        fill="#f5ddff"/>
 
-        <ellipse
-            class="flower-petal"
-            cx="38"
-            cy="-5"
-            rx="25"
-            ry="46"
-            transform="rotate(65 38 -5)"/>
+    <ellipse
+        class="petalShape"
+        cx="0"
+        cy="-15"
+        rx="10"
+        ry="18"/>
 
-        <ellipse
-            class="flower-petal"
-            cx="25"
-            cy="38"
-            rx="25"
-            ry="46"
-            transform="rotate(120 25 38)"/>
+    <ellipse
+        class="petalShape"
+        cx="15"
+        cy="-5"
+        rx="10"
+        ry="18"
+        transform="rotate(55 15 -5)"/>
 
-        <ellipse
-            class="flower-petal"
-            cx="-25"
-            cy="38"
-            rx="25"
-            ry="46"
-            transform="rotate(-120 -25 38)"/>
+    <ellipse
+        class="petalShape"
+        cx="10"
+        cy="13"
+        rx="10"
+        ry="18"
+        transform="rotate(125 10 13)"/>
 
-        <ellipse
-            class="flower-petal"
-            cx="-38"
-            cy="-5"
-            rx="25"
-            ry="46"
-            transform="rotate(-65 -38 -5)"/>
+    <ellipse
+        class="petalShape"
+        cx="-10"
+        cy="13"
+        rx="10"
+        ry="18"
+        transform="rotate(-125 -10 13)"/>
 
-        <circle
-            cx="0"
-            cy="0"
-            r="16"
-            fill="#d7c18a"/>
+    <ellipse
+        class="petalShape"
+        cx="-15"
+        cy="-5"
+        rx="10"
+        ry="18"
+        transform="rotate(-55 -15 -5)"/>
 
-    </g>
+</g>
+
+
+<!-- flower 2 -->
+
+<g transform="translate(75 115) scale(.7)">
+
+    <circle
+        cx="0"
+        cy="0"
+        r="8"
+        fill="#f5ddff"/>
+
+    <ellipse
+        class="petalShape"
+        cx="0"
+        cy="-15"
+        rx="10"
+        ry="18"/>
+
+    <ellipse
+        class="petalShape"
+        cx="15"
+        cy="-5"
+        rx="10"
+        ry="18"
+        transform="rotate(55 15 -5)"/>
+
+    <ellipse
+        class="petalShape"
+        cx="10"
+        cy="13"
+        rx="10"
+        ry="18"
+        transform="rotate(125 10 13)"/>
+
+    <ellipse
+        class="petalShape"
+        cx="-10"
+        cy="13"
+        rx="10"
+        ry="18"
+        transform="rotate(-125 -10 13)"/>
+
+    <ellipse
+        class="petalShape"
+        cx="-15"
+        cy="-5"
+        rx="10"
+        ry="18"
+        transform="rotate(-55 -15 -5)"/>
+
+</g>
 
 </svg>
+
+</div>
+
+
+<div class="flower bottom">
+
+<svg viewBox="0 0 200 200">
+
+<defs>
+
+<linearGradient
+    id="petalColor2"
+    x1="0"
+    y1="0"
+    x2="1"
+    y2="1">
+
+    <stop offset="0%" stop-color="#f8edff"/>
+    <stop offset="55%" stop-color="#d9c4ff"/>
+    <stop offset="100%" stop-color="#9d86d0"/>
+
+</linearGradient>
+
+</defs>
+
+<path
+    d="M25 170 Q70 110 120 65"
+    fill="none"
+    stroke="#8d86b8"
+    stroke-width="2"
+    opacity=".4"/>
+
+<ellipse
+    fill="#8990c7"
+    opacity=".38"
+    cx="65"
+    cy="125"
+    rx="12"
+    ry="28"
+    transform="rotate(-45 65 125)"/>
+
+<g transform="translate(125 60)">
+
+    <circle
+        cx="0"
+        cy="0"
+        r="8"
+        fill="#f5ddff"/>
+
+    <ellipse
+        fill="url(#petalColor2)"
+        cx="0"
+        cy="-15"
+        rx="10"
+        ry="18"/>
+
+    <ellipse
+        fill="url(#petalColor2)"
+        cx="15"
+        cy="-5"
+        rx="10"
+        ry="18"
+        transform="rotate(55 15 -5)"/>
+
+    <ellipse
+        fill="url(#petalColor2)"
+        cx="10"
+        cy="13"
+        rx="10"
+        ry="18"
+        transform="rotate(125 10 13)"/>
+
+    <ellipse
+        fill="url(#petalColor2)"
+        cx="-10"
+        cy="13"
+        rx="10"
+        ry="18"
+        transform="rotate(-125 -10 13)"/>
+
+    <ellipse
+        fill="url(#petalColor2)"
+        cx="-15"
+        cy="-5"
+        rx="10"
+        ry="18"
+        transform="rotate(-55 -15 -5)"/>
+
+</g>
+
+</svg>
+
+</div>
 
 
 <!-- =====================================================
-     FLOWER BOTTOM LEFT
-====================================================== -->
+     OPENING
+===================================================== -->
 
-<svg
-    class="flower flower-bottom"
-    viewBox="0 0 300 300"
-    xmlns="http://www.w3.org/2000/svg">
+<section id="opening">
 
-    <path
-        d="M300 20
-           C245 55 220 105 205 160
-           C190 215 135 260 70 285"
-        fill="none"
-        stroke="#9db7dc"
-        stroke-width="2"
-        opacity=".7"/>
+<div class="open-card">
+
+    <div class="small-title">
+        A LITTLE SOMETHING FOR YOU
+    </div>
+
+    <h1>
+        Ratna
+    </h1>
+
+    <div class="subtitle">
+        sebuah hari kecil untuk seseorang
+    </div>
+
+    <div class="date">
+        01 • OKTOBER • 2026
+    </div>
+
+    <button
+        type="button"
+        class="open-button"
+        id="openButton"
+        onclick="enterWebsite()">
+
+        BUKA UNDANGAN
+
+    </button>
+
+</div>
+
+</section>
 
 
-    <path
-        class="flower-leaf"
-        d="M245 74
-           C215 45 190 48 177 65
-           C205 72 226 78 245 74Z"/>
+<!-- =====================================================
+     MAIN
+===================================================== -->
 
-    <path
-        class="flower-leaf"
-        d="M216 126
-           C185 104 162 110 151 130
-           C176 133 196 133 216 126Z"/>
+<main id="main">
 
-    <path
-        class="flower-leaf"
-        d="M175 181
-           C147 161 125 168 116 188
-           C140 190 157 189 175 181Z"/>
+<div class="invitation">
+
+<div class="content">
+
+    <div class="top-label">
+        A SPECIAL DAY
+    </div>
 
 
-    <g transform="translate(210 65)">
+    <h2>
+        SELAMAT ULANG TAHUN
+    </h2>
 
-        <ellipse
-            class="flower-petal"
-            cx="0"
-            cy="-38"
-            rx="25"
-            ry="46"/>
 
-        <ellipse
-            class="flower-petal"
-            cx="38"
-            cy="-5"
-            rx="25"
-            ry="46"
-            transform="rotate(65 38 -5)"/>
+    <div class="bismillah">
+        بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ
+    </div>
 
-        <ellipse
-            class="flower-petal"
-            cx="25"
-            cy="38"
-            rx="25"
-            ry="46"
-            transform="rotate(120 25 38)"/>
 
-        <ellipse
-            class="flower-petal"
-            cx="-25"
-            cy="38"
-            rx="25"
-            ry="46"
-            transform="rotate(-120 -25 38)"/>
+    <p class="intro">
+        Hari ini bukan sekadar bertambahnya
+        satu angka, tapi bertambahnya
+        satu cerita baru dalam hidupmu.
+    </p>
 
-        <ellipse
-            class="flower-petal"
-            cx="-38"
-            cy="-5"
-            rx="25"
-            ry="46"
-            transform="rotate(-65 -38 -5)"/>
 
-        <circle
-            cx="0"
-            cy="0"
-            r="16"
-            fill="#d7c18a"/>
+    <div class="name">
+        Ratna
+    </div>
 
-    </g>
 
-</svg>
+    <div class="twenty">
+        TWENTY YEARS
+    </div>
+
+
+    <div class="date-main">
+        01 • OKTOBER • 2026
+    </div>
+
+
+    <div class="divider"></div>
+
+
+    <div class="age">
+        20 Tahun
+    </div>
+
+
+    <div class="day">
+        Kamis, 1 Oktober 2026
+    </div>
+
+
+    <p class="quote">
+        “Semoga langkah kecilmu hari ini
+        membawa kamu menuju banyak
+        hal baik yang belum pernah kamu bayangkan.”
+    </p>
+
+
+    <button
+        type="button"
+        class="letter-button"
+        id="openLetter">
+
+        BUKA SURAT KECIL
+
+    </button>
+
+
+    <div class="footer">
+        Dengan tulus,<br>
+        Muhammad Fajar M.
+    </div>
+
+</div>
+
+</div>
+
+</main>
+
+
+<!-- =====================================================
+     LETTER
+===================================================== -->
+
+<div id="letter">
+
+<div class="letter-box">
+
+<button
+    type="button"
+    class="close-letter"
+    id="closeLetter">
+    ×
+</button>
+
+
+<div class="letter-small">
+    A LITTLE LETTER FOR YOU
+</div>
+
+
+<h3>
+    Untuk Ratna
+</h3>
+
+
+<div class="section-title">
+    KENANGAN
+</div>
+
+
+<p>
+    Kita pernah kenal selama satu bulan
+    di bulan Juli.
+</p>
+
+
+<p>
+    Walaupun singkat,
+    ada beberapa kenangan
+    yang masih aku ingat.
+</p>
+
+
+<p>
+    Kita pernah bertemu,
+    pernah dekat,
+    lalu akhirnya kembali
+    berjalan di jalan masing-masing.
+</p>
+
+
+<div class="section-title">
+    SELAMAT ULANG TAHUN
+</div>
+
+
+<p>
+    Selamat ulang tahun, Ratna.
+</p>
+
+
+<p>
+    Semoga di usia 20 tahun ini,
+    banyak hal baik datang kepadamu.
+</p>
+
+
+<p>
+    Semoga langkahmu selalu dimudahkan
+    dan apa yang kamu harapkan
+    bisa tercapai.
+</p>
+
+
+<div class="signature">
+    Muhammad Fajar M.
+</div>
+
+</div>
+
+</div>
 
 
 <!-- =====================================================
      MUSIC
-====================================================== -->
+===================================================== -->
 
 <audio
     id="music"
@@ -1654,335 +1732,19 @@ body::before{
 
 
 <!-- =====================================================
-     OPENING
-====================================================== -->
-
-<section id="opening">
-
-    <div class="open-card">
-
-        <div class="open-corner"></div>
-
-        <div class="label">
-            A SPECIAL INVITATION
-        </div>
-
-        <div class="bismillah">
-            بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ
-        </div>
-
-        <div class="open-intro">
-            Dengan penuh doa dan harapan,
-            sebuah ucapan kecil telah disiapkan
-            untuk seseorang yang istimewa.
-        </div>
-
-        <div class="script-name">
-            Ratna
-        </div>
-
-        <div class="open-date">
-            01 • OKTOBER • 2006
-        </div>
-
-        <div class="ornament">
-            <span>❦</span>
-        </div>
-
-        <button
-            class="open-button"
-            id="openButton">
-
-            BUKA UNDANGAN
-
-        </button>
-
-    </div>
-
-</section>
-
-
-<!-- =====================================================
-     MAIN INVITATION
-====================================================== -->
-
-<main id="main">
-
-    <div class="invitation">
-
-        <div class="corner tl"></div>
-        <div class="corner tr"></div>
-        <div class="corner bl"></div>
-        <div class="corner br"></div>
-
-
-        <!-- HEADER -->
-
-        <div class="invite-label">
-            SELAMAT ULANG TAHUN
-        </div>
-
-
-        <div class="main-bismillah">
-            بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ
-        </div>
-
-
-        <div class="intro">
-
-            Hari ini bukan sekadar
-            bertambahnya satu angka.
-
-            <br>
-
-            Tapi sebuah perjalanan baru
-            yang layak dirayakan.
-
-        </div>
-
-
-        <!-- NAME -->
-
-        <div class="main-name">
-            Ratna
-        </div>
-
-
-        <div class="main-age">
-            TWENTY YEARS
-        </div>
-
-
-        <div class="main-date">
-            01 • OKTOBER • 2026
-        </div>
-
-
-        <!-- DIVIDER -->
-
-        <div class="divider">
-
-            <div class="divider-symbol">
-                ❧
-            </div>
-
-        </div>
-
-
-        <!-- AGE -->
-
-        <div class="section-title">
-            HARI ISTIMEWA
-        </div>
-
-
-        <div class="big-number">
-            20
-            <span>TAHUN</span>
-        </div>
-
-
-        <div class="location">
-
-            Kamis, 1 Oktober 2026
-
-            <br>
-
-            Hari ketika seseorang
-            bernama Ratna memulai
-            babak baru dalam hidupnya.
-
-        </div>
-
-
-        <!-- QUOTE -->
-
-        <div class="quote">
-
-            <span class="quote-mark">“</span>
-
-            Semoga usia yang baru
-            membawa lebih banyak
-            kebahagiaan, ketenangan,
-            dan hal-hal baik
-            yang tidak pernah kamu duga.
-
-        </div>
-
-
-        <!-- LETTER -->
-
-        <button
-            class="letter-button"
-            id="openLetter">
-
-            BUKA SURAT KECIL
-
-        </button>
-
-
-        <div class="footer">
-
-            Dengan tulus,
-
-            <br>
-
-            Muhammad Fajar M.
-
-        </div>
-
-    </div>
-
-</main>
-
-
-<!-- =====================================================
-     LETTER
-====================================================== -->
-
-<div id="letter">
-
-    <div class="letter-card">
-
-        <div class="letter-small">
-            A LITTLE LETTER FOR YOU
-        </div>
-
-
-        <div class="letter-title">
-            Untuk Ratna
-        </div>
-
-
-        <div class="letter-divider"></div>
-
-
-        <!-- KENANGAN -->
-
-        <div class="letter-section">
-
-            <h3>
-                KENANGAN
-            </h3>
-
-            <p>
-
-                Kita pernah kenal selama satu bulan
-                di bulan Juli.
-
-                <br><br>
-
-                Walaupun singkat,
-                ada beberapa kenangan
-                yang masih aku ingat.
-
-                <br><br>
-
-                Kita pernah bertemu,
-                pernah dekat,
-                lalu akhirnya kembali
-                berjalan di jalan masing-masing.
-
-            </p>
-
-        </div>
-
-
-        <div class="letter-divider"></div>
-
-
-        <!-- ULANG TAHUN -->
-
-        <div class="letter-section">
-
-            <h3>
-                SELAMAT ULANG TAHUN
-            </h3>
-
-            <p>
-
-                Selamat ulang tahun, Ratna.
-
-                <br><br>
-
-                Semoga di usia 20 tahun ini,
-                banyak hal baik datang kepadamu.
-
-                Semoga langkahmu selalu dimudahkan
-                dan apa yang kamu harapkan
-                bisa tercapai.
-
-            </p>
-
-        </div>
-
-
-        <div class="signature">
-
-            Dari,
-
-            <br>
-
-            <strong>
-                Muhammad Fajar M.
-            </strong>
-
-        </div>
-
-
-        <button
-            class="close-letter"
-            id="closeLetter">
-
-            TUTUP SURAT
-
-        </button>
-
-    </div>
-
-</div>
-
-
-<!-- =====================================================
      JAVASCRIPT
-====================================================== -->
+===================================================== -->
 
 <script>
 
 /* =====================================================
-   ELEMENT
+   STARS
 ===================================================== */
-
-const opening =
-    document.getElementById("opening");
-
-const main =
-    document.getElementById("main");
-
-const openButton =
-    document.getElementById("openButton");
-
-const openLetter =
-    document.getElementById("openLetter");
-
-const letter =
-    document.getElementById("letter");
-
-const closeLetter =
-    document.getElementById("closeLetter");
-
-const music =
-    document.getElementById("music");
 
 const stars =
     document.getElementById("stars");
 
-
-/* =====================================================
-   CREATE STARS
-===================================================== */
-
-for(let i = 0; i < 90; i++){
+for(let i = 0; i < 110; i++){
 
     const star =
         document.createElement("div");
@@ -2001,115 +1763,202 @@ for(let i = 0; i < 90; i++){
     );
 
     star.style.animationDelay =
-        (Math.random() * 5) + "s";
+        (Math.random() * 6) + "s";
+
+    const size =
+        Math.random() * 2 + 1;
+
+    star.style.width =
+        size + "px";
+
+    star.style.height =
+        size + "px";
 
     stars.appendChild(star);
 }
 
 
 /* =====================================================
-   MUSIC
+   PETALS
 ===================================================== */
 
-function startMusic(){
+const petals =
+    document.getElementById("petals");
 
-    if(!music) return;
+for(let i = 0; i < 18; i++){
 
-    music.volume = 0.55;
+    const petal =
+        document.createElement("div");
 
-    const playPromise =
-        music.play();
+    petal.className = "petal";
 
-    if(playPromise){
+    petal.style.left =
+        Math.random() * 100 + "%";
 
-        playPromise.catch(() => {
+    petal.style.animationDuration =
+        (10 + Math.random() * 15) + "s";
 
-            /*
-             Browser dapat menolak autoplay.
-             Karena pemutaran dipanggil dari
-             tombol user, biasanya akan berhasil.
-        });
+    petal.style.animationDelay =
+        (-Math.random() * 20) + "s";
 
-    }
+    petal.style.opacity =
+        .25 + Math.random() * .5;
+
+    petal.style.transform =
+        `scale(${.5 + Math.random()})`;
+
+    petals.appendChild(petal);
 }
 
 
 /* =====================================================
-   OPEN WEBSITE
+   ELEMENTS
 ===================================================== */
 
-function enterWebsite(){
+const opening =
+    document.getElementById("opening");
 
-    opening.classList.add("hide");
+const main =
+    document.getElementById("main");
 
-    main.classList.add("show");
+const music =
+    document.getElementById("music");
 
-    startMusic();
-}
+const openLetter =
+    document.getElementById("openLetter");
+
+const letter =
+    document.getElementById("letter");
+
+const closeLetter =
+    document.getElementById("closeLetter");
 
 
 /* =====================================================
-   OPEN BUTTON
+   ENTER WEBSITE
 ===================================================== */
 
-openButton.addEventListener(
-    "click",
-    function(){
+window.enterWebsite = function(){
 
-        enterWebsite();
+    console.log(
+        "BUKA UNDANGAN berhasil ditekan"
+    );
+
+
+    if(opening){
+
+        opening.classList.add("hide");
 
     }
-);
 
 
-/* =====================================================
-   OPEN LETTER
-===================================================== */
+    if(main){
 
-openLetter.addEventListener(
-    "click",
-    function(){
-
-        letter.classList.add("open");
+        main.classList.add("show");
 
     }
-);
 
 
-/* =====================================================
-   CLOSE LETTER
-===================================================== */
+    /* MUSIC */
 
-closeLetter.addEventListener(
-    "click",
-    function(){
+    if(music){
 
-        letter.classList.remove("open");
+        music.volume = 0.55;
 
-    }
-);
+        try{
 
+            const playPromise =
+                music.play();
 
-/* =====================================================
-   CLOSE BY CLICK OUTSIDE
-===================================================== */
+            if(playPromise){
 
-letter.addEventListener(
-    "click",
-    function(event){
+                playPromise.catch(
+                    function(error){
 
-        if(event.target === letter){
+                        console.log(
+                            "Musik tidak dapat diputar:",
+                            error
+                        );
 
-            letter.classList.remove("open");
+                    }
+                );
+
+            }
+
+        }catch(error){
+
+            console.log(
+                "Gagal menjalankan musik:",
+                error
+            );
 
         }
 
     }
-);
+
+};
 
 
 /* =====================================================
-   ESC CLOSE
+   LETTER OPEN
+===================================================== */
+
+if(openLetter){
+
+    openLetter.addEventListener(
+        "click",
+        function(){
+
+            letter.classList.add("open");
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   LETTER CLOSE
+===================================================== */
+
+if(closeLetter){
+
+    closeLetter.addEventListener(
+        "click",
+        function(){
+
+            letter.classList.remove("open");
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   CLOSE BY BACKGROUND
+===================================================== */
+
+if(letter){
+
+    letter.addEventListener(
+        "click",
+        function(event){
+
+            if(event.target === letter){
+
+                letter.classList.remove("open");
+
+            }
+
+        }
+    );
+
+}
+
+
+/* =====================================================
+   ESC KEY
 ===================================================== */
 
 document.addEventListener(
@@ -2118,7 +1967,11 @@ document.addEventListener(
 
         if(event.key === "Escape"){
 
-            letter.classList.remove("open");
+            if(letter){
+
+                letter.classList.remove("open");
+
+            }
 
         }
 
