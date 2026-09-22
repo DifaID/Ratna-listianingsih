@@ -4,551 +4,607 @@
 <meta charset="UTF-8">
 
 <meta name="viewport"
-      content="width=device-width,
-      initial-scale=1.0,
-      maximum-scale=1.0,
-      user-scalable=no">
+content="width=device-width,
+initial-scale=1.0,
+maximum-scale=1.0,
+user-scalable=no">
 
 <title>For Ratna Listianingsih 🌹</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <style>
+
 *{
-    box-sizing:border-box;
-    -webkit-tap-highlight-color:transparent;
+box-sizing:border-box;
+-webkit-tap-highlight-color:transparent;
 }
 
 html,body{
-    margin:0;
-    width:100%;
-    height:100%;
-    overflow:hidden;
-    background:#060806;
-    color:#fff;
-    font-family:Georgia,"Times New Roman",serif;
+margin:0;
+width:100%;
+height:100%;
+overflow:hidden;
+background:#050805;
+color:white;
+font-family:Georgia,"Times New Roman",serif;
 }
 
 body{
-    touch-action:none;
+touch-action:none;
 }
 
 #scene{
-    position:fixed;
-    inset:0;
+position:fixed;
+inset:0;
 }
 
 canvas{
-    display:block;
+display:block;
 }
 
 
-/* =====================================================
-   OPENING
-===================================================== */
+/* ================================
+OPENING
+================================ */
 
 #opening{
-    position:fixed;
-    inset:0;
-    z-index:100;
+position:fixed;
+inset:0;
+z-index:1000;
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
+display:flex;
+align-items:center;
+justify-content:center;
 
-    background:
-        radial-gradient(
-            circle at center,
-            #432530 0%,
-            #1b0d14 42%,
-            #040504 100%
-        );
+background:
+radial-gradient(
+circle at center,
+#432530 0%,
+#1b0d14 42%,
+#040504 100%
+);
 
-    transition:
-        opacity 1.5s ease,
-        visibility 1.5s ease;
+transition:
+opacity 1.5s ease,
+visibility 1.5s ease;
 }
 
 #opening.hide{
-    opacity:0;
-    visibility:hidden;
-    pointer-events:none;
+opacity:0;
+visibility:hidden;
+pointer-events:none;
 }
 
 .open-content{
-    width:min(90%,520px);
-    text-align:center;
+width:min(90%,520px);
+text-align:center;
 }
 
 .crown{
-    font-size:36px;
-    color:#e7c476;
-    margin-bottom:18px;
-
-    animation:float 3s ease-in-out infinite;
+font-size:36px;
+color:#e7c476;
+margin-bottom:18px;
+animation:float 3s ease-in-out infinite;
 }
 
 .open-small{
-    color:#d8b36d;
-    font-size:10px;
-    letter-spacing:6px;
-    text-transform:uppercase;
-    margin-bottom:20px;
+color:#d8b36d;
+font-size:10px;
+letter-spacing:6px;
+text-transform:uppercase;
+margin-bottom:20px;
 }
 
 .open-content h1{
-    margin:0;
-    font-size:clamp(52px,15vw,90px);
-    font-weight:normal;
-    font-style:italic;
-    color:#fff7ed;
+margin:0;
+font-size:clamp(52px,15vw,90px);
+font-weight:normal;
+font-style:italic;
+color:#fff7ed;
 
-    text-shadow:
-        0 3px 8px #000,
-        0 0 25px rgba(255,210,150,.2);
+text-shadow:
+0 3px 8px #000,
+0 0 25px rgba(255,210,150,.2);
 }
 
 .open-name{
-    margin-top:12px;
-    color:#e2bb73;
-    letter-spacing:5px;
-    font-size:15px;
+margin-top:12px;
+color:#e2bb73;
+letter-spacing:5px;
+font-size:15px;
 }
 
 .open-line{
-    width:150px;
-    height:1px;
-    margin:25px auto;
+width:150px;
+height:1px;
+margin:25px auto;
 
-    background:
-        linear-gradient(
-            90deg,
-            transparent,
-            #d5a95e,
-            transparent
-        );
+background:
+linear-gradient(
+90deg,
+transparent,
+#d5a95e,
+transparent
+);
 }
 
 .open-text{
-    color:#d4c7bf;
-    font-size:14px;
-    line-height:1.8;
-    margin-bottom:28px;
+color:#d4c7bf;
+font-size:14px;
+line-height:1.8;
+margin-bottom:28px;
 }
 
 #openButton{
-    border:1px solid rgba(232,195,125,.7);
+border:1px solid rgba(232,195,125,.7);
 
-    background:
-        linear-gradient(
-            135deg,
-            rgba(197,142,72,.2),
-            rgba(255,255,255,.03)
-        );
+background:
+linear-gradient(
+135deg,
+rgba(197,142,72,.2),
+rgba(255,255,255,.03)
+);
 
-    color:#f3d9a9;
+color:#f3d9a9;
 
-    padding:15px 30px;
-    border-radius:50px;
+padding:15px 30px;
+border-radius:50px;
 
-    font-family:Georgia,serif;
-    letter-spacing:3px;
-    font-size:11px;
+font-family:Georgia,serif;
+letter-spacing:3px;
+font-size:11px;
 
-    box-shadow:
-        0 0 25px rgba(210,166,87,.15);
+box-shadow:
+0 0 25px rgba(210,166,87,.15);
 
-    cursor:pointer;
+cursor:pointer;
+pointer-events:auto;
 }
 
 #openButton:active{
-    transform:scale(.95);
+transform:scale(.95);
 }
 
 @keyframes float{
-    0%,100%{
-        transform:translateY(0);
-    }
 
-    50%{
-        transform:translateY(-8px);
-    }
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-8px);
+}
+
 }
 
 
-/* =====================================================
-   UI
-===================================================== */
+/* ================================
+UI
+================================ */
 
 #ui{
-    position:fixed;
-    inset:0;
-    z-index:20;
+position:fixed;
+inset:0;
+z-index:20;
 
-    pointer-events:none;
+pointer-events:none;
 
-    opacity:0;
+opacity:0;
 
-    transition:opacity 2s ease;
+transition:opacity 2s ease;
 }
 
 #ui.show{
-    opacity:1;
+opacity:1;
 }
 
 .top-title{
-    position:absolute;
+position:absolute;
 
-    top:max(
-        18px,
-        env(safe-area-inset-top)
-    );
+top:max(
+18px,
+env(safe-area-inset-top)
+);
 
-    left:0;
-    right:0;
+left:0;
+right:0;
 
-    text-align:center;
+text-align:center;
 
-    color:#e4c17d;
+color:#e4c17d;
 
-    font-size:9px;
-    letter-spacing:4px;
-    text-transform:uppercase;
+font-size:9px;
+letter-spacing:4px;
 
-    text-shadow:
-        0 2px 6px #000;
+text-transform:uppercase;
+
+text-shadow:
+0 2px 6px #000;
 }
 
 
-/* =====================================================
-   MAIN TEXT
-===================================================== */
+/* ================================
+MAIN TITLE
+================================ */
 
 .main-title{
-    position:absolute;
+position:absolute;
 
-    top:43%;
-    left:50%;
+top:43%;
+left:50%;
 
-    transform:
-        translate(-50%,-50%);
+transform:
+translate(-50%,-50%);
 
-    width:82%;
+width:82%;
 
-    text-align:center;
+text-align:center;
 
-    z-index:40;
+z-index:40;
 
-    padding:20px 12px;
+padding:20px 12px;
 }
 
 .main-title::before{
-    content:"";
+content:"";
 
-    position:absolute;
+position:absolute;
 
-    z-index:-1;
+z-index:-1;
 
-    left:50%;
-    top:50%;
+left:50%;
+top:50%;
 
-    transform:
-        translate(-50%,-50%);
+transform:
+translate(-50%,-50%);
 
-    width:120%;
-    height:150%;
+width:120%;
+height:150%;
 
-    border-radius:50%;
+border-radius:50%;
 
-    background:
-        radial-gradient(
-            ellipse,
-            rgba(3,6,3,.82) 0%,
-            rgba(3,6,3,.55) 38%,
-            rgba(3,6,3,.18) 62%,
-            transparent 80%
-        );
+background:
+radial-gradient(
+ellipse,
+rgba(3,6,3,.82) 0%,
+rgba(3,6,3,.55) 38%,
+rgba(3,6,3,.18) 62%,
+transparent 80%
+);
 
-    filter:blur(10px);
+filter:blur(10px);
 }
 
 .small-title{
-    font-size:11px;
-    letter-spacing:5px;
-    color:#f1dfd0;
+font-size:11px;
+letter-spacing:5px;
 
-    text-transform:uppercase;
+color:#f1dfd0;
 
-    text-shadow:
-        0 2px 6px #000;
+text-transform:uppercase;
+
+text-shadow:
+0 2px 6px #000;
 }
 
 .main-title h2{
-    margin:5px 0 0;
+margin:5px 0 0;
 
-    font-size:
-        clamp(
-            52px,
-            14vw,
-            82px
-        );
+font-size:
+clamp(
+52px,
+14vw,
+82px
+);
 
-    line-height:1;
+line-height:1;
 
-    font-weight:normal;
-    font-style:italic;
+font-weight:normal;
+font-style:italic;
 
-    color:#fff9f0;
+color:#fff9f0;
 
-    text-shadow:
-        0 3px 8px #000,
-        0 0 25px rgba(255,205,140,.35);
+text-shadow:
+0 3px 8px #000,
+0 0 25px rgba(255,205,140,.35);
 }
 
 .main-name{
-    margin-top:12px;
+margin-top:12px;
 
-    color:#e4bd79;
+color:#e4bd79;
 
-    font-size:
-        clamp(
-            13px,
-            3.8vw,
-            22px
-        );
+font-size:
+clamp(
+13px,
+3.8vw,
+22px
+);
 
-    letter-spacing:5px;
+letter-spacing:5px;
 
-    text-transform:uppercase;
+text-transform:uppercase;
 
-    text-shadow:
-        0 2px 5px #000;
+text-shadow:
+0 2px 5px #000;
 }
 
 .birth{
-    margin-top:13px;
+margin-top:13px;
 
-    font-size:10px;
+font-size:10px;
 
-    letter-spacing:4px;
+letter-spacing:4px;
 
-    color:#eee0d5;
+color:#eee0d5;
 
-    text-shadow:
-        0 2px 5px #000;
+text-shadow:
+0 2px 5px #000;
 }
 
 
-/* =====================================================
-   BUTTONS
-===================================================== */
+/* ================================
+BOTTOM
+================================ */
 
 .bottom{
-    position:absolute;
+position:absolute;
 
-    bottom:max(
-        20px,
-        env(safe-area-inset-bottom)
-    );
+bottom:max(
+20px,
+env(safe-area-inset-bottom)
+);
 
-    left:0;
-    right:0;
+left:0;
+right:0;
 
-    text-align:center;
+text-align:center;
 
-    z-index:50;
+z-index:50;
 }
 
 .bottom button{
-    pointer-events:auto;
+pointer-events:auto;
 
-    margin:3px;
+margin:3px;
 
-    border:
-        1px solid
-        rgba(222,183,112,.45);
+border:
+1px solid
+rgba(222,183,112,.45);
 
-    background:
-        rgba(12,10,8,.78);
+background:
+rgba(12,10,8,.82);
 
-    color:#ead3aa;
+color:#ead3aa;
 
-    border-radius:30px;
+border-radius:30px;
 
-    padding:10px 15px;
+padding:10px 15px;
 
-    font-family:Georgia,serif;
+font-family:Georgia,serif;
 
-    font-size:10px;
+font-size:10px;
 
-    letter-spacing:1px;
+letter-spacing:1px;
 
-    backdrop-filter:blur(8px);
+backdrop-filter:blur(8px);
+
+cursor:pointer;
 }
 
 .bottom button:active{
-    transform:scale(.95);
+transform:scale(.95);
 }
 
 .hint{
-    margin-top:8px;
+margin-top:8px;
 
-    color:
-        rgba(255,255,255,.42);
+color:
+rgba(255,255,255,.42);
 
-    font-size:8px;
+font-size:8px;
 
-    letter-spacing:2px;
+letter-spacing:2px;
 }
 
 
-/* =====================================================
-   LETTER
-===================================================== */
+/* ================================
+LETTER
+================================ */
 
 #letter{
-    position:fixed;
-    inset:0;
 
-    z-index:100;
+position:fixed;
 
-    display:flex;
+inset:0;
 
-    align-items:center;
-    justify-content:center;
+z-index:500;
 
-    padding:20px;
+display:flex;
 
-    background:
-        rgba(4,3,3,.7);
+align-items:center;
+justify-content:center;
 
-    backdrop-filter:blur(9px);
+padding:20px;
 
-    opacity:0;
-    visibility:hidden;
+background:
+rgba(4,3,3,.72);
 
-    transition:.7s;
+backdrop-filter:blur(9px);
+
+opacity:0;
+
+visibility:hidden;
+
+pointer-events:none;
+
+transition:
+opacity .6s ease,
+visibility .6s ease;
 }
 
 #letter.show{
-    opacity:1;
-    visibility:visible;
+
+opacity:1;
+
+visibility:visible;
+
+pointer-events:auto;
 }
 
 .paper{
-    position:relative;
 
-    width:min(92%,480px);
+position:relative;
 
-    max-height:85vh;
+z-index:501;
 
-    overflow:auto;
+width:min(92%,480px);
 
-    padding:35px 27px;
+max-height:85vh;
 
-    text-align:center;
+overflow:auto;
 
-    background:
-        linear-gradient(
-            135deg,
-            #f9eee0,
-            #ead8c1
-        );
+padding:35px 27px;
 
-    color:#352128;
+text-align:center;
 
-    border:
-        2px solid
-        #c8a25e;
+background:
+linear-gradient(
+135deg,
+#f9eee0,
+#ead8c1
+);
 
-    box-shadow:
-        0 20px 70px rgba(0,0,0,.65);
+color:#352128;
+
+border:
+2px solid #c8a25e;
+
+box-shadow:
+0 20px 70px rgba(0,0,0,.65);
+
+pointer-events:auto;
+
+touch-action:auto;
 }
 
 .paper::before{
-    content:"";
 
-    position:absolute;
-    inset:8px;
+content:"";
 
-    border:
-        1px solid
-        rgba(150,106,43,.35);
+position:absolute;
+
+inset:8px;
+
+border:
+1px solid
+rgba(150,106,43,.35);
+
+pointer-events:none;
 }
 
 .paper .flower{
-    font-size:28px;
-    color:#9b5265;
+font-size:28px;
+color:#9b5265;
 }
 
 .paper h2{
-    margin:10px 0;
 
-    font-size:37px;
+margin:10px 0;
 
-    font-weight:normal;
-    font-style:italic;
+font-size:37px;
+
+font-weight:normal;
+font-style:italic;
 }
 
 .paper .paper-name{
-    color:#9c7137;
 
-    letter-spacing:3px;
+color:#9c7137;
 
-    font-size:13px;
+letter-spacing:3px;
+
+font-size:13px;
 }
 
 .paper hr{
-    width:90px;
 
-    border:0;
+width:90px;
 
-    border-top:
-        1px solid #b28a51;
+border:0;
 
-    margin:22px auto;
+border-top:
+1px solid #b28a51;
+
+margin:22px auto;
 }
 
 .paper p{
-    font-size:14px;
-    line-height:1.9;
+
+font-size:14px;
+
+line-height:1.9;
 }
 
 .close{
-    margin-top:15px;
 
-    padding:10px 20px;
+position:relative;
 
-    border:
-        1px solid #a98552;
+z-index:510;
 
-    background:transparent;
+display:inline-block;
 
-    border-radius:30px;
+margin-top:15px;
 
-    color:#67482d;
+padding:11px 23px;
+
+border:
+1px solid #a98552;
+
+background:
+rgba(255,255,255,.15);
+
+border-radius:30px;
+
+color:#67482d;
+
+font-family:Georgia,serif;
+
+cursor:pointer;
+
+pointer-events:auto;
+
+touch-action:manipulation;
+}
+
+.close:active{
+transform:scale(.94);
 }
 
 
-/* =====================================================
-   VIGNETTE
-===================================================== */
+/* ================================
+VIGNETTE
+================================ */
 
 .vignette{
-    position:fixed;
-    inset:0;
 
-    pointer-events:none;
+position:fixed;
 
-    z-index:5;
+inset:0;
 
-    background:
-        radial-gradient(
-            circle,
-            transparent 35%,
-            rgba(0,0,0,.12) 65%,
-            rgba(0,0,0,.68) 100%
-        );
+pointer-events:none;
+
+z-index:5;
+
+background:
+radial-gradient(
+circle,
+transparent 35%,
+rgba(0,0,0,.12) 65%,
+rgba(0,0,0,.68) 100%
+);
+
 }
 
 </style>
@@ -557,257 +613,265 @@ canvas{
 <body>
 
 
-<!-- =====================================================
-     OPENING
-===================================================== -->
+<!-- ==========================================
+OPENING
+========================================== -->
 
 <div id="opening">
 
-    <div class="open-content">
+<div class="open-content">
 
-        <div class="crown">
-            ♕
-        </div>
+<div class="crown">
+♕
+</div>
 
-        <div class="open-small">
-            A Garden Made For You
-        </div>
+<div class="open-small">
+A Garden Made For You
+</div>
 
-        <h1>
-            Ratna
-        </h1>
+<h1>
+Ratna
+</h1>
 
-        <div class="open-name">
-            LISTIANINGSIH
-        </div>
+<div class="open-name">
+LISTIANINGSIH
+</div>
 
-        <div class="open-line"></div>
+<div class="open-line"></div>
 
-        <div class="open-text">
+<div class="open-text">
 
-            Sebuah taman kecil telah disiapkan
-            untuk merayakan satu hari yang istimewa.
+Sebuah taman kecil telah disiapkan
+untuk merayakan satu hari yang istimewa.
 
-            <br><br>
+<br><br>
 
-            Masuklah...
+Masuklah...
 
-        </div>
+</div>
 
-        <button id="openButton">
-            BUKA TAMAN ✦
-        </button>
+<button id="openButton">
+BUKA TAMAN ✦
+</button>
 
-    </div>
+</div>
 
 </div>
 
 
-<!-- =====================================================
-     3D SCENE
-===================================================== -->
+<!-- ==========================================
+3D
+========================================== -->
 
 <div id="scene"></div>
 
 <div class="vignette"></div>
 
 
-<!-- =====================================================
-     UI
-===================================================== -->
+<!-- ==========================================
+UI
+========================================== -->
 
 <div id="ui">
 
-    <div class="top-title">
-        ✦ A Special Celebration ✦
-    </div>
+<div class="top-title">
+✦ A Special Celebration ✦
+</div>
 
 
-    <div class="main-title">
+<div class="main-title">
 
-        <div class="small-title">
-            Happy Birthday
-        </div>
+<div class="small-title">
+Happy Birthday
+</div>
 
-        <h2>
-            Ratna
-        </h2>
+<h2>
+Ratna
+</h2>
 
-        <div class="main-name">
-            Listianingsih
-        </div>
+<div class="main-name">
+Listianingsih
+</div>
 
-        <div class="birth">
-            01 • 10 • 2006
-        </div>
-
-    </div>
-
-
-    <div class="bottom">
-
-        <button id="letterButton">
-            💌 BUKA SURAT
-        </button>
-
-        <button id="celebrateButton">
-            🌹 RAYAKAN
-        </button>
-
-        <button id="musicButton">
-            ♫ MUSIK
-        </button>
-
-        <div class="hint">
-            GESER LAYAR UNTUK MELIHAT TAMAN
-        </div>
-
-    </div>
+<div class="birth">
+01 • 10 • 2006
+</div>
 
 </div>
 
 
-<!-- =====================================================
-     LETTER
-===================================================== -->
+<div class="bottom">
+
+<button id="letterButton">
+💌 BUKA SURAT
+</button>
+
+<button id="celebrateButton">
+🌹 RAYAKAN
+</button>
+
+<button id="musicButton">
+♫ MUSIK
+</button>
+
+<div class="hint">
+GESER LAYAR UNTUK MELIHAT TAMAN
+</div>
+
+</div>
+
+</div>
+
+
+<!-- ==========================================
+SURAT
+========================================== -->
 
 <div id="letter">
 
-    <div class="paper">
+<div class="paper">
 
-        <div class="flower">
-            ❦
-        </div>
+<div class="flower">
+❦
+</div>
 
-        <h2>
-            Selamat Ulang Tahun
-        </h2>
+<h2>
+Selamat Ulang Tahun
+</h2>
 
-        <div class="paper-name">
-            RATNA LISTIANINGSIH
-        </div>
+<div class="paper-name">
+RATNA LISTIANINGSIH
+</div>
 
-        <hr>
+<hr>
 
-        <p>
-            Hari ini bukan sekadar bertambahnya satu angka.
-            Ini adalah satu halaman baru dari perjalananmu.
-        </p>
+<p>
+Hari ini bukan sekadar bertambahnya satu angka.
+Ini adalah satu halaman baru dari perjalananmu.
+</p>
 
-        <p>
-            Semoga di usia 20 tahun ini,
-            semakin banyak hal baik datang kepadamu.
-            Semoga langkahmu selalu menemukan jalan
-            yang membawa ketenangan, kebahagiaan,
-            dan orang-orang yang tulus.
-        </p>
+<p>
+Semoga di usia 20 tahun ini,
+semakin banyak hal baik datang kepadamu.
+Semoga langkahmu selalu menemukan jalan
+yang membawa ketenangan, kebahagiaan,
+dan orang-orang yang tulus.
+</p>
 
-        <p>
-            Tetaplah menjadi Ratna
-            dengan segala cerita dan warna
-            yang kamu punya.
-        </p>
+<p>
+Tetaplah menjadi Ratna
+dengan segala cerita dan warna
+yang kamu punya.
+</p>
 
-        <p>
-            Selamat ulang tahun. 🌹
-        </p>
+<p>
+Selamat ulang tahun. 🌹
+</p>
 
-        <button
-            class="close"
-            id="closeLetter">
-            TUTUP SURAT
-        </button>
+<button
+type="button"
+class="close"
+id="closeLetter">
 
-    </div>
+TUTUP SURAT
+
+</button>
+
+</div>
 
 </div>
 
 
-<!-- =====================================================
-     MUSIC
-===================================================== -->
+<!-- ==========================================
+MUSIC
+========================================== -->
 
-<audio id="music" loop>
-    <!--
-    Tambahkan:
-    <source src="musik.mp3" type="audio/mpeg">
-    -->
-</audio>
+<audio id="music" loop></audio>
 
 
 <script>
 
-/* =====================================================
-   THREE.JS
-===================================================== */
+
+/* ==========================================
+THREE
+========================================== */
 
 const scene =
-    new THREE.Scene();
+new THREE.Scene();
+
 
 const camera =
-    new THREE.PerspectiveCamera(
-        55,
-        innerWidth / innerHeight,
-        .1,
-        100
-    );
+new THREE.PerspectiveCamera(
+55,
+innerWidth / innerHeight,
+.1,
+100
+);
 
 camera.position.set(
-    0,
-    2.8,
-    14
+0,
+2.8,
+14
 );
 
 
 const renderer =
-    new THREE.WebGLRenderer({
-        antialias:true,
-        alpha:true
-    });
+new THREE.WebGLRenderer({
+
+antialias:true,
+
+alpha:true
+
+});
 
 renderer.setSize(
-    innerWidth,
-    innerHeight
+innerWidth,
+innerHeight
 );
 
 renderer.setPixelRatio(
-    Math.min(devicePixelRatio,2)
+Math.min(
+devicePixelRatio,
+2
+)
 );
 
 renderer.shadowMap.enabled=true;
 
-renderer.shadowMap.type =
-    THREE.PCFSoftShadowMap;
+renderer.shadowMap.type=
+THREE.PCFSoftShadowMap;
 
 document
-    .getElementById("scene")
-    .appendChild(renderer.domElement);
+.getElementById("scene")
+.appendChild(
+renderer.domElement
+);
 
 
-/* =====================================================
-   LIGHT
-===================================================== */
+/* ==========================================
+LIGHT
+========================================== */
 
 const ambient =
-    new THREE.HemisphereLight(
-        0xcde8cf,
-        0x120a0d,
-        1.5
-    );
+new THREE.HemisphereLight(
+0xcde8cf,
+0x120a0d,
+1.5
+);
 
 scene.add(ambient);
 
 
 const moon =
-    new THREE.DirectionalLight(
-        0xffe0b0,
-        2
-    );
+new THREE.DirectionalLight(
+0xffe0b0,
+2
+);
 
 moon.position.set(
-    6,
-    10,
-    6
+6,
+10,
+6
 );
 
 moon.castShadow=true;
@@ -816,325 +880,326 @@ scene.add(moon);
 
 
 const warm =
-    new THREE.PointLight(
-        0xffb56c,
-        2,
-        16
-    );
+new THREE.PointLight(
+0xffb56c,
+2,
+16
+);
 
 warm.position.set(
-    0,
-    3,
-    2
+0,
+3,
+2
 );
 
 scene.add(warm);
 
 
 const pinkLight =
-    new THREE.PointLight(
-        0xff668d,
-        1.7,
-        12
-    );
+new THREE.PointLight(
+0xff668d,
+1.7,
+12
+);
 
 pinkLight.position.set(
-    -5,
-    2,
-    -1
+-5,
+2,
+-1
 );
 
 scene.add(pinkLight);
 
 
-/* =====================================================
-   GROUND
-===================================================== */
+/* ==========================================
+GROUND
+========================================== */
 
 const ground =
-    new THREE.Mesh(
+new THREE.Mesh(
 
-        new THREE.CircleGeometry(
-            15,
-            96
-        ),
+new THREE.CircleGeometry(
+15,
+96
+),
 
-        new THREE.MeshStandardMaterial({
+new THREE.MeshStandardMaterial({
 
-            color:0x19351d,
+color:0x19351d,
 
-            roughness:1
+roughness:1
 
-        })
+})
 
-    );
+);
 
-ground.rotation.x =
-    -Math.PI/2;
+ground.rotation.x=
+-Math.PI/2;
 
-ground.position.y =
-    -1.5;
+ground.position.y=-1.5;
 
 ground.receiveShadow=true;
 
 scene.add(ground);
 
 
-/* =====================================================
-   GRASS PATCHES
-===================================================== */
+/* ==========================================
+GRASS PATCHES
+========================================== */
 
 function grassPatch(
-    x,
-    z,
-    radius
+x,
+z,
+radius
 ){
 
-    const patch =
-        new THREE.Mesh(
+const patch =
+new THREE.Mesh(
 
-            new THREE.CircleGeometry(
-                radius,
-                32
-            ),
+new THREE.CircleGeometry(
+radius,
+32
+),
 
-            new THREE.MeshStandardMaterial({
+new THREE.MeshStandardMaterial({
 
-                color:0x234a27,
+color:0x234a27,
 
-                roughness:1
+roughness:1
 
-            })
+})
 
-        );
+);
 
-    patch.rotation.x =
-        -Math.PI/2;
+patch.rotation.x=
+-Math.PI/2;
 
-    patch.position.set(
-        x,
-        -1.485,
-        z
-    );
+patch.position.set(
+x,
+-1.485,
+z
+);
 
-    scene.add(patch);
+scene.add(patch);
 
 }
 
 
 for(
-    let i=0;
-    i<18;
-    i++
+let i=0;
+i<18;
+i++
 ){
 
-    const side =
-        Math.random()>.5
-        ?1
-        :-1;
+const side=
+Math.random()>.5
+?1
+:-1;
 
-    grassPatch(
+grassPatch(
 
-        side*
-        (3.2+
-        Math.random()*4),
+side*
+(
+3.2+
+Math.random()*4
+),
 
-        -5+
-        Math.random()*10,
+-5+
+Math.random()*10,
 
-        .7+
-        Math.random()*1.2
+.7+
+Math.random()*1.2
 
-    );
+);
 
 }
 
 
-/* =====================================================
-   CENTRAL PATH
-===================================================== */
+/* ==========================================
+PATH
+========================================== */
 
 const path =
-    new THREE.Mesh(
+new THREE.Mesh(
 
-        new THREE.PlaneGeometry(
-            2.25,
-            13
-        ),
+new THREE.PlaneGeometry(
+2.25,
+13
+),
 
-        new THREE.MeshStandardMaterial({
+new THREE.MeshStandardMaterial({
 
-            color:0x7a5b4b,
+color:0x7a5b4b,
 
-            roughness:1
+roughness:1
 
-        })
+})
 
-    );
+);
 
-path.rotation.x =
-    -Math.PI/2;
+path.rotation.x=
+-Math.PI/2;
 
 path.position.set(
-    0,
-    -1.46,
-    2
+0,
+-1.46,
+2
 );
 
 scene.add(path);
 
 
-/* =====================================================
-   PATH STONES
-===================================================== */
+/* ==========================================
+PATH STONES
+========================================== */
 
 for(
-    let i=0;
-    i<11;
-    i++
+let i=0;
+i<11;
+i++
 ){
 
-    const stone =
-        new THREE.Mesh(
+const stone =
+new THREE.Mesh(
 
-            new THREE.CylinderGeometry(
-                .65,
-                .75,
-                .08,
-                16
-            ),
+new THREE.CylinderGeometry(
+.65,
+.75,
+.08,
+16
+),
 
-            new THREE.MeshStandardMaterial({
+new THREE.MeshStandardMaterial({
 
-                color:0xb49b85,
+color:0xb49b85,
 
-                roughness:.9
+roughness:.9
 
-            })
+})
 
-        );
+);
 
-    stone.scale.x=1.2;
+stone.scale.x=1.2;
 
-    stone.rotation.x =
-        -Math.PI/2;
+stone.rotation.x=
+-Math.PI/2;
 
-    stone.position.set(
-        0,
-        -1.40,
-        6-i*1.1
-    );
+stone.position.set(
+0,
+-1.40,
+6-i*1.1
+);
 
-    scene.add(stone);
+scene.add(stone);
 
 }
 
 
-/* =====================================================
-   BORDER STONES
-===================================================== */
+/* ==========================================
+BORDER STONES
+========================================== */
 
 function borderStone(
-    x,
-    z
+x,
+z
 ){
 
-    const stone =
-        new THREE.Mesh(
+const stone =
+new THREE.Mesh(
 
-            new THREE.DodecahedronGeometry(
-                .18,
-                0
-            ),
+new THREE.DodecahedronGeometry(
+.18,
+0
+),
 
-            new THREE.MeshStandardMaterial({
+new THREE.MeshStandardMaterial({
 
-                color:0x9a8776,
+color:0x9a8776,
 
-                roughness:1
+roughness:1
 
-            })
+})
 
-        );
+);
 
-    stone.position.set(
-        x,
-        -1.28,
-        z
-    );
+stone.position.set(
+x,
+-1.28,
+z
+);
 
-    stone.scale.y=.65;
+stone.scale.y=.65;
 
-    scene.add(stone);
+scene.add(stone);
 
 }
 
 
 for(
-    let i=0;
-    i<15;
-    i++
+let i=0;
+i<15;
+i++
 ){
 
-    const z =
-        6-i*.75;
+const z=
+6-i*.75;
 
-    borderStone(
-        -1.55,
-        z
-    );
+borderStone(
+-1.55,
+z
+);
 
-    borderStone(
-        1.55,
-        z
-    );
+borderStone(
+1.55,
+z
+);
 
 }
 
 
-/* =====================================================
-   ARCH
-===================================================== */
+/* ==========================================
+ARCH
+========================================== */
 
 const arch =
-    new THREE.Group();
+new THREE.Group();
 
 scene.add(arch);
 
 
 function pillar(x){
 
-    const p =
-        new THREE.Mesh(
+const p =
+new THREE.Mesh(
 
-            new THREE.CylinderGeometry(
-                .13,
-                .18,
-                5,
-                18
-            ),
+new THREE.CylinderGeometry(
+.13,
+.18,
+5,
+18
+),
 
-            new THREE.MeshStandardMaterial({
+new THREE.MeshStandardMaterial({
 
-                color:0xc39a60,
+color:0xc39a60,
 
-                metalness:.65,
+metalness:.65,
 
-                roughness:.3
+roughness:.3
 
-            })
+})
 
-        );
+);
 
-    p.position.set(
-        x,
-        .95,
-        -2.5
-    );
+p.position.set(
+x,
+.95,
+-2.5
+);
 
-    p.castShadow=true;
+p.castShadow=true;
 
-    arch.add(p);
+arch.add(p);
 
 }
 
@@ -1143,1001 +1208,946 @@ pillar(2.6);
 
 
 const archTop =
-    new THREE.Mesh(
+new THREE.Mesh(
 
-        new THREE.TorusGeometry(
-            2.6,
-            .11,
-            14,
-            80,
-            Math.PI
-        ),
+new THREE.TorusGeometry(
+2.6,
+.11,
+14,
+80,
+Math.PI
+),
 
-        new THREE.MeshStandardMaterial({
+new THREE.MeshStandardMaterial({
 
-            color:0xd0a765,
+color:0xd0a765,
 
-            metalness:.8,
+metalness:.8,
 
-            roughness:.25
+roughness:.25
 
-        })
+})
 
-    );
-
-archTop.position.set(
-    0,
-    3.5,
-    -2.5
 );
 
-archTop.rotation.z =
-    Math.PI;
+archTop.position.set(
+0,
+3.5,
+-2.5
+);
+
+archTop.rotation.z=
+Math.PI;
 
 arch.add(archTop);
 
 
-/* =====================================================
-   REALISTIC GARDEN FLOWERS
-===================================================== */
+/* ==========================================
+FLOWERS
+========================================== */
 
 const flowers=[];
 
 
-const flowerColors = {
+const flowerColors={
 
-    pink:0xff8fac,
+pink:0xff8fac,
 
-    darkPink:0xd94f78,
+darkPink:0xd94f78,
 
-    red:0xb72d42,
+red:0xb72d42,
 
-    lightRed:0xe05263,
+lightRed:0xe05263,
 
-    white:0xfff4ed
+white:0xfff4ed
 
 };
 
 
-/* =====================================================
-   FLOWER WITH LEAVES
-===================================================== */
-
 function createFlower(
-    x,
-    z,
-    color,
-    scale
+x,
+z,
+color,
+scale
 ){
 
-    const group =
-        new THREE.Group();
-
-
-    group.position.set(
-        x,
-        -1.45,
-        z
-    );
-
-
-    group.scale.setScalar(
-        scale
-    );
-
-
-    /* STEM */
-
-    const stem =
-        new THREE.Mesh(
-
-            new THREE.CylinderGeometry(
-                .025,
-                .035,
-                1.15,
-                7
-            ),
-
-            new THREE.MeshStandardMaterial({
-
-                color:0x28552d,
-
-                roughness:1
-
-            })
-
-        );
-
-
-    stem.position.y=.57;
-
-    group.add(stem);
-
-
-    /* LEAVES */
-
-    for(
-        let i=0;
-        i<4;
-        i++
-    ){
-
-        const leaf =
-            new THREE.Mesh(
-
-                new THREE.SphereGeometry(
-                    .25,
-                    8,
-                    5
-                ),
-
-                new THREE.MeshStandardMaterial({
-
-                    color:
-                        i%2
-                        ?0x3c743e
-                        :0x2d6134,
-
-                    roughness:1
-
-                })
-
-            );
-
-
-        const side =
-            i%2===0
-            ?1
-            :-1;
-
-
-        leaf.position.set(
-
-            side*.18,
-
-            .25+
-            i*.18,
-
-            (i%2-.5)*.08
-
-        );
-
-
-        leaf.scale.set(
-            1.5,
-            .3,
-            .65
-        );
-
-
-        leaf.rotation.z =
-            side*.45;
-
-
-        group.add(leaf);
-
-    }
-
-
-    /* FLOWER CENTER */
-
-    const center =
-        new THREE.Mesh(
-
-            new THREE.SphereGeometry(
-                .13,
-                10,
-                10
-            ),
-
-            new THREE.MeshStandardMaterial({
-
-                color:0xf4c44e,
-
-                roughness:.6
-
-            })
-
-        );
-
-
-    center.position.y =
-        1.23;
-
-    group.add(center);
-
-
-    /* PETALS */
-
-    for(
-        let i=0;
-        i<7;
-        i++
-    ){
-
-        const angle =
-            i/7*
-            Math.PI*2;
-
-
-        const petal =
-            new THREE.Mesh(
-
-                new THREE.SphereGeometry(
-                    .22,
-                    10,
-                    8
-                ),
-
-                new THREE.MeshStandardMaterial({
-
-                    color:color,
-
-                    roughness:.55
-
-                })
-
-            );
-
-
-        petal.position.set(
-
-            Math.cos(angle)*.21,
-
-            1.23,
-
-            Math.sin(angle)*.21
-
-        );
-
-
-        petal.scale.set(
-            1,
-            .55,
-            1
-        );
-
-
-        group.add(petal);
-
-    }
-
-
-    scene.add(group);
-
-    flowers.push(group);
-
-}
-
-
-/* =====================================================
-   FLOWER BEDS
-===================================================== */
-
-function createFlowerBed(
-    side,
-    zStart,
-    count,
-    colors
-){
-
-    for(
-        let i=0;
-        i<count;
-        i++
-    ){
-
-        const z =
-            zStart+
-            Math.random()*2.2;
-
-
-        const x =
-            side*
-            (
-                2.1+
-                Math.random()*2.8
-            );
-
-
-        const color =
-            colors[
-                Math.floor(
-                    Math.random()*
-                    colors.length
-                )
-            ];
-
-
-        createFlower(
-
-            x,
-
-            z,
-
-            color,
-
-            .55+
-            Math.random()*.35
-
-        );
-
-    }
-
-}
-
-
-/* PINK BED */
-
-createFlowerBed(
-    -1,
-    -4.8,
-    15,
-    [
-        flowerColors.pink,
-        flowerColors.darkPink,
-        flowerColors.white
-    ]
+const group=
+new THREE.Group();
+
+group.position.set(
+x,
+-1.45,
+z
 );
 
-createFlowerBed(
-    1,
-    -4.8,
-    15,
-    [
-        flowerColors.pink,
-        flowerColors.darkPink,
-        flowerColors.white
-    ]
+group.scale.setScalar(
+scale
 );
 
 
-/* RED BED */
+/* STEM */
 
-createFlowerBed(
-    -1,
-    -1.8,
-    14,
-    [
-        flowerColors.red,
-        flowerColors.lightRed,
-        flowerColors.pink
-    ]
+const stem =
+new THREE.Mesh(
+
+new THREE.CylinderGeometry(
+.025,
+.035,
+1.15,
+7
+),
+
+new THREE.MeshStandardMaterial({
+
+color:0x28552d,
+
+roughness:1
+
+})
+
 );
 
-createFlowerBed(
-    1,
-    -1.8,
-    14,
-    [
-        flowerColors.red,
-        flowerColors.lightRed,
-        flowerColors.pink
-    ]
-);
+stem.position.y=.57;
+
+group.add(stem);
 
 
-/* WHITE / PINK FRONT BED */
-
-createFlowerBed(
-    -1,
-    2.0,
-    13,
-    [
-        flowerColors.white,
-        flowerColors.pink,
-        flowerColors.lightRed
-    ]
-);
-
-createFlowerBed(
-    1,
-    2.0,
-    13,
-    [
-        flowerColors.white,
-        flowerColors.pink,
-        flowerColors.lightRed
-    ]
-);
-
-
-/* =====================================================
-   LOW GREEN SHRUBS
-===================================================== */
-
-function shrub(
-    x,
-    z,
-    scale
-){
-
-    const group =
-        new THREE.Group();
-
-
-    group.position.set(
-        x,
-        -1.4,
-        z
-    );
-
-
-    group.scale.setScalar(
-        scale
-    );
-
-
-    for(
-        let i=0;
-        i<7;
-        i++
-    ){
-
-        const leaf =
-            new THREE.Mesh(
-
-                new THREE.SphereGeometry(
-                    .32,
-                    10,
-                    8
-                ),
-
-                new THREE.MeshStandardMaterial({
-
-                    color:
-                        i%2
-                        ?0x3b7139
-                        :0x285d32,
-
-                    roughness:1
-
-                })
-
-            );
-
-
-        leaf.position.set(
-
-            (Math.random()-.5)*.8,
-
-            .2+
-            Math.random()*.35,
-
-            (Math.random()-.5)*.55
-
-        );
-
-
-        leaf.scale.y=.65;
-
-        group.add(leaf);
-
-    }
-
-
-    scene.add(group);
-
-}
-
-
-/* shrubs along garden */
+/* LEAVES */
 
 for(
-    let i=0;
-    i<22;
-    i++
+let i=0;
+i<4;
+i++
 ){
 
-    const side =
-        Math.random()>.5
-        ?1
-        :-1;
+const leaf =
+new THREE.Mesh(
 
+new THREE.SphereGeometry(
+.25,
+8,
+5
+),
 
-    shrub(
+new THREE.MeshStandardMaterial({
 
-        side*
-        (
-            1.9+
-            Math.random()*3.2
-        ),
+color:
+i%2
+?0x3c743e
+:0x2d6134,
 
-        -5+
-        Math.random()*10,
+roughness:1
 
-        .7+
-        Math.random()*.5
+})
 
-    );
+);
+
+const side=
+i%2===0
+?1
+:-1;
+
+leaf.position.set(
+
+side*.18,
+
+.25+
+i*.18,
+
+(i%2-.5)*.08
+
+);
+
+leaf.scale.set(
+1.5,
+.3,
+.65
+);
+
+leaf.rotation.z=
+side*.45;
+
+group.add(leaf);
 
 }
 
 
-/* =====================================================
-   GAZEBO
-===================================================== */
+/* CENTER */
 
-const gazebo =
-    new THREE.Group();
+const center =
+new THREE.Mesh(
+
+new THREE.SphereGeometry(
+.13,
+10,
+10
+),
+
+new THREE.MeshStandardMaterial({
+
+color:0xf4c44e,
+
+roughness:.6
+
+})
+
+);
+
+center.position.y=1.23;
+
+group.add(center);
+
+
+/* PETALS */
+
+for(
+let i=0;
+i<7;
+i++
+){
+
+const angle=
+i/7*
+Math.PI*2;
+
+const petal =
+new THREE.Mesh(
+
+new THREE.SphereGeometry(
+.22,
+10,
+8
+),
+
+new THREE.MeshStandardMaterial({
+
+color:color,
+
+roughness:.55
+
+})
+
+);
+
+petal.position.set(
+
+Math.cos(angle)*.21,
+
+1.23,
+
+Math.sin(angle)*.21
+
+);
+
+petal.scale.set(
+1,
+.55,
+1
+);
+
+group.add(petal);
+
+}
+
+scene.add(group);
+
+flowers.push(group);
+
+}
+
+
+/* ==========================================
+FLOWER BEDS
+========================================== */
+
+function createFlowerBed(
+side,
+zStart,
+count,
+colors
+){
+
+for(
+let i=0;
+i<count;
+i++
+){
+
+const z=
+zStart+
+Math.random()*2.2;
+
+const x=
+side*
+(
+2.1+
+Math.random()*2.8
+);
+
+const color=
+colors[
+Math.floor(
+Math.random()*
+colors.length
+)
+];
+
+createFlower(
+
+x,
+z,
+color,
+
+.55+
+Math.random()*.35
+
+);
+
+}
+
+}
+
+
+/* PINK */
+
+createFlowerBed(
+-1,
+-4.8,
+15,
+[
+flowerColors.pink,
+flowerColors.darkPink,
+flowerColors.white
+]
+);
+
+createFlowerBed(
+1,
+-4.8,
+15,
+[
+flowerColors.pink,
+flowerColors.darkPink,
+flowerColors.white
+]
+);
+
+
+/* RED */
+
+createFlowerBed(
+-1,
+-1.8,
+14,
+[
+flowerColors.red,
+flowerColors.lightRed,
+flowerColors.pink
+]
+);
+
+createFlowerBed(
+1,
+-1.8,
+14,
+[
+flowerColors.red,
+flowerColors.lightRed,
+flowerColors.pink
+]
+);
+
+
+/* FRONT */
+
+createFlowerBed(
+-1,
+2,
+13,
+[
+flowerColors.white,
+flowerColors.pink,
+flowerColors.lightRed
+]
+);
+
+createFlowerBed(
+1,
+2,
+13,
+[
+flowerColors.white,
+flowerColors.pink,
+flowerColors.lightRed
+]
+);
+
+
+/* ==========================================
+SHRUB
+========================================== */
+
+function shrub(
+x,
+z,
+scale
+){
+
+const group=
+new THREE.Group();
+
+group.position.set(
+x,
+-1.4,
+z
+);
+
+group.scale.setScalar(
+scale
+);
+
+for(
+let i=0;
+i<7;
+i++
+){
+
+const leaf =
+new THREE.Mesh(
+
+new THREE.SphereGeometry(
+.32,
+10,
+8
+),
+
+new THREE.MeshStandardMaterial({
+
+color:
+i%2
+?0x3b7139
+:0x285d32,
+
+roughness:1
+
+})
+
+);
+
+leaf.position.set(
+
+(Math.random()-.5)*.8,
+
+.2+
+Math.random()*.35,
+
+(Math.random()-.5)*.55
+
+);
+
+leaf.scale.y=.65;
+
+group.add(leaf);
+
+}
+
+scene.add(group);
+
+}
+
+
+for(
+let i=0;
+i<22;
+i++
+){
+
+const side=
+Math.random()>.5
+?1
+:-1;
+
+shrub(
+
+side*
+(
+1.9+
+Math.random()*3.2
+),
+
+-5+
+Math.random()*10,
+
+.7+
+Math.random()*.5
+
+);
+
+}
+
+
+/* ==========================================
+GAZEBO
+========================================== */
+
+const gazebo=
+new THREE.Group();
 
 scene.add(gazebo);
 
 
-/* FLOOR */
+const gazeboFloor=
+new THREE.Mesh(
 
-const gazeboFloor =
-    new THREE.Mesh(
+new THREE.CylinderGeometry(
+2.5,
+2.5,
+.22,
+48
+),
 
-        new THREE.CylinderGeometry(
-            2.5,
-            2.5,
-            .22,
-            48
-        ),
+new THREE.MeshStandardMaterial({
 
-        new THREE.MeshStandardMaterial({
+color:0x3b2027,
 
-            color:0x3b2027,
+roughness:.85
 
-            roughness:.85
+})
 
-        })
-
-    );
+);
 
 gazeboFloor.position.set(
-    0,
-    -1.2,
-    -2.5
+0,
+-1.2,
+-2.5
 );
 
 gazebo.add(gazeboFloor);
 
 
-/* ROOF */
+const roof=
+new THREE.Mesh(
 
-const roof =
-    new THREE.Mesh(
+new THREE.ConeGeometry(
+2.7,
+1.05,
+8
+),
 
-        new THREE.ConeGeometry(
-            2.7,
-            1.05,
-            8
-        ),
+new THREE.MeshStandardMaterial({
 
-        new THREE.MeshStandardMaterial({
+color:0x321820,
 
-            color:0x321820,
+roughness:.85
 
-            roughness:.85
+})
 
-        })
-
-    );
+);
 
 roof.position.set(
-    0,
-    4.7,
-    -2.5
+0,
+4.7,
+-2.5
 );
 
 gazebo.add(roof);
 
 
-/* POLES */
-
 for(
-    const x of [-2.15,2.15]
+const x of [-2.15,2.15]
 ){
 
-    const pole =
-        new THREE.Mesh(
+const pole=
+new THREE.Mesh(
 
-            new THREE.CylinderGeometry(
-                .06,
-                .08,
-                4.4,
-                12
-            ),
+new THREE.CylinderGeometry(
+.06,
+.08,
+4.4,
+12
+),
 
-            new THREE.MeshStandardMaterial({
+new THREE.MeshStandardMaterial({
 
-                color:0xc49b61,
+color:0xc49b61,
 
-                metalness:.65,
+metalness:.65,
 
-                roughness:.3
+roughness:.3
 
-            })
+})
 
-        );
+);
 
-    pole.position.set(
-        x,
-        1,
-        -2.5
-    );
+pole.position.set(
+x,
+1,
+-2.5
+);
 
-    gazebo.add(pole);
+gazebo.add(pole);
 
 }
 
 
-/* =====================================================
-   HEART
-===================================================== */
+/* ==========================================
+HEART
+========================================== */
 
-const heartShape =
-    new THREE.Shape();
+const heartShape=
+new THREE.Shape();
 
 heartShape.moveTo(
-    0,
-    -.5
+0,
+-.5
 );
 
 heartShape.bezierCurveTo(
-    -1.2,
-    -1.2,
-    -2,
-    .2,
-    0,
-    1.4
+-1.2,
+-1.2,
+-2,
+.2,
+0,
+1.4
 );
 
 heartShape.bezierCurveTo(
-    2,
-    .2,
-    1.2,
-    -1.2,
-    0,
-    -.5
+2,
+.2,
+1.2,
+-1.2,
+0,
+-.5
 );
 
 
-const heart =
-    new THREE.Mesh(
+const heart=
+new THREE.Mesh(
 
-        new THREE.ExtrudeGeometry(
-            heartShape,
-            {
-                depth:.18,
-                bevelEnabled:true,
-                bevelThickness:.04,
-                bevelSize:.04
-            }
-        ),
+new THREE.ExtrudeGeometry(
+heartShape,
+{
+depth:.18,
+bevelEnabled:true,
+bevelThickness:.04,
+bevelSize:.04
+}
+),
 
-        new THREE.MeshStandardMaterial({
+new THREE.MeshStandardMaterial({
 
-            color:0xc44969,
+color:0xc44969,
 
-            roughness:.4,
+roughness:.4
 
-            metalness:.1
+})
 
-        })
-
-    );
-
+);
 
 heart.scale.setScalar(.35);
 
 heart.position.set(
-    0,
-    4.1,
-    -2.8
+0,
+4.1,
+-2.8
 );
 
-heart.rotation.z =
-    Math.PI;
+heart.rotation.z=
+Math.PI;
 
 scene.add(heart);
 
 
-/* =====================================================
-   GOLD RING
-===================================================== */
+/* ==========================================
+RING
+========================================== */
 
-const ring =
-    new THREE.Mesh(
+const ring=
+new THREE.Mesh(
 
-        new THREE.TorusGeometry(
-            .58,
-            .09,
-            20,
-            64
-        ),
+new THREE.TorusGeometry(
+.58,
+.09,
+20,
+64
+),
 
-        new THREE.MeshStandardMaterial({
+new THREE.MeshStandardMaterial({
 
-            color:0xe4b94f,
+color:0xe4b94f,
 
-            metalness:.95,
+metalness:.95,
 
-            roughness:.2
+roughness:.2
 
-        })
+})
 
-    );
-
-
-ring.position.set(
-    0,
-    5.45,
-    -2.7
 );
 
-ring.rotation.x =
-    Math.PI/2;
+ring.position.set(
+0,
+5.45,
+-2.7
+);
+
+ring.rotation.x=
+Math.PI/2;
 
 scene.add(ring);
 
 
-/* =====================================================
-   GARDEN LANTERNS
-===================================================== */
+/* ==========================================
+LANTERNS
+========================================== */
 
 const lanternLights=[];
 
 
 function gardenLamp(
-    x,
-    z
+x,
+z
 ){
 
-    const group =
-        new THREE.Group();
+const group=
+new THREE.Group();
+
+group.position.set(
+x,
+-1.5,
+z
+);
 
 
-    group.position.set(
-        x,
-        -1.5,
-        z
-    );
+const pole=
+new THREE.Mesh(
+
+new THREE.CylinderGeometry(
+.035,
+.055,
+1.15,
+8
+),
+
+new THREE.MeshStandardMaterial({
+
+color:0x40352d,
+
+metalness:.6,
+
+roughness:.4
+
+})
+
+);
+
+pole.position.y=.57;
+
+group.add(pole);
 
 
-    /* pole */
+const lamp=
+new THREE.Mesh(
 
-    const pole =
-        new THREE.Mesh(
+new THREE.SphereGeometry(
+.12,
+12,
+12
+),
 
-            new THREE.CylinderGeometry(
-                .035,
-                .055,
-                1.15,
-                8
-            ),
+new THREE.MeshBasicMaterial({
 
-            new THREE.MeshStandardMaterial({
+color:0xffd27a
 
-                color:0x40352d,
+})
 
-                metalness:.6,
+);
 
-                roughness:.4
+lamp.position.y=1.15;
 
-            })
-
-        );
+group.add(lamp);
 
 
-    pole.position.y=.57;
+const light=
+new THREE.PointLight(
+0xffb65d,
+1.3,
+3.5
+);
 
-    group.add(pole);
+light.position.y=1.1;
 
+group.add(light);
 
-    /* lamp */
+lanternLights.push(light);
 
-    const lamp =
-        new THREE.Mesh(
-
-            new THREE.SphereGeometry(
-                .12,
-                12,
-                12
-            ),
-
-            new THREE.MeshBasicMaterial({
-
-                color:0xffd27a
-
-            })
-
-        );
-
-
-    lamp.position.y=1.15;
-
-    group.add(lamp);
-
-
-    const light =
-        new THREE.PointLight(
-            0xffb65d,
-            1.3,
-            3.5
-        );
-
-
-    light.position.y=1.1;
-
-    group.add(light);
-
-    lanternLights.push(light);
-
-    scene.add(group);
+scene.add(group);
 
 }
 
 
 for(
-    let i=0;
-    i<8;
-    i++
+let i=0;
+i<8;
+i++
 ){
 
-    const z =
-        5.2-
-        i*1.45;
+const z=
+5.2-
+i*1.45;
 
+gardenLamp(
+-1.45,
+z
+);
 
-    gardenLamp(
-        -1.45,
-        z
-    );
-
-    gardenLamp(
-        1.45,
-        z
-    );
+gardenLamp(
+1.45,
+z
+);
 
 }
 
 
-/* =====================================================
-   FALLING PETALS
-===================================================== */
+/* ==========================================
+PETALS
+========================================== */
 
 const petals=[];
 
 
 for(
-    let i=0;
-    i<90;
-    i++
+let i=0;
+i<90;
+i++
 ){
 
-    const petal =
-        new THREE.Mesh(
+const petal=
+new THREE.Mesh(
 
-            new THREE.PlaneGeometry(
-                .12,
-                .2
-            ),
+new THREE.PlaneGeometry(
+.12,
+.2
+),
 
-            new THREE.MeshBasicMaterial({
+new THREE.MeshBasicMaterial({
 
-                color:
-                    [
-                        0xff8fac,
-                        0xffd4df,
-                        0xffe8e8
-                    ][
-                        Math.floor(
-                            Math.random()*3
-                        )
-                    ],
+color:
+[
+0xff8fac,
+0xffd4df,
+0xffe8e8
+][
+Math.floor(
+Math.random()*3
+)
+],
 
-                transparent:true,
+transparent:true,
 
-                opacity:.5,
+opacity:.5,
 
-                side:
-                    THREE.DoubleSide
+side:THREE.DoubleSide
 
-            })
+})
 
-        );
+);
 
+petal.position.set(
 
-    petal.position.set(
+(Math.random()-.5)*12,
 
-        (Math.random()-.5)*12,
+Math.random()*8,
 
-        Math.random()*8,
+(Math.random()-.5)*10
 
-        (Math.random()-.5)*10
+);
 
-    );
+petal.userData={
 
+speed:
+.003+
+Math.random()*.006,
 
-    petal.userData={
-        speed:
-            .003+
-            Math.random()*.006,
+spin:
+.004+
+Math.random()*.01
 
-        spin:
-            .004+
-            Math.random()*.01
-    };
+};
 
+scene.add(petal);
 
-    scene.add(petal);
-
-    petals.push(petal);
+petals.push(petal);
 
 }
 
 
-/* =====================================================
-   GOLD PARTICLES
-===================================================== */
+/* ==========================================
+PARTICLES
+========================================== */
 
-const particleGeo =
-    new THREE.BufferGeometry();
+const particleGeo=
+new THREE.BufferGeometry();
 
 const particlePositions=[];
 
 
 for(
-    let i=0;
-    i<450;
-    i++
+let i=0;
+i<450;
+i++
 ){
 
-    particlePositions.push(
+particlePositions.push(
 
-        (Math.random()-.5)*16,
+(Math.random()-.5)*16,
 
-        Math.random()*9-1,
+Math.random()*9-1,
 
-        (Math.random()-.5)*14
+(Math.random()-.5)*14
 
-    );
+);
 
 }
 
 
 particleGeo.setAttribute(
 
-    "position",
+"position",
 
-    new THREE.Float32BufferAttribute(
-        particlePositions,
-        3
-    )
+new THREE.Float32BufferAttribute(
+particlePositions,
+3
+)
 
 );
 
 
-const particleMat =
-    new THREE.PointsMaterial({
+const particleMat=
+new THREE.PointsMaterial({
 
-        color:0xe5bd6c,
+color:0xe5bd6c,
 
-        size:.022,
+size:.022,
 
-        transparent:true,
+transparent:true,
 
-        opacity:.6
+opacity:.6
 
-    });
+});
 
 
-const particles =
-    new THREE.Points(
-        particleGeo,
-        particleMat
-    );
-
+const particles=
+new THREE.Points(
+particleGeo,
+particleMat
+);
 
 scene.add(particles);
 
 
-/* =====================================================
-   CAMERA DRAG
-===================================================== */
+/* ==========================================
+CAMERA DRAG
+========================================== */
 
 let dragging=false;
 
@@ -2149,476 +2159,515 @@ let targetY=2.8;
 
 
 renderer.domElement.addEventListener(
-    "pointerdown",
-    e=>{
+"pointerdown",
+function(e){
 
-        dragging=true;
+dragging=true;
 
-        lastX=e.clientX;
-        lastY=e.clientY;
+lastX=e.clientX;
+lastY=e.clientY;
 
-    }
+}
 );
 
 
 renderer.domElement.addEventListener(
-    "pointermove",
-    e=>{
+"pointermove",
+function(e){
 
-        if(!dragging)return;
+if(!dragging)return;
 
-        const dx =
-            e.clientX-lastX;
+const dx=
+e.clientX-lastX;
 
-        const dy =
-            e.clientY-lastY;
-
-
-        targetX -=
-            dx*.012;
-
-        targetY +=
-            dy*.006;
+const dy=
+e.clientY-lastY;
 
 
-        targetX =
-            Math.max(
-                -3,
-                Math.min(
-                    3,
-                    targetX
-                )
-            );
+targetX-=
+dx*.012;
+
+targetY+=
+dy*.006;
 
 
-        targetY =
-            Math.max(
-                1.8,
-                Math.min(
-                    4,
-                    targetY
-                )
-            );
+targetX=
+Math.max(
+-3,
+Math.min(
+3,
+targetX
+)
+);
 
 
-        lastX=e.clientX;
-        lastY=e.clientY;
+targetY=
+Math.max(
+1.8,
+Math.min(
+4,
+targetY
+)
+);
 
-    }
+
+lastX=e.clientX;
+lastY=e.clientY;
+
+}
 );
 
 
 renderer.domElement.addEventListener(
-    "pointerup",
-    ()=>{
-        dragging=false;
-    }
+"pointerup",
+function(){
+
+dragging=false;
+
+}
 );
 
 
 renderer.domElement.addEventListener(
-    "pointercancel",
-    ()=>{
-        dragging=false;
-    }
+"pointercancel",
+function(){
+
+dragging=false;
+
+}
 );
 
 
-/* =====================================================
-   OPEN GARDEN
-===================================================== */
+/* ==========================================
+ENTER GARDEN
+========================================== */
 
 let entering=false;
 
 
 function enterGarden(){
 
-    if(entering)return;
+if(entering)return;
 
-    entering=true;
-
-
-    document
-        .getElementById("opening")
-        .classList.add("hide");
+entering=true;
 
 
-    document
-        .getElementById("ui")
-        .classList.add("show");
+document
+.getElementById("opening")
+.classList.add("hide");
 
 
-    camera.position.set(
-        0,
-        2.5,
-        15
-    );
+document
+.getElementById("ui")
+.classList.add("show");
 
 
-    const start =
-        performance.now();
+camera.position.set(
+0,
+2.5,
+15
+);
 
 
-    function cinematic(now){
-
-        const progress =
-            Math.min(
-                (now-start)/2400,
-                1
-            );
+const start=
+performance.now();
 
 
-        const ease =
-            1-
-            Math.pow(
-                1-progress,
-                3
-            );
+function cinematic(now){
+
+const progress=
+Math.min(
+(now-start)/2400,
+1
+);
+
+const ease=
+1-
+Math.pow(
+1-progress,
+3
+);
 
 
-        camera.position.z =
-            15-
-            3.7*ease;
+camera.position.z=
+15-
+3.7*ease;
+
+camera.position.y=
+2.5+
+.4*ease;
 
 
-        camera.position.y =
-            2.5+
-            .4*ease;
+camera.lookAt(
+0,
+1.2,
+-2.5
+);
 
 
-        camera.lookAt(
-            0,
-            1.2,
-            -2.5
-        );
+if(progress<1){
+
+requestAnimationFrame(
+cinematic
+);
+
+}else{
+
+entering=false;
+
+}
+
+}
+
+requestAnimationFrame(
+cinematic
+);
 
 
-        if(progress<1){
+/* MUSIC */
 
-            requestAnimationFrame(
-                cinematic
-            );
+const music=
+document.getElementById(
+"music"
+);
 
-        }else{
+if(music.src){
 
-            entering=false;
+music.volume=.55;
 
-        }
+music.play().catch(
+()=>{}
+);
 
-    }
-
-
-    requestAnimationFrame(
-        cinematic
-    );
-
-
-    const music =
-        document.getElementById(
-            "music"
-        );
-
-
-    if(music.src){
-
-        music.volume=.55;
-
-        music.play().catch(
-            ()=>{}
-        );
-
-    }
+}
 
 }
 
 
-/* =====================================================
-   LETTER
-===================================================== */
+/* ==========================================
+SURAT
+========================================== */
 
-function openLetter(){
+const letter=
+document.getElementById(
+"letter"
+);
 
-    document
-        .getElementById("letter")
-        .classList.add("show");
+const letterButton=
+document.getElementById(
+"letterButton"
+);
+
+const closeLetterButton=
+document.getElementById(
+"closeLetter"
+);
+
+
+/*
+PENTING:
+Event surat dibuat langsung di sini.
+Tidak memakai fungsi tambahan yang bisa
+membuat event tombol dobel.
+*/
+
+letterButton.addEventListener(
+"click",
+function(e){
+
+e.preventDefault();
+
+e.stopPropagation();
+
+letter.classList.add(
+"show"
+);
+
+}
+);
+
+
+closeLetterButton.addEventListener(
+"click",
+function(e){
+
+e.preventDefault();
+
+e.stopPropagation();
+
+letter.classList.remove(
+"show"
+);
+
+}
+);
+
+
+/*
+Klik area gelap di luar kertas
+juga bisa menutup surat.
+*/
+
+letter.addEventListener(
+"click",
+function(e){
+
+if(
+e.target === letter
+){
+
+letter.classList.remove(
+"show"
+);
 
 }
 
-function closeLetter(){
-
-    document
-        .getElementById("letter")
-        .classList.remove("show");
-
 }
+);
 
 
-/* =====================================================
-   CELEBRATE
-===================================================== */
+/* ==========================================
+CELEBRATE
+========================================== */
 
 function celebrate(){
 
-    petals.forEach(
-        p=>{
+petals.forEach(
+function(p){
 
-            p.position.y =
-                Math.random()*8;
+p.position.y=
+Math.random()*8;
 
-        }
-    );
-
-
-    const start =
-        performance.now();
+}
+);
 
 
-    function shake(now){
-
-        if(
-            now-start<
-            600
-        ){
-
-            camera.position.x +=
-                (Math.random()-.5)*.05;
-
-            camera.position.y +=
-                (Math.random()-.5)*.03;
-
-            requestAnimationFrame(
-                shake
-            );
-
-        }
-
-    }
+const start=
+performance.now();
 
 
-    requestAnimationFrame(
-        shake
-    );
+function shake(now){
+
+if(
+now-start<600
+){
+
+camera.position.x+=
+(Math.random()-.5)*.05;
+
+camera.position.y+=
+(Math.random()-.5)*.03;
+
+requestAnimationFrame(
+shake
+);
+
+}
+
+}
+
+requestAnimationFrame(
+shake
+);
 
 }
 
 
-/* =====================================================
-   MUSIC
-===================================================== */
+/* ==========================================
+MUSIC
+========================================== */
 
 function toggleMusic(){
 
-    const music =
-        document.getElementById(
-            "music"
-        );
+const music=
+document.getElementById(
+"music"
+);
 
 
-    if(!music.src){
+if(!music.src){
 
-        alert(
-            "Masukkan file musik.mp3 ke folder website terlebih dahulu."
-        );
+alert(
+"Masukkan file musik.mp3 ke folder website terlebih dahulu."
+);
 
-        return;
-
-    }
-
-
-    if(music.paused){
-
-        music.play();
-
-    }else{
-
-        music.pause();
-
-    }
+return;
 
 }
 
 
-/* =====================================================
-   BUTTONS
-===================================================== */
+if(music.paused){
+
+music.play();
+
+}else{
+
+music.pause();
+
+}
+
+}
+
+
+/* ==========================================
+BUTTONS
+========================================== */
 
 document
-    .getElementById("openButton")
-    .addEventListener(
-        "click",
-        enterGarden
-    );
-
-
-document
-    .getElementById("letterButton")
-    .addEventListener(
-        "click",
-        openLetter
-    );
-
-
-document
-    .getElementById("closeLetter")
-    .addEventListener(
-        "click",
-        closeLetter
-    );
+.getElementById("openButton")
+.addEventListener(
+"click",
+enterGarden
+);
 
 
 document
-    .getElementById("celebrateButton")
-    .addEventListener(
-        "click",
-        celebrate
-    );
+.getElementById("celebrateButton")
+.addEventListener(
+"click",
+celebrate
+);
 
 
 document
-    .getElementById("musicButton")
-    .addEventListener(
-        "click",
-        toggleMusic
-    );
+.getElementById("musicButton")
+.addEventListener(
+"click",
+toggleMusic
+);
 
 
-/* =====================================================
-   ANIMATION
-===================================================== */
+/* ==========================================
+ANIMATION
+========================================== */
 
-const clock =
-    new THREE.Clock();
+const clock=
+new THREE.Clock();
 
 
 function animate(){
 
-    requestAnimationFrame(
-        animate
-    );
+requestAnimationFrame(
+animate
+);
+
+const t=
+clock.getElapsedTime();
 
 
-    const t =
-        clock.getElapsedTime();
+/* CAMERA */
+
+if(!entering){
+
+camera.position.x+=
+(
+targetX-
+camera.position.x
+)*.035;
 
 
-    /* CAMERA */
-
-    if(!entering){
-
-        camera.position.x +=
-            (
-                targetX-
-                camera.position.x
-            )*.035;
+camera.position.y+=
+(
+targetY-
+camera.position.y
+)*.035;
 
 
-        camera.position.y +=
-            (
-                targetY-
-                camera.position.y
-            )*.035;
+camera.lookAt(
+0,
+1.2,
+-2.5
+);
+
+}
 
 
-        camera.lookAt(
-            0,
-            1.2,
-            -2.5
-        );
+/* FLOWERS */
 
-    }
+flowers.forEach(
+function(flower,i){
 
+flower.rotation.z=
+Math.sin(
+t*.7+i
+)*.018;
 
-    /* FLOWERS */
-
-    flowers.forEach(
-        (flower,i)=>{
-
-            flower.rotation.z =
-                Math.sin(
-                    t*.7+i
-                )*.018;
-
-        }
-    );
+}
+);
 
 
-    /* HEART */
+/* HEART */
 
-    heart.position.y =
-        4.1+
-        Math.sin(
-            t*1.4
-        )*.06;
+heart.position.y=
+4.1+
+Math.sin(
+t*1.4
+)*.06;
 
-
-    heart.rotation.y =
-        Math.sin(
-            t*.8
-        )*.15;
+heart.rotation.y=
+Math.sin(t*.8)*.15;
 
 
-    /* RING */
+/* RING */
 
-    ring.rotation.y =
-        t*.7;
+ring.rotation.y=
+t*.7;
 
-
-    ring.rotation.z =
-        Math.sin(t)*.08;
-
-
-    /* PETALS */
-
-    petals.forEach(
-        p=>{
-
-            p.position.y -=
-                p.userData.speed;
-
-            p.rotation.z +=
-                p.userData.spin;
+ring.rotation.z=
+Math.sin(t)*.08;
 
 
-            if(
-                p.position.y<
-                -2
-            ){
+/* PETALS */
 
-                p.position.y =
-                    8+
-                    Math.random()*2;
+petals.forEach(
+function(p){
 
-            }
+p.position.y-=
+p.userData.speed;
 
-        }
-    );
+p.rotation.z+=
+p.userData.spin;
 
 
-    /* LANTERN FLICKER */
+if(
+p.position.y<-2
+){
 
-    lanternLights.forEach(
-        (light,i)=>{
+p.position.y=
+8+
+Math.random()*2;
 
-            light.intensity =
-                1.15+
-                Math.sin(
-                    t*3+i
-                )*.2;
+}
 
-        }
-    );
-
-
-    /* PARTICLES */
-
-    particles.rotation.y =
-        t*.01;
+}
+);
 
 
-    renderer.render(
-        scene,
-        camera
-    );
+/* LIGHT FLICKER */
+
+lanternLights.forEach(
+function(light,i){
+
+light.intensity=
+1.15+
+Math.sin(
+t*3+i
+)*.2;
+
+}
+);
+
+
+/* PARTICLES */
+
+particles.rotation.y=
+t*.01;
+
+
+renderer.render(
+scene,
+camera
+);
 
 }
 
@@ -2626,26 +2675,26 @@ function animate(){
 animate();
 
 
-/* =====================================================
-   RESIZE
-===================================================== */
+/* ==========================================
+RESIZE
+========================================== */
 
 window.addEventListener(
-    "resize",
-    ()=>{
+"resize",
+function(){
 
-        camera.aspect =
-            innerWidth/
-            innerHeight;
+camera.aspect=
+innerWidth/
+innerHeight;
 
-        camera.updateProjectionMatrix();
+camera.updateProjectionMatrix();
 
-        renderer.setSize(
-            innerWidth,
-            innerHeight
-        );
+renderer.setSize(
+innerWidth,
+innerHeight
+);
 
-    }
+}
 );
 
 </script>
