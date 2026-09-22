@@ -37,9 +37,7 @@ canvas{
     display:block;
 }
 
-/* =====================================
-   BACKGROUND
-===================================== */
+/* BACKGROUND */
 
 .background{
     position:fixed;
@@ -80,9 +78,8 @@ canvas{
     filter:blur(20px);
 }
 
-/* =====================================
-   OPENING
-===================================== */
+
+/* OPENING */
 
 #opening{
     position:fixed;
@@ -204,17 +201,10 @@ canvas{
     cursor:pointer;
 
     pointer-events:auto;
-
-    transition:.3s;
 }
 
-#openButton:active{
-    transform:scale(.96);
-}
 
-/* =====================================
-   MAIN UI
-===================================== */
+/* MAIN UI */
 
 #ui{
     position:fixed;
@@ -232,9 +222,8 @@ canvas{
     opacity:1;
 }
 
-/* =====================================
-   TOP
-===================================== */
+
+/* TOP */
 
 .top{
     position:absolute;
@@ -270,9 +259,8 @@ canvas{
     background:#8c723e;
 }
 
-/* =====================================
-   CENTER INVITATION
-===================================== */
+
+/* CENTER */
 
 .center{
     position:absolute;
@@ -296,9 +284,6 @@ canvas{
     letter-spacing:8px;
 
     margin-bottom:15px;
-
-    text-shadow:
-        0 0 15px rgba(205,170,90,.2);
 }
 
 .invite-title{
@@ -377,9 +362,8 @@ canvas{
     background:#6e5b38;
 }
 
-/* =====================================
-   DECORATIVE CARD
-===================================== */
+
+/* FRAME */
 
 .card-frame{
     position:absolute;
@@ -423,34 +407,29 @@ canvas{
 .corner.tl{
     top:-1px;
     left:-1px;
-
     border-width:1px 0 0 1px;
 }
 
 .corner.tr{
     top:-1px;
     right:-1px;
-
     border-width:1px 1px 0 0;
 }
 
 .corner.bl{
     bottom:-1px;
     left:-1px;
-
     border-width:0 0 1px 1px;
 }
 
 .corner.br{
     bottom:-1px;
     right:-1px;
-
     border-width:0 1px 1px 0;
 }
 
-/* =====================================
-   BOTTOM
-===================================== */
+
+/* BOTTOM */
 
 .bottom{
     position:absolute;
@@ -472,7 +451,7 @@ canvas{
 
     margin:3px;
 
-    padding:10px 15px;
+    padding:11px 18px;
 
     color:#cbb477;
 
@@ -496,10 +475,6 @@ canvas{
     backdrop-filter:blur(8px);
 }
 
-.bottom button:active{
-    transform:scale(.95);
-}
-
 .hint{
     margin-top:9px;
 
@@ -510,9 +485,8 @@ canvas{
     letter-spacing:3px;
 }
 
-/* =====================================
-   LETTER
-===================================== */
+
+/* LETTER */
 
 #letter{
     position:fixed;
@@ -673,9 +647,8 @@ canvas{
     touch-action:manipulation;
 }
 
-/* =====================================
-   VIGNETTE
-===================================== */
+
+/* VIGNETTE */
 
 .vignette{
     position:fixed;
@@ -699,7 +672,6 @@ canvas{
 
 <body>
 
-
 <div id="scene"></div>
 
 <div class="background">
@@ -721,9 +693,7 @@ canvas{
             A Special Invitation
         </div>
 
-        <h1>
-            Ratna
-        </h1>
+        <h1>Ratna</h1>
 
         <div class="open-name">
             LISTIANINGSIH
@@ -748,7 +718,7 @@ canvas{
 </div>
 
 
-<!-- UI -->
+<!-- MAIN -->
 
 <div id="ui">
 
@@ -798,18 +768,12 @@ canvas{
     </div>
 
 
+    <!-- HANYA BUKA SURAT -->
+
     <div class="bottom">
 
         <button id="letterButton">
             💌 BUKA SURAT
-        </button>
-
-        <button id="celebrateButton">
-            ✦ RAYAKAN
-        </button>
-
-        <button id="musicButton">
-            ♫ MUSIK
         </button>
 
         <div class="hint">
@@ -821,7 +785,7 @@ canvas{
 </div>
 
 
-<!-- LETTER -->
+<!-- SURAT -->
 
 <div id="letter">
 
@@ -865,9 +829,7 @@ canvas{
             halaman yang ingin kamu ingat.
         </p>
 
-        <p>
-            ✦
-        </p>
+        <p>✦</p>
 
         <button
             type="button"
@@ -881,16 +843,25 @@ canvas{
 </div>
 
 
-<audio id="music" loop></audio>
+<!-- MUSIK OTOMATIS -->
+
+<audio
+    id="music"
+    src="music.mp3"
+    autoplay
+    loop>
+</audio>
 
 
 <script>
 
 /* =====================================
-   THREE.JS SCENE
+   THREE.JS
 ===================================== */
 
-const scene = new THREE.Scene();
+const scene =
+new THREE.Scene();
+
 
 const camera =
 new THREE.PerspectiveCamera(
@@ -927,17 +898,14 @@ document
 .appendChild(renderer.domElement);
 
 
-/* =====================================
-   LIGHTING
-===================================== */
+/* LIGHT */
 
-const ambient =
-new THREE.AmbientLight(
-    0xffffff,
-    .55
+scene.add(
+    new THREE.AmbientLight(
+        0xffffff,
+        .55
+    )
 );
-
-scene.add(ambient);
 
 
 const goldLight =
@@ -948,9 +916,7 @@ new THREE.PointLight(
 );
 
 goldLight.position.set(
-    0,
-    2,
-    3
+    0,2,3
 );
 
 scene.add(goldLight);
@@ -964,9 +930,7 @@ new THREE.PointLight(
 );
 
 leftLight.position.set(
-    -5,
-    1,
-    1
+    -5,1,1
 );
 
 scene.add(leftLight);
@@ -980,17 +944,13 @@ new THREE.PointLight(
 );
 
 rightLight.position.set(
-    5,
-    1,
-    1
+    5,1,1
 );
 
 scene.add(rightLight);
 
 
-/* =====================================
-   GOLD PARTICLES
-===================================== */
+/* PARTICLES */
 
 const particleGeometry =
 new THREE.BufferGeometry();
@@ -1046,11 +1006,10 @@ scene.add(particles);
 
 
 /* =====================================
-   GOLD RINGS
+   RINGS DI TENGAH
 ===================================== */
 
 const rings=[];
-
 
 for(let i=0;i<3;i++){
 
@@ -1076,7 +1035,11 @@ for(let i=0;i<3;i++){
 
     );
 
-    ring.position.z=-1;
+    ring.position.set(
+        0,
+        0,
+        -1
+    );
 
     ring.rotation.x=
         Math.PI/2;
@@ -1084,13 +1047,37 @@ for(let i=0;i<3;i++){
     scene.add(ring);
 
     rings.push(ring);
-
 }
 
 
 /* =====================================
-   WEDDING RINGS
+   DUA CINCIN PERNIKAHAN
+   POSISI SIMETRIS
 ===================================== */
+
+const ringMaterial1 =
+new THREE.MeshStandardMaterial({
+
+    color:0xd4ad5f,
+
+    metalness:.95,
+
+    roughness:.2
+
+});
+
+
+const ringMaterial2 =
+new THREE.MeshStandardMaterial({
+
+    color:0xe6cf91,
+
+    metalness:.95,
+
+    roughness:.18
+
+});
+
 
 const weddingRing1 =
 new THREE.Mesh(
@@ -1098,29 +1085,24 @@ new THREE.Mesh(
     new THREE.TorusGeometry(
         .55,
         .07,
-        20,
-        64
+        24,
+        80
     ),
 
-    new THREE.MeshStandardMaterial({
-
-        color:0xd4ad5f,
-
-        metalness:.95,
-
-        roughness:.2
-
-    })
+    ringMaterial1
 
 );
 
+
+/* kiri */
+
 weddingRing1.position.set(
-    -.35,
-    2.3,
+    -.32,
+    2.35,
     -1.5
 );
 
-weddingRing1.rotation.z=.3;
+weddingRing1.rotation.z=.20;
 
 scene.add(weddingRing1);
 
@@ -1131,80 +1113,39 @@ new THREE.Mesh(
     new THREE.TorusGeometry(
         .55,
         .07,
-        20,
-        64
+        24,
+        80
     ),
 
-    new THREE.MeshStandardMaterial({
-
-        color:0xe6cf91,
-
-        metalness:.95,
-
-        roughness:.18
-
-    })
+    ringMaterial2
 
 );
 
+
+/* kanan */
+
 weddingRing2.position.set(
-    .35,
-    2.3,
+    .32,
+    2.35,
     -1.5
 );
 
-weddingRing2.rotation.z=-.3;
+weddingRing2.rotation.z=-.20;
 
 scene.add(weddingRing2);
 
 
-/* =====================================
-   SMALL DIAMOND
-===================================== */
-
-const diamond =
-new THREE.Mesh(
-
-    new THREE.OctahedronGeometry(
-        .13,
-        0
-    ),
-
-    new THREE.MeshStandardMaterial({
-
-        color:0xffffff,
-
-        metalness:.7,
-
-        roughness:.08,
-
-        emissive:0x55442a,
-
-        emissiveIntensity:.25
-
-    })
-
-);
-
-diamond.position.set(
-    .25,
-    2.72,
-    -1.45
-);
-
-scene.add(diamond);
+/*
+   DIAMOND DIHAPUS.
+   Jadi bagian tengah cincin sekarang
+   benar-benar kosong dan bersih.
+*/
 
 
-/* =====================================
-   DECORATIVE FLOWERS
-===================================== */
+/* FLOWERS */
 
 function flower(
-    x,
-    y,
-    z,
-    scale,
-    color
+    x,y,z,scale,color
 ){
 
     const group =
@@ -1223,9 +1164,7 @@ function flower(
     new THREE.Mesh(
 
         new THREE.SphereGeometry(
-            .12,
-            10,
-            10
+            .12,10,10
         ),
 
         new THREE.MeshStandardMaterial({
@@ -1250,9 +1189,7 @@ function flower(
         new THREE.Mesh(
 
             new THREE.SphereGeometry(
-                .19,
-                10,
-                8
+                .19,10,8
             ),
 
             new THREE.MeshStandardMaterial({
@@ -1268,9 +1205,7 @@ function flower(
         petal.position.set(
 
             Math.cos(angle)*.18,
-
             0,
-
             Math.sin(angle)*.18
 
         );
@@ -1289,8 +1224,6 @@ function flower(
 
 const decorativeFlowers=[];
 
-
-/* left */
 
 decorativeFlowers.push(
     flower(
@@ -1313,8 +1246,6 @@ decorativeFlowers.push(
 );
 
 
-/* right */
-
 decorativeFlowers.push(
     flower(
         4.3,
@@ -1336,9 +1267,7 @@ decorativeFlowers.push(
 );
 
 
-/* =====================================
-   ORNAMENT LINES
-===================================== */
+/* ORNAMENT LINES */
 
 const ornamentMaterial =
 new THREE.LineBasicMaterial({
@@ -1352,21 +1281,18 @@ new THREE.LineBasicMaterial({
 });
 
 
-function makeLine(
-    points
-){
+function makeLine(points){
 
     const geometry =
     new THREE.BufferGeometry()
-        .setFromPoints(points);
+    .setFromPoints(points);
 
-    const line =
-    new THREE.Line(
-        geometry,
-        ornamentMaterial
+    scene.add(
+        new THREE.Line(
+            geometry,
+            ornamentMaterial
+        )
     );
-
-    scene.add(line);
 
 }
 
@@ -1377,11 +1303,59 @@ makeLine([
     new THREE.Vector3(-2,2.4,-1)
 ]);
 
+
 makeLine([
     new THREE.Vector3(5,2,-1),
     new THREE.Vector3(3.5,3,-1),
     new THREE.Vector3(2,2.4,-1)
 ]);
+
+
+/* =====================================
+   MUSIK OTOMATIS
+===================================== */
+
+const music =
+document.getElementById("music");
+
+
+function startMusic(){
+
+    music.volume=.65;
+
+    const promise =
+        music.play();
+
+    if(promise !== undefined){
+
+        promise.catch(
+            function(){
+
+                /*
+                 Chrome/Android bisa menolak
+                 autoplay sebelum ada sentuhan.
+                 Akan dicoba lagi saat tombol
+                 BUKA UNDANGAN ditekan.
+                */
+
+            }
+        );
+
+    }
+
+}
+
+
+/* coba langsung ketika halaman masuk */
+
+window.addEventListener(
+    "load",
+    function(){
+
+        startMusic();
+
+    }
+);
 
 
 /* =====================================
@@ -1397,9 +1371,17 @@ function enter(){
 
     entering=true;
 
+
+    /* musik dipastikan mulai
+       setelah interaksi user */
+
+    startMusic();
+
+
     document
     .getElementById("opening")
     .classList.add("hide");
+
 
     document
     .getElementById("ui")
@@ -1435,12 +1417,10 @@ function enter(){
 
 
         camera.position.z=
-            12-
-            3*ease;
+            12-3*ease;
 
         camera.position.y=
-            -.5+
-            .4*ease;
+            -.5+.4*ease;
 
 
         camera.lookAt(
@@ -1473,26 +1453,18 @@ function enter(){
 
 
 /* =====================================
-   LETTER
+   SURAT
 ===================================== */
 
-const letter=
+const letter =
 document.getElementById(
     "letter"
 );
 
-const letterButton=
-document.getElementById(
-    "letterButton"
-);
 
-const closeLetter=
-document.getElementById(
-    "closeLetter"
-);
-
-
-letterButton.addEventListener(
+document
+.getElementById("letterButton")
+.addEventListener(
     "click",
     function(e){
 
@@ -1508,7 +1480,9 @@ letterButton.addEventListener(
 );
 
 
-closeLetter.addEventListener(
+document
+.getElementById("closeLetter")
+.addEventListener(
     "click",
     function(e){
 
@@ -1541,74 +1515,7 @@ letter.addEventListener(
 
 
 /* =====================================
-   CELEBRATE
-===================================== */
-
-function celebrate(){
-
-    for(let i=0;i<3;i++){
-
-        setTimeout(
-            function(){
-
-                goldLight.intensity=4;
-
-                setTimeout(
-                    function(){
-
-                        goldLight.intensity=2.2;
-
-                    },
-                    180
-                );
-
-            },
-            i*250
-        );
-
-    }
-
-}
-
-
-/* =====================================
-   MUSIC
-===================================== */
-
-function musicToggle(){
-
-    const music=
-    document.getElementById(
-        "music"
-    );
-
-
-    if(!music.src){
-
-        alert(
-            "Masukkan file musik.mp3 ke folder website terlebih dahulu."
-        );
-
-        return;
-
-    }
-
-
-    if(music.paused){
-
-        music.play();
-
-    }else{
-
-        music.pause();
-
-    }
-
-}
-
-
-/* =====================================
-   BUTTONS
+   BUKA UNDANGAN
 ===================================== */
 
 document
@@ -1616,22 +1523,6 @@ document
 .addEventListener(
     "click",
     enter
-);
-
-
-document
-.getElementById("celebrateButton")
-.addEventListener(
-    "click",
-    celebrate
-);
-
-
-document
-.getElementById("musicButton")
-.addEventListener(
-    "click",
-    musicToggle
 );
 
 
@@ -1724,8 +1615,6 @@ function animate(){
         clock.getElapsedTime();
 
 
-    /* camera */
-
     if(!entering){
 
         camera.position.x +=
@@ -1743,20 +1632,15 @@ function animate(){
     }
 
 
-    /* particles */
-
     particles.rotation.y=
         t*.008;
 
-
-    /* rings */
 
     rings.forEach(
         function(ring,i){
 
             ring.rotation.z=
-                t*
-                (.08+i*.025);
+                t*(.08+i*.025);
 
             ring.rotation.x=
                 Math.PI/2+
@@ -1766,25 +1650,13 @@ function animate(){
     );
 
 
-    /* wedding rings */
-
     weddingRing1.rotation.y=
-        t*.35;
+        t*.25;
+
 
     weddingRing2.rotation.y=
-        -t*.35;
+        -t*.25;
 
-
-    /* diamond */
-
-    diamond.rotation.x=
-        t*.6;
-
-    diamond.rotation.y=
-        t*.8;
-
-
-    /* flowers */
 
     decorativeFlowers.forEach(
         function(flower,i){
@@ -1805,12 +1677,11 @@ function animate(){
 
 }
 
+
 animate();
 
 
-/* =====================================
-   RESIZE
-===================================== */
+/* RESIZE */
 
 window.addEventListener(
     "resize",
