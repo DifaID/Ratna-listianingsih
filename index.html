@@ -2,609 +2,696 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<meta name="viewport"
-content="width=device-width,
-initial-scale=1.0,
-maximum-scale=1.0,
-user-scalable=no">
-
-<title>For Ratna Listianingsih 🌹</title>
+<title>Invitation • Ratna Listianingsih</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 
 <style>
-
 *{
-box-sizing:border-box;
--webkit-tap-highlight-color:transparent;
+    box-sizing:border-box;
+    -webkit-tap-highlight-color:transparent;
 }
 
 html,body{
-margin:0;
-width:100%;
-height:100%;
-overflow:hidden;
-background:#050805;
-color:white;
-font-family:Georgia,"Times New Roman",serif;
+    margin:0;
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#030303;
+    color:#fff;
+    font-family:Georgia,"Times New Roman",serif;
 }
 
 body{
-touch-action:none;
+    touch-action:none;
 }
 
 #scene{
-position:fixed;
-inset:0;
+    position:fixed;
+    inset:0;
 }
 
 canvas{
-display:block;
+    display:block;
 }
 
+/* =====================================
+   BACKGROUND
+===================================== */
 
-/* ================================
-OPENING
-================================ */
+.background{
+    position:fixed;
+    inset:0;
+    z-index:1;
+    pointer-events:none;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            rgba(82,67,43,.16) 0%,
+            rgba(30,24,17,.08) 35%,
+            rgba(0,0,0,.92) 85%
+        );
+}
+
+.gold-glow{
+    position:absolute;
+    width:60vw;
+    height:60vw;
+    max-width:500px;
+    max-height:500px;
+
+    left:50%;
+    top:50%;
+
+    transform:translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(204,166,82,.08),
+            transparent 68%
+        );
+
+    filter:blur(20px);
+}
+
+/* =====================================
+   OPENING
+===================================== */
 
 #opening{
-position:fixed;
-inset:0;
-z-index:1000;
+    position:fixed;
+    inset:0;
+    z-index:1000;
 
-display:flex;
-align-items:center;
-justify-content:center;
+    display:flex;
+    align-items:center;
+    justify-content:center;
 
-background:
-radial-gradient(
-circle at center,
-#432530 0%,
-#1b0d14 42%,
-#040504 100%
-);
+    background:
+        radial-gradient(
+            circle at center,
+            #191510 0%,
+            #090807 50%,
+            #020202 100%
+        );
 
-transition:
-opacity 1.5s ease,
-visibility 1.5s ease;
+    transition:
+        opacity 1.4s ease,
+        visibility 1.4s ease;
 }
 
 #opening.hide{
-opacity:0;
-visibility:hidden;
-pointer-events:none;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
 }
 
 .open-content{
-width:min(90%,520px);
-text-align:center;
+    width:min(90%,500px);
+    text-align:center;
 }
 
-.crown{
-font-size:36px;
-color:#e7c476;
-margin-bottom:18px;
-animation:float 3s ease-in-out infinite;
+.open-ornament{
+    color:#c9a65a;
+    font-size:24px;
+    letter-spacing:8px;
+    margin-bottom:24px;
 }
 
 .open-small{
-color:#d8b36d;
-font-size:10px;
-letter-spacing:6px;
-text-transform:uppercase;
-margin-bottom:20px;
+    color:#bda875;
+    font-size:9px;
+    letter-spacing:6px;
+    text-transform:uppercase;
 }
 
 .open-content h1{
-margin:0;
-font-size:clamp(52px,15vw,90px);
-font-weight:normal;
-font-style:italic;
-color:#fff7ed;
+    margin:18px 0 8px;
 
-text-shadow:
-0 3px 8px #000,
-0 0 25px rgba(255,210,150,.2);
+    font-size:
+        clamp(52px,15vw,88px);
+
+    font-weight:normal;
+    font-style:italic;
+
+    color:#f6eee0;
+
+    text-shadow:
+        0 3px 15px #000;
 }
 
 .open-name{
-margin-top:12px;
-color:#e2bb73;
-letter-spacing:5px;
-font-size:15px;
+    color:#c9a65a;
+
+    font-size:12px;
+    letter-spacing:5px;
+
+    text-transform:uppercase;
 }
 
 .open-line{
-width:150px;
-height:1px;
-margin:25px auto;
+    width:130px;
+    height:1px;
 
-background:
-linear-gradient(
-90deg,
-transparent,
-#d5a95e,
-transparent
-);
+    margin:26px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #c9a65a,
+            transparent
+        );
 }
 
 .open-text{
-color:#d4c7bf;
-font-size:14px;
-line-height:1.8;
-margin-bottom:28px;
+    color:#aaa39a;
+
+    font-size:13px;
+    line-height:1.9;
+
+    margin-bottom:28px;
 }
 
 #openButton{
-border:1px solid rgba(232,195,125,.7);
+    border:1px solid rgba(201,166,90,.65);
 
-background:
-linear-gradient(
-135deg,
-rgba(197,142,72,.2),
-rgba(255,255,255,.03)
-);
+    background:
+        linear-gradient(
+            135deg,
+            rgba(201,166,90,.13),
+            rgba(255,255,255,.02)
+        );
 
-color:#f3d9a9;
+    color:#dbc17e;
 
-padding:15px 30px;
-border-radius:50px;
+    padding:14px 28px;
 
-font-family:Georgia,serif;
-letter-spacing:3px;
-font-size:11px;
+    border-radius:2px;
 
-box-shadow:
-0 0 25px rgba(210,166,87,.15);
+    font-family:Georgia,serif;
 
-cursor:pointer;
-pointer-events:auto;
+    font-size:10px;
+
+    letter-spacing:4px;
+
+    cursor:pointer;
+
+    pointer-events:auto;
+
+    transition:.3s;
 }
 
 #openButton:active{
-transform:scale(.95);
+    transform:scale(.96);
 }
 
-@keyframes float{
-
-0%,100%{
-transform:translateY(0);
-}
-
-50%{
-transform:translateY(-8px);
-}
-
-}
-
-
-/* ================================
-UI
-================================ */
+/* =====================================
+   MAIN UI
+===================================== */
 
 #ui{
-position:fixed;
-inset:0;
-z-index:20;
+    position:fixed;
+    inset:0;
+    z-index:20;
 
-pointer-events:none;
+    opacity:0;
 
-opacity:0;
+    pointer-events:none;
 
-transition:opacity 2s ease;
+    transition:opacity 2s ease;
 }
 
 #ui.show{
-opacity:1;
+    opacity:1;
 }
 
-.top-title{
-position:absolute;
+/* =====================================
+   TOP
+===================================== */
 
-top:max(
-18px,
-env(safe-area-inset-top)
-);
+.top{
+    position:absolute;
 
-left:0;
-right:0;
+    top:
+        max(
+            22px,
+            env(safe-area-inset-top)
+        );
 
-text-align:center;
+    left:0;
+    right:0;
 
-color:#e4c17d;
-
-font-size:9px;
-letter-spacing:4px;
-
-text-transform:uppercase;
-
-text-shadow:
-0 2px 6px #000;
+    text-align:center;
 }
 
+.top-small{
+    color:#aa9665;
 
-/* ================================
-MAIN TITLE
-================================ */
+    font-size:8px;
 
-.main-title{
-position:absolute;
+    letter-spacing:5px;
 
-top:43%;
-left:50%;
-
-transform:
-translate(-50%,-50%);
-
-width:82%;
-
-text-align:center;
-
-z-index:40;
-
-padding:20px 12px;
+    text-transform:uppercase;
 }
 
-.main-title::before{
-content:"";
+.top-line{
+    width:55px;
+    height:1px;
 
-position:absolute;
+    margin:10px auto;
 
-z-index:-1;
-
-left:50%;
-top:50%;
-
-transform:
-translate(-50%,-50%);
-
-width:120%;
-height:150%;
-
-border-radius:50%;
-
-background:
-radial-gradient(
-ellipse,
-rgba(3,6,3,.82) 0%,
-rgba(3,6,3,.55) 38%,
-rgba(3,6,3,.18) 62%,
-transparent 80%
-);
-
-filter:blur(10px);
+    background:#8c723e;
 }
 
-.small-title{
-font-size:11px;
-letter-spacing:5px;
+/* =====================================
+   CENTER INVITATION
+===================================== */
 
-color:#f1dfd0;
+.center{
+    position:absolute;
 
-text-transform:uppercase;
+    left:50%;
+    top:47%;
 
-text-shadow:
-0 2px 6px #000;
+    transform:
+        translate(-50%,-50%);
+
+    width:min(90%,500px);
+
+    text-align:center;
 }
 
-.main-title h2{
-margin:5px 0 0;
+.ornament{
+    color:#c8a45b;
 
-font-size:
-clamp(
-52px,
-14vw,
-82px
-);
+    font-size:25px;
 
-line-height:1;
+    letter-spacing:8px;
 
-font-weight:normal;
-font-style:italic;
+    margin-bottom:15px;
 
-color:#fff9f0;
-
-text-shadow:
-0 3px 8px #000,
-0 0 25px rgba(255,205,140,.35);
+    text-shadow:
+        0 0 15px rgba(205,170,90,.2);
 }
 
-.main-name{
-margin-top:12px;
+.invite-title{
+    color:#b8aa92;
 
-color:#e4bd79;
+    font-size:9px;
 
-font-size:
-clamp(
-13px,
-3.8vw,
-22px
-);
+    letter-spacing:5px;
 
-letter-spacing:5px;
+    text-transform:uppercase;
 
-text-transform:uppercase;
-
-text-shadow:
-0 2px 5px #000;
+    margin-bottom:15px;
 }
 
-.birth{
-margin-top:13px;
+.center h1{
+    margin:0;
 
-font-size:10px;
+    color:#f5eee3;
 
-letter-spacing:4px;
+    font-size:
+        clamp(
+            50px,
+            14vw,
+            84px
+        );
 
-color:#eee0d5;
+    font-weight:normal;
 
-text-shadow:
-0 2px 5px #000;
+    font-style:italic;
+
+    line-height:.95;
+
+    text-shadow:
+        0 4px 20px #000;
 }
 
+.center-name{
+    margin-top:15px;
 
-/* ================================
-BOTTOM
-================================ */
+    color:#c9a65a;
+
+    font-size:
+        clamp(
+            12px,
+            3.5vw,
+            18px
+        );
+
+    letter-spacing:5px;
+
+    text-transform:uppercase;
+}
+
+.center-date{
+    margin-top:20px;
+
+    color:#b7b0a7;
+
+    font-size:10px;
+
+    letter-spacing:4px;
+}
+
+.center-date::before,
+.center-date::after{
+    content:"";
+    display:inline-block;
+
+    vertical-align:middle;
+
+    width:35px;
+    height:1px;
+
+    margin:0 9px;
+
+    background:#6e5b38;
+}
+
+/* =====================================
+   DECORATIVE CARD
+===================================== */
+
+.card-frame{
+    position:absolute;
+
+    left:50%;
+    top:50%;
+
+    width:min(86vw,430px);
+    height:min(62vh,530px);
+
+    transform:
+        translate(-50%,-50%);
+
+    border:1px solid rgba(196,159,83,.23);
+
+    pointer-events:none;
+}
+
+.card-frame::before{
+    content:"";
+
+    position:absolute;
+
+    inset:8px;
+
+    border:
+        1px solid
+        rgba(196,159,83,.10);
+}
+
+.corner{
+    position:absolute;
+
+    width:25px;
+    height:25px;
+
+    border-color:#b99651;
+    border-style:solid;
+}
+
+.corner.tl{
+    top:-1px;
+    left:-1px;
+
+    border-width:1px 0 0 1px;
+}
+
+.corner.tr{
+    top:-1px;
+    right:-1px;
+
+    border-width:1px 1px 0 0;
+}
+
+.corner.bl{
+    bottom:-1px;
+    left:-1px;
+
+    border-width:0 0 1px 1px;
+}
+
+.corner.br{
+    bottom:-1px;
+    right:-1px;
+
+    border-width:0 1px 1px 0;
+}
+
+/* =====================================
+   BOTTOM
+===================================== */
 
 .bottom{
-position:absolute;
+    position:absolute;
 
-bottom:max(
-20px,
-env(safe-area-inset-bottom)
-);
+    left:0;
+    right:0;
 
-left:0;
-right:0;
+    bottom:
+        max(
+            20px,
+            env(safe-area-inset-bottom)
+        );
 
-text-align:center;
-
-z-index:50;
+    text-align:center;
 }
 
 .bottom button{
-pointer-events:auto;
+    pointer-events:auto;
 
-margin:3px;
+    margin:3px;
 
-border:
-1px solid
-rgba(222,183,112,.45);
+    padding:10px 15px;
 
-background:
-rgba(12,10,8,.82);
+    color:#cbb477;
 
-color:#ead3aa;
+    background:
+        rgba(8,7,6,.88);
 
-border-radius:30px;
+    border:
+        1px solid
+        rgba(190,155,82,.38);
 
-padding:10px 15px;
+    border-radius:2px;
 
-font-family:Georgia,serif;
+    font-family:Georgia,serif;
 
-font-size:10px;
+    font-size:9px;
 
-letter-spacing:1px;
+    letter-spacing:2px;
 
-backdrop-filter:blur(8px);
+    cursor:pointer;
 
-cursor:pointer;
+    backdrop-filter:blur(8px);
 }
 
 .bottom button:active{
-transform:scale(.95);
+    transform:scale(.95);
 }
 
 .hint{
-margin-top:8px;
+    margin-top:9px;
 
-color:
-rgba(255,255,255,.42);
+    color:rgba(255,255,255,.25);
 
-font-size:8px;
+    font-size:7px;
 
-letter-spacing:2px;
+    letter-spacing:3px;
 }
 
-
-/* ================================
-LETTER
-================================ */
+/* =====================================
+   LETTER
+===================================== */
 
 #letter{
+    position:fixed;
+    inset:0;
 
-position:fixed;
+    z-index:500;
 
-inset:0;
+    display:flex;
 
-z-index:500;
+    align-items:center;
+    justify-content:center;
 
-display:flex;
+    padding:20px;
 
-align-items:center;
-justify-content:center;
+    background:
+        rgba(0,0,0,.82);
 
-padding:20px;
+    backdrop-filter:blur(10px);
 
-background:
-rgba(4,3,3,.72);
+    opacity:0;
+    visibility:hidden;
 
-backdrop-filter:blur(9px);
+    pointer-events:none;
 
-opacity:0;
-
-visibility:hidden;
-
-pointer-events:none;
-
-transition:
-opacity .6s ease,
-visibility .6s ease;
+    transition:
+        opacity .6s ease,
+        visibility .6s ease;
 }
 
 #letter.show{
-
-opacity:1;
-
-visibility:visible;
-
-pointer-events:auto;
+    opacity:1;
+    visibility:visible;
+    pointer-events:auto;
 }
 
 .paper{
+    position:relative;
 
-position:relative;
+    z-index:501;
 
-z-index:501;
+    width:min(92%,470px);
 
-width:min(92%,480px);
+    max-height:85vh;
 
-max-height:85vh;
+    overflow:auto;
 
-overflow:auto;
+    padding:42px 28px;
 
-padding:35px 27px;
+    text-align:center;
 
-text-align:center;
+    color:#302b24;
 
-background:
-linear-gradient(
-135deg,
-#f9eee0,
-#ead8c1
-);
+    background:
+        linear-gradient(
+            135deg,
+            #faf4e8,
+            #eee2cc
+        );
 
-color:#352128;
+    border:
+        1px solid #bd9651;
 
-border:
-2px solid #c8a25e;
+    box-shadow:
+        0 30px 90px rgba(0,0,0,.8);
 
-box-shadow:
-0 20px 70px rgba(0,0,0,.65);
+    pointer-events:auto;
 
-pointer-events:auto;
-
-touch-action:auto;
+    touch-action:auto;
 }
 
 .paper::before{
+    content:"";
 
-content:"";
+    position:absolute;
 
-position:absolute;
+    inset:9px;
 
-inset:8px;
+    border:
+        1px solid
+        rgba(140,104,49,.35);
 
-border:
-1px solid
-rgba(150,106,43,.35);
-
-pointer-events:none;
+    pointer-events:none;
 }
 
-.paper .flower{
-font-size:28px;
-color:#9b5265;
+.paper-ornament{
+    color:#a57b35;
+
+    font-size:25px;
+
+    letter-spacing:6px;
 }
 
 .paper h2{
+    margin:16px 0 8px;
 
-margin:10px 0;
+    font-size:35px;
 
-font-size:37px;
+    font-weight:normal;
 
-font-weight:normal;
-font-style:italic;
+    font-style:italic;
 }
 
-.paper .paper-name{
+.paper-name{
+    color:#9c763c;
 
-color:#9c7137;
+    font-size:11px;
 
-letter-spacing:3px;
-
-font-size:13px;
+    letter-spacing:4px;
 }
 
 .paper hr{
+    width:75px;
 
-width:90px;
+    border:0;
 
-border:0;
+    border-top:
+        1px solid #b08a4c;
 
-border-top:
-1px solid #b28a51;
-
-margin:22px auto;
+    margin:23px auto;
 }
 
 .paper p{
+    font-size:13px;
 
-font-size:14px;
+    line-height:1.9;
 
-line-height:1.9;
+    margin:13px 0;
 }
 
 .close{
+    position:relative;
 
-position:relative;
+    z-index:510;
 
-z-index:510;
+    margin-top:18px;
 
-display:inline-block;
+    padding:10px 22px;
 
-margin-top:15px;
+    background:transparent;
 
-padding:11px 23px;
+    color:#6d502b;
 
-border:
-1px solid #a98552;
+    border:
+        1px solid #a8844a;
 
-background:
-rgba(255,255,255,.15);
+    border-radius:2px;
 
-border-radius:30px;
+    font-family:Georgia,serif;
 
-color:#67482d;
+    font-size:10px;
 
-font-family:Georgia,serif;
+    letter-spacing:2px;
 
-cursor:pointer;
+    cursor:pointer;
 
-pointer-events:auto;
+    pointer-events:auto;
 
-touch-action:manipulation;
+    touch-action:manipulation;
 }
 
-.close:active{
-transform:scale(.94);
-}
-
-
-/* ================================
-VIGNETTE
-================================ */
+/* =====================================
+   VIGNETTE
+===================================== */
 
 .vignette{
+    position:fixed;
+    inset:0;
 
-position:fixed;
+    z-index:10;
 
-inset:0;
+    pointer-events:none;
 
-pointer-events:none;
-
-z-index:5;
-
-background:
-radial-gradient(
-circle,
-transparent 35%,
-rgba(0,0,0,.12) 65%,
-rgba(0,0,0,.68) 100%
-);
-
+    background:
+        radial-gradient(
+            circle,
+            transparent 30%,
+            rgba(0,0,0,.18) 60%,
+            rgba(0,0,0,.75) 100%
+        );
 }
 
 </style>
@@ -613,1933 +700,1014 @@ rgba(0,0,0,.68) 100%
 <body>
 
 
-<!-- ==========================================
-OPENING
-========================================== -->
+<div id="scene"></div>
+
+<div class="background">
+    <div class="gold-glow"></div>
+</div>
+
+
+<!-- OPENING -->
 
 <div id="opening">
 
-<div class="open-content">
+    <div class="open-content">
 
-<div class="crown">
-♕
-</div>
+        <div class="open-ornament">
+            ✦ ❦ ✦
+        </div>
 
-<div class="open-small">
-A Garden Made For You
-</div>
+        <div class="open-small">
+            A Special Invitation
+        </div>
 
-<h1>
-Ratna
-</h1>
+        <h1>
+            Ratna
+        </h1>
 
-<div class="open-name">
-LISTIANINGSIH
-</div>
+        <div class="open-name">
+            LISTIANINGSIH
+        </div>
 
-<div class="open-line"></div>
+        <div class="open-line"></div>
 
-<div class="open-text">
+        <div class="open-text">
+            Sebuah halaman kecil,
+            dibuat untuk seseorang
+            yang memiliki tempat istimewa.
+            <br><br>
+            Silakan masuk.
+        </div>
 
-Sebuah taman kecil telah disiapkan
-untuk merayakan satu hari yang istimewa.
+        <button id="openButton">
+            BUKA UNDANGAN
+        </button>
 
-<br><br>
-
-Masuklah...
-
-</div>
-
-<button id="openButton">
-BUKA TAMAN ✦
-</button>
-
-</div>
+    </div>
 
 </div>
 
 
-<!-- ==========================================
-3D
-========================================== -->
-
-<div id="scene"></div>
-
-<div class="vignette"></div>
-
-
-<!-- ==========================================
-UI
-========================================== -->
+<!-- UI -->
 
 <div id="ui">
 
-<div class="top-title">
-✦ A Special Celebration ✦
+    <div class="top">
+
+        <div class="top-small">
+            The Beginning Of Something Beautiful
+        </div>
+
+        <div class="top-line"></div>
+
+    </div>
+
+
+    <div class="card-frame">
+
+        <div class="corner tl"></div>
+        <div class="corner tr"></div>
+        <div class="corner bl"></div>
+        <div class="corner br"></div>
+
+    </div>
+
+
+    <div class="center">
+
+        <div class="ornament">
+            ❦
+        </div>
+
+        <div class="invite-title">
+            Dengan penuh kasih
+        </div>
+
+        <h1>
+            Ratna
+        </h1>
+
+        <div class="center-name">
+            Listianingsih
+        </div>
+
+        <div class="center-date">
+            01 • 10 • 2006
+        </div>
+
+    </div>
+
+
+    <div class="bottom">
+
+        <button id="letterButton">
+            💌 BUKA SURAT
+        </button>
+
+        <button id="celebrateButton">
+            ✦ RAYAKAN
+        </button>
+
+        <button id="musicButton">
+            ♫ MUSIK
+        </button>
+
+        <div class="hint">
+            GESER LAYAR
+        </div>
+
+    </div>
+
 </div>
 
 
-<div class="main-title">
-
-<div class="small-title">
-Happy Birthday
-</div>
-
-<h2>
-Ratna
-</h2>
-
-<div class="main-name">
-Listianingsih
-</div>
-
-<div class="birth">
-01 • 10 • 2006
-</div>
-
-</div>
-
-
-<div class="bottom">
-
-<button id="letterButton">
-💌 BUKA SURAT
-</button>
-
-<button id="celebrateButton">
-🌹 RAYAKAN
-</button>
-
-<button id="musicButton">
-♫ MUSIK
-</button>
-
-<div class="hint">
-GESER LAYAR UNTUK MELIHAT TAMAN
-</div>
-
-</div>
-
-</div>
-
-
-<!-- ==========================================
-SURAT
-========================================== -->
+<!-- LETTER -->
 
 <div id="letter">
 
-<div class="paper">
+    <div class="paper">
 
-<div class="flower">
-❦
+        <div class="paper-ornament">
+            ✦ ❦ ✦
+        </div>
+
+        <h2>
+            Untuk Ratna
+        </h2>
+
+        <div class="paper-name">
+            RATNA LISTIANINGSIH
+        </div>
+
+        <hr>
+
+        <p>
+            Pada tanggal yang istimewa ini,
+            semoga satu tahun baru dalam hidupmu
+            membawa lebih banyak cerita indah.
+        </p>
+
+        <p>
+            Semoga langkahmu selalu ditemani
+            hal-hal baik, orang-orang yang tulus,
+            dan alasan-alasan kecil untuk tersenyum.
+        </p>
+
+        <p>
+            Semoga semua harapan yang kamu simpan
+            perlahan menemukan jalannya.
+        </p>
+
+        <p>
+            Selamat ulang tahun, Ratna.
+            <br>
+            Semoga hari ini menjadi salah satu
+            halaman yang ingin kamu ingat.
+        </p>
+
+        <p>
+            ✦
+        </p>
+
+        <button
+            type="button"
+            class="close"
+            id="closeLetter">
+            TUTUP SURAT
+        </button>
+
+    </div>
+
 </div>
 
-<h2>
-Selamat Ulang Tahun
-</h2>
-
-<div class="paper-name">
-RATNA LISTIANINGSIH
-</div>
-
-<hr>
-
-<p>
-Hari ini bukan sekadar bertambahnya satu angka.
-Ini adalah satu halaman baru dari perjalananmu.
-</p>
-
-<p>
-Semoga di usia 20 tahun ini,
-semakin banyak hal baik datang kepadamu.
-Semoga langkahmu selalu menemukan jalan
-yang membawa ketenangan, kebahagiaan,
-dan orang-orang yang tulus.
-</p>
-
-<p>
-Tetaplah menjadi Ratna
-dengan segala cerita dan warna
-yang kamu punya.
-</p>
-
-<p>
-Selamat ulang tahun. 🌹
-</p>
-
-<button
-type="button"
-class="close"
-id="closeLetter">
-
-TUTUP SURAT
-
-</button>
-
-</div>
-
-</div>
-
-
-<!-- ==========================================
-MUSIC
-========================================== -->
 
 <audio id="music" loop></audio>
 
 
 <script>
 
+/* =====================================
+   THREE.JS SCENE
+===================================== */
 
-/* ==========================================
-THREE
-========================================== */
-
-const scene =
-new THREE.Scene();
-
+const scene = new THREE.Scene();
 
 const camera =
 new THREE.PerspectiveCamera(
-55,
-innerWidth / innerHeight,
-.1,
-100
+    50,
+    innerWidth / innerHeight,
+    .1,
+    100
 );
 
 camera.position.set(
-0,
-2.8,
-14
+    0,
+    0,
+    10
 );
 
 
 const renderer =
 new THREE.WebGLRenderer({
-
-antialias:true,
-
-alpha:true
-
+    antialias:true,
+    alpha:true
 });
 
 renderer.setSize(
-innerWidth,
-innerHeight
+    innerWidth,
+    innerHeight
 );
 
 renderer.setPixelRatio(
-Math.min(
-devicePixelRatio,
-2
-)
+    Math.min(devicePixelRatio,2)
 );
-
-renderer.shadowMap.enabled=true;
-
-renderer.shadowMap.type=
-THREE.PCFSoftShadowMap;
 
 document
 .getElementById("scene")
-.appendChild(
-renderer.domElement
-);
+.appendChild(renderer.domElement);
 
 
-/* ==========================================
-LIGHT
-========================================== */
+/* =====================================
+   LIGHTING
+===================================== */
 
 const ambient =
-new THREE.HemisphereLight(
-0xcde8cf,
-0x120a0d,
-1.5
+new THREE.AmbientLight(
+    0xffffff,
+    .55
 );
 
 scene.add(ambient);
 
 
-const moon =
-new THREE.DirectionalLight(
-0xffe0b0,
-2
-);
-
-moon.position.set(
-6,
-10,
-6
-);
-
-moon.castShadow=true;
-
-scene.add(moon);
-
-
-const warm =
+const goldLight =
 new THREE.PointLight(
-0xffb56c,
-2,
-16
+    0xd8ae58,
+    2.2,
+    18
 );
 
-warm.position.set(
-0,
-3,
-2
+goldLight.position.set(
+    0,
+    2,
+    3
 );
 
-scene.add(warm);
+scene.add(goldLight);
 
 
-const pinkLight =
+const leftLight =
 new THREE.PointLight(
-0xff668d,
-1.7,
-12
+    0x8b6a38,
+    1.1,
+    12
 );
 
-pinkLight.position.set(
--5,
-2,
--1
+leftLight.position.set(
+    -5,
+    1,
+    1
 );
 
-scene.add(pinkLight);
+scene.add(leftLight);
 
 
-/* ==========================================
-GROUND
-========================================== */
-
-const ground =
-new THREE.Mesh(
-
-new THREE.CircleGeometry(
-15,
-96
-),
-
-new THREE.MeshStandardMaterial({
-
-color:0x19351d,
-
-roughness:1
-
-})
-
-);
-
-ground.rotation.x=
--Math.PI/2;
-
-ground.position.y=-1.5;
-
-ground.receiveShadow=true;
-
-scene.add(ground);
-
-
-/* ==========================================
-GRASS PATCHES
-========================================== */
-
-function grassPatch(
-x,
-z,
-radius
-){
-
-const patch =
-new THREE.Mesh(
-
-new THREE.CircleGeometry(
-radius,
-32
-),
-
-new THREE.MeshStandardMaterial({
-
-color:0x234a27,
-
-roughness:1
-
-})
-
-);
-
-patch.rotation.x=
--Math.PI/2;
-
-patch.position.set(
-x,
--1.485,
-z
-);
-
-scene.add(patch);
-
-}
-
-
-for(
-let i=0;
-i<18;
-i++
-){
-
-const side=
-Math.random()>.5
-?1
-:-1;
-
-grassPatch(
-
-side*
-(
-3.2+
-Math.random()*4
-),
-
--5+
-Math.random()*10,
-
-.7+
-Math.random()*1.2
-
-);
-
-}
-
-
-/* ==========================================
-PATH
-========================================== */
-
-const path =
-new THREE.Mesh(
-
-new THREE.PlaneGeometry(
-2.25,
-13
-),
-
-new THREE.MeshStandardMaterial({
-
-color:0x7a5b4b,
-
-roughness:1
-
-})
-
-);
-
-path.rotation.x=
--Math.PI/2;
-
-path.position.set(
-0,
--1.46,
-2
-);
-
-scene.add(path);
-
-
-/* ==========================================
-PATH STONES
-========================================== */
-
-for(
-let i=0;
-i<11;
-i++
-){
-
-const stone =
-new THREE.Mesh(
-
-new THREE.CylinderGeometry(
-.65,
-.75,
-.08,
-16
-),
-
-new THREE.MeshStandardMaterial({
-
-color:0xb49b85,
-
-roughness:.9
-
-})
-
-);
-
-stone.scale.x=1.2;
-
-stone.rotation.x=
--Math.PI/2;
-
-stone.position.set(
-0,
--1.40,
-6-i*1.1
-);
-
-scene.add(stone);
-
-}
-
-
-/* ==========================================
-BORDER STONES
-========================================== */
-
-function borderStone(
-x,
-z
-){
-
-const stone =
-new THREE.Mesh(
-
-new THREE.DodecahedronGeometry(
-.18,
-0
-),
-
-new THREE.MeshStandardMaterial({
-
-color:0x9a8776,
-
-roughness:1
-
-})
-
-);
-
-stone.position.set(
-x,
--1.28,
-z
-);
-
-stone.scale.y=.65;
-
-scene.add(stone);
-
-}
-
-
-for(
-let i=0;
-i<15;
-i++
-){
-
-const z=
-6-i*.75;
-
-borderStone(
--1.55,
-z
-);
-
-borderStone(
-1.55,
-z
-);
-
-}
-
-
-/* ==========================================
-ARCH
-========================================== */
-
-const arch =
-new THREE.Group();
-
-scene.add(arch);
-
-
-function pillar(x){
-
-const p =
-new THREE.Mesh(
-
-new THREE.CylinderGeometry(
-.13,
-.18,
-5,
-18
-),
-
-new THREE.MeshStandardMaterial({
-
-color:0xc39a60,
-
-metalness:.65,
-
-roughness:.3
-
-})
-
-);
-
-p.position.set(
-x,
-.95,
--2.5
-);
-
-p.castShadow=true;
-
-arch.add(p);
-
-}
-
-pillar(-2.6);
-pillar(2.6);
-
-
-const archTop =
-new THREE.Mesh(
-
-new THREE.TorusGeometry(
-2.6,
-.11,
-14,
-80,
-Math.PI
-),
-
-new THREE.MeshStandardMaterial({
-
-color:0xd0a765,
-
-metalness:.8,
-
-roughness:.25
-
-})
-
-);
-
-archTop.position.set(
-0,
-3.5,
--2.5
-);
-
-archTop.rotation.z=
-Math.PI;
-
-arch.add(archTop);
-
-
-/* ==========================================
-FLOWERS
-========================================== */
-
-const flowers=[];
-
-
-const flowerColors={
-
-pink:0xff8fac,
-
-darkPink:0xd94f78,
-
-red:0xb72d42,
-
-lightRed:0xe05263,
-
-white:0xfff4ed
-
-};
-
-
-function createFlower(
-x,
-z,
-color,
-scale
-){
-
-const group=
-new THREE.Group();
-
-group.position.set(
-x,
--1.45,
-z
-);
-
-group.scale.setScalar(
-scale
-);
-
-
-/* STEM */
-
-const stem =
-new THREE.Mesh(
-
-new THREE.CylinderGeometry(
-.025,
-.035,
-1.15,
-7
-),
-
-new THREE.MeshStandardMaterial({
-
-color:0x28552d,
-
-roughness:1
-
-})
-
-);
-
-stem.position.y=.57;
-
-group.add(stem);
-
-
-/* LEAVES */
-
-for(
-let i=0;
-i<4;
-i++
-){
-
-const leaf =
-new THREE.Mesh(
-
-new THREE.SphereGeometry(
-.25,
-8,
-5
-),
-
-new THREE.MeshStandardMaterial({
-
-color:
-i%2
-?0x3c743e
-:0x2d6134,
-
-roughness:1
-
-})
-
-);
-
-const side=
-i%2===0
-?1
-:-1;
-
-leaf.position.set(
-
-side*.18,
-
-.25+
-i*.18,
-
-(i%2-.5)*.08
-
-);
-
-leaf.scale.set(
-1.5,
-.3,
-.65
-);
-
-leaf.rotation.z=
-side*.45;
-
-group.add(leaf);
-
-}
-
-
-/* CENTER */
-
-const center =
-new THREE.Mesh(
-
-new THREE.SphereGeometry(
-.13,
-10,
-10
-),
-
-new THREE.MeshStandardMaterial({
-
-color:0xf4c44e,
-
-roughness:.6
-
-})
-
-);
-
-center.position.y=1.23;
-
-group.add(center);
-
-
-/* PETALS */
-
-for(
-let i=0;
-i<7;
-i++
-){
-
-const angle=
-i/7*
-Math.PI*2;
-
-const petal =
-new THREE.Mesh(
-
-new THREE.SphereGeometry(
-.22,
-10,
-8
-),
-
-new THREE.MeshStandardMaterial({
-
-color:color,
-
-roughness:.55
-
-})
-
-);
-
-petal.position.set(
-
-Math.cos(angle)*.21,
-
-1.23,
-
-Math.sin(angle)*.21
-
-);
-
-petal.scale.set(
-1,
-.55,
-1
-);
-
-group.add(petal);
-
-}
-
-scene.add(group);
-
-flowers.push(group);
-
-}
-
-
-/* ==========================================
-FLOWER BEDS
-========================================== */
-
-function createFlowerBed(
-side,
-zStart,
-count,
-colors
-){
-
-for(
-let i=0;
-i<count;
-i++
-){
-
-const z=
-zStart+
-Math.random()*2.2;
-
-const x=
-side*
-(
-2.1+
-Math.random()*2.8
-);
-
-const color=
-colors[
-Math.floor(
-Math.random()*
-colors.length
-)
-];
-
-createFlower(
-
-x,
-z,
-color,
-
-.55+
-Math.random()*.35
-
-);
-
-}
-
-}
-
-
-/* PINK */
-
-createFlowerBed(
--1,
--4.8,
-15,
-[
-flowerColors.pink,
-flowerColors.darkPink,
-flowerColors.white
-]
-);
-
-createFlowerBed(
-1,
--4.8,
-15,
-[
-flowerColors.pink,
-flowerColors.darkPink,
-flowerColors.white
-]
-);
-
-
-/* RED */
-
-createFlowerBed(
--1,
--1.8,
-14,
-[
-flowerColors.red,
-flowerColors.lightRed,
-flowerColors.pink
-]
-);
-
-createFlowerBed(
-1,
--1.8,
-14,
-[
-flowerColors.red,
-flowerColors.lightRed,
-flowerColors.pink
-]
-);
-
-
-/* FRONT */
-
-createFlowerBed(
--1,
-2,
-13,
-[
-flowerColors.white,
-flowerColors.pink,
-flowerColors.lightRed
-]
-);
-
-createFlowerBed(
-1,
-2,
-13,
-[
-flowerColors.white,
-flowerColors.pink,
-flowerColors.lightRed
-]
-);
-
-
-/* ==========================================
-SHRUB
-========================================== */
-
-function shrub(
-x,
-z,
-scale
-){
-
-const group=
-new THREE.Group();
-
-group.position.set(
-x,
--1.4,
-z
-);
-
-group.scale.setScalar(
-scale
-);
-
-for(
-let i=0;
-i<7;
-i++
-){
-
-const leaf =
-new THREE.Mesh(
-
-new THREE.SphereGeometry(
-.32,
-10,
-8
-),
-
-new THREE.MeshStandardMaterial({
-
-color:
-i%2
-?0x3b7139
-:0x285d32,
-
-roughness:1
-
-})
-
-);
-
-leaf.position.set(
-
-(Math.random()-.5)*.8,
-
-.2+
-Math.random()*.35,
-
-(Math.random()-.5)*.55
-
-);
-
-leaf.scale.y=.65;
-
-group.add(leaf);
-
-}
-
-scene.add(group);
-
-}
-
-
-for(
-let i=0;
-i<22;
-i++
-){
-
-const side=
-Math.random()>.5
-?1
-:-1;
-
-shrub(
-
-side*
-(
-1.9+
-Math.random()*3.2
-),
-
--5+
-Math.random()*10,
-
-.7+
-Math.random()*.5
-
-);
-
-}
-
-
-/* ==========================================
-GAZEBO
-========================================== */
-
-const gazebo=
-new THREE.Group();
-
-scene.add(gazebo);
-
-
-const gazeboFloor=
-new THREE.Mesh(
-
-new THREE.CylinderGeometry(
-2.5,
-2.5,
-.22,
-48
-),
-
-new THREE.MeshStandardMaterial({
-
-color:0x3b2027,
-
-roughness:.85
-
-})
-
-);
-
-gazeboFloor.position.set(
-0,
--1.2,
--2.5
-);
-
-gazebo.add(gazeboFloor);
-
-
-const roof=
-new THREE.Mesh(
-
-new THREE.ConeGeometry(
-2.7,
-1.05,
-8
-),
-
-new THREE.MeshStandardMaterial({
-
-color:0x321820,
-
-roughness:.85
-
-})
-
-);
-
-roof.position.set(
-0,
-4.7,
--2.5
-);
-
-gazebo.add(roof);
-
-
-for(
-const x of [-2.15,2.15]
-){
-
-const pole=
-new THREE.Mesh(
-
-new THREE.CylinderGeometry(
-.06,
-.08,
-4.4,
-12
-),
-
-new THREE.MeshStandardMaterial({
-
-color:0xc49b61,
-
-metalness:.65,
-
-roughness:.3
-
-})
-
-);
-
-pole.position.set(
-x,
-1,
--2.5
-);
-
-gazebo.add(pole);
-
-}
-
-
-/* ==========================================
-HEART
-========================================== */
-
-const heartShape=
-new THREE.Shape();
-
-heartShape.moveTo(
-0,
--.5
-);
-
-heartShape.bezierCurveTo(
--1.2,
--1.2,
--2,
-.2,
-0,
-1.4
-);
-
-heartShape.bezierCurveTo(
-2,
-.2,
-1.2,
--1.2,
-0,
--.5
-);
-
-
-const heart=
-new THREE.Mesh(
-
-new THREE.ExtrudeGeometry(
-heartShape,
-{
-depth:.18,
-bevelEnabled:true,
-bevelThickness:.04,
-bevelSize:.04
-}
-),
-
-new THREE.MeshStandardMaterial({
-
-color:0xc44969,
-
-roughness:.4
-
-})
-
-);
-
-heart.scale.setScalar(.35);
-
-heart.position.set(
-0,
-4.1,
--2.8
-);
-
-heart.rotation.z=
-Math.PI;
-
-scene.add(heart);
-
-
-/* ==========================================
-RING
-========================================== */
-
-const ring=
-new THREE.Mesh(
-
-new THREE.TorusGeometry(
-.58,
-.09,
-20,
-64
-),
-
-new THREE.MeshStandardMaterial({
-
-color:0xe4b94f,
-
-metalness:.95,
-
-roughness:.2
-
-})
-
-);
-
-ring.position.set(
-0,
-5.45,
--2.7
-);
-
-ring.rotation.x=
-Math.PI/2;
-
-scene.add(ring);
-
-
-/* ==========================================
-LANTERNS
-========================================== */
-
-const lanternLights=[];
-
-
-function gardenLamp(
-x,
-z
-){
-
-const group=
-new THREE.Group();
-
-group.position.set(
-x,
--1.5,
-z
-);
-
-
-const pole=
-new THREE.Mesh(
-
-new THREE.CylinderGeometry(
-.035,
-.055,
-1.15,
-8
-),
-
-new THREE.MeshStandardMaterial({
-
-color:0x40352d,
-
-metalness:.6,
-
-roughness:.4
-
-})
-
-);
-
-pole.position.y=.57;
-
-group.add(pole);
-
-
-const lamp=
-new THREE.Mesh(
-
-new THREE.SphereGeometry(
-.12,
-12,
-12
-),
-
-new THREE.MeshBasicMaterial({
-
-color:0xffd27a
-
-})
-
-);
-
-lamp.position.y=1.15;
-
-group.add(lamp);
-
-
-const light=
+const rightLight =
 new THREE.PointLight(
-0xffb65d,
-1.3,
-3.5
+    0x8b6a38,
+    1.1,
+    12
 );
 
-light.position.y=1.1;
-
-group.add(light);
-
-lanternLights.push(light);
-
-scene.add(group);
-
-}
-
-
-for(
-let i=0;
-i<8;
-i++
-){
-
-const z=
-5.2-
-i*1.45;
-
-gardenLamp(
--1.45,
-z
+rightLight.position.set(
+    5,
+    1,
+    1
 );
 
-gardenLamp(
-1.45,
-z
-);
-
-}
+scene.add(rightLight);
 
 
-/* ==========================================
-PETALS
-========================================== */
+/* =====================================
+   GOLD PARTICLES
+===================================== */
 
-const petals=[];
-
-
-for(
-let i=0;
-i<90;
-i++
-){
-
-const petal=
-new THREE.Mesh(
-
-new THREE.PlaneGeometry(
-.12,
-.2
-),
-
-new THREE.MeshBasicMaterial({
-
-color:
-[
-0xff8fac,
-0xffd4df,
-0xffe8e8
-][
-Math.floor(
-Math.random()*3
-)
-],
-
-transparent:true,
-
-opacity:.5,
-
-side:THREE.DoubleSide
-
-})
-
-);
-
-petal.position.set(
-
-(Math.random()-.5)*12,
-
-Math.random()*8,
-
-(Math.random()-.5)*10
-
-);
-
-petal.userData={
-
-speed:
-.003+
-Math.random()*.006,
-
-spin:
-.004+
-Math.random()*.01
-
-};
-
-scene.add(petal);
-
-petals.push(petal);
-
-}
-
-
-/* ==========================================
-PARTICLES
-========================================== */
-
-const particleGeo=
+const particleGeometry =
 new THREE.BufferGeometry();
 
 const particlePositions=[];
 
 
-for(
-let i=0;
-i<450;
-i++
-){
+for(let i=0;i<260;i++){
 
-particlePositions.push(
+    particlePositions.push(
 
-(Math.random()-.5)*16,
+        (Math.random()-.5)*16,
 
-Math.random()*9-1,
+        (Math.random()-.5)*10,
 
-(Math.random()-.5)*14
+        (Math.random()-.5)*8
 
-);
+    );
 
 }
 
 
-particleGeo.setAttribute(
-
-"position",
-
-new THREE.Float32BufferAttribute(
-particlePositions,
-3
-)
-
+particleGeometry.setAttribute(
+    "position",
+    new THREE.Float32BufferAttribute(
+        particlePositions,
+        3
+    )
 );
 
 
-const particleMat=
+const particleMaterial =
 new THREE.PointsMaterial({
 
-color:0xe5bd6c,
+    color:0xc8a45b,
 
-size:.022,
+    size:.025,
 
-transparent:true,
+    transparent:true,
 
-opacity:.6
+    opacity:.65
 
 });
 
 
-const particles=
+const particles =
 new THREE.Points(
-particleGeo,
-particleMat
+    particleGeometry,
+    particleMaterial
 );
 
 scene.add(particles);
 
 
-/* ==========================================
-CAMERA DRAG
-========================================== */
+/* =====================================
+   GOLD RINGS
+===================================== */
 
-let dragging=false;
-
-let lastX=0;
-let lastY=0;
-
-let targetX=0;
-let targetY=2.8;
+const rings=[];
 
 
-renderer.domElement.addEventListener(
-"pointerdown",
-function(e){
+for(let i=0;i<3;i++){
 
-dragging=true;
+    const ring =
+    new THREE.Mesh(
 
-lastX=e.clientX;
-lastY=e.clientY;
+        new THREE.TorusGeometry(
+            1.1+i*.45,
+            .012,
+            10,
+            80
+        ),
 
-}
-);
+        new THREE.MeshBasicMaterial({
 
+            color:0xb9944c,
 
-renderer.domElement.addEventListener(
-"pointermove",
-function(e){
+            transparent:true,
 
-if(!dragging)return;
+            opacity:.13-i*.025
 
-const dx=
-e.clientX-lastX;
+        })
 
-const dy=
-e.clientY-lastY;
+    );
 
+    ring.position.z=-1;
 
-targetX-=
-dx*.012;
+    ring.rotation.x=
+        Math.PI/2;
 
-targetY+=
-dy*.006;
+    scene.add(ring);
 
-
-targetX=
-Math.max(
--3,
-Math.min(
-3,
-targetX
-)
-);
-
-
-targetY=
-Math.max(
-1.8,
-Math.min(
-4,
-targetY
-)
-);
-
-
-lastX=e.clientX;
-lastY=e.clientY;
+    rings.push(ring);
 
 }
+
+
+/* =====================================
+   WEDDING RINGS
+===================================== */
+
+const weddingRing1 =
+new THREE.Mesh(
+
+    new THREE.TorusGeometry(
+        .55,
+        .07,
+        20,
+        64
+    ),
+
+    new THREE.MeshStandardMaterial({
+
+        color:0xd4ad5f,
+
+        metalness:.95,
+
+        roughness:.2
+
+    })
+
+);
+
+weddingRing1.position.set(
+    -.35,
+    2.3,
+    -1.5
+);
+
+weddingRing1.rotation.z=.3;
+
+scene.add(weddingRing1);
+
+
+const weddingRing2 =
+new THREE.Mesh(
+
+    new THREE.TorusGeometry(
+        .55,
+        .07,
+        20,
+        64
+    ),
+
+    new THREE.MeshStandardMaterial({
+
+        color:0xe6cf91,
+
+        metalness:.95,
+
+        roughness:.18
+
+    })
+
+);
+
+weddingRing2.position.set(
+    .35,
+    2.3,
+    -1.5
+);
+
+weddingRing2.rotation.z=-.3;
+
+scene.add(weddingRing2);
+
+
+/* =====================================
+   SMALL DIAMOND
+===================================== */
+
+const diamond =
+new THREE.Mesh(
+
+    new THREE.OctahedronGeometry(
+        .13,
+        0
+    ),
+
+    new THREE.MeshStandardMaterial({
+
+        color:0xffffff,
+
+        metalness:.7,
+
+        roughness:.08,
+
+        emissive:0x55442a,
+
+        emissiveIntensity:.25
+
+    })
+
+);
+
+diamond.position.set(
+    .25,
+    2.72,
+    -1.45
+);
+
+scene.add(diamond);
+
+
+/* =====================================
+   DECORATIVE FLOWERS
+===================================== */
+
+function flower(
+    x,
+    y,
+    z,
+    scale,
+    color
+){
+
+    const group =
+    new THREE.Group();
+
+    group.position.set(
+        x,y,z
+    );
+
+    group.scale.setScalar(
+        scale
+    );
+
+
+    const center =
+    new THREE.Mesh(
+
+        new THREE.SphereGeometry(
+            .12,
+            10,
+            10
+        ),
+
+        new THREE.MeshStandardMaterial({
+
+            color:0xd4a74e,
+
+            roughness:.5
+
+        })
+
+    );
+
+    group.add(center);
+
+
+    for(let i=0;i<6;i++){
+
+        const angle=
+            i/6*Math.PI*2;
+
+        const petal =
+        new THREE.Mesh(
+
+            new THREE.SphereGeometry(
+                .19,
+                10,
+                8
+            ),
+
+            new THREE.MeshStandardMaterial({
+
+                color:color,
+
+                roughness:.55
+
+            })
+
+        );
+
+        petal.position.set(
+
+            Math.cos(angle)*.18,
+
+            0,
+
+            Math.sin(angle)*.18
+
+        );
+
+        petal.scale.y=.6;
+
+        group.add(petal);
+
+    }
+
+    scene.add(group);
+
+    return group;
+}
+
+
+const decorativeFlowers=[];
+
+
+/* left */
+
+decorativeFlowers.push(
+    flower(
+        -4.3,
+        -2.8,
+        -1,
+        .7,
+        0x8d2437
+    )
+);
+
+decorativeFlowers.push(
+    flower(
+        -4.8,
+        -3.2,
+        -.8,
+        .5,
+        0xd7d0c2
+    )
 );
 
 
-renderer.domElement.addEventListener(
-"pointerup",
-function(){
+/* right */
 
-dragging=false;
+decorativeFlowers.push(
+    flower(
+        4.3,
+        -2.8,
+        -1,
+        .7,
+        0x8d2437
+    )
+);
+
+decorativeFlowers.push(
+    flower(
+        4.8,
+        -3.2,
+        -.8,
+        .5,
+        0xd7d0c2
+    )
+);
+
+
+/* =====================================
+   ORNAMENT LINES
+===================================== */
+
+const ornamentMaterial =
+new THREE.LineBasicMaterial({
+
+    color:0xa98243,
+
+    transparent:true,
+
+    opacity:.3
+
+});
+
+
+function makeLine(
+    points
+){
+
+    const geometry =
+    new THREE.BufferGeometry()
+        .setFromPoints(points);
+
+    const line =
+    new THREE.Line(
+        geometry,
+        ornamentMaterial
+    );
+
+    scene.add(line);
 
 }
-);
 
 
-renderer.domElement.addEventListener(
-"pointercancel",
-function(){
+makeLine([
+    new THREE.Vector3(-5,2,-1),
+    new THREE.Vector3(-3.5,3,-1),
+    new THREE.Vector3(-2,2.4,-1)
+]);
 
-dragging=false;
+makeLine([
+    new THREE.Vector3(5,2,-1),
+    new THREE.Vector3(3.5,3,-1),
+    new THREE.Vector3(2,2.4,-1)
+]);
 
-}
-);
 
-
-/* ==========================================
-ENTER GARDEN
-========================================== */
+/* =====================================
+   OPEN
+===================================== */
 
 let entering=false;
 
 
-function enterGarden(){
+function enter(){
 
-if(entering)return;
+    if(entering)return;
 
-entering=true;
+    entering=true;
 
+    document
+    .getElementById("opening")
+    .classList.add("hide");
 
-document
-.getElementById("opening")
-.classList.add("hide");
-
-
-document
-.getElementById("ui")
-.classList.add("show");
+    document
+    .getElementById("ui")
+    .classList.add("show");
 
 
-camera.position.set(
-0,
-2.5,
-15
-);
+    camera.position.set(
+        0,
+        -.5,
+        12
+    );
 
 
-const start=
-performance.now();
+    const start=
+        performance.now();
 
 
-function cinematic(now){
+    function cinematic(now){
 
-const progress=
-Math.min(
-(now-start)/2400,
-1
-);
-
-const ease=
-1-
-Math.pow(
-1-progress,
-3
-);
+        const progress=
+            Math.min(
+                (now-start)/2200,
+                1
+            );
 
 
-camera.position.z=
-15-
-3.7*ease;
-
-camera.position.y=
-2.5+
-.4*ease;
-
-
-camera.lookAt(
-0,
-1.2,
--2.5
-);
+        const ease=
+            1-
+            Math.pow(
+                1-progress,
+                3
+            );
 
 
-if(progress<1){
+        camera.position.z=
+            12-
+            3*ease;
 
-requestAnimationFrame(
-cinematic
-);
-
-}else{
-
-entering=false;
-
-}
-
-}
-
-requestAnimationFrame(
-cinematic
-);
+        camera.position.y=
+            -.5+
+            .4*ease;
 
 
-/* MUSIC */
+        camera.lookAt(
+            0,
+            0,
+            -1
+        );
 
-const music=
-document.getElementById(
-"music"
-);
 
-if(music.src){
+        if(progress<1){
 
-music.volume=.55;
+            requestAnimationFrame(
+                cinematic
+            );
 
-music.play().catch(
-()=>{}
-);
+        }else{
 
-}
+            entering=false;
+
+        }
+
+    }
+
+
+    requestAnimationFrame(
+        cinematic
+    );
 
 }
 
 
-/* ==========================================
-SURAT
-========================================== */
+/* =====================================
+   LETTER
+===================================== */
 
 const letter=
 document.getElementById(
-"letter"
+    "letter"
 );
 
 const letterButton=
 document.getElementById(
-"letterButton"
+    "letterButton"
 );
 
-const closeLetterButton=
+const closeLetter=
 document.getElementById(
-"closeLetter"
+    "closeLetter"
 );
 
-
-/*
-PENTING:
-Event surat dibuat langsung di sini.
-Tidak memakai fungsi tambahan yang bisa
-membuat event tombol dobel.
-*/
 
 letterButton.addEventListener(
-"click",
-function(e){
+    "click",
+    function(e){
 
-e.preventDefault();
+        e.preventDefault();
 
-e.stopPropagation();
+        e.stopPropagation();
 
-letter.classList.add(
-"show"
-);
+        letter.classList.add(
+            "show"
+        );
 
-}
-);
-
-
-closeLetterButton.addEventListener(
-"click",
-function(e){
-
-e.preventDefault();
-
-e.stopPropagation();
-
-letter.classList.remove(
-"show"
-);
-
-}
+    }
 );
 
 
-/*
-Klik area gelap di luar kertas
-juga bisa menutup surat.
-*/
+closeLetter.addEventListener(
+    "click",
+    function(e){
+
+        e.preventDefault();
+
+        e.stopPropagation();
+
+        letter.classList.remove(
+            "show"
+        );
+
+    }
+);
+
 
 letter.addEventListener(
-"click",
-function(e){
+    "click",
+    function(e){
 
-if(
-e.target === letter
-){
+        if(e.target===letter){
 
-letter.classList.remove(
-"show"
+            letter.classList.remove(
+                "show"
+            );
+
+        }
+
+    }
 );
 
-}
 
-}
-);
-
-
-/* ==========================================
-CELEBRATE
-========================================== */
+/* =====================================
+   CELEBRATE
+===================================== */
 
 function celebrate(){
 
-petals.forEach(
-function(p){
+    for(let i=0;i<3;i++){
 
-p.position.y=
-Math.random()*8;
+        setTimeout(
+            function(){
 
-}
-);
+                goldLight.intensity=4;
 
+                setTimeout(
+                    function(){
 
-const start=
-performance.now();
+                        goldLight.intensity=2.2;
 
+                    },
+                    180
+                );
 
-function shake(now){
+            },
+            i*250
+        );
 
-if(
-now-start<600
-){
-
-camera.position.x+=
-(Math.random()-.5)*.05;
-
-camera.position.y+=
-(Math.random()-.5)*.03;
-
-requestAnimationFrame(
-shake
-);
-
-}
-
-}
-
-requestAnimationFrame(
-shake
-);
+    }
 
 }
 
 
-/* ==========================================
-MUSIC
-========================================== */
+/* =====================================
+   MUSIC
+===================================== */
 
-function toggleMusic(){
+function musicToggle(){
 
-const music=
-document.getElementById(
-"music"
-);
+    const music=
+    document.getElementById(
+        "music"
+    );
 
 
-if(!music.src){
+    if(!music.src){
 
-alert(
-"Masukkan file musik.mp3 ke folder website terlebih dahulu."
-);
+        alert(
+            "Masukkan file musik.mp3 ke folder website terlebih dahulu."
+        );
 
-return;
+        return;
+
+    }
+
+
+    if(music.paused){
+
+        music.play();
+
+    }else{
+
+        music.pause();
+
+    }
 
 }
 
 
-if(music.paused){
-
-music.play();
-
-}else{
-
-music.pause();
-
-}
-
-}
-
-
-/* ==========================================
-BUTTONS
-========================================== */
+/* =====================================
+   BUTTONS
+===================================== */
 
 document
 .getElementById("openButton")
 .addEventListener(
-"click",
-enterGarden
+    "click",
+    enter
 );
 
 
 document
 .getElementById("celebrateButton")
 .addEventListener(
-"click",
-celebrate
+    "click",
+    celebrate
 );
 
 
 document
 .getElementById("musicButton")
 .addEventListener(
-"click",
-toggleMusic
+    "click",
+    musicToggle
 );
 
 
-/* ==========================================
-ANIMATION
-========================================== */
+/* =====================================
+   DRAG
+===================================== */
+
+let dragging=false;
+
+let lastX=0;
+
+let cameraOffset=0;
+
+
+renderer.domElement.addEventListener(
+    "pointerdown",
+    function(e){
+
+        dragging=true;
+
+        lastX=e.clientX;
+
+    }
+);
+
+
+renderer.domElement.addEventListener(
+    "pointermove",
+    function(e){
+
+        if(!dragging)return;
+
+        const dx=
+            e.clientX-lastX;
+
+        cameraOffset-=
+            dx*.006;
+
+        cameraOffset=
+            Math.max(
+                -1.2,
+                Math.min(
+                    1.2,
+                    cameraOffset
+                )
+            );
+
+        lastX=e.clientX;
+
+    }
+);
+
+
+renderer.domElement.addEventListener(
+    "pointerup",
+    function(){
+
+        dragging=false;
+
+    }
+);
+
+
+renderer.domElement.addEventListener(
+    "pointercancel",
+    function(){
+
+        dragging=false;
+
+    }
+);
+
+
+/* =====================================
+   ANIMATION
+===================================== */
 
 const clock=
 new THREE.Clock();
@@ -2547,154 +1715,119 @@ new THREE.Clock();
 
 function animate(){
 
-requestAnimationFrame(
-animate
-);
-
-const t=
-clock.getElapsedTime();
+    requestAnimationFrame(
+        animate
+    );
 
 
-/* CAMERA */
-
-if(!entering){
-
-camera.position.x+=
-(
-targetX-
-camera.position.x
-)*.035;
+    const t=
+        clock.getElapsedTime();
 
 
-camera.position.y+=
-(
-targetY-
-camera.position.y
-)*.035;
+    /* camera */
+
+    if(!entering){
+
+        camera.position.x +=
+            (
+                cameraOffset-
+                camera.position.x
+            )*.025;
+
+        camera.lookAt(
+            0,
+            .1,
+            -1
+        );
+
+    }
 
 
-camera.lookAt(
-0,
-1.2,
--2.5
-);
+    /* particles */
 
-}
+    particles.rotation.y=
+        t*.008;
 
 
-/* FLOWERS */
+    /* rings */
 
-flowers.forEach(
-function(flower,i){
+    rings.forEach(
+        function(ring,i){
 
-flower.rotation.z=
-Math.sin(
-t*.7+i
-)*.018;
+            ring.rotation.z=
+                t*
+                (.08+i*.025);
 
-}
-);
+            ring.rotation.x=
+                Math.PI/2+
+                Math.sin(t*.3+i)*.08;
 
-
-/* HEART */
-
-heart.position.y=
-4.1+
-Math.sin(
-t*1.4
-)*.06;
-
-heart.rotation.y=
-Math.sin(t*.8)*.15;
+        }
+    );
 
 
-/* RING */
+    /* wedding rings */
 
-ring.rotation.y=
-t*.7;
+    weddingRing1.rotation.y=
+        t*.35;
 
-ring.rotation.z=
-Math.sin(t)*.08;
-
-
-/* PETALS */
-
-petals.forEach(
-function(p){
-
-p.position.y-=
-p.userData.speed;
-
-p.rotation.z+=
-p.userData.spin;
+    weddingRing2.rotation.y=
+        -t*.35;
 
 
-if(
-p.position.y<-2
-){
+    /* diamond */
 
-p.position.y=
-8+
-Math.random()*2;
+    diamond.rotation.x=
+        t*.6;
+
+    diamond.rotation.y=
+        t*.8;
+
+
+    /* flowers */
+
+    decorativeFlowers.forEach(
+        function(flower,i){
+
+            flower.rotation.z=
+                Math.sin(
+                    t*.6+i
+                )*.05;
+
+        }
+    );
+
+
+    renderer.render(
+        scene,
+        camera
+    );
 
 }
-
-}
-);
-
-
-/* LIGHT FLICKER */
-
-lanternLights.forEach(
-function(light,i){
-
-light.intensity=
-1.15+
-Math.sin(
-t*3+i
-)*.2;
-
-}
-);
-
-
-/* PARTICLES */
-
-particles.rotation.y=
-t*.01;
-
-
-renderer.render(
-scene,
-camera
-);
-
-}
-
 
 animate();
 
 
-/* ==========================================
-RESIZE
-========================================== */
+/* =====================================
+   RESIZE
+===================================== */
 
 window.addEventListener(
-"resize",
-function(){
+    "resize",
+    function(){
 
-camera.aspect=
-innerWidth/
-innerHeight;
+        camera.aspect=
+            innerWidth/
+            innerHeight;
 
-camera.updateProjectionMatrix();
+        camera.updateProjectionMatrix();
 
-renderer.setSize(
-innerWidth,
-innerHeight
-);
+        renderer.setSize(
+            innerWidth,
+            innerHeight
+        );
 
-}
+    }
 );
 
 </script>
